@@ -3,11 +3,11 @@
   <title>gjbe</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://gjbegjbe.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://gjbegjbe.github.io/"/>
   <updated>2022-02-17T01:57:59.372Z</updated>
-  <id>http://example.com/</id>
+  <id>https://gjbegjbe.github.io/</id>
   
   <author>
     <name>gjbe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>JavaScript权威指南——整理</title>
-    <link href="http://example.com/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/"/>
-    <id>http://example.com/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</id>
+    <link href="https://gjbegjbe.github.io/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/"/>
+    <id>https://gjbegjbe.github.io/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</id>
     <published>2022-02-17T01:56:48.000Z</published>
     <updated>2022-02-17T01:57:59.372Z</updated>
     
@@ -34,18 +34,18 @@
     
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://gjbegjbe.github.io/tags/JavaScript/"/>
     
-    <category term="TODO" scheme="http://example.com/tags/TODO/"/>
+    <category term="TODO" scheme="https://gjbegjbe.github.io/tags/TODO/"/>
     
   </entry>
   
   <entry>
     <title>前端面试题整理</title>
-    <link href="http://example.com/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
-    <id>http://example.com/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</id>
+    <link href="https://gjbegjbe.github.io/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
+    <id>https://gjbegjbe.github.io/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</id>
     <published>2022-02-17T01:39:30.000Z</published>
     <updated>2022-02-17T01:40:05.845Z</updated>
     
@@ -60,16 +60,16 @@
     
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    <category term="面试" scheme="https://gjbegjbe.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>vue</title>
-    <link href="http://example.com/2022/02/16/vue/"/>
-    <id>http://example.com/2022/02/16/vue/</id>
+    <link href="https://gjbegjbe.github.io/2022/02/16/vue/"/>
+    <id>https://gjbegjbe.github.io/2022/02/16/vue/</id>
     <published>2022-02-16T08:38:27.000Z</published>
     <updated>2022-02-16T09:28:32.423Z</updated>
     
@@ -84,16 +84,16 @@
     
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="vue" scheme="http://example.com/tags/vue/"/>
+    <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>JSX概述</title>
-    <link href="http://example.com/2022/02/14/JSX%E6%A6%82%E8%BF%B0/"/>
-    <id>http://example.com/2022/02/14/JSX%E6%A6%82%E8%BF%B0/</id>
+    <link href="https://gjbegjbe.github.io/2022/02/14/JSX%E6%A6%82%E8%BF%B0/"/>
+    <id>https://gjbegjbe.github.io/2022/02/14/JSX%E6%A6%82%E8%BF%B0/</id>
     <published>2022-02-14T11:19:49.000Z</published>
     <updated>2022-02-17T01:43:26.084Z</updated>
     
@@ -108,18 +108,18 @@
     
     
     
-    <category term="JSX" scheme="http://example.com/tags/JSX/"/>
+    <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="vue" scheme="http://example.com/tags/vue/"/>
+    <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2022/02/14/hello-world/"/>
-    <id>http://example.com/2022/02/14/hello-world/</id>
+    <link href="https://gjbegjbe.github.io/2022/02/14/hello-world/"/>
+    <id>https://gjbegjbe.github.io/2022/02/14/hello-world/</id>
     <published>2022-02-14T03:58:54.194Z</published>
     <updated>2022-02-14T03:58:54.195Z</updated>
     
