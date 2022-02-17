@@ -37,40 +37,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaScript权威指南——整理</title>
-    <url>/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h2 id="一、词法结构"><a href="#一、词法结构" class="headerlink" title="一、词法结构"></a>一、词法结构</h2><h3 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1. 标识符"></a>1. 标识符</h3><p>必须以字母、_、$开头，后续字符还可以是数字。</p>
-<h3 id="2-保留字"><a href="#2-保留字" class="headerlink" title="2. 保留字"></a>2. 保留字</h3><p>as async await break case catch class const continue debugger default delete do else export extends false </p>
-<p>finally for from function get if import in instanceof let new null of return set static super switch target this throw true try typeof var void while with yield</p>
-<p>enum implements interface package private protected public</p>
-<p>arguments eval</p>
-<h3 id="3-可选的分号"><a href="#3-可选的分号" class="headerlink" title="3. 可选的分号"></a>3. 可选的分号</h3><p>并不是所有情况下才会把所有换行符当成分号，只有当一行没法解释的时候才会读入下一行。</p>
-]]></content>
-      <tags>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
-        <tag>TODO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/02/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>vue</title>
     <url>/2022/02/16/vue/</url>
     <content><![CDATA[<h2 id="一、-Vue介绍"><a href="#一、-Vue介绍" class="headerlink" title="一、 Vue介绍"></a>一、 Vue介绍</h2><p>Vue (读音 &#x2F;vjuː&#x2F;，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。</p>
@@ -136,6 +102,40 @@
       <tags>
         <tag>前端</tag>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/02/14/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>JavaScript权威指南——整理</title>
+    <url>/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h2 id="一、词法结构"><a href="#一、词法结构" class="headerlink" title="一、词法结构"></a>一、词法结构</h2><h3 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1. 标识符"></a>1. 标识符</h3><p>必须以字母、_、$开头，后续字符还可以是数字。</p>
+<h3 id="2-保留字"><a href="#2-保留字" class="headerlink" title="2. 保留字"></a>2. 保留字</h3><p>as async await break case catch class const continue debugger default delete do else export extends false </p>
+<p>finally for from function get if import in instanceof let new null of return set static super switch target this throw true try typeof var void while with yield</p>
+<p>enum implements interface package private protected public</p>
+<p>arguments eval</p>
+<h3 id="3-可选的分号"><a href="#3-可选的分号" class="headerlink" title="3. 可选的分号"></a>3. 可选的分号</h3><p>并不是所有情况下才会把所有换行符当成分号，只有当一行没法解释的时候才会读入下一行。</p>
+]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+        <tag>TODO</tag>
       </tags>
   </entry>
   <entry>
