@@ -53,6 +53,22 @@
       </tags>
   </entry>
   <entry>
+    <title>PostMan访问需要登录的接口</title>
+    <url>/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p>
+<p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p>
+<p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p>
+<p>访问成功。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>
+]]></content>
+      <tags>
+        <tag>PostMan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Javascript异步</title>
     <url>/2022/02/18/Javascript%E5%BC%82%E6%AD%A5/</url>
     <content><![CDATA[<h1 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h1><p>程序的运行是同步的（同步不意味着所有步骤同时运行，而是指步骤在一个控制流序列中按顺序执行）。而异步的概念则是不保证同步的概念，也就是说，一个异步过程的执行将不再与原有的序列有顺序关系。</p>
@@ -423,19 +439,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>关于MySQL数据格式的问题</title>
-    <url>/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin<br>命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）<br>注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin</p>
-<p><img src="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210208114001864.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210208114031424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-]]></content>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>数据库</tag>
-      </tags>
   </entry>
   <entry>
     <title>Vue学习（一）——基础</title>
@@ -1200,6 +1203,19 @@
       <tags>
         <tag>前端</tag>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于MySQL数据格式的问题</title>
+    <url>/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin<br>命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）<br>注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin</p>
+<p><img src="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210208114001864.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210208114031424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>

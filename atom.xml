@@ -6,7 +6,7 @@
   <link href="https://gjbegjbe.github.io/atom.xml" rel="self"/>
   
   <link href="https://gjbegjbe.github.io/"/>
-  <updated>2022-02-21T03:29:17.243Z</updated>
+  <updated>2022-02-23T11:20:27.382Z</updated>
   <id>https://gjbegjbe.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PostMan访问需要登录的接口</title>
+    <link href="https://gjbegjbe.github.io/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/"/>
+    <id>https://gjbegjbe.github.io/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/</id>
+    <published>2022-02-23T11:12:03.000Z</published>
+    <updated>2022-02-23T11:20:27.382Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p><p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p><p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p><p>访问成功。</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/gjbegjbe/pics/main/pics2022</summary>
+      
+    
+    
+    
+    
+    <category term="PostMan" scheme="https://gjbegjbe.github.io/tags/PostMan/"/>
+    
+  </entry>
   
   <entry>
     <title>Javascript异步</title>

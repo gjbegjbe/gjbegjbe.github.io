@@ -20,19 +20,25 @@
     var CONFIG = {"hostname":"gjbegjbe.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.  在浏览器中找到该请求，找到Request Headers中的Authorization。  找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。  访问成功。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://gjbegjbe.github.io/2022/02/14/hello-world/index.html">
+<meta property="og:title" content="PostMan访问需要登录的接口">
+<meta property="og:url" content="https://gjbegjbe.github.io/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="gjbe">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.  在浏览器中找到该请求，找到Request Headers中的Authorization。  找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。  访问成功。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-14T03:58:54.194Z">
-<meta property="article:modified_time" content="2022-02-14T03:58:54.195Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png">
+<meta property="article:published_time" content="2022-02-23T11:12:03.000Z">
+<meta property="article:modified_time" content="2022-02-23T11:20:27.382Z">
 <meta property="article:author" content="gjbe">
+<meta property="article:tag" content="PostMan">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png">
 
-<link rel="canonical" href="https://gjbegjbe.github.io/2022/02/14/hello-world/">
+<link rel="canonical" href="https://gjbegjbe.github.io/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/">
 
 
 <script id="page-configurations">
@@ -45,7 +51,7 @@
   };
 </script>
 
-  <title>Hello World | gjbe</title>
+  <title>PostMan访问需要登录的接口 | gjbe</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXN04CBZXN"></script>
     <script data-pjax>
@@ -172,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2022/02/14/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          PostMan访问需要登录的接口
         </h1>
 
         <div class="post-meta">
@@ -194,8 +200,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-02-14 11:58:54" itemprop="dateCreated datePublished" datetime="2022-02-14T11:58:54+08:00">2022-02-14</time>
+              <time title="创建时间：2022-02-23 19:12:03 / 修改时间：19:20:27" itemprop="dateCreated datePublished" datetime="2022-02-23T19:12:03+08:00">2022-02-23</time>
             </span>
 
           
@@ -216,19 +223,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p>
+<p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p>
+<p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p>
+<p>访问成功。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>
 
     </div>
 
@@ -237,6 +239,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PostMan/" rel="tag"># PostMan</a>
+          </div>
 
         
 
@@ -244,13 +249,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/" rel="prev" title="关于MySQL数据格式的问题">
-      <i class="fa fa-chevron-left"></i> 关于MySQL数据格式的问题
+    <a href="/2022/02/18/Javascript%E5%BC%82%E6%AD%A5/" rel="prev" title="Javascript异步">
+      <i class="fa fa-chevron-left"></i> Javascript异步
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/14/JSX%E6%A6%82%E8%BF%B0/" rel="next" title="JSX概述">
-      JSX概述 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -310,7 +312,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -514,7 +515,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'comments',
       owner       : 'gjbegjbe',
       admin       : ['gjbegjbe'],
-      id          : '77cc28ffc41cbbc49964681956950a49',
+      id          : 'c0854a392110d7f8b6ff3619b4fd998f',
         language: '',
       distractionFreeMode: true
     });
