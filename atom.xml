@@ -159,9 +159,9 @@
     
     
     
-    <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
-    
     <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
     
     <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
@@ -184,6 +184,30 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>服务端开发：section1环境搭建</title>
+    <link href="https://gjbegjbe.github.io/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://gjbegjbe.github.io/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
+    <published>2021-03-02T07:12:30.000Z</published>
+    <updated>2022-02-24T01:20:03.004Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p><h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol><li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li><li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li><li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li><li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure><p>要在xml文件的&lt;mirrors&gt;标签里插入</p><ol start="3"><li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li><li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ol><h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol><li>首先确保MySQL版本是5.7.x</li><li>在MySQL命令行中create一个database，名称随意</li><li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li><li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li><li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;服务端开发：section1环境搭建&quot;&gt;&lt;a href=&quot;#服务端开发：section1环境搭建&quot; class=&quot;headerlink&quot; title=&quot;服务端开发：section1环境搭建&quot;&gt;&lt;/a&gt;服务端开发：section1环境搭建&lt;/h2&gt;&lt;h3 id=&quot;一</summary>
+      
+    
+    
+    
+    
+    <category term="后端" scheme="https://gjbegjbe.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="服务端" scheme="https://gjbegjbe.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/"/>
     
   </entry>
   

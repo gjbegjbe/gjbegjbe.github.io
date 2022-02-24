@@ -20,25 +20,34 @@
     var CONFIG = {"hostname":"gjbegjbe.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin">
+  <meta name="description" content="服务端开发：section1环境搭建一、clone项目https:&#x2F;&#x2F;github.com&#x2F;tzs919&#x2F;section1 二、在idea打开项目 这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册 点击Open or Import ，选择刚才的项目打开三、jdk配置在project structure设置jdk1.8四、maven配置 https:&#x2F;&#x2F;maven.apa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于MySQL数据格式的问题">
-<meta property="og:url" content="https://gjbegjbe.github.io/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="服务端开发：section1环境搭建">
+<meta property="og:url" content="https://gjbegjbe.github.io/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="gjbe">
-<meta property="og:description" content="说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin">
+<meta property="og:description" content="服务端开发：section1环境搭建一、clone项目https:&#x2F;&#x2F;github.com&#x2F;tzs919&#x2F;section1 二、在idea打开项目 这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册 点击Open or Import ，选择刚才的项目打开三、jdk配置在project structure设置jdk1.8四、maven配置 https:&#x2F;&#x2F;maven.apa">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210208114001864.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210208114031424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2021-02-08T03:41:49.000Z">
-<meta property="article:modified_time" content="2022-02-17T02:48:52.053Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302145459597.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302145923270.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-03-02T07:12:30.000Z">
+<meta property="article:modified_time" content="2022-02-24T01:20:03.004Z">
 <meta property="article:author" content="gjbe">
-<meta property="article:tag" content="MySQL">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="服务端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://gjbegjbe.github.io/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="https://gjbegjbe.github.io/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
 
 <script id="page-configurations">
@@ -51,7 +60,7 @@
   };
 </script>
 
-  <title>关于MySQL数据格式的问题 | gjbe</title>
+  <title>服务端开发：section1环境搭建 | gjbe</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXN04CBZXN"></script>
     <script data-pjax>
@@ -178,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关于MySQL数据格式的问题
+          服务端开发：section1环境搭建
         </h1>
 
         <div class="post-meta">
@@ -201,14 +210,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-08 11:41:49" itemprop="dateCreated datePublished" datetime="2021-02-08T11:41:49+08:00">2021-02-08</time>
+              <time title="创建时间：2021-03-02 15:12:30" itemprop="dateCreated datePublished" datetime="2021-03-02T15:12:30+08:00">2021-03-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-17 10:48:52" itemprop="dateModified" datetime="2022-02-17T10:48:52+08:00">2022-02-17</time>
+                <time title="修改时间：2022-02-24 09:20:03" itemprop="dateModified" datetime="2022-02-24T09:20:03+08:00">2022-02-24</time>
               </span>
 
           
@@ -229,10 +238,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin<br>命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）<br>注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin</p>
-<p><img src="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210208114001864.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210208114031424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+        <h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a target="_blank" rel="noopener" href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
+<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
+<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
+<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
+<li><a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
+<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
+<ol start="3">
+<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
+<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
+<li>首先确保MySQL版本是5.7.x</li>
+<li>在MySQL命令行中create一个database，名称随意</li>
+<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
+<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入<a target="_blank" rel="noopener" href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
+<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
 
     </div>
 
@@ -242,8 +272,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+              <a href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag"># 后端</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/" rel="tag"># 服务端</a>
           </div>
 
         
@@ -251,10 +281,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="next" title="服务端开发：section1环境搭建">
-      服务端开发：section1环境搭建 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/" rel="prev" title="关于MySQL数据格式的问题">
+      <i class="fa fa-chevron-left"></i> 关于MySQL数据格式的问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/14/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -315,6 +348,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">服务端开发：section1环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81clone%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">一、clone项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9C%A8idea%E6%89%93%E5%BC%80%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.2.</span> <span class="nav-text">二、在idea打开项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81jdk%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">三、jdk配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81maven%E9%85%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">四、maven配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81MySQL%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="nav-number">1.5.</span> <span class="nav-text">五、MySQL配置与启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%89%93%E5%8C%85"><span class="nav-number">1.6.</span> <span class="nav-text">六、打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%B5%8B%E8%AF%95"><span class="nav-number">1.7.</span> <span class="nav-text">七、测试</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -518,7 +552,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'comments',
       owner       : 'gjbegjbe',
       admin       : ['gjbegjbe'],
-      id          : '0f7ca919a0d5c6e1b44322405cb23bc8',
+      id          : '8e2a6650ded722cc5b97dbef7e0165df',
         language: '',
       distractionFreeMode: true
     });
