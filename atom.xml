@@ -159,9 +159,9 @@
     
     
     
-    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
+    
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
@@ -184,6 +184,31 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>win10环境下docker的安装与在docker安装Jenkins</title>
+    <link href="https://gjbegjbe.github.io/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/"/>
+    <id>https://gjbegjbe.github.io/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</id>
+    <published>2021-03-09T07:03:52.000Z</published>
+    <updated>2022-02-25T09:32:07.452Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol><li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li><li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li><li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li><li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li><li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li><li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="6"><li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li><li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li><li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一、安装docker&quot;&gt;&lt;a href=&quot;#一、安装docker&quot; class=&quot;headerlink&quot; title=&quot;一、安装docker&quot;&gt;&lt;/a&gt;一、安装docker&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;打开控制面板-程序-程序和功能-启用或关闭windows功能。启</summary>
+      
+    
+    
+    
+    
+    <category term="docker" scheme="https://gjbegjbe.github.io/tags/docker/"/>
+    
+    <category term="jenkins" scheme="https://gjbegjbe.github.io/tags/jenkins/"/>
     
   </entry>
   
