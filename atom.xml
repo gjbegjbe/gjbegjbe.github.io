@@ -212,6 +212,30 @@
   </entry>
   
   <entry>
+    <title>Jenkins的git配置踩坑</title>
+    <link href="https://gjbegjbe.github.io/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/"/>
+    <id>https://gjbegjbe.github.io/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</id>
+    <published>2021-03-12T02:54:27.000Z</published>
+    <updated>2022-03-01T02:11:53.365Z</updated>
+    
+    <content type="html"><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;配置好了git等，但是build总是出现以下错误：&lt;br&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naG</summary>
+      
+    
+    
+    
+    
+    <category term="Jenkins" scheme="https://gjbegjbe.github.io/tags/Jenkins/"/>
+    
+    <category term="git" scheme="https://gjbegjbe.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>win10环境下docker的安装与在docker安装Jenkins</title>
     <link href="https://gjbegjbe.github.io/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/"/>
     <id>https://gjbegjbe.github.io/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</id>
