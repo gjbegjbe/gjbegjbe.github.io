@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gjbegjbe.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="操作系统考前复习0. 选择题 多道程序设计提高利用率 2016 2015  系统调用是操作系统向用户提供的接口，而库函数是通过操作系统调用所形成的特定功能的函数 2016 2015 2015期中 2013B 2013A  FIFO会产生belady异常 2016 2013B 2013A  实时操作系统系统响应时间的重要性超过协同资源的利用率 2016   周转时间为完成时刻减去提交给系统时刻，带权">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统考前复习">
+<meta property="og:url" content="https://gjbegjbe.github.io/2022/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="gjbe">
+<meta property="og:description" content="操作系统考前复习0. 选择题 多道程序设计提高利用率 2016 2015  系统调用是操作系统向用户提供的接口，而库函数是通过操作系统调用所形成的特定功能的函数 2016 2015 2015期中 2013B 2013A  FIFO会产生belady异常 2016 2013B 2013A  实时操作系统系统响应时间的重要性超过协同资源的利用率 2016   周转时间为完成时刻减去提交给系统时刻，带权">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101746.png">
+<meta property="og:image" content="c:/Users/ThinkPad/Desktop/image-20210109191445197.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101951.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102057.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102121.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102133.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102349.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102401.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102437.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102520.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102558.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102613.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102717.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231529830.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231545711.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231612915.png">
+<meta property="article:published_time" content="2022-03-01T02:13:57.000Z">
+<meta property="article:modified_time" content="2022-03-01T02:29:14.007Z">
+<meta property="article:author" content="gjbe">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101746.png">
+
+<link rel="canonical" href="https://gjbegjbe.github.io/2022/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>操作系统考前复习 | gjbe</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXN04CBZXN"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MXN04CBZXN');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?49e659bd9c945277731a2e39ec566e9d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="gjbe" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">gjbe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/gjbegjbe" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2022/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gjbe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjbe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          操作系统考前复习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-01 10:13:57 / 修改时间：10:29:14" itemprop="dateCreated datePublished" datetime="2022-03-01T10:13:57+08:00">2022-03-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="操作系统考前复习"><a href="#操作系统考前复习" class="headerlink" title="操作系统考前复习"></a>操作系统考前复习</h1><h2 id="0-选择题"><a href="#0-选择题" class="headerlink" title="0. 选择题"></a>0. 选择题</h2><ol>
+<li><p>多道程序设计提高利用率 2016 2015</p>
+</li>
+<li><p>系统调用是操作系统向用户提供的接口，而库函数是通过操作系统调用所形成的特定功能的函数 2016 2015 2015期中 2013B 2013A</p>
+</li>
+<li><p>FIFO会产生belady异常 2016 2013B 2013A</p>
+</li>
+<li><p>实时操作系统系统响应时间的重要性超过协同资源的利用率 2016 </p>
+</li>
+<li><p>周转时间为完成时刻减去提交给系统时刻，带权周转时间为周转时间与运行时间的比 2016 2015 2013B 2013A</p>
+</li>
+<li><p>unix系统通过目录项实现按名存取 2016 2015</p>
+</li>
+<li><p>采用分段式不会产生内部碎片，采用分页式不会产生外部碎片 2016 2015 2015期中 2014 2013B 2013A</p>
+</li>
+<li><p>linux的slab分配器采用伙伴系统 2016 2015 2013B 2013A</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101746.png"></p>
+<p>2016 2013A</p>
+</li>
+<li><p>solaris多线程实现方式混合式 2016 2015 2013B 2013A</p>
+</li>
+<li><p>如果I&#x2F;O设备与存储设备进行数据交换不经过CPU来完成，这种数据交换方式是DMA方式 2016 2015 2014 2013B 2013A</p>
+</li>
+<li><p>引入多道程序设计技术的前提条件之一是系统具有中断功能 2016 2015期中 2013A</p>
+</li>
+<li><p>通道程序由一系列通道指令构成 2016 2015 2013A</p>
+</li>
+<li><p>对文件的访问常由用户访问权限和文件属性共同限制 2016 2015 2013B 2013A</p>
+</li>
+<li><p>I&#x2F;O软件的分层结构中，设备驱动程序负责将把用户提交的逻辑I&#x2F;O请求转化为物理I&#x2F;O操作的启动和执行。 2016 2015 2013B 2013A</p>
+</li>
+<li><p><img src="C:\Users\ThinkPad\Desktop\image-20210109191445197.png"></p>
+<p>2016 2015 2014 2013B 2013A</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101951.png"></p>
+<p>2016 2015 2013B 2013A</p>
+</li>
+<li><p>create、open返回的是文件描述符（字），read、write返回的是读写的字数 2016</p>
+</li>
+<li><p>当同时提供管态（核心态）和目态（用户态）时，输入、输出指令必须在管态（核心态）执行 2016 2013B</p>
+</li>
+<li><p>操作系统中的SPOOLing技术，实质是指独占设备转化为共享设备的技术 2016 2013B</p>
+</li>
+<li><p>一个进程被唤醒意味着进程变为就绪状态 2016 2015</p>
+</li>
+<li><p>分布式操作系统允许在一台主机上同时连接多个终端，各个用户可以通过各自的终端交互使用计算机 2015</p>
+</li>
+<li><p>对进程的管理和控制使用原语 2015</p>
+</li>
+<li><p>unix中文件的索引结构存放在inode节点中 2015 2013B 2013A</p>
+</li>
+<li><p>逻辑地址与物理地址的转换：1 逻辑地址除以页的大小求页号 2 逻辑地址对页的大小取余求页内偏移 3 根据页表获取页框号 4 页框号乘以页的大小加上偏移量得到物理地址 2015 2015期中 2013B</p>
+</li>
+<li><p>无结构文件的含义是流式文件 2015 2014</p>
+</li>
+<li><p>位示图可用于磁盘空间的分配和管理 2015</p>
+</li>
+<li><p>分页由操作系统实现 2015</p>
+</li>
+<li><p>并发性指若干事件在同一时间间隔内发生 2014</p>
+</li>
+<li><p>多道程序设计指在一台处理机上并发运行多个程序 2014</p>
+</li>
+<li><p>linux、windows CE、solaris是操作系统环境，celeron不是操作系统环境，是处理器 2014</p>
+</li>
+<li><p>分时系统时间片一定，用户数越多，响应时间越长 2014</p>
+</li>
+<li><p>实时系统必须在规定时间内处理来自外部事件 2014</p>
+</li>
+<li><p>死锁定理：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102057.png"></p>
+<p>在处理死锁的检测阶段。处理死锁的方法：死锁防止、死锁避免、死锁检测和恢复 2014</p>
+</li>
+<li><p>逻辑文件：流式文件和记录式文件；物理文件：顺序文件、连接文件、索引文件和直接文件。 2014</p>
+</li>
+<li><p>文件目录主要作用是按名存取 2014 2013B</p>
+</li>
+<li><p>I&#x2F;O缓冲是为了解决CPU和设备间速度不匹配 2014</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102121.png"></p>
+<p>2014</p>
+</li>
+<li><p>磁盘最小的读写单位是扇区 2014</p>
+</li>
+<li><p>有利于短作业又兼顾长作业的调度算法是最高响应比优先，既考虑作业运行时间又考虑等待时间的是最高响应比优先 2014</p>
+</li>
+<li><p>信号量与进程状态转换模型</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102133.png"></p>
+</li>
+<li><p>配置了操作系统的机器是一台比原来的物理机器功能更强的计算机，这样的计算机只是一台逻辑上的计算机，称为虚拟计算机。 2014</p>
+</li>
+<li><p>从实模式进入保护模式的指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lgdt [GdtPtr]</span><br><span class="line">out 92h,al</span><br><span class="line">mov cr0,eax</span><br></pre></td></tr></table></figure>
+
+<p>不包括jmp $ 2013B 2013A</p>
+</li>
+<li><p>FAT12中两个FAT表，各占9扇区 2013B 2013A</p>
+</li>
+<li><p>操作系统的描述符表GDT、LDT、IDT 2013B 2013A</p>
+</li>
+<li><p>C语言调用汇编函数的方法是C中用extern声明，汇编用global导出 2013B 2013A</p>
+</li>
+<li><p>逻辑地址和物理地址转换 2013A</p>
+</li>
+<li><p>实模式下16位CPU使用段偏移方式寻址能力1M 2013A</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102349.png"></p>
+</li>
+<li><p>分时操作系统允许在同一台计算机上连接多台终端，多个用户可以通过各自的终端同时交互使用计算机 2013A</p>
+</li>
+<li><p>可并行的是：处理机与设备、处理机与通道、设备与设备 2009考研</p>
+</li>
+<li><p>饥饿现象<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102401.png"></p>
+</li>
+<li><p>实现临界区管理的硬件设施：关中断、测试并设置指令、对换指令</p>
+</li>
+<li><p>特权指令和非特权指令<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102437.png"></p>
+</li>
+<li><p>Bernstein条件<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102520.png"></p>
+</li>
+<li><p>操作系统分类：多道批处理操作系统（脱机控制方式）、分时操作系统（交互式控制方式）、实时操作系统（既有分时又有实时）</p>
+</li>
+<li><p>最早提出信号量和PV操作同步机制的是Dijkstra</p>
+</li>
+<li><p>进程在挂起状态不参与进程调度</p>
+</li>
+<li><p>Minix操作系统是A.S.Tanenbaum设计实现的</p>
+</li>
+<li><p>处理时间与周期比之和小于1<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102558.png"></p>
+</li>
+<li><p>外中断：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102613.png"></p>
+<p>内中断：</p>
+<p>访管中断、硬件故障中断、程序性异常</p>
+</li>
+<li><p>虚拟存储管理的核心是部分装入和部分对换</p>
+</li>
+<li><p>内核功能：中断管理、时钟管理、短程调度、原语管理</p>
+</li>
+<li><p>操作系统负责管理计算机系统的资源，包括处理机、内存、外围设备和文件</p>
+</li>
+<li><p>操作系统资源管理实现过程中常用的数据结构是表格</p>
+</li>
+<li><p>页式存储管理中，逻辑地址到物理地址的转换由mmu完成</p>
+</li>
+<li><p>引入挂起的原因：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102717.png"></p>
+</li>
+<li><p>用户程序的输入&#x2F;输出操作是通过系统调用，借助操作系统完成</p>
+</li>
+<li><p>unix采用的进程优先数动态调度算法</p>
+</li>
+<li><p>特权指令在管态（核心态）运行</p>
+</li>
+<li><p>以字符为单位组织处理信息的设备是字符设备</p>
+</li>
+<li><p>文件系统采用二级目录的主要原因是避免不同用户之间的文件名冲突</p>
+</li>
+<li><p>进程调度是在就绪队列中选取一个进程执行</p>
+</li>
+<li><p>分时系统多采用时间片轮转调度算法</p>
+</li>
+<li><p>资源的层次式分配可以破坏死锁的循环等待条件，静态分配通过破坏占有并等待条件</p>
+</li>
+<li><p>进程的优先数在创建时就确定并且在进程生命周期不改变，这个调度算法是动态优先数</p>
+</li>
+<li><p>挂起的进程大部分内容处于外部存储器</p>
+</li>
+<li><p>页式存储中，页面不在内存，产生缺页中断</p>
+</li>
+<li><p>段的划分由程序员决定</p>
+</li>
+<li><p>批处理系统的缺点是缺乏交互性</p>
+</li>
+<li><p>分时系统基本特征是并发性、交互性、独立性</p>
+</li>
+<li><p>进程控制块PCB，包括标识信息、现场信息、控制信息：</p>
+<p><img src="C:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231529830.png"></p>
+<p><img src="C:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231545711.png"></p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110231612915.png"></p>
+</li>
+<li><p>进程的内存映像包括：控制块、程序块、数据块、核心栈</p>
+</li>
+<li><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-5sHdDUhn-1612771884076)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110231858700.png)]</p>
+</li>
+<li><p>引入多道程序设计的主要目的是充分利用CPU和提高外设利用率</p>
+</li>
+<li><p>进程间通信机制：信号通信、管道通信（共享文件）、消息传递、共享内存</p>
+</li>
+<li><p>页大小由操作系统决定，段长度由用户决定。页面物理起始地址是页面大小整数倍，段的物理地址任意的。页式采用静态重定位，段式采用动态重定位。</p>
+</li>
+<li><p>文件存储空间管理：位示图、空闲区表、空闲块链、成组空闲块链</p>
+</li>
+</ol>
+<h2 id="1-I-x2F-O层次-5层-2019"><a href="#1-I-x2F-O层次-5层-2019" class="headerlink" title="1. I&#x2F;O层次 5层 2019"></a>1. I&#x2F;O层次 5层 2019</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ITBvCWqp-1612771884077)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109155846666.png)]</p>
+<h2 id="2-磁头调度算法-2019-2016-2015-2013B-2013A"><a href="#2-磁头调度算法-2019-2016-2015-2013B-2013A" class="headerlink" title="2. 磁头调度算法 2019 2016 2015 2013B 2013A"></a>2. 磁头调度算法 2019 2016 2015 2013B 2013A</h2><p>先来先服务</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-TbUTnbj0-1612771884078)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160604530.png)]</p>
+<p>最短寻道时间优先</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-16jRwORQ-1612771884080)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160637697.png)]</p>
+<p>扫描算法</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-HPu7CHFO-1612771884081)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160734303.png)]</p>
+<p>循环扫描算法</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-zyYghZDf-1612771884083)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160805614.png)]</p>
+<p>look（电梯）算法</p>
+<p>循环look算法</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-vU33GLSB-1612771884084)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160829545.png)]</p>
+<h2 id="3-fork-2019"><a href="#3-fork-2019" class="headerlink" title="3. fork 2019"></a>3. fork 2019</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-l9UR4iLI-1612771884085)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109161152565.png)]</p>
+<p>mooc</p>
+<blockquote>
+<p>20单选(2分)</p>
+<p>在UNIX系统中运行以下程序，最多可再产生出_7__进程?</p>
+<p>main( ){</p>
+<p>fork( ); &#x2F;*←pc(程序计数器)，进程A</p>
+<p>fork( );</p>
+<p>fork( );</p>
+<p>}</p>
+<p>A.5；</p>
+<p>B.7；</p>
+<p>C.3；</p>
+<p>D.9；</p>
+<p>正确答案：B你选对了</p>
+</blockquote>
+<h2 id="4-盘块数-2019-2016-2015-2013B-2013A"><a href="#4-盘块数-2019-2016-2015-2013B-2013A" class="headerlink" title="4. 盘块数 2019 2016 2015 2013B 2013A"></a>4. 盘块数 2019 2016 2015 2013B 2013A</h2><p>先求一共多少盘块，再分别计算</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-SBUs9oXf-1612771884087)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109162527731.png)]</p>
+<h2 id="5-虚存分页原理-2019"><a href="#5-虚存分页原理-2019" class="headerlink" title="5. 虚存分页原理 2019"></a>5. 虚存分页原理 2019</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-OWqioPpW-1612771884088)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109162915257.png)]</p>
+<h2 id="6-处理器调度算法-2019-2015"><a href="#6-处理器调度算法-2019-2015" class="headerlink" title="6. 处理器调度算法 2019 2015"></a>6. 处理器调度算法 2019 2015</h2><h3 id="6-1-RR-2019-2015-2015期中-2014-2013B-2013A"><a href="#6-1-RR-2019-2015-2015期中-2014-2013B-2013A" class="headerlink" title="6.1 RR 2019 2015 2015期中 2014 2013B 2013A"></a>6.1 RR 2019 2015 2015期中 2014 2013B 2013A</h3><p>一个歧义问题：</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Z5AZ7oMK-1612771884090)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110102435509.png)]</p>
+<h3 id="6-2-Feedback-2019-2015期中-2014-2013B-2013A"><a href="#6-2-Feedback-2019-2015期中-2014-2013B-2013A" class="headerlink" title="6.2 Feedback 2019 2015期中 2014 2013B 2013A"></a>6.2 Feedback 2019 2015期中 2014 2013B 2013A</h3><p>一个进程被后面的抢占了，就到下一级优先队列</p>
+<p>如果是q&#x3D;2<sup>i</sup>，下面一层的时间片长度依次是上面两倍</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-YgK3jIaZ-1612771884091)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109164402641.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-IxREuoiP-1612771884092)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109164531539.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-U3zSDlB3-1612771884094)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109164547352.png)]</p>
+<h3 id="6-3-HRRN最高响应比优先-2019-2015期中"><a href="#6-3-HRRN最高响应比优先-2019-2015期中" class="headerlink" title="6.3 HRRN最高响应比优先 2019 2015期中"></a>6.3 HRRN最高响应比优先 2019 2015期中</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-3Kk472Jv-1612771884095)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109170247247.png)]</p>
+<h3 id="6-4-FCFS-2019-2015"><a href="#6-4-FCFS-2019-2015" class="headerlink" title="6.4 FCFS 2019 2015"></a>6.4 FCFS 2019 2015</h3><h3 id="6-5-SRT-2015期中"><a href="#6-5-SRT-2015期中" class="headerlink" title="6.5 SRT 2015期中"></a>6.5 SRT 2015期中</h3><h2 id="7-页面替换算法-2019-2016-2015-2014-2013B"><a href="#7-页面替换算法-2019-2016-2015-2014-2013B" class="headerlink" title="7. 页面替换算法 2019 2016 2015 2014 2013B"></a>7. 页面替换算法 2019 2016 2015 2014 2013B</h2><h3 id="7-1-LRU-2019-2016-2015-2014-2013A"><a href="#7-1-LRU-2019-2016-2015-2014-2013A" class="headerlink" title="7.1 LRU 2019 2016 2015 2014 2013A"></a>7.1 LRU 2019 2016 2015 2014 2013A</h3><p>写的时候，用一次，就把它提上来。淘汰最底下的。</p>
+<table>
+<thead>
+<tr>
+<th><strong>页面序列</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>3</strong></th>
+<th><strong>1</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>1</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+<th><strong>3</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页框1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>页框2</td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>页框3</td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>页框4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>缺页标记</td>
+<td>缺</td>
+<td>缺</td>
+<td>缺</td>
+<td></td>
+<td>缺</td>
+<td>缺</td>
+<td></td>
+<td>缺</td>
+<td></td>
+<td></td>
+<td></td>
+<td>缺</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="7-2-clock-2019-2016-2014-2013B-2013A"><a href="#7-2-clock-2019-2016-2014-2013B-2013A" class="headerlink" title="7.2 clock 2019 2016 2014 2013B 2013A"></a>7.2 clock 2019 2016 2014 2013B 2013A</h3><p>如果内存里有且为1但是指针不在相应位置，不要移动指针</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-yaeQ97Fu-1612771884096)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109163519186.png)]</p>
+<h3 id="7-3-opt-2015"><a href="#7-3-opt-2015" class="headerlink" title="7.3 opt 2015"></a>7.3 opt 2015</h3><p>替换掉以后不再访问或者以后最长时间不访问的页</p>
+<h2 id="8-PV-2019-2016-2015"><a href="#8-PV-2019-2016-2015" class="headerlink" title="8. PV 2019 2016 2015"></a>8. PV 2019 2016 2015</h2><h3 id="8-1-吸烟者问题-2013A"><a href="#8-1-吸烟者问题-2013A" class="headerlink" title="8.1 吸烟者问题 2013A"></a>8.1 吸烟者问题 2013A</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-flQj63Ra-1612771884098)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110125143528.png)]</p>
+<h3 id="8-2-读者写者问题-2015"><a href="#8-2-读者写者问题-2015" class="headerlink" title="8.2 读者写者问题 2015"></a>8.2 读者写者问题 2015</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-MT8ry9nk-1612771884099)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110163102180.png)]</p>
+<h3 id="8-3-哲学家就餐-2014"><a href="#8-3-哲学家就餐-2014" class="headerlink" title="8.3 哲学家就餐 2014"></a>8.3 哲学家就餐 2014</h3><ol>
+<li><p>最多允许四个人</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-IBOYk4Rn-1612771884100)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111111407073.png)]</p>
+</li>
+<li><p>偶数先右手奇数先左手</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-TwdYcDN0-1612771884102)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111111622297.png)]</p>
+</li>
+</ol>
+<h3 id="8-4-农夫猎人问题-2013B"><a href="#8-4-农夫猎人问题-2013B" class="headerlink" title="8.4 农夫猎人问题 2013B"></a>8.4 农夫猎人问题 2013B</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-qbr0gJOd-1612771884103)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111154020683.png)]</p>
+<h2 id="9-进程映像结构-2016-2015-2013B"><a href="#9-进程映像结构-2016-2015-2013B" class="headerlink" title="9. 进程映像结构 2016 2015 2013B"></a>9. 进程映像结构 2016 2015 2013B</h2><p>进程的内存映像包括：进程控制块PCB、程序块、数据块、核心栈</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-GrvCDX4g-1612771884105)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109232710106.png)]</p>
+<h2 id="10-状态模型-2016-2015"><a href="#10-状态模型-2016-2015" class="headerlink" title="10. 状态模型 2016 2015"></a>10. 状态模型 2016 2015</h2><h3 id="10-1-三态-2016"><a href="#10-1-三态-2016" class="headerlink" title="10.1 三态 2016"></a>10.1 三态 2016</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2TevS3dj-1612771884107)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109233609160.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-HUZNC0w3-1612771884109)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109233825613.png)]</p>
+<h3 id="10-2-五态-2013A"><a href="#10-2-五态-2013A" class="headerlink" title="10.2 五态 2013A"></a>10.2 五态 2013A</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2aqJPgxb-1612771884110)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109234029561.png)]</p>
+<h3 id="10-3-七态-2015-2015期中"><a href="#10-3-七态-2015-2015期中" class="headerlink" title="10.3 七态 2015 2015期中"></a>10.3 七态 2015 2015期中</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-qz3baoRs-1612771884112)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110160029852.png)]</p>
+<h2 id="11-银行家算法-2016-2015-2014-2013B-2013A"><a href="#11-银行家算法-2016-2015-2014-2013B-2013A" class="headerlink" title="11. 银行家算法 2016 2015 2014 2013B 2013A"></a>11. 银行家算法 2016 2015 2014 2013B 2013A</h2><ol>
+<li>先用C-A算出还需要的</li>
+<li>然后用完一个进程把A加上，算出此时的剩余</li>
+</ol>
+<h2 id="12-管程-2016"><a href="#12-管程-2016" class="headerlink" title="12. 管程 2016"></a>12. 管程 2016</h2><h3 id="12-1-哲学家就餐问题-2016-2013A"><a href="#12-1-哲学家就餐问题-2016-2013A" class="headerlink" title="12.1 哲学家就餐问题 2016 2013A"></a>12.1 哲学家就餐问题 2016 2013A</h3><p>想吃调用pickup，吃完调用putdown</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-s8DwgfAL-1612771884114)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110152617611.png)]</p>
+<h3 id="12-2-生产者消费者-2014"><a href="#12-2-生产者消费者-2014" class="headerlink" title="12.2 生产者消费者 2014"></a>12.2 生产者消费者 2014</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-FqMXRenI-1612771884116)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111112301161.png)]</p>
+<h3 id="12-3-读者写者问题-2013B"><a href="#12-3-读者写者问题-2013B" class="headerlink" title="12.3 读者写者问题 2013B"></a>12.3 读者写者问题 2013B</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-bCotMtt8-1612771884118)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111154600852.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ac9AehZW-1612771884119)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111154627863.png)]</p>
+<h2 id="13-操作系统三个抽象-2014"><a href="#13-操作系统三个抽象-2014" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Mo0dm323-1612771884121)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111105422394.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-wlyEGQl2-1612771884122)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111105452076.png)]</p>
+<h2 id="14-求页表项-2013B-2013A"><a href="#14-求页表项-2013B-2013A" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-f8H6IxqW-1612771884123)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111152042018.png)]</p>
+<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
+<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
+<h2 id="15-访问时间"><a href="#15-访问时间" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-vCaquhUT-1612771884125)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111185555853.png)]</p>
+<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
+<h2 id="16-位示图"><a href="#16-位示图" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-BpKUCmVI-1612771884126)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111190743154.png)]</p>
+<h2 id="13-操作系统三个抽象-2014-1"><a href="#13-操作系统三个抽象-2014-1" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p>[外链图片转存中…(img-Mo0dm323-1612771884121)]</p>
+<p>[外链图片转存中…(img-wlyEGQl2-1612771884122)]</p>
+<h2 id="14-求页表项-2013B-2013A-1"><a href="#14-求页表项-2013B-2013A-1" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
+<p>[外链图片转存中…(img-f8H6IxqW-1612771884123)]</p>
+<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
+<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
+<h2 id="15-访问时间-1"><a href="#15-访问时间-1" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p>[外链图片转存中…(img-vCaquhUT-1612771884125)]</p>
+<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
+<h2 id="16-位示图-1"><a href="#16-位示图-1" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p>[外链图片转存中…(img-BpKUCmVI-1612771884126)]</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/28/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6/" rel="prev" title="Vue学习（二）——组件">
+      <i class="fa fa-chevron-left"></i> Vue学习（二）——组件
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">操作系统考前复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E9%80%89%E6%8B%A9%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">0. 选择题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-I-x2F-O%E5%B1%82%E6%AC%A1-5%E5%B1%82-2019"><span class="nav-number">1.2.</span> <span class="nav-text">1. I&#x2F;O层次 5层 2019</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%A3%81%E5%A4%B4%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-2019-2016-2015-2013B-2013A"><span class="nav-number">1.3.</span> <span class="nav-text">2. 磁头调度算法 2019 2016 2015 2013B 2013A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-fork-2019"><span class="nav-number">1.4.</span> <span class="nav-text">3. fork 2019</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%9B%98%E5%9D%97%E6%95%B0-2019-2016-2015-2013B-2013A"><span class="nav-number">1.5.</span> <span class="nav-text">4. 盘块数 2019 2016 2015 2013B 2013A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%99%9A%E5%AD%98%E5%88%86%E9%A1%B5%E5%8E%9F%E7%90%86-2019"><span class="nav-number">1.6.</span> <span class="nav-text">5. 虚存分页原理 2019</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%A4%84%E7%90%86%E5%99%A8%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-2019-2015"><span class="nav-number">1.7.</span> <span class="nav-text">6. 处理器调度算法 2019 2015</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-RR-2019-2015-2015%E6%9C%9F%E4%B8%AD-2014-2013B-2013A"><span class="nav-number">1.7.1.</span> <span class="nav-text">6.1 RR 2019 2015 2015期中 2014 2013B 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-Feedback-2019-2015%E6%9C%9F%E4%B8%AD-2014-2013B-2013A"><span class="nav-number">1.7.2.</span> <span class="nav-text">6.2 Feedback 2019 2015期中 2014 2013B 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-HRRN%E6%9C%80%E9%AB%98%E5%93%8D%E5%BA%94%E6%AF%94%E4%BC%98%E5%85%88-2019-2015%E6%9C%9F%E4%B8%AD"><span class="nav-number">1.7.3.</span> <span class="nav-text">6.3 HRRN最高响应比优先 2019 2015期中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-FCFS-2019-2015"><span class="nav-number">1.7.4.</span> <span class="nav-text">6.4 FCFS 2019 2015</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-SRT-2015%E6%9C%9F%E4%B8%AD"><span class="nav-number">1.7.5.</span> <span class="nav-text">6.5 SRT 2015期中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E9%A1%B5%E9%9D%A2%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95-2019-2016-2015-2014-2013B"><span class="nav-number">1.8.</span> <span class="nav-text">7. 页面替换算法 2019 2016 2015 2014 2013B</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-LRU-2019-2016-2015-2014-2013A"><span class="nav-number">1.8.1.</span> <span class="nav-text">7.1 LRU 2019 2016 2015 2014 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-clock-2019-2016-2014-2013B-2013A"><span class="nav-number">1.8.2.</span> <span class="nav-text">7.2 clock 2019 2016 2014 2013B 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-opt-2015"><span class="nav-number">1.8.3.</span> <span class="nav-text">7.3 opt 2015</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-PV-2019-2016-2015"><span class="nav-number">1.9.</span> <span class="nav-text">8. PV 2019 2016 2015</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-%E5%90%B8%E7%83%9F%E8%80%85%E9%97%AE%E9%A2%98-2013A"><span class="nav-number">1.9.1.</span> <span class="nav-text">8.1 吸烟者问题 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98-2015"><span class="nav-number">1.9.2.</span> <span class="nav-text">8.2 读者写者问题 2015</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90-2014"><span class="nav-number">1.9.3.</span> <span class="nav-text">8.3 哲学家就餐 2014</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-%E5%86%9C%E5%A4%AB%E7%8C%8E%E4%BA%BA%E9%97%AE%E9%A2%98-2013B"><span class="nav-number">1.9.4.</span> <span class="nav-text">8.4 农夫猎人问题 2013B</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E8%BF%9B%E7%A8%8B%E6%98%A0%E5%83%8F%E7%BB%93%E6%9E%84-2016-2015-2013B"><span class="nav-number">1.10.</span> <span class="nav-text">9. 进程映像结构 2016 2015 2013B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B-2016-2015"><span class="nav-number">1.11.</span> <span class="nav-text">10. 状态模型 2016 2015</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-%E4%B8%89%E6%80%81-2016"><span class="nav-number">1.11.1.</span> <span class="nav-text">10.1 三态 2016</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-%E4%BA%94%E6%80%81-2013A"><span class="nav-number">1.11.2.</span> <span class="nav-text">10.2 五态 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-3-%E4%B8%83%E6%80%81-2015-2015%E6%9C%9F%E4%B8%AD"><span class="nav-number">1.11.3.</span> <span class="nav-text">10.3 七态 2015 2015期中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95-2016-2015-2014-2013B-2013A"><span class="nav-number">1.12.</span> <span class="nav-text">11. 银行家算法 2016 2015 2014 2013B 2013A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E7%AE%A1%E7%A8%8B-2016"><span class="nav-number">1.13.</span> <span class="nav-text">12. 管程 2016</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-1-%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98-2016-2013A"><span class="nav-number">1.13.1.</span> <span class="nav-text">12.1 哲学家就餐问题 2016 2013A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-2-%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85-2014"><span class="nav-number">1.13.2.</span> <span class="nav-text">12.2 生产者消费者 2014</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-3-%E8%AF%BB%E8%80%85%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98-2013B"><span class="nav-number">1.13.3.</span> <span class="nav-text">12.3 读者写者问题 2013B</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%89%E4%B8%AA%E6%8A%BD%E8%B1%A1-2014"><span class="nav-number">1.14.</span> <span class="nav-text">13. 操作系统三个抽象 2014</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E6%B1%82%E9%A1%B5%E8%A1%A8%E9%A1%B9-2013B-2013A"><span class="nav-number">1.15.</span> <span class="nav-text">14. 求页表项 2013B 2013A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4"><span class="nav-number">1.16.</span> <span class="nav-text">15. 访问时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-%E4%BD%8D%E7%A4%BA%E5%9B%BE"><span class="nav-number">1.17.</span> <span class="nav-text">16. 位示图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%89%E4%B8%AA%E6%8A%BD%E8%B1%A1-2014-1"><span class="nav-number">1.18.</span> <span class="nav-text">13. 操作系统三个抽象 2014</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E6%B1%82%E9%A1%B5%E8%A1%A8%E9%A1%B9-2013B-2013A-1"><span class="nav-number">1.19.</span> <span class="nav-text">14. 求页表项 2013B 2013A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E8%AE%BF%E9%97%AE%E6%97%B6%E9%97%B4-1"><span class="nav-number">1.20.</span> <span class="nav-text">15. 访问时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-%E4%BD%8D%E7%A4%BA%E5%9B%BE-1"><span class="nav-number">1.21.</span> <span class="nav-text">16. 位示图</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">gjbe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gjbe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '0345980f9d756faa9ef0',
+      clientSecret: '403968f743ab1c228a563989e36b914904436d8e',
+      repo        : 'comments',
+      owner       : 'gjbegjbe',
+      admin       : ['gjbegjbe'],
+      id          : '31fc98ce161859df2fecbfa95bf5857e',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>

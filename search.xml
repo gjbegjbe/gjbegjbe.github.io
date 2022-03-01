@@ -417,143 +417,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PostMan访问需要登录的接口</title>
-    <url>/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[<p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p>
-<p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p>
-<p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p>
-<p>访问成功。</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>
-]]></content>
-      <tags>
-        <tag>PostMan</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/02/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Vue学习（二）——组件</title>
-    <url>/2022/02/28/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="一、组件注册"><a href="#一、组件注册" class="headerlink" title="一、组件注册"></a>一、组件注册</h1><h2 id="1-1-组件名"><a href="#1-1-组件名" class="headerlink" title="1.1 组件名"></a>1.1 组件名</h2><p>在注册一个组件的时候，我们始终需要给它一个名字。比如在全局注册的时候我们已经看到了：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;...&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;my-component-name&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>该组件名就是 <code>app.component</code> 的第一个参数，在上面的例子中，组件的名称是“my-component-name”。</p>
-<p>强烈推荐遵循 <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">W3C 规范</a>来给自定义标签命名：</p>
-<ol>
-<li>全部小写</li>
-<li>包含连字符 (及：即有多个单词与连字符符号连接)</li>
-</ol>
-<h3 id="1-1-1-组件名大小写"><a href="#1-1-1-组件名大小写" class="headerlink" title="1.1.1 组件名大小写"></a>1.1.1 组件名大小写</h3><h4 id="1-1-1-1-使用-kebab-case"><a href="#1-1-1-1-使用-kebab-case" class="headerlink" title="1.1.1.1 使用 kebab-case"></a>1.1.1.1 使用 kebab-case</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;my-component-name&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>当使用 kebab-case (短横线分隔命名) 定义一个组件时，你在引用这个自定义元素时也必须使用 kebab-case，例如 <code>&lt;my-component-name&gt;</code>。</p>
-<h4 id="1-1-1-2-使用-PascalCase"><a href="#1-1-1-2-使用-PascalCase" class="headerlink" title="1.1.1.2 使用 PascalCase"></a>1.1.1.2 使用 PascalCase</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;MyComponentName&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>当使用 PascalCase (首字母大写命名) 定义一个组件时，你在引用这个自定义元素时两种命名法都可以使用。也就是说 <code>&lt;my-component-name&gt;</code> 和 <code>&lt;MyComponentName&gt;</code> 都是可接受的。注意，尽管如此，直接在 DOM (即非字符串的模板) 中使用时只有 kebab-case 是有效的。</p>
-<h2 id="1-2-全局注册"><a href="#1-2-全局注册" class="headerlink" title="1.2 全局注册"></a>1.2 全局注册</h2><p>用 <code>app.component</code> 来创建组件：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;...&#125;).<span class="title function_">component</span>(<span class="string">&#x27;my-component-name&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// ... 选项 ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>这些组件是<strong>全局注册</strong>的。也就是说它们在注册之后可以用在任何新创建的组件实例的模板中。比如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-a&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-b&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-c&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-a</span>&gt;</span><span class="tag">&lt;/<span class="name">component-a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-b</span>&gt;</span><span class="tag">&lt;/<span class="name">component-b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-c</span>&gt;</span><span class="tag">&lt;/<span class="name">component-c</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在所有子组件中也是如此，也就是说这三个组件在<em>各自内部</em>也都可以相互使用。</p>
-<h2 id="1-3-局部注册"><a href="#1-3-局部注册" class="headerlink" title="1.3 局部注册"></a>1.3 局部注册</h2><p>全局注册往往是不够理想的。比如，如果你使用一个像 webpack 这样的构建系统，全局注册所有的组件意味着即便你已经不再使用其中一个组件了，它仍然会被包含在最终的构建结果中。这造成了用户下载的 JavaScript 的无谓的增加。</p>
-<p>在这些情况下，你可以通过一个普通的 JavaScript 对象来定义组件：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentA</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentB</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentC</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后在 <code>components</code> 选项中定义你想要使用的组件：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;component-a&#x27;</span>: <span class="title class_">ComponentA</span>,</span><br><span class="line">    <span class="string">&#x27;component-b&#x27;</span>: <span class="title class_">ComponentB</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>对于 <code>components</code> 对象中的每个 property 来说，其 property 名就是自定义元素的名字，其 property 值就是这个组件的选项对象。</p>
-<p>注意<strong>局部注册的组件在其子组件中不可用</strong>。例如，如果你希望 <code>ComponentA</code> 在 <code>ComponentB</code> 中可用，则你需要这样写：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentA</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentB</span> = &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;component-a&#x27;</span>: <span class="title class_">ComponentA</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>或者如果你通过 Babel 和 webpack 使用 ES2015 模块，那么代码看起来像这样：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentA.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ComponentA</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意在 ES2015+ 中，在对象中放一个类似 <code>ComponentA</code> 的变量名其实是 <code>ComponentA: ComponentA</code> 的缩写，即这个变量名同时是：</p>
-<ul>
-<li>用在模板中的自定义元素的名称</li>
-<li>包含了这个组件选项的变量名</li>
-</ul>
-<h2 id="1-4-模块系统"><a href="#1-4-模块系统" class="headerlink" title="1.4 模块系统"></a>1.4 模块系统</h2><p>通过 <code>import</code>&#x2F;<code>require</code> 使用一个模块系统。</p>
-<h3 id="1-4-1-在模块系统中局部注册"><a href="#1-4-1-在模块系统中局部注册" class="headerlink" title="1.4.1 在模块系统中局部注册"></a>1.4.1 在模块系统中局部注册</h3><p>使用了诸如 Babel 和 webpack 的模块系统。在这些情况下，创建一个 <code>components</code> 目录，并将每个组件放置在其各自的文件中。</p>
-<p>然后你需要在局部注册之前导入每个你想使用的组件。例如，假设在 <code>ComponentB.js</code> 或 <code>ComponentB.vue</code> 文件中：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentA&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentC</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentC&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ComponentA</span>,</span><br><span class="line">    <span class="title class_">ComponentC</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在 <code>ComponentA</code> 和 <code>ComponentC</code> 都可以在 <code>ComponentB</code> 的模板中使用了。</p>
-<h1 id="二、Props"><a href="#二、Props" class="headerlink" title="二、Props"></a>二、Props</h1><h2 id="2-1-Prop类型"><a href="#2-1-Prop类型" class="headerlink" title="2.1 Prop类型"></a>2.1 Prop类型</h2><p>以字符串数组形式列出的 prop：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: [<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;likes&#x27;</span>, <span class="string">&#x27;isPublished&#x27;</span>, <span class="string">&#x27;commentIds&#x27;</span>, <span class="string">&#x27;author&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<p>每个 prop 都有指定的值类型。这时，可以以对象形式列出 prop，这些 property 的名称和值分别是 prop 各自的名称和类型：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="title class_">String</span>,</span><br><span class="line">  <span class="attr">likes</span>: <span class="title class_">Number</span>,</span><br><span class="line">  <span class="attr">isPublished</span>: <span class="title class_">Boolean</span>,</span><br><span class="line">  <span class="attr">commentIds</span>: <span class="title class_">Array</span>,</span><br><span class="line">  <span class="attr">author</span>: <span class="title class_">Object</span>,</span><br><span class="line">  <span class="attr">callback</span>: <span class="title class_">Function</span>,</span><br><span class="line">  <span class="attr">contactsPromise</span>: <span class="title class_">Promise</span> <span class="comment">// 或任何其他构造函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这不仅为你的组件提供了文档，还会在它们遇到错误的类型时从浏览器的 JavaScript 控制台提示用户。你会在这个页面接下来的部分看到<a href="https://v3.cn.vuejs.org/guide/component-props.html#prop-%E9%AA%8C%E8%AF%81">类型检查和其它 prop 验证</a>。</p>
-<h2 id="2-2-传递静态或动态的Prop"><a href="#2-2-传递静态或动态的Prop" class="headerlink" title="2.2 传递静态或动态的Prop"></a>2.2 传递静态或动态的Prop</h2><p>给 prop 传入一个静态的值：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">title</span>=<span class="string">&quot;My journey with Vue&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>prop 可以通过 <code>v-bind</code> 或简写 <code>:</code> 动态赋值，例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 动态赋予一个变量的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:title</span>=<span class="string">&quot;post.title&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 动态赋予一个复杂表达式的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:title</span>=<span class="string">&quot;post.title + &#x27; by &#x27; + post.author.name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在上述两个示例中，我们传入的值都是字符串类型的，但实际上<em>任何</em>类型的值都可以传给一个 prop。</p>
-<h3 id="2-2-1-传入一个数字"><a href="#2-2-1-传入一个数字" class="headerlink" title="2.2.1 传入一个数字"></a>2.2.1 传入一个数字</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 即便 `42` 是静态的，我们仍需通过 `v-bind` 来告诉 Vue     --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:likes</span>=<span class="string">&quot;42&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:likes</span>=<span class="string">&quot;post.likes&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-2-传入一个布尔值"><a href="#2-2-2-传入一个布尔值" class="headerlink" title="2.2.2 传入一个布尔值"></a>2.2.2 传入一个布尔值</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 包含该 prop 没有值的情况在内，都意味着 `true`。          --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果没有在 props 中把 is-published 的类型设置为 Boolean，</span></span><br><span class="line"><span class="comment">则这里的值为空字符串，而不是“true”。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">is-published</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 即便 `false` 是静态的，我们仍需通过 `v-bind` 来告诉 Vue  --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:is-published</span>=<span class="string">&quot;false&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。                                --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:is-published</span>=<span class="string">&quot;post.isPublished&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-3-传入一个数组"><a href="#2-2-3-传入一个数组" class="headerlink" title="2.2.3 传入一个数组"></a>2.2.3 传入一个数组</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 即便数组是静态的，我们仍需通过 `v-bind` 来告诉 Vue        --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:comment-ids</span>=<span class="string">&quot;[234, 266, 273]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。                                --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:comment-ids</span>=<span class="string">&quot;post.commentIds&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-4-传入一个对象"><a href="#2-2-4-传入一个对象" class="headerlink" title="2.2.4 传入一个对象"></a>2.2.4 传入一个对象</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 即便对象是静态的，我们仍需通过 `v-bind` 来告诉 Vue        --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:author</span>=<span class="string">&quot;&#123;</span></span></span><br><span class="line"><span class="string"><span class="tag">    name: &#x27;Veronica&#x27;,</span></span></span><br><span class="line"><span class="string"><span class="tag">    company: &#x27;Veridian Dynamics&#x27;</span></span></span><br><span class="line"><span class="string"><span class="tag">  &#125;&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。                                 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:author</span>=<span class="string">&quot;post.author&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-5-传入一个对象的所有-property"><a href="#2-2-5-传入一个对象的所有-property" class="headerlink" title="2.2.5 传入一个对象的所有 property"></a>2.2.5 传入一个对象的所有 property</h3><p>如果想要将一个对象的所有 property 都作为 prop 传入，可以使用不带参数的 <code>v-bind</code> (用 <code>v-bind</code> 代替 <code>:prop-name</code>)。例如，对于一个给定的对象 <code>post</code>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">post</span>: &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;My Journey with Vue&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>下面的模板：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind</span>=<span class="string">&quot;post&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>等价于：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:id</span>=<span class="string">&quot;post.id&quot;</span> <span class="attr">v-bind:title</span>=<span class="string">&quot;post.title&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-单向数据流"><a href="#2-3-单向数据流" class="headerlink" title="2.3 单向数据流"></a>2.3 单向数据流</h2><p>所有的 prop 都使得其父子 prop 之间形成了一个<strong>单向下行绑定</strong>：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外变更父级组件的状态，从而导致你的应用的数据流向难以理解。</p>
-<p>另外，每次父级组件发生变更时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你<strong>不</strong>应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。</p>
-<p>这里有两种常见的试图变更一个 prop 的情形：</p>
-<ol>
-<li><strong>这个 prop 用来传递一个初始值；这个子组件接下来希望将其作为一个本地的 prop 数据来使用</strong>。在这种情况下，最好定义一个本地的 data property 并将这个 prop 作为其初始值：</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: [<span class="string">&#x27;initialCounter&#x27;</span>],</span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">counter</span>: <span class="variable language_">this</span>.<span class="property">initialCounter</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>这个 prop 以一种原始的值传入且需要进行转换</strong>。在这种情况下，最好使用这个 prop 的值来定义一个计算属性：</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: [<span class="string">&#x27;size&#x27;</span>],</span><br><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">  <span class="title function_">normalizedSize</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">size</span>.<span class="title function_">trim</span>().<span class="title function_">toLowerCase</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意在 JavaScript 中对象和数组是通过引用传入的，所以对于一个数组或对象类型的 prop 来说，在子组件中改变这个对象或数组本身<strong>将会</strong>影响到父组件的状态，且 Vue 无法为此向你发出警告。作为一个通用规则，应该避免修改任何 prop，包括对象和数组，因为这种做法无视了单向数据绑定，且可能会导致意料之外的结果。</p>
-]]></content>
-      <tags>
-        <tag>前端</tag>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue学习（一）——基础</title>
     <url>/2022/02/16/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="一、-Vue介绍"><a href="#一、-Vue介绍" class="headerlink" title="一、 Vue介绍"></a>一、 Vue介绍</h2><p>Vue (读音 &#x2F;vjuː&#x2F;，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。</p>
@@ -1319,6 +1182,143 @@
       </tags>
   </entry>
   <entry>
+    <title>PostMan访问需要登录的接口</title>
+    <url>/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p>
+<p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p>
+<p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p>
+<p>访问成功。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>
+]]></content>
+      <tags>
+        <tag>PostMan</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue学习（二）——组件</title>
+    <url>/2022/02/28/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="一、组件注册"><a href="#一、组件注册" class="headerlink" title="一、组件注册"></a>一、组件注册</h1><h2 id="1-1-组件名"><a href="#1-1-组件名" class="headerlink" title="1.1 组件名"></a>1.1 组件名</h2><p>在注册一个组件的时候，我们始终需要给它一个名字。比如在全局注册的时候我们已经看到了：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;...&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;my-component-name&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>该组件名就是 <code>app.component</code> 的第一个参数，在上面的例子中，组件的名称是“my-component-name”。</p>
+<p>强烈推荐遵循 <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">W3C 规范</a>来给自定义标签命名：</p>
+<ol>
+<li>全部小写</li>
+<li>包含连字符 (及：即有多个单词与连字符符号连接)</li>
+</ol>
+<h3 id="1-1-1-组件名大小写"><a href="#1-1-1-组件名大小写" class="headerlink" title="1.1.1 组件名大小写"></a>1.1.1 组件名大小写</h3><h4 id="1-1-1-1-使用-kebab-case"><a href="#1-1-1-1-使用-kebab-case" class="headerlink" title="1.1.1.1 使用 kebab-case"></a>1.1.1.1 使用 kebab-case</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;my-component-name&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当使用 kebab-case (短横线分隔命名) 定义一个组件时，你在引用这个自定义元素时也必须使用 kebab-case，例如 <code>&lt;my-component-name&gt;</code>。</p>
+<h4 id="1-1-1-2-使用-PascalCase"><a href="#1-1-1-2-使用-PascalCase" class="headerlink" title="1.1.1.2 使用 PascalCase"></a>1.1.1.2 使用 PascalCase</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;MyComponentName&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>当使用 PascalCase (首字母大写命名) 定义一个组件时，你在引用这个自定义元素时两种命名法都可以使用。也就是说 <code>&lt;my-component-name&gt;</code> 和 <code>&lt;MyComponentName&gt;</code> 都是可接受的。注意，尽管如此，直接在 DOM (即非字符串的模板) 中使用时只有 kebab-case 是有效的。</p>
+<h2 id="1-2-全局注册"><a href="#1-2-全局注册" class="headerlink" title="1.2 全局注册"></a>1.2 全局注册</h2><p>用 <code>app.component</code> 来创建组件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;...&#125;).<span class="title function_">component</span>(<span class="string">&#x27;my-component-name&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// ... 选项 ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这些组件是<strong>全局注册</strong>的。也就是说它们在注册之后可以用在任何新创建的组件实例的模板中。比如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-a&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-b&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;component-c&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-a</span>&gt;</span><span class="tag">&lt;/<span class="name">component-a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-b</span>&gt;</span><span class="tag">&lt;/<span class="name">component-b</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">component-c</span>&gt;</span><span class="tag">&lt;/<span class="name">component-c</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在所有子组件中也是如此，也就是说这三个组件在<em>各自内部</em>也都可以相互使用。</p>
+<h2 id="1-3-局部注册"><a href="#1-3-局部注册" class="headerlink" title="1.3 局部注册"></a>1.3 局部注册</h2><p>全局注册往往是不够理想的。比如，如果你使用一个像 webpack 这样的构建系统，全局注册所有的组件意味着即便你已经不再使用其中一个组件了，它仍然会被包含在最终的构建结果中。这造成了用户下载的 JavaScript 的无谓的增加。</p>
+<p>在这些情况下，你可以通过一个普通的 JavaScript 对象来定义组件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentA</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentB</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentC</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>components</code> 选项中定义你想要使用的组件：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="title class_">Vue</span>.<span class="title function_">createApp</span>(&#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;component-a&#x27;</span>: <span class="title class_">ComponentA</span>,</span><br><span class="line">    <span class="string">&#x27;component-b&#x27;</span>: <span class="title class_">ComponentB</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>对于 <code>components</code> 对象中的每个 property 来说，其 property 名就是自定义元素的名字，其 property 值就是这个组件的选项对象。</p>
+<p>注意<strong>局部注册的组件在其子组件中不可用</strong>。例如，如果你希望 <code>ComponentA</code> 在 <code>ComponentB</code> 中可用，则你需要这样写：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentA</span> = &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ComponentB</span> = &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;component-a&#x27;</span>: <span class="title class_">ComponentA</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者如果你通过 Babel 和 webpack 使用 ES2015 模块，那么代码看起来像这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentA.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ComponentA</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意在 ES2015+ 中，在对象中放一个类似 <code>ComponentA</code> 的变量名其实是 <code>ComponentA: ComponentA</code> 的缩写，即这个变量名同时是：</p>
+<ul>
+<li>用在模板中的自定义元素的名称</li>
+<li>包含了这个组件选项的变量名</li>
+</ul>
+<h2 id="1-4-模块系统"><a href="#1-4-模块系统" class="headerlink" title="1.4 模块系统"></a>1.4 模块系统</h2><p>通过 <code>import</code>&#x2F;<code>require</code> 使用一个模块系统。</p>
+<h3 id="1-4-1-在模块系统中局部注册"><a href="#1-4-1-在模块系统中局部注册" class="headerlink" title="1.4.1 在模块系统中局部注册"></a>1.4.1 在模块系统中局部注册</h3><p>使用了诸如 Babel 和 webpack 的模块系统。在这些情况下，创建一个 <code>components</code> 目录，并将每个组件放置在其各自的文件中。</p>
+<p>然后你需要在局部注册之前导入每个你想使用的组件。例如，假设在 <code>ComponentB.js</code> 或 <code>ComponentB.vue</code> 文件中：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentA</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentA&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ComponentC</span> <span class="keyword">from</span> <span class="string">&#x27;./ComponentC&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ComponentA</span>,</span><br><span class="line">    <span class="title class_">ComponentC</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在 <code>ComponentA</code> 和 <code>ComponentC</code> 都可以在 <code>ComponentB</code> 的模板中使用了。</p>
+<h1 id="二、Props"><a href="#二、Props" class="headerlink" title="二、Props"></a>二、Props</h1><h2 id="2-1-Prop类型"><a href="#2-1-Prop类型" class="headerlink" title="2.1 Prop类型"></a>2.1 Prop类型</h2><p>以字符串数组形式列出的 prop：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: [<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;likes&#x27;</span>, <span class="string">&#x27;isPublished&#x27;</span>, <span class="string">&#x27;commentIds&#x27;</span>, <span class="string">&#x27;author&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>每个 prop 都有指定的值类型。这时，可以以对象形式列出 prop，这些 property 的名称和值分别是 prop 各自的名称和类型：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: &#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="title class_">String</span>,</span><br><span class="line">  <span class="attr">likes</span>: <span class="title class_">Number</span>,</span><br><span class="line">  <span class="attr">isPublished</span>: <span class="title class_">Boolean</span>,</span><br><span class="line">  <span class="attr">commentIds</span>: <span class="title class_">Array</span>,</span><br><span class="line">  <span class="attr">author</span>: <span class="title class_">Object</span>,</span><br><span class="line">  <span class="attr">callback</span>: <span class="title class_">Function</span>,</span><br><span class="line">  <span class="attr">contactsPromise</span>: <span class="title class_">Promise</span> <span class="comment">// 或任何其他构造函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这不仅为你的组件提供了文档，还会在它们遇到错误的类型时从浏览器的 JavaScript 控制台提示用户。你会在这个页面接下来的部分看到<a href="https://v3.cn.vuejs.org/guide/component-props.html#prop-%E9%AA%8C%E8%AF%81">类型检查和其它 prop 验证</a>。</p>
+<h2 id="2-2-传递静态或动态的Prop"><a href="#2-2-传递静态或动态的Prop" class="headerlink" title="2.2 传递静态或动态的Prop"></a>2.2 传递静态或动态的Prop</h2><p>给 prop 传入一个静态的值：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">title</span>=<span class="string">&quot;My journey with Vue&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>prop 可以通过 <code>v-bind</code> 或简写 <code>:</code> 动态赋值，例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 动态赋予一个变量的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:title</span>=<span class="string">&quot;post.title&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 动态赋予一个复杂表达式的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:title</span>=<span class="string">&quot;post.title + &#x27; by &#x27; + post.author.name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在上述两个示例中，我们传入的值都是字符串类型的，但实际上<em>任何</em>类型的值都可以传给一个 prop。</p>
+<h3 id="2-2-1-传入一个数字"><a href="#2-2-1-传入一个数字" class="headerlink" title="2.2.1 传入一个数字"></a>2.2.1 传入一个数字</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 即便 `42` 是静态的，我们仍需通过 `v-bind` 来告诉 Vue     --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:likes</span>=<span class="string">&quot;42&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:likes</span>=<span class="string">&quot;post.likes&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-2-传入一个布尔值"><a href="#2-2-2-传入一个布尔值" class="headerlink" title="2.2.2 传入一个布尔值"></a>2.2.2 传入一个布尔值</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 包含该 prop 没有值的情况在内，都意味着 `true`。          --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果没有在 props 中把 is-published 的类型设置为 Boolean，</span></span><br><span class="line"><span class="comment">则这里的值为空字符串，而不是“true”。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">is-published</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 即便 `false` 是静态的，我们仍需通过 `v-bind` 来告诉 Vue  --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:is-published</span>=<span class="string">&quot;false&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。                                --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:is-published</span>=<span class="string">&quot;post.isPublished&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-3-传入一个数组"><a href="#2-2-3-传入一个数组" class="headerlink" title="2.2.3 传入一个数组"></a>2.2.3 传入一个数组</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 即便数组是静态的，我们仍需通过 `v-bind` 来告诉 Vue        --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:comment-ids</span>=<span class="string">&quot;[234, 266, 273]&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。                                --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:comment-ids</span>=<span class="string">&quot;post.commentIds&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-4-传入一个对象"><a href="#2-2-4-传入一个对象" class="headerlink" title="2.2.4 传入一个对象"></a>2.2.4 传入一个对象</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 即便对象是静态的，我们仍需通过 `v-bind` 来告诉 Vue        --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这是一个 JavaScript 表达式而不是一个字符串。             --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span></span></span><br><span class="line"><span class="tag">  <span class="attr">:author</span>=<span class="string">&quot;&#123;</span></span></span><br><span class="line"><span class="string"><span class="tag">    name: &#x27;Veronica&#x27;,</span></span></span><br><span class="line"><span class="string"><span class="tag">    company: &#x27;Veridian Dynamics&#x27;</span></span></span><br><span class="line"><span class="string"><span class="tag">  &#125;&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用一个变量进行动态赋值。                                 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">:author</span>=<span class="string">&quot;post.author&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-5-传入一个对象的所有-property"><a href="#2-2-5-传入一个对象的所有-property" class="headerlink" title="2.2.5 传入一个对象的所有 property"></a>2.2.5 传入一个对象的所有 property</h3><p>如果想要将一个对象的所有 property 都作为 prop 传入，可以使用不带参数的 <code>v-bind</code> (用 <code>v-bind</code> 代替 <code>:prop-name</code>)。例如，对于一个给定的对象 <code>post</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">post</span>: &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;My Journey with Vue&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面的模板：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind</span>=<span class="string">&quot;post&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">blog-post</span> <span class="attr">v-bind:id</span>=<span class="string">&quot;post.id&quot;</span> <span class="attr">v-bind:title</span>=<span class="string">&quot;post.title&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">blog-post</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-单向数据流"><a href="#2-3-单向数据流" class="headerlink" title="2.3 单向数据流"></a>2.3 单向数据流</h2><p>所有的 prop 都使得其父子 prop 之间形成了一个<strong>单向下行绑定</strong>：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外变更父级组件的状态，从而导致你的应用的数据流向难以理解。</p>
+<p>另外，每次父级组件发生变更时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你<strong>不</strong>应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。</p>
+<p>这里有两种常见的试图变更一个 prop 的情形：</p>
+<ol>
+<li><strong>这个 prop 用来传递一个初始值；这个子组件接下来希望将其作为一个本地的 prop 数据来使用</strong>。在这种情况下，最好定义一个本地的 data property 并将这个 prop 作为其初始值：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: [<span class="string">&#x27;initialCounter&#x27;</span>],</span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">counter</span>: <span class="variable language_">this</span>.<span class="property">initialCounter</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>这个 prop 以一种原始的值传入且需要进行转换</strong>。在这种情况下，最好使用这个 prop 的值来定义一个计算属性：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: [<span class="string">&#x27;size&#x27;</span>],</span><br><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">  <span class="title function_">normalizedSize</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">size</span>.<span class="title function_">trim</span>().<span class="title function_">toLowerCase</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意在 JavaScript 中对象和数组是通过引用传入的，所以对于一个数组或对象类型的 prop 来说，在子组件中改变这个对象或数组本身<strong>将会</strong>影响到父组件的状态，且 Vue 无法为此向你发出警告。作为一个通用规则，应该避免修改任何 prop，包括对象和数组，因为这种做法无视了单向数据绑定，且可能会导致意料之外的结果。</p>
+]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/02/14/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>win10环境下docker的安装与在docker安装Jenkins</title>
     <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
     <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
@@ -1358,40 +1358,6 @@
       <tags>
         <tag>MySQL</tag>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务端开发：section1环境搭建</title>
-    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
-<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
-<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
-<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
-<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
-<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
-<ol start="3">
-<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
-<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
-<li>首先确保MySQL版本是5.7.x</li>
-<li>在MySQL命令行中create一个database，名称随意</li>
-<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
-<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
-<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>后端</tag>
-        <tag>服务端</tag>
       </tags>
   </entry>
   <entry>
@@ -1729,6 +1695,432 @@
       <tags>
         <tag>前端</tag>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务端开发：section1环境搭建</title>
+    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
+<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
+<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
+<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
+<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
+<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
+<ol start="3">
+<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
+<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
+<li>首先确保MySQL版本是5.7.x</li>
+<li>在MySQL命令行中create一个database，名称随意</li>
+<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
+<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
+<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>后端</tag>
+        <tag>服务端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统考前复习</title>
+    <url>/2022/03/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="操作系统考前复习"><a href="#操作系统考前复习" class="headerlink" title="操作系统考前复习"></a>操作系统考前复习</h1><h2 id="0-选择题"><a href="#0-选择题" class="headerlink" title="0. 选择题"></a>0. 选择题</h2><ol>
+<li><p>多道程序设计提高利用率 2016 2015</p>
+</li>
+<li><p>系统调用是操作系统向用户提供的接口，而库函数是通过操作系统调用所形成的特定功能的函数 2016 2015 2015期中 2013B 2013A</p>
+</li>
+<li><p>FIFO会产生belady异常 2016 2013B 2013A</p>
+</li>
+<li><p>实时操作系统系统响应时间的重要性超过协同资源的利用率 2016 </p>
+</li>
+<li><p>周转时间为完成时刻减去提交给系统时刻，带权周转时间为周转时间与运行时间的比 2016 2015 2013B 2013A</p>
+</li>
+<li><p>unix系统通过目录项实现按名存取 2016 2015</p>
+</li>
+<li><p>采用分段式不会产生内部碎片，采用分页式不会产生外部碎片 2016 2015 2015期中 2014 2013B 2013A</p>
+</li>
+<li><p>linux的slab分配器采用伙伴系统 2016 2015 2013B 2013A</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101746.png"></p>
+<p>2016 2013A</p>
+</li>
+<li><p>solaris多线程实现方式混合式 2016 2015 2013B 2013A</p>
+</li>
+<li><p>如果I&#x2F;O设备与存储设备进行数据交换不经过CPU来完成，这种数据交换方式是DMA方式 2016 2015 2014 2013B 2013A</p>
+</li>
+<li><p>引入多道程序设计技术的前提条件之一是系统具有中断功能 2016 2015期中 2013A</p>
+</li>
+<li><p>通道程序由一系列通道指令构成 2016 2015 2013A</p>
+</li>
+<li><p>对文件的访问常由用户访问权限和文件属性共同限制 2016 2015 2013B 2013A</p>
+</li>
+<li><p>I&#x2F;O软件的分层结构中，设备驱动程序负责将把用户提交的逻辑I&#x2F;O请求转化为物理I&#x2F;O操作的启动和执行。 2016 2015 2013B 2013A</p>
+</li>
+<li><p><img src="C:\Users\ThinkPad\Desktop\image-20210109191445197.png"></p>
+<p>2016 2015 2014 2013B 2013A</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101951.png"></p>
+<p>2016 2015 2013B 2013A</p>
+</li>
+<li><p>create、open返回的是文件描述符（字），read、write返回的是读写的字数 2016</p>
+</li>
+<li><p>当同时提供管态（核心态）和目态（用户态）时，输入、输出指令必须在管态（核心态）执行 2016 2013B</p>
+</li>
+<li><p>操作系统中的SPOOLing技术，实质是指独占设备转化为共享设备的技术 2016 2013B</p>
+</li>
+<li><p>一个进程被唤醒意味着进程变为就绪状态 2016 2015</p>
+</li>
+<li><p>分布式操作系统允许在一台主机上同时连接多个终端，各个用户可以通过各自的终端交互使用计算机 2015</p>
+</li>
+<li><p>对进程的管理和控制使用原语 2015</p>
+</li>
+<li><p>unix中文件的索引结构存放在inode节点中 2015 2013B 2013A</p>
+</li>
+<li><p>逻辑地址与物理地址的转换：1 逻辑地址除以页的大小求页号 2 逻辑地址对页的大小取余求页内偏移 3 根据页表获取页框号 4 页框号乘以页的大小加上偏移量得到物理地址 2015 2015期中 2013B</p>
+</li>
+<li><p>无结构文件的含义是流式文件 2015 2014</p>
+</li>
+<li><p>位示图可用于磁盘空间的分配和管理 2015</p>
+</li>
+<li><p>分页由操作系统实现 2015</p>
+</li>
+<li><p>并发性指若干事件在同一时间间隔内发生 2014</p>
+</li>
+<li><p>多道程序设计指在一台处理机上并发运行多个程序 2014</p>
+</li>
+<li><p>linux、windows CE、solaris是操作系统环境，celeron不是操作系统环境，是处理器 2014</p>
+</li>
+<li><p>分时系统时间片一定，用户数越多，响应时间越长 2014</p>
+</li>
+<li><p>实时系统必须在规定时间内处理来自外部事件 2014</p>
+</li>
+<li><p>死锁定理：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102057.png"></p>
+<p>在处理死锁的检测阶段。处理死锁的方法：死锁防止、死锁避免、死锁检测和恢复 2014</p>
+</li>
+<li><p>逻辑文件：流式文件和记录式文件；物理文件：顺序文件、连接文件、索引文件和直接文件。 2014</p>
+</li>
+<li><p>文件目录主要作用是按名存取 2014 2013B</p>
+</li>
+<li><p>I&#x2F;O缓冲是为了解决CPU和设备间速度不匹配 2014</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102121.png"></p>
+<p>2014</p>
+</li>
+<li><p>磁盘最小的读写单位是扇区 2014</p>
+</li>
+<li><p>有利于短作业又兼顾长作业的调度算法是最高响应比优先，既考虑作业运行时间又考虑等待时间的是最高响应比优先 2014</p>
+</li>
+<li><p>信号量与进程状态转换模型</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102133.png"></p>
+</li>
+<li><p>配置了操作系统的机器是一台比原来的物理机器功能更强的计算机，这样的计算机只是一台逻辑上的计算机，称为虚拟计算机。 2014</p>
+</li>
+<li><p>从实模式进入保护模式的指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lgdt [GdtPtr]</span><br><span class="line">out 92h,al</span><br><span class="line">mov cr0,eax</span><br></pre></td></tr></table></figure>
+
+<p>不包括jmp $ 2013B 2013A</p>
+</li>
+<li><p>FAT12中两个FAT表，各占9扇区 2013B 2013A</p>
+</li>
+<li><p>操作系统的描述符表GDT、LDT、IDT 2013B 2013A</p>
+</li>
+<li><p>C语言调用汇编函数的方法是C中用extern声明，汇编用global导出 2013B 2013A</p>
+</li>
+<li><p>逻辑地址和物理地址转换 2013A</p>
+</li>
+<li><p>实模式下16位CPU使用段偏移方式寻址能力1M 2013A</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102349.png"></p>
+</li>
+<li><p>分时操作系统允许在同一台计算机上连接多台终端，多个用户可以通过各自的终端同时交互使用计算机 2013A</p>
+</li>
+<li><p>可并行的是：处理机与设备、处理机与通道、设备与设备 2009考研</p>
+</li>
+<li><p>饥饿现象<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102401.png"></p>
+</li>
+<li><p>实现临界区管理的硬件设施：关中断、测试并设置指令、对换指令</p>
+</li>
+<li><p>特权指令和非特权指令<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102437.png"></p>
+</li>
+<li><p>Bernstein条件<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102520.png"></p>
+</li>
+<li><p>操作系统分类：多道批处理操作系统（脱机控制方式）、分时操作系统（交互式控制方式）、实时操作系统（既有分时又有实时）</p>
+</li>
+<li><p>最早提出信号量和PV操作同步机制的是Dijkstra</p>
+</li>
+<li><p>进程在挂起状态不参与进程调度</p>
+</li>
+<li><p>Minix操作系统是A.S.Tanenbaum设计实现的</p>
+</li>
+<li><p>处理时间与周期比之和小于1<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102558.png"></p>
+</li>
+<li><p>外中断：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102613.png"></p>
+<p>内中断：</p>
+<p>访管中断、硬件故障中断、程序性异常</p>
+</li>
+<li><p>虚拟存储管理的核心是部分装入和部分对换</p>
+</li>
+<li><p>内核功能：中断管理、时钟管理、短程调度、原语管理</p>
+</li>
+<li><p>操作系统负责管理计算机系统的资源，包括处理机、内存、外围设备和文件</p>
+</li>
+<li><p>操作系统资源管理实现过程中常用的数据结构是表格</p>
+</li>
+<li><p>页式存储管理中，逻辑地址到物理地址的转换由mmu完成</p>
+</li>
+<li><p>引入挂起的原因：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102717.png"></p>
+</li>
+<li><p>用户程序的输入&#x2F;输出操作是通过系统调用，借助操作系统完成</p>
+</li>
+<li><p>unix采用的进程优先数动态调度算法</p>
+</li>
+<li><p>特权指令在管态（核心态）运行</p>
+</li>
+<li><p>以字符为单位组织处理信息的设备是字符设备</p>
+</li>
+<li><p>文件系统采用二级目录的主要原因是避免不同用户之间的文件名冲突</p>
+</li>
+<li><p>进程调度是在就绪队列中选取一个进程执行</p>
+</li>
+<li><p>分时系统多采用时间片轮转调度算法</p>
+</li>
+<li><p>资源的层次式分配可以破坏死锁的循环等待条件，静态分配通过破坏占有并等待条件</p>
+</li>
+<li><p>进程的优先数在创建时就确定并且在进程生命周期不改变，这个调度算法是动态优先数</p>
+</li>
+<li><p>挂起的进程大部分内容处于外部存储器</p>
+</li>
+<li><p>页式存储中，页面不在内存，产生缺页中断</p>
+</li>
+<li><p>段的划分由程序员决定</p>
+</li>
+<li><p>批处理系统的缺点是缺乏交互性</p>
+</li>
+<li><p>分时系统基本特征是并发性、交互性、独立性</p>
+</li>
+<li><p>进程控制块PCB，包括标识信息、现场信息、控制信息：</p>
+<p><img src="C:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231529830.png"></p>
+<p><img src="C:/Users/ThinkPad/AppData/Roaming/Typora/typora-user-images/image-20210110231545711.png"></p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110231612915.png"></p>
+</li>
+<li><p>进程的内存映像包括：控制块、程序块、数据块、核心栈</p>
+</li>
+<li><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-5sHdDUhn-1612771884076)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110231858700.png)]</p>
+</li>
+<li><p>引入多道程序设计的主要目的是充分利用CPU和提高外设利用率</p>
+</li>
+<li><p>进程间通信机制：信号通信、管道通信（共享文件）、消息传递、共享内存</p>
+</li>
+<li><p>页大小由操作系统决定，段长度由用户决定。页面物理起始地址是页面大小整数倍，段的物理地址任意的。页式采用静态重定位，段式采用动态重定位。</p>
+</li>
+<li><p>文件存储空间管理：位示图、空闲区表、空闲块链、成组空闲块链</p>
+</li>
+</ol>
+<h2 id="1-I-x2F-O层次-5层-2019"><a href="#1-I-x2F-O层次-5层-2019" class="headerlink" title="1. I&#x2F;O层次 5层 2019"></a>1. I&#x2F;O层次 5层 2019</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ITBvCWqp-1612771884077)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109155846666.png)]</p>
+<h2 id="2-磁头调度算法-2019-2016-2015-2013B-2013A"><a href="#2-磁头调度算法-2019-2016-2015-2013B-2013A" class="headerlink" title="2. 磁头调度算法 2019 2016 2015 2013B 2013A"></a>2. 磁头调度算法 2019 2016 2015 2013B 2013A</h2><p>先来先服务</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-TbUTnbj0-1612771884078)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160604530.png)]</p>
+<p>最短寻道时间优先</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-16jRwORQ-1612771884080)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160637697.png)]</p>
+<p>扫描算法</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-HPu7CHFO-1612771884081)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160734303.png)]</p>
+<p>循环扫描算法</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-zyYghZDf-1612771884083)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160805614.png)]</p>
+<p>look（电梯）算法</p>
+<p>循环look算法</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-vU33GLSB-1612771884084)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109160829545.png)]</p>
+<h2 id="3-fork-2019"><a href="#3-fork-2019" class="headerlink" title="3. fork 2019"></a>3. fork 2019</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-l9UR4iLI-1612771884085)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109161152565.png)]</p>
+<p>mooc</p>
+<blockquote>
+<p>20单选(2分)</p>
+<p>在UNIX系统中运行以下程序，最多可再产生出_7__进程?</p>
+<p>main( ){</p>
+<p>fork( ); &#x2F;*←pc(程序计数器)，进程A</p>
+<p>fork( );</p>
+<p>fork( );</p>
+<p>}</p>
+<p>A.5；</p>
+<p>B.7；</p>
+<p>C.3；</p>
+<p>D.9；</p>
+<p>正确答案：B你选对了</p>
+</blockquote>
+<h2 id="4-盘块数-2019-2016-2015-2013B-2013A"><a href="#4-盘块数-2019-2016-2015-2013B-2013A" class="headerlink" title="4. 盘块数 2019 2016 2015 2013B 2013A"></a>4. 盘块数 2019 2016 2015 2013B 2013A</h2><p>先求一共多少盘块，再分别计算</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-SBUs9oXf-1612771884087)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109162527731.png)]</p>
+<h2 id="5-虚存分页原理-2019"><a href="#5-虚存分页原理-2019" class="headerlink" title="5. 虚存分页原理 2019"></a>5. 虚存分页原理 2019</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-OWqioPpW-1612771884088)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109162915257.png)]</p>
+<h2 id="6-处理器调度算法-2019-2015"><a href="#6-处理器调度算法-2019-2015" class="headerlink" title="6. 处理器调度算法 2019 2015"></a>6. 处理器调度算法 2019 2015</h2><h3 id="6-1-RR-2019-2015-2015期中-2014-2013B-2013A"><a href="#6-1-RR-2019-2015-2015期中-2014-2013B-2013A" class="headerlink" title="6.1 RR 2019 2015 2015期中 2014 2013B 2013A"></a>6.1 RR 2019 2015 2015期中 2014 2013B 2013A</h3><p>一个歧义问题：</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Z5AZ7oMK-1612771884090)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110102435509.png)]</p>
+<h3 id="6-2-Feedback-2019-2015期中-2014-2013B-2013A"><a href="#6-2-Feedback-2019-2015期中-2014-2013B-2013A" class="headerlink" title="6.2 Feedback 2019 2015期中 2014 2013B 2013A"></a>6.2 Feedback 2019 2015期中 2014 2013B 2013A</h3><p>一个进程被后面的抢占了，就到下一级优先队列</p>
+<p>如果是q&#x3D;2<sup>i</sup>，下面一层的时间片长度依次是上面两倍</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-YgK3jIaZ-1612771884091)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109164402641.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-IxREuoiP-1612771884092)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109164531539.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-U3zSDlB3-1612771884094)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109164547352.png)]</p>
+<h3 id="6-3-HRRN最高响应比优先-2019-2015期中"><a href="#6-3-HRRN最高响应比优先-2019-2015期中" class="headerlink" title="6.3 HRRN最高响应比优先 2019 2015期中"></a>6.3 HRRN最高响应比优先 2019 2015期中</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-3Kk472Jv-1612771884095)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109170247247.png)]</p>
+<h3 id="6-4-FCFS-2019-2015"><a href="#6-4-FCFS-2019-2015" class="headerlink" title="6.4 FCFS 2019 2015"></a>6.4 FCFS 2019 2015</h3><h3 id="6-5-SRT-2015期中"><a href="#6-5-SRT-2015期中" class="headerlink" title="6.5 SRT 2015期中"></a>6.5 SRT 2015期中</h3><h2 id="7-页面替换算法-2019-2016-2015-2014-2013B"><a href="#7-页面替换算法-2019-2016-2015-2014-2013B" class="headerlink" title="7. 页面替换算法 2019 2016 2015 2014 2013B"></a>7. 页面替换算法 2019 2016 2015 2014 2013B</h2><h3 id="7-1-LRU-2019-2016-2015-2014-2013A"><a href="#7-1-LRU-2019-2016-2015-2014-2013A" class="headerlink" title="7.1 LRU 2019 2016 2015 2014 2013A"></a>7.1 LRU 2019 2016 2015 2014 2013A</h3><p>写的时候，用一次，就把它提上来。淘汰最底下的。</p>
+<table>
+<thead>
+<tr>
+<th><strong>页面序列</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>3</strong></th>
+<th><strong>1</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>1</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+<th><strong>3</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页框1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>页框2</td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>页框3</td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>页框4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>缺页标记</td>
+<td>缺</td>
+<td>缺</td>
+<td>缺</td>
+<td></td>
+<td>缺</td>
+<td>缺</td>
+<td></td>
+<td>缺</td>
+<td></td>
+<td></td>
+<td></td>
+<td>缺</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="7-2-clock-2019-2016-2014-2013B-2013A"><a href="#7-2-clock-2019-2016-2014-2013B-2013A" class="headerlink" title="7.2 clock 2019 2016 2014 2013B 2013A"></a>7.2 clock 2019 2016 2014 2013B 2013A</h3><p>如果内存里有且为1但是指针不在相应位置，不要移动指针</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-yaeQ97Fu-1612771884096)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109163519186.png)]</p>
+<h3 id="7-3-opt-2015"><a href="#7-3-opt-2015" class="headerlink" title="7.3 opt 2015"></a>7.3 opt 2015</h3><p>替换掉以后不再访问或者以后最长时间不访问的页</p>
+<h2 id="8-PV-2019-2016-2015"><a href="#8-PV-2019-2016-2015" class="headerlink" title="8. PV 2019 2016 2015"></a>8. PV 2019 2016 2015</h2><h3 id="8-1-吸烟者问题-2013A"><a href="#8-1-吸烟者问题-2013A" class="headerlink" title="8.1 吸烟者问题 2013A"></a>8.1 吸烟者问题 2013A</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-flQj63Ra-1612771884098)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110125143528.png)]</p>
+<h3 id="8-2-读者写者问题-2015"><a href="#8-2-读者写者问题-2015" class="headerlink" title="8.2 读者写者问题 2015"></a>8.2 读者写者问题 2015</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-MT8ry9nk-1612771884099)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110163102180.png)]</p>
+<h3 id="8-3-哲学家就餐-2014"><a href="#8-3-哲学家就餐-2014" class="headerlink" title="8.3 哲学家就餐 2014"></a>8.3 哲学家就餐 2014</h3><ol>
+<li><p>最多允许四个人</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-IBOYk4Rn-1612771884100)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111111407073.png)]</p>
+</li>
+<li><p>偶数先右手奇数先左手</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-TwdYcDN0-1612771884102)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111111622297.png)]</p>
+</li>
+</ol>
+<h3 id="8-4-农夫猎人问题-2013B"><a href="#8-4-农夫猎人问题-2013B" class="headerlink" title="8.4 农夫猎人问题 2013B"></a>8.4 农夫猎人问题 2013B</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-qbr0gJOd-1612771884103)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111154020683.png)]</p>
+<h2 id="9-进程映像结构-2016-2015-2013B"><a href="#9-进程映像结构-2016-2015-2013B" class="headerlink" title="9. 进程映像结构 2016 2015 2013B"></a>9. 进程映像结构 2016 2015 2013B</h2><p>进程的内存映像包括：进程控制块PCB、程序块、数据块、核心栈</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-GrvCDX4g-1612771884105)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109232710106.png)]</p>
+<h2 id="10-状态模型-2016-2015"><a href="#10-状态模型-2016-2015" class="headerlink" title="10. 状态模型 2016 2015"></a>10. 状态模型 2016 2015</h2><h3 id="10-1-三态-2016"><a href="#10-1-三态-2016" class="headerlink" title="10.1 三态 2016"></a>10.1 三态 2016</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2TevS3dj-1612771884107)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109233609160.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-HUZNC0w3-1612771884109)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109233825613.png)]</p>
+<h3 id="10-2-五态-2013A"><a href="#10-2-五态-2013A" class="headerlink" title="10.2 五态 2013A"></a>10.2 五态 2013A</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-2aqJPgxb-1612771884110)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210109234029561.png)]</p>
+<h3 id="10-3-七态-2015-2015期中"><a href="#10-3-七态-2015-2015期中" class="headerlink" title="10.3 七态 2015 2015期中"></a>10.3 七态 2015 2015期中</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-qz3baoRs-1612771884112)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110160029852.png)]</p>
+<h2 id="11-银行家算法-2016-2015-2014-2013B-2013A"><a href="#11-银行家算法-2016-2015-2014-2013B-2013A" class="headerlink" title="11. 银行家算法 2016 2015 2014 2013B 2013A"></a>11. 银行家算法 2016 2015 2014 2013B 2013A</h2><ol>
+<li>先用C-A算出还需要的</li>
+<li>然后用完一个进程把A加上，算出此时的剩余</li>
+</ol>
+<h2 id="12-管程-2016"><a href="#12-管程-2016" class="headerlink" title="12. 管程 2016"></a>12. 管程 2016</h2><h3 id="12-1-哲学家就餐问题-2016-2013A"><a href="#12-1-哲学家就餐问题-2016-2013A" class="headerlink" title="12.1 哲学家就餐问题 2016 2013A"></a>12.1 哲学家就餐问题 2016 2013A</h3><p>想吃调用pickup，吃完调用putdown</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-s8DwgfAL-1612771884114)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210110152617611.png)]</p>
+<h3 id="12-2-生产者消费者-2014"><a href="#12-2-生产者消费者-2014" class="headerlink" title="12.2 生产者消费者 2014"></a>12.2 生产者消费者 2014</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-FqMXRenI-1612771884116)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111112301161.png)]</p>
+<h3 id="12-3-读者写者问题-2013B"><a href="#12-3-读者写者问题-2013B" class="headerlink" title="12.3 读者写者问题 2013B"></a>12.3 读者写者问题 2013B</h3><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-bCotMtt8-1612771884118)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111154600852.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ac9AehZW-1612771884119)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111154627863.png)]</p>
+<h2 id="13-操作系统三个抽象-2014"><a href="#13-操作系统三个抽象-2014" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-Mo0dm323-1612771884121)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111105422394.png)]</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-wlyEGQl2-1612771884122)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111105452076.png)]</p>
+<h2 id="14-求页表项-2013B-2013A"><a href="#14-求页表项-2013B-2013A" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-f8H6IxqW-1612771884123)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111152042018.png)]</p>
+<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
+<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
+<h2 id="15-访问时间"><a href="#15-访问时间" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-vCaquhUT-1612771884125)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111185555853.png)]</p>
+<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
+<h2 id="16-位示图"><a href="#16-位示图" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-BpKUCmVI-1612771884126)(C:\Users\ThinkPad\AppData\Roaming\Typora\typora-user-images\image-20210111190743154.png)]</p>
+<h2 id="13-操作系统三个抽象-2014-1"><a href="#13-操作系统三个抽象-2014-1" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p>[外链图片转存中…(img-Mo0dm323-1612771884121)]</p>
+<p>[外链图片转存中…(img-wlyEGQl2-1612771884122)]</p>
+<h2 id="14-求页表项-2013B-2013A-1"><a href="#14-求页表项-2013B-2013A-1" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
+<p>[外链图片转存中…(img-f8H6IxqW-1612771884123)]</p>
+<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
+<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
+<h2 id="15-访问时间-1"><a href="#15-访问时间-1" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p>[外链图片转存中…(img-vCaquhUT-1612771884125)]</p>
+<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
+<h2 id="16-位示图-1"><a href="#16-位示图-1" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p>[外链图片转存中…(img-BpKUCmVI-1612771884126)]</p>
+]]></content>
+      <tags>
+        <tag>操作系统</tag>
       </tags>
   </entry>
 </search>
