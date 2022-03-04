@@ -451,6 +451,35 @@
 ]]></content>
   </entry>
   <entry>
+    <title>win10环境下docker的安装与在docker安装Jenkins</title>
+    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
+    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
+<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
+<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
+<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
+<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
+<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
+<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
+<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
+<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue学习（一）——基础</title>
     <url>/2022/02/16/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="一、-Vue介绍"><a href="#一、-Vue介绍" class="headerlink" title="一、 Vue介绍"></a>一、 Vue介绍</h2><p>Vue (读音 &#x2F;vjuː&#x2F;，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。</p>
@@ -1594,406 +1623,6 @@
       </tags>
   </entry>
   <entry>
-    <title>win10环境下docker的安装与在docker安装Jenkins</title>
-    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
-    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
-<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
-<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
-<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
-<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
-<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
-<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
-<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
-<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端面试题整理</title>
-    <url>/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="面试题整理"><a href="#面试题整理" class="headerlink" title="面试题整理"></a>面试题整理</h1><h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="1-表单的基本组成部分有哪些，表单的主要用途是什么？"><a href="#1-表单的基本组成部分有哪些，表单的主要用途是什么？" class="headerlink" title="1. 表单的基本组成部分有哪些，表单的主要用途是什么？"></a>1. 表单的基本组成部分有哪些，表单的主要用途是什么？</h3><p>组成：表单标签、表单域、表单按钮</p>
-<p>a、表单标签：这里面包含了处理表单数据所用 CGI 程序的 URL, 以及数据提交到服务器的方法。</p>
-<p>b、表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框、和文件上传框等。</p>
-<p>c、表单按钮：包括提交按钮，复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作。</p>
-<p>主要用途：表单在网页中主要负责数据采集的功能，和向服务器传送数据。</p>
-<h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><h3 id="1-谈谈你对canvas的理解？"><a href="#1-谈谈你对canvas的理解？" class="headerlink" title="1. 谈谈你对canvas的理解？"></a>1. 谈谈你对canvas的理解？</h3><p>canvas相当于一个画布 本身没有绘制能力 即仅仅是图像的容器 通常通过js在上面绘制图像</p>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别"><a href="#1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别" class="headerlink" title="1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?"></a>1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</h3><p><strong>共同点</strong>  </p>
-<p>   保存在游览器端，同源  </p>
-<p><strong>不同点</strong></p>
-<ol>
-<li>数据传输上<br>Cookie数据在浏览器和服务器之间来回传递。其他两个不会自动发送数据到服务器端，仅在本地存储。Cookie数据有保存路径可以限制保存在特定的位置下    </li>
-<li>存储时间上<br>cookie只在设置的cookie过期时间之前一直有效；<br>sessionStorage：仅在当前浏览器窗口关闭前有效；<br>localStorage：始终有效    </li>
-<li>数据共享上<br>localStorage 在所有同源窗口中都是共享的；<br>cookie也是在所有同源窗口中都是共享的。<br>sessionStorage：不在不同的窗口下共享，即使是同一个页面的两个窗口。    </li>
-<li>存储大小上<br>cookie数据大小不超过4K，只适合保存很小的数据例如会话标识<br>sessionStorage和localStorage可以达到5M或更大</li>
-</ol>
-<h2 id="data"><a href="#data" class="headerlink" title="data-"></a>data-</h2><h3 id="1-data-属性的作用是什么？"><a href="#1-data-属性的作用是什么？" class="headerlink" title="1. data-属性的作用是什么？"></a>1. <code>data-</code>属性的作用是什么？</h3><p>data-是h5新增属性 -后面为自定义名称 可存储数据 存储的数据可以根据dataset获取 若浏览器不支持则采用getAttribute获取数据</p>
-<h2 id="Doctype"><a href="#Doctype" class="headerlink" title="Doctype"></a>Doctype</h2><h3 id="1-Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#1-Doctype作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="1. Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?"></a>1. Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</h3><p>作用：声明位于文档中的最前面，处于标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。</p>
-<p>严格模式：严格模式的排版和JS 运作模式是以该浏览器支持的最高标准运行。 </p>
-<p>混杂模式：在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</p>
-<p>意义：DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。</p>
-<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><h3 id="1-表单提交中Get和Post方式的区别？"><a href="#1-表单提交中Get和Post方式的区别？" class="headerlink" title="1. 表单提交中Get和Post方式的区别？"></a>1. 表单提交中Get和Post方式的区别？</h3><p>(1)、 get 是从服务器上获取数据， post 是向服务器传送数据。</p>
-<p>(2)、 get 是把参数数据队列加到提交表单的 ACTION 属性所指的 URL 中，值和表单内各个字段一一对应，在 URL 中可以看到。 post 是通过 HTTP post 机制，将表单内各个字段与其内容放置在 HTML HEADER 内一起传送到 ACTION 属性所指的 URL 地址 , 用户看不到这个过程。</p>
-<p>(3)、对于 get 方式，服务器端用 Request.QueryString 获取变量的值，对于 post 方式，服务器端用 Request.Form 获取提交的数据。</p>
-<p>(4)、 get 传送的数据量较小，不能大于 2KB 。 post 传送的数据量较大，一般被默认为不受限制。但理论上， IIS4 中最大量为 80KB ， IIS5 中为 100KB 。</p>
-<p>(5)、 get 安全性低， post 安全性较高。</p>
-<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><h3 id="1-CSS的盒子模型？"><a href="#1-CSS的盒子模型？" class="headerlink" title="1. CSS的盒子模型？"></a>1. CSS的盒子模型？</h3><p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。 </p>
-<p>盒模型允许我们在其它元素和周围元素边框之间的空间放置元素。 </p>
-<p>标准盒模型：width &#x3D; content </p>
-<p>IE盒模型： width &#x3D; content + 左右padding + 左右border</p>
-<h2 id="href"><a href="#href" class="headerlink" title="href"></a>href</h2><h3 id="1-简述一下src与href的区别？"><a href="#1-简述一下src与href的区别？" class="headerlink" title="1. 简述一下src与href的区别？"></a>1. 简述一下src与href的区别？</h3><p>src是引入文件 href是链接跳转</p>
-<p>src表示来源地址 主要用于img script iframe等</p>
-<p>href表示超文本引用 主要用于link a等</p>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="1-说说你对HTML语义化的理解"><a href="#1-说说你对HTML语义化的理解" class="headerlink" title="1. 说说你对HTML语义化的理解?"></a>1. 说说你对HTML语义化的理解?</h3><p>Html 的语义化是指:根据内容的结构化，选择合适的语义化标签，便于开发者阅读和写出优雅的代码，同时让浏览器的爬虫和机器更好的解析。</p>
-<p>语义化的目的:在没有用css的情况下，页面也能呈现出良好的内容结构，代码结构。</p>
-<p>提高用户体验。</p>
-<p>有利于搜索引擎。</p>
-<p>方便其他设备解析。</p>
-<p>便于团队维护和开发。</p>
-<h3 id="2-HTML全局属性有哪些？"><a href="#2-HTML全局属性有哪些？" class="headerlink" title="2. HTML全局属性有哪些？"></a>2. HTML全局属性有哪些？</h3><p>accesskey 规定激活元素的快捷键；<br>class 规定元素的一个或多个类名（引用样式表中的类）；<br>contenteditable 规定元素内容是否可编辑；<br>contextmenu 规定元素的上下文菜单。上下文菜单在用户点击元素时显示。<br>data-* 用于存储页面或应用程序的私有定制数据。<br>dir 规定元素中内容的文本方向。<br>draggable 规定元素是否可拖动。<br>dropzone 规定在拖动被拖动数据时是否进行复制、移动或链接。<br>hidden  样式上会导致元素不显示，但是不能用这个属性实现样式。<br>id 规定元素的唯一 id。<br>lang 规定元素内容的语言。<br>spellcheck 规定是否对元素进行拼写和语法检查。<br>style 规定元素的CSS行内元素。<br>tabindex 规定元素的tab键次序。<br>title 规定有关元素的额外信息。<br>translate 规定是否应该翻译元素内容。</p>
-<h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><h3 id="1-HTML5的优点与缺点？"><a href="#1-HTML5的优点与缺点？" class="headerlink" title="1. HTML5的优点与缺点？"></a>1. HTML5的优点与缺点？</h3><p>优点： a、网络标准统一、HTML5本身是由W3C推荐出来的。</p>
-<p>​     b、多设备、跨平台 </p>
-<p>​     c、即时更新。</p>
-<p>​     d、提高可用性和改进用户的友好体验；</p>
-<p>​     e、有几个新的标签，这将有助于开发人员定义重要的内容； </p>
-<p>​     f、可以给站点带来更多的多媒体元素(视频和音频)；  </p>
-<p>​     g、可以很好的替代Flash和Silverlight；</p>
-<p>​     h、涉及到网站的抓取和索引的时候，对于SEO很友好； </p>
-<p>​     i、被大量应用于移动应用程序和游戏。 </p>
-<p>缺点： a、安全：像之前Firefox4的web socket和透明代理的实现存在严重的安全问题，同时web storage、web socket 这样的功能很容易被黑客利用，来盗取用户的信息和资料。 </p>
-<p>​     b、完善性：许多特性各浏览器的支持程度也不一样。 </p>
-<p>​     c、技术门槛：HTML5简化开发者工作的同时代表了有许多新的属性和API需要开发者学习，像web worker、web socket、web storage 等新特性，后台甚至浏览器原理的知识，机遇的同时也是巨大的挑战 </p>
-<p>​     d、性能：某些平台上的引擎问题导致HTML5性能低下。 </p>
-<p>​     e、浏览器兼容性：最大缺点，IE9以下浏览器几乎全军覆没。</p>
-<h3 id="2-HTML5有哪些新特性、移除了哪些元素？"><a href="#2-HTML5有哪些新特性、移除了哪些元素？" class="headerlink" title="2. HTML5有哪些新特性、移除了哪些元素？"></a>2. HTML5有哪些新特性、移除了哪些元素？</h3><p>HTML新特性： </p>
-<ul>
-<li><p>​    图像Canvas      </p>
-</li>
-<li><p>​    多媒体video、audio      </p>
-</li>
-<li><p>​    本地存储localStorage、sessionStorage      </p>
-</li>
-<li><p>​    语义化更好的内容元素article、header、footer、nav、section      </p>
-</li>
-<li><p>​    表单控件date、time、canlendar、url、search      </p>
-</li>
-<li><p>​    新的技术webworker、websocket、Geolocation     </p>
-<p>移除的元素： </p>
-</li>
-<li><p>​    纯表现的元素u、big、center、strike、tt、font、basefont      </p>
-</li>
-<li><p>​    框架集frame、frameset、noframes</p>
-</li>
-</ul>
-<h3 id="3-HTML5行内元素有哪些-块级元素有哪些-空元素有哪些"><a href="#3-HTML5行内元素有哪些-块级元素有哪些-空元素有哪些" class="headerlink" title="3. HTML5行内元素有哪些,块级元素有哪些, 空元素有哪些?"></a>3. HTML5行内元素有哪些,块级元素有哪些, 空元素有哪些?</h3><p>(1)行内元素</p>
-<p>a - 锚点</p>
-<ul>
-<li><p>abbr - 缩写</p>
-</li>
-<li><p>acronym - 首字</p>
-</li>
-<li><p>b - 粗体 ( 不推荐 )</p>
-</li>
-<li><p>bdo - bidi override</p>
-</li>
-<li><p>big - 大字体</p>
-</li>
-<li><p>br - 换行</p>
-</li>
-<li><p>cite - 引用</p>
-</li>
-<li><p>code - 计算机代码 ( 在引用源码的时候需要 )</p>
-</li>
-<li><p>dfn - 定义字段</p>
-</li>
-<li><p>em - 强调</p>
-</li>
-<li><p>font - 字体设定 ( 不推荐 )</p>
-</li>
-<li><p>i - 斜体</p>
-</li>
-<li><p>img - 图片</p>
-</li>
-<li><p>input - 输入框</p>
-</li>
-<li><p>kbd - 定义键盘文本</p>
-</li>
-<li><p>label - 表格标签</p>
-</li>
-<li><p>q - 短引用</p>
-</li>
-<li><p>s - 中划线 ( 不推荐 )</p>
-</li>
-<li><p>samp - 定义范例计算机代码</p>
-</li>
-<li><p>select - 项目选择</p>
-</li>
-<li><p>small - 小字体文本</p>
-</li>
-<li><p>span - 常用内联容器，定义文本内区块</p>
-</li>
-<li><p>strike - 中划线</p>
-</li>
-<li><p>strong - 粗体强调</p>
-</li>
-<li><p>sub - 下标</p>
-</li>
-<li><p>sup - 上标</p>
-</li>
-<li><p>textarea - 多行文本输入框</p>
-</li>
-<li><p>tt - 电传文本</p>
-</li>
-<li><p>u - 下划线</p>
-</li>
-<li><p>var - 定义变量</p>
-</li>
-</ul>
-<p>(2)块元素 (block element)</p>
-<ul>
-<li><p>address - 地址</p>
-</li>
-<li><p>blockquote - 块引用</p>
-</li>
-<li><p>center - 居中对齐块</p>
-</li>
-<li><p>dir - 目录列表</p>
-</li>
-<li><p>div - 常用块级容易，也是 css layout 的主要标签</p>
-</li>
-<li><p>dl - 定义列表</p>
-</li>
-<li><p>fieldset - form控制组</p>
-</li>
-<li><p>form - 交互表单</p>
-</li>
-<li><p>h1 - 大标题</p>
-</li>
-<li><p>h2 - 副标题</p>
-</li>
-<li><p>h3 - 3级标题</p>
-</li>
-<li><p>h4 - 4级标题</p>
-</li>
-<li><p>h5 - 5级标题</p>
-</li>
-<li><p>h6 - 6级标题</p>
-</li>
-<li><p>hr - 水平分隔线</p>
-</li>
-<li><p>isindex - input prompt</p>
-</li>
-<li><p>menu - 菜单列表</p>
-</li>
-<li><p>noframes - frames可选内容，（对于不支持 frame 的浏览器显示此区块内容</p>
-</li>
-<li><p>noscript - ）可选脚本内容（对于不支持 script 的浏览器显示此内容）</p>
-</li>
-<li><p>ol - 排序表单</p>
-</li>
-<li><p>p - 段落</p>
-</li>
-<li><p>pre - 格式化文本</p>
-</li>
-<li><p>table - 表格</p>
-</li>
-<li><p>ul - 非排序列表</p>
-</li>
-</ul>
-<p>可变元素</p>
-<p>可变元素为根据上下文语境决定该元素为块元素或者内联元素。</p>
-<ul>
-<li><p>applet - java applet</p>
-</li>
-<li><p>button - 按钮</p>
-</li>
-<li><p>del - 删除文本</p>
-</li>
-<li><p>iframe - inline frame</p>
-</li>
-<li><p>ins - 插入的文本</p>
-</li>
-<li><p>map - 图片区块 (map)</p>
-</li>
-<li><p>object - object对象</p>
-</li>
-<li><p>script - 客户端脚本</p>
-</li>
-</ul>
-<p>(3)空元素 ( 在 HTML[1] 元素中，没有内容的 HTML 元素被称为空元素 )</p>
-<p><br/> &#x2F;&#x2F;换行</p>
-<hr> //分隔线
-< input> //文本框等
-
-
-<p><img> &#x2F;&#x2F;图片</p>
-<link> <meta>
-
-<h3 id="4-title与h3的区别、b与strong的区别、i与em的区别？"><a href="#4-title与h3的区别、b与strong的区别、i与em的区别？" class="headerlink" title="4. title与h3的区别、b与strong的区别、i与em的区别？"></a>4. title与h3的区别、b与strong的区别、i与em的区别？</h3><p>首先每一组的外观效果基本完全相同，标题效果、加粗效果、斜体效果。</p>
-<p>但是title、b、i仅仅只有外观效果，而h3、strong、em属于语义化标签，对SEO有很大的帮助，会告诉搜索引擎这是很重要的。所以区别是很大的。</p>
-<h3 id="5-HTML5标签的作用-用途"><a href="#5-HTML5标签的作用-用途" class="headerlink" title="5. HTML5标签的作用?(用途)"></a>5. HTML5标签的作用?(用途)</h3><p>a、使Web页面的内容更加有序和规范</p>
-<p>b、使搜索引擎更加容易按照HTML5规则识别出有效的内容 </p>
-<p>c、使Web页面更接近于一种数据字段和表</p>
-<h3 id="6-HTML5-有哪些新增的表单元素？"><a href="#6-HTML5-有哪些新增的表单元素？" class="headerlink" title="6. HTML5 有哪些新增的表单元素？"></a>6. HTML5 有哪些新增的表单元素？</h3><p>datalist keygen output</p>
-<h3 id="7-HTML5-标准提供了哪些新的-API？"><a href="#7-HTML5-标准提供了哪些新的-API？" class="headerlink" title="7. HTML5 标准提供了哪些新的 API？"></a>7. HTML5 标准提供了哪些新的 API？</h3><p>· Media API</p>
-<p>· Text Track API</p>
-<p>· Application Cache API</p>
-<p>· User Interaction</p>
-<p>· Data Transfer API</p>
-<p>· Command API</p>
-<p>· Constraint Validation API</p>
-<p>· History API</p>
-<h3 id="8-HTML5-应用程序缓存和浏览器缓存有什么区别？"><a href="#8-HTML5-应用程序缓存和浏览器缓存有什么区别？" class="headerlink" title="8. HTML5 应用程序缓存和浏览器缓存有什么区别？"></a>8. HTML5 应用程序缓存和浏览器缓存有什么区别？</h3><p>应用程序缓存是HTML5的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，这个特性可以提高网站性能，它的实现借助于 manifest 文件，如下： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;  &lt;html manifest=”example.app***”&gt;  …..  &lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>   与传统浏览器缓存相比，它不强制用户访问的网站内容被缓存。</p>
-<h3 id="9-HTML5-有哪些媒体标签？"><a href="#9-HTML5-有哪些媒体标签？" class="headerlink" title="9. HTML5 有哪些媒体标签？"></a>9. HTML5 有哪些媒体标签？</h3><p>H5总共新增了5个媒体标签：</p>
-<p>video：定义一个视频</p>
-<p>audio：定义音频内容</p>
-<p>source：替代audio、video中src属性定义媒体资源</p>
-<p>canvas：一个画布API</p>
-<p>embed：定义外部的可交互的内容或插件如flash</p>
-<h3 id="10-HTML5-中如何嵌入视频？"><a href="#10-HTML5-中如何嵌入视频？" class="headerlink" title="10. HTML5 中如何嵌入视频？"></a>10. HTML5 中如何嵌入视频？</h3><p>HTML5 支持 MP4 、 WebM 和 Ogg 格式的视频，下面是简单示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">”</span> <span class="attr">450</span> ″ <span class="attr">height</span>= <span class="string">”</span> <span class="attr">340</span> ″ <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”</span> <span class="attr">jamshed.mp4</span> ″ <span class="attr">type</span>= <span class="string">”</span> <span class="attr">video</span>/<span class="attr">mp4</span> ″ &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="11-HTML5中如何嵌入音频？"><a href="#11-HTML5中如何嵌入音频？" class="headerlink" title="11. HTML5中如何嵌入音频？"></a>11. HTML5中如何嵌入音频？</h3><p>HTML5 支持 MP3 、 Wav 和 Ogg 格式的音频，下面是简单示例：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”</span> <span class="attr">jamshed.mp3</span> ″ <span class="attr">type</span>= <span class="string">”</span> <span class="attr">audio</span>/<span class="attr">mpeg</span> ” &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="12-新的-HTML5-文档类型和字符集是？"><a href="#12-新的-HTML5-文档类型和字符集是？" class="headerlink" title="12. 新的 HTML5 文档类型和字符集是？"></a>12. 新的 HTML5 文档类型和字符集是？</h3><p>HTML5 文档类型： </p>
-<!doctype html>
-
-
-<p>HTML5 使用 UTF-8 编码示例： </p>
-<meta charset=” UTF-8 ″ >
-
-
-<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><h3 id="1-iframe的缺点"><a href="#1-iframe的缺点" class="headerlink" title="1. iframe的缺点"></a>1. iframe的缺点</h3><p>iframe会阻塞主页面的 Onload 事件；</p>
-<p>搜索引擎的检索程序无法解读这种页面，不利于 SEO;</p>
-<p>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</p>
-<h2 id="img"><a href="#img" class="headerlink" title="img"></a>img</h2><h3 id="1-img的title和alt有什么区别？"><a href="#1-img的title和alt有什么区别？" class="headerlink" title="1. img的title和alt有什么区别？"></a>1. img的title和alt有什么区别？</h3><p>Alt 用于图片无法加载时显示</p>
-<p>Title 为该属性提供信息，通常当鼠标滑动到元素上的时候显示</p>
-<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><h3 id="1-link和-import的区别"><a href="#1-link和-import的区别" class="headerlink" title="1. link和@import的区别?"></a>1. link和@import的区别?</h3><p>见link部分1</p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-要动态改变层中内容可以使用的方法？"><a href="#1-要动态改变层中内容可以使用的方法？" class="headerlink" title="1. 要动态改变层中内容可以使用的方法？"></a>1. 要动态改变层中内容可以使用的方法？</h3><p>innerHTML，innerText</p>
-<h2 id="Label"><a href="#Label" class="headerlink" title="Label"></a>Label</h2><h3 id="1-Label的作用是什么，是怎么用的？"><a href="#1-Label的作用是什么，是怎么用的？" class="headerlink" title="1. Label的作用是什么，是怎么用的？"></a>1. Label的作用是什么，是怎么用的？</h3><p>label标签用来定义表单控制间的关系 , 当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</p>
-<p><label for='Name'>Number:</label></p>
-<p>&lt;input type&#x3D;“ text “ name&#x3D;’Name’ id&#x3D;’Name’&#x2F;&gt;</p>
-<p><label>Date:<input type='text' name='B'/></label></p>
-<p>注意:label的for属性值要与后面对应的input标签id属性值相同<br><label for='Name'>Number:</label><br>&lt;input type&#x3D;“ text “ name&#x3D;’Name’ id&#x3D;’Name’&#x2F;&gt;</p>
-<h2 id="具体场景"><a href="#具体场景" class="headerlink" title="具体场景"></a>具体场景</h2><h3 id="1-如何在页面上实现一个圆形的可点击区域？"><a href="#1-如何在页面上实现一个圆形的可点击区域？" class="headerlink" title="1. 如何在页面上实现一个圆形的可点击区域？"></a>1. 如何在页面上实现一个圆形的可点击区域？</h3><p>思路：先用html+css做出一个圆形，然后再用js为圆形添加一个点击事件</p>
-<p>css：width: 200px;<br>    height: 200px;<br>    border-radius: 50%;</p>
-<p>js：var a1&#x3D;document.querySelector(“.a1”)<br>        a1.onclick&#x3D;function(){<br>            console.log(11)<br>        }</p>
-<h3 id="2-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"><a href="#2-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？" class="headerlink" title="2. 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"></a>2. 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？</h3><p>&lt; di v  style&#x3D;”width:100%;height:1px;background-color:black”&gt;&lt;&#x2F; div&gt;</p>
-<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><h3 id="1-link和-import的区别-1"><a href="#1-link和-import的区别-1" class="headerlink" title="1. link和@import的区别?"></a>1. link和@import的区别?</h3><p>XML&#x2F;HTML代码</p>
-<link rel='stylesheet' rev='stylesheet' href='CSS文件 ' type='text/css' media='all' />
-
-<p>XML&#x2F;HTML代码</p>
-<style type='text/css' media='screen'>
-
-
-@import url('CSS文件 ');
-
-</style>
-
-<p>两者都是外部引用CSS的方式，但是存在一定的区别：</p>
-<p>区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。</p>
-<p>区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。</p>
-<p>区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。</p>
-<p>区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。</p>
-<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><h3 id="1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-1"><a href="#1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-1" class="headerlink" title="1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?"></a>1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</h3><p>见cookie部分1</p>
-<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="1-浏览器页面有哪三层构成，分别是什么，作用是什么"><a href="#1-浏览器页面有哪三层构成，分别是什么，作用是什么" class="headerlink" title="1. 浏览器页面有哪三层构成，分别是什么，作用是什么?"></a>1. 浏览器页面有哪三层构成，分别是什么，作用是什么?</h3><p>构成：结构层、表示层、行为层 </p>
-<p>分别是：HTML、CSS、JavaScript </p>
-<p>作用：HTML实现页面结构，CSS完成页面的表现与风格，JavaScript实现一些客户端的功能与业务。</p>
-<h3 id="2-浏览器的内核分别是什么"><a href="#2-浏览器的内核分别是什么" class="headerlink" title="2. 浏览器的内核分别是什么?"></a>2. 浏览器的内核分别是什么?</h3><p>a、 IE: trident 内核</p>
-<p>b、 Firefox ： gecko 内核</p>
-<p>c、 Safari:webkit 内核</p>
-<p>d、 Opera: 以前是 presto 内核， Opera 现已改用 Google Chrome 的 Blink 内核</p>
-<p>e、 Chrome:Blink( 基于 webkit ， Google 与 Opera Software 共同开发 )</p>
-<h3 id="3-对浏览器内核的理解？"><a href="#3-对浏览器内核的理解？" class="headerlink" title="3. 对浏览器内核的理解？"></a>3. 对浏览器内核的理解？</h3><p>浏览器内核包含渲染引擎和js引擎</p>
-<p>渲染引擎用于获取html、css和图片</p>
-<p>js引擎用于解析执行JavaScript</p>
-<h3 id="4-如何实现浏览器内多个标签页之间的通信"><a href="#4-如何实现浏览器内多个标签页之间的通信" class="headerlink" title="4. 如何实现浏览器内多个标签页之间的通信?"></a>4. 如何实现浏览器内多个标签页之间的通信?</h3><p>WebSocket、 SharedWorker ；</p>
-<p>也可以调用localstorage、 cookies 等本地存储方式。</p>
-<h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><h3 id="1-表单提交中Get和Post方式的区别？-1"><a href="#1-表单提交中Get和Post方式的区别？-1" class="headerlink" title="1. 表单提交中Get和Post方式的区别？"></a>1. 表单提交中Get和Post方式的区别？</h3><p>见GET部分1</p>
-<h2 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h2><h3 id="1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-2"><a href="#1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-2" class="headerlink" title="1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?"></a>1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</h3><p>见cookie部分1</p>
-<h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2><h3 id="1-简述一下src与href的区别？-1"><a href="#1-简述一下src与href的区别？-1" class="headerlink" title="1. 简述一下src与href的区别？"></a>1. 简述一下src与href的区别？</h3><p>见href部分 1</p>
-<h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><h3 id="1-对SVG的理解"><a href="#1-对SVG的理解" class="headerlink" title="1. 对SVG的理解"></a>1. 对SVG的理解</h3><p>SVG（ Scalable Vector Graphics ）是可缩放矢量图形 可任意缩放图形 缩放图形后图形不失真 另外下载速度比jpg png等要快.</p>
-<h2 id="target"><a href="#target" class="headerlink" title="target"></a>target</h2><h3 id="1-说说超链接target属性的取值和作用？"><a href="#1-说说超链接target属性的取值和作用？" class="headerlink" title="1. 说说超链接target属性的取值和作用？"></a>1. 说说超链接target属性的取值和作用？</h3><p>target这个属性指定所链接的页面在浏览器窗口中的打开方式。</p>
-<p>_blank：在新窗口中打开链接文档</p>
-<p>_self：默认。在相同的框架中打开链接文档</p>
-<p>_top：在整个窗口中打开链接文档</p>
-<p>_parent：在父级框架中集中打开</p>
-<p>_framename:在指定的框架中打开链接文档</p>
-<h2 id="W3C"><a href="#W3C" class="headerlink" title="W3C"></a>W3C</h2><h3 id="1-什么是w3c"><a href="#1-什么是w3c" class="headerlink" title="1. 什么是w3c"></a>1. 什么是w3c</h3><p>万维网联盟，是一个web开发的国际性联盟</p>
-<h2 id="WebGL"><a href="#WebGL" class="headerlink" title="WebGL"></a>WebGL</h2><h3 id="1-什么是WebGL"><a href="#1-什么是WebGL" class="headerlink" title="1. 什么是WebGL"></a>1. 什么是WebGL</h3><p>WebGL（Web Graphics Library）是一种3D绘图标准，是js和OpenGL的结合，通过增加一个OpenGL的js绑定，WebGL可以为H5canvas提供硬件3D加速渲染，无需任何浏览器插件支持。</p>
-<h3 id="2-WebGL有什么优点？"><a href="#2-WebGL有什么优点？" class="headerlink" title="2. WebGL有什么优点？"></a>2. WebGL有什么优点？</h3><p>第一，它通过HTML脚本本身实现 Web 交互式三维动画的制作，无需任何浏览器插件支持 ;</p>
-<p>第二，它利用底层的图形硬件加速功能进行的图形渲染，是通过统一的、标准的、跨平台的OpenGL接口实现的。</p>
-<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><h3 id="1-WebSocket与消息推送？"><a href="#1-WebSocket与消息推送？" class="headerlink" title="1. WebSocket与消息推送？"></a>1. WebSocket与消息推送？</h3><p>WebSocket是HTML5开始提供的一种浏览器与服务器间进行全双工通讯的网络技术。依靠这种技术可以实现客户端和服务器端的长连接，双向实时通信。<br> 特点:<br> 事件驱动<br> 异步<br> 使用ws或者wss协议的客户端socket 能够实现真正意义上的推送功能 </p>
-<p>  缺点： </p>
-<p>  少部分浏览器不支持，浏览器支持的程度与方式有区别。</p>
-<h2 id="web标准"><a href="#web标准" class="headerlink" title="web标准"></a>web标准</h2><h3 id="1-什么是web标准"><a href="#1-什么是web标准" class="headerlink" title="1. 什么是web标准"></a>1. 什么是web标准</h3><p>一系列标准的集合，包括结构化标准语言（html等）、表现标准语言（css）、行为标准语言（EMCAScript等）。这些标准大部分由万维网联盟起草和发布</p>
-<h3 id="2-为什么使用web标准"><a href="#2-为什么使用web标准" class="headerlink" title="2. 为什么使用web标准"></a>2. 为什么使用web标准</h3><p>为了解决因浏览器版本不同、软硬件设备不同导致的需多版本开发的问题</p>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="1-CSS选择器"><a href="#1-CSS选择器" class="headerlink" title="1. CSS选择器"></a>1. CSS选择器</h3><p>标签选择器（如：body,div,p,ul,li）  </p>
-<p>类选择器（如：class&#x3D;”head”,class&#x3D;”head_logo”）  </p>
-<p>ID选择器（如：id&#x3D;”name”,id&#x3D;”name_txt”）  </p>
-<p>全局选择器（如：*号）  </p>
-<p>组合选择器（如：.head .head_logo,注意两选择器用空格键分开）  </p>
-<p>继承选择器（如：div p,注意两选择器用空格键分开） </p>
-<p>伪类选择器（如：就是链接样式,a元素的伪类，4种不同的状态：link、visited、active、hover。）</p>
-<h3 id="2-优先级"><a href="#2-优先级" class="headerlink" title="2. 优先级"></a>2. 优先级</h3><p>!important&gt;内联样式&gt;id选择器&gt;类选择器&#x3D;伪类选择器&#x3D;属性选择器&gt;标签选择器&#x3D;伪元素选择器&gt;通配符&gt;继承</p>
-]]></content>
-      <tags>
-        <tag>前端</tag>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务端开发：section1环境搭建</title>
-    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
-<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
-<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
-<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
-<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
-<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
-<ol start="3">
-<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
-<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
-<li>首先确保MySQL版本是5.7.x</li>
-<li>在MySQL命令行中create一个database，名称随意</li>
-<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
-<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
-<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>后端</tag>
-        <tag>服务端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>操作系统考前复习</title>
     <url>/2021/02/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="操作系统考前复习"><a href="#操作系统考前复习" class="headerlink" title="操作系统考前复习"></a>操作系统考前复习</h1><h2 id="0-选择题"><a href="#0-选择题" class="headerlink" title="0. 选择题"></a>0. 选择题</h2><ol>
@@ -2383,6 +2012,377 @@
 ]]></content>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端面试题整理</title>
+    <url>/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="面试题整理"><a href="#面试题整理" class="headerlink" title="面试题整理"></a>面试题整理</h1><h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="1-表单的基本组成部分有哪些，表单的主要用途是什么？"><a href="#1-表单的基本组成部分有哪些，表单的主要用途是什么？" class="headerlink" title="1. 表单的基本组成部分有哪些，表单的主要用途是什么？"></a>1. 表单的基本组成部分有哪些，表单的主要用途是什么？</h3><p>组成：表单标签、表单域、表单按钮</p>
+<p>a、表单标签：这里面包含了处理表单数据所用 CGI 程序的 URL, 以及数据提交到服务器的方法。</p>
+<p>b、表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框、和文件上传框等。</p>
+<p>c、表单按钮：包括提交按钮，复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作。</p>
+<p>主要用途：表单在网页中主要负责数据采集的功能，和向服务器传送数据。</p>
+<h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><h3 id="1-谈谈你对canvas的理解？"><a href="#1-谈谈你对canvas的理解？" class="headerlink" title="1. 谈谈你对canvas的理解？"></a>1. 谈谈你对canvas的理解？</h3><p>canvas相当于一个画布 本身没有绘制能力 即仅仅是图像的容器 通常通过js在上面绘制图像</p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别"><a href="#1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别" class="headerlink" title="1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?"></a>1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</h3><p><strong>共同点</strong>  </p>
+<p>   保存在游览器端，同源  </p>
+<p><strong>不同点</strong></p>
+<ol>
+<li>数据传输上<br>Cookie数据在浏览器和服务器之间来回传递。其他两个不会自动发送数据到服务器端，仅在本地存储。Cookie数据有保存路径可以限制保存在特定的位置下    </li>
+<li>存储时间上<br>cookie只在设置的cookie过期时间之前一直有效；<br>sessionStorage：仅在当前浏览器窗口关闭前有效；<br>localStorage：始终有效    </li>
+<li>数据共享上<br>localStorage 在所有同源窗口中都是共享的；<br>cookie也是在所有同源窗口中都是共享的。<br>sessionStorage：不在不同的窗口下共享，即使是同一个页面的两个窗口。    </li>
+<li>存储大小上<br>cookie数据大小不超过4K，只适合保存很小的数据例如会话标识<br>sessionStorage和localStorage可以达到5M或更大</li>
+</ol>
+<h2 id="data"><a href="#data" class="headerlink" title="data-"></a>data-</h2><h3 id="1-data-属性的作用是什么？"><a href="#1-data-属性的作用是什么？" class="headerlink" title="1. data-属性的作用是什么？"></a>1. <code>data-</code>属性的作用是什么？</h3><p>data-是h5新增属性 -后面为自定义名称 可存储数据 存储的数据可以根据dataset获取 若浏览器不支持则采用getAttribute获取数据</p>
+<h2 id="Doctype"><a href="#Doctype" class="headerlink" title="Doctype"></a>Doctype</h2><h3 id="1-Doctype作用-严格模式与混杂模式如何区分？它们有何意义"><a href="#1-Doctype作用-严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="1. Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?"></a>1. Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</h3><p>作用：声明位于文档中的最前面，处于标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。</p>
+<p>严格模式：严格模式的排版和JS 运作模式是以该浏览器支持的最高标准运行。 </p>
+<p>混杂模式：在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</p>
+<p>意义：DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。</p>
+<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><h3 id="1-表单提交中Get和Post方式的区别？"><a href="#1-表单提交中Get和Post方式的区别？" class="headerlink" title="1. 表单提交中Get和Post方式的区别？"></a>1. 表单提交中Get和Post方式的区别？</h3><p>(1)、 get 是从服务器上获取数据， post 是向服务器传送数据。</p>
+<p>(2)、 get 是把参数数据队列加到提交表单的 ACTION 属性所指的 URL 中，值和表单内各个字段一一对应，在 URL 中可以看到。 post 是通过 HTTP post 机制，将表单内各个字段与其内容放置在 HTML HEADER 内一起传送到 ACTION 属性所指的 URL 地址 , 用户看不到这个过程。</p>
+<p>(3)、对于 get 方式，服务器端用 Request.QueryString 获取变量的值，对于 post 方式，服务器端用 Request.Form 获取提交的数据。</p>
+<p>(4)、 get 传送的数据量较小，不能大于 2KB 。 post 传送的数据量较大，一般被默认为不受限制。但理论上， IIS4 中最大量为 80KB ， IIS5 中为 100KB 。</p>
+<p>(5)、 get 安全性低， post 安全性较高。</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><h3 id="1-CSS的盒子模型？"><a href="#1-CSS的盒子模型？" class="headerlink" title="1. CSS的盒子模型？"></a>1. CSS的盒子模型？</h3><p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。 </p>
+<p>盒模型允许我们在其它元素和周围元素边框之间的空间放置元素。 </p>
+<p>标准盒模型：width &#x3D; content </p>
+<p>IE盒模型： width &#x3D; content + 左右padding + 左右border</p>
+<h2 id="href"><a href="#href" class="headerlink" title="href"></a>href</h2><h3 id="1-简述一下src与href的区别？"><a href="#1-简述一下src与href的区别？" class="headerlink" title="1. 简述一下src与href的区别？"></a>1. 简述一下src与href的区别？</h3><p>src是引入文件 href是链接跳转</p>
+<p>src表示来源地址 主要用于img script iframe等</p>
+<p>href表示超文本引用 主要用于link a等</p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="1-说说你对HTML语义化的理解"><a href="#1-说说你对HTML语义化的理解" class="headerlink" title="1. 说说你对HTML语义化的理解?"></a>1. 说说你对HTML语义化的理解?</h3><p>Html 的语义化是指:根据内容的结构化，选择合适的语义化标签，便于开发者阅读和写出优雅的代码，同时让浏览器的爬虫和机器更好的解析。</p>
+<p>语义化的目的:在没有用css的情况下，页面也能呈现出良好的内容结构，代码结构。</p>
+<p>提高用户体验。</p>
+<p>有利于搜索引擎。</p>
+<p>方便其他设备解析。</p>
+<p>便于团队维护和开发。</p>
+<h3 id="2-HTML全局属性有哪些？"><a href="#2-HTML全局属性有哪些？" class="headerlink" title="2. HTML全局属性有哪些？"></a>2. HTML全局属性有哪些？</h3><p>accesskey 规定激活元素的快捷键；<br>class 规定元素的一个或多个类名（引用样式表中的类）；<br>contenteditable 规定元素内容是否可编辑；<br>contextmenu 规定元素的上下文菜单。上下文菜单在用户点击元素时显示。<br>data-* 用于存储页面或应用程序的私有定制数据。<br>dir 规定元素中内容的文本方向。<br>draggable 规定元素是否可拖动。<br>dropzone 规定在拖动被拖动数据时是否进行复制、移动或链接。<br>hidden  样式上会导致元素不显示，但是不能用这个属性实现样式。<br>id 规定元素的唯一 id。<br>lang 规定元素内容的语言。<br>spellcheck 规定是否对元素进行拼写和语法检查。<br>style 规定元素的CSS行内元素。<br>tabindex 规定元素的tab键次序。<br>title 规定有关元素的额外信息。<br>translate 规定是否应该翻译元素内容。</p>
+<h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><h3 id="1-HTML5的优点与缺点？"><a href="#1-HTML5的优点与缺点？" class="headerlink" title="1. HTML5的优点与缺点？"></a>1. HTML5的优点与缺点？</h3><p>优点： a、网络标准统一、HTML5本身是由W3C推荐出来的。</p>
+<p>​     b、多设备、跨平台 </p>
+<p>​     c、即时更新。</p>
+<p>​     d、提高可用性和改进用户的友好体验；</p>
+<p>​     e、有几个新的标签，这将有助于开发人员定义重要的内容； </p>
+<p>​     f、可以给站点带来更多的多媒体元素(视频和音频)；  </p>
+<p>​     g、可以很好的替代Flash和Silverlight；</p>
+<p>​     h、涉及到网站的抓取和索引的时候，对于SEO很友好； </p>
+<p>​     i、被大量应用于移动应用程序和游戏。 </p>
+<p>缺点： a、安全：像之前Firefox4的web socket和透明代理的实现存在严重的安全问题，同时web storage、web socket 这样的功能很容易被黑客利用，来盗取用户的信息和资料。 </p>
+<p>​     b、完善性：许多特性各浏览器的支持程度也不一样。 </p>
+<p>​     c、技术门槛：HTML5简化开发者工作的同时代表了有许多新的属性和API需要开发者学习，像web worker、web socket、web storage 等新特性，后台甚至浏览器原理的知识，机遇的同时也是巨大的挑战 </p>
+<p>​     d、性能：某些平台上的引擎问题导致HTML5性能低下。 </p>
+<p>​     e、浏览器兼容性：最大缺点，IE9以下浏览器几乎全军覆没。</p>
+<h3 id="2-HTML5有哪些新特性、移除了哪些元素？"><a href="#2-HTML5有哪些新特性、移除了哪些元素？" class="headerlink" title="2. HTML5有哪些新特性、移除了哪些元素？"></a>2. HTML5有哪些新特性、移除了哪些元素？</h3><p>HTML新特性： </p>
+<ul>
+<li><p>​    图像Canvas      </p>
+</li>
+<li><p>​    多媒体video、audio      </p>
+</li>
+<li><p>​    本地存储localStorage、sessionStorage      </p>
+</li>
+<li><p>​    语义化更好的内容元素article、header、footer、nav、section      </p>
+</li>
+<li><p>​    表单控件date、time、canlendar、url、search      </p>
+</li>
+<li><p>​    新的技术webworker、websocket、Geolocation     </p>
+<p>移除的元素： </p>
+</li>
+<li><p>​    纯表现的元素u、big、center、strike、tt、font、basefont      </p>
+</li>
+<li><p>​    框架集frame、frameset、noframes</p>
+</li>
+</ul>
+<h3 id="3-HTML5行内元素有哪些-块级元素有哪些-空元素有哪些"><a href="#3-HTML5行内元素有哪些-块级元素有哪些-空元素有哪些" class="headerlink" title="3. HTML5行内元素有哪些,块级元素有哪些, 空元素有哪些?"></a>3. HTML5行内元素有哪些,块级元素有哪些, 空元素有哪些?</h3><p>(1)行内元素</p>
+<p>a - 锚点</p>
+<ul>
+<li><p>abbr - 缩写</p>
+</li>
+<li><p>acronym - 首字</p>
+</li>
+<li><p>b - 粗体 ( 不推荐 )</p>
+</li>
+<li><p>bdo - bidi override</p>
+</li>
+<li><p>big - 大字体</p>
+</li>
+<li><p>br - 换行</p>
+</li>
+<li><p>cite - 引用</p>
+</li>
+<li><p>code - 计算机代码 ( 在引用源码的时候需要 )</p>
+</li>
+<li><p>dfn - 定义字段</p>
+</li>
+<li><p>em - 强调</p>
+</li>
+<li><p>font - 字体设定 ( 不推荐 )</p>
+</li>
+<li><p>i - 斜体</p>
+</li>
+<li><p>img - 图片</p>
+</li>
+<li><p>input - 输入框</p>
+</li>
+<li><p>kbd - 定义键盘文本</p>
+</li>
+<li><p>label - 表格标签</p>
+</li>
+<li><p>q - 短引用</p>
+</li>
+<li><p>s - 中划线 ( 不推荐 )</p>
+</li>
+<li><p>samp - 定义范例计算机代码</p>
+</li>
+<li><p>select - 项目选择</p>
+</li>
+<li><p>small - 小字体文本</p>
+</li>
+<li><p>span - 常用内联容器，定义文本内区块</p>
+</li>
+<li><p>strike - 中划线</p>
+</li>
+<li><p>strong - 粗体强调</p>
+</li>
+<li><p>sub - 下标</p>
+</li>
+<li><p>sup - 上标</p>
+</li>
+<li><p>textarea - 多行文本输入框</p>
+</li>
+<li><p>tt - 电传文本</p>
+</li>
+<li><p>u - 下划线</p>
+</li>
+<li><p>var - 定义变量</p>
+</li>
+</ul>
+<p>(2)块元素 (block element)</p>
+<ul>
+<li><p>address - 地址</p>
+</li>
+<li><p>blockquote - 块引用</p>
+</li>
+<li><p>center - 居中对齐块</p>
+</li>
+<li><p>dir - 目录列表</p>
+</li>
+<li><p>div - 常用块级容易，也是 css layout 的主要标签</p>
+</li>
+<li><p>dl - 定义列表</p>
+</li>
+<li><p>fieldset - form控制组</p>
+</li>
+<li><p>form - 交互表单</p>
+</li>
+<li><p>h1 - 大标题</p>
+</li>
+<li><p>h2 - 副标题</p>
+</li>
+<li><p>h3 - 3级标题</p>
+</li>
+<li><p>h4 - 4级标题</p>
+</li>
+<li><p>h5 - 5级标题</p>
+</li>
+<li><p>h6 - 6级标题</p>
+</li>
+<li><p>hr - 水平分隔线</p>
+</li>
+<li><p>isindex - input prompt</p>
+</li>
+<li><p>menu - 菜单列表</p>
+</li>
+<li><p>noframes - frames可选内容，（对于不支持 frame 的浏览器显示此区块内容</p>
+</li>
+<li><p>noscript - ）可选脚本内容（对于不支持 script 的浏览器显示此内容）</p>
+</li>
+<li><p>ol - 排序表单</p>
+</li>
+<li><p>p - 段落</p>
+</li>
+<li><p>pre - 格式化文本</p>
+</li>
+<li><p>table - 表格</p>
+</li>
+<li><p>ul - 非排序列表</p>
+</li>
+</ul>
+<p>可变元素</p>
+<p>可变元素为根据上下文语境决定该元素为块元素或者内联元素。</p>
+<ul>
+<li><p>applet - java applet</p>
+</li>
+<li><p>button - 按钮</p>
+</li>
+<li><p>del - 删除文本</p>
+</li>
+<li><p>iframe - inline frame</p>
+</li>
+<li><p>ins - 插入的文本</p>
+</li>
+<li><p>map - 图片区块 (map)</p>
+</li>
+<li><p>object - object对象</p>
+</li>
+<li><p>script - 客户端脚本</p>
+</li>
+</ul>
+<p>(3)空元素 ( 在 HTML[1] 元素中，没有内容的 HTML 元素被称为空元素 )</p>
+<p><br/> &#x2F;&#x2F;换行</p>
+<hr> //分隔线
+< input> //文本框等
+
+
+<p><img> &#x2F;&#x2F;图片</p>
+<link> <meta>
+
+<h3 id="4-title与h3的区别、b与strong的区别、i与em的区别？"><a href="#4-title与h3的区别、b与strong的区别、i与em的区别？" class="headerlink" title="4. title与h3的区别、b与strong的区别、i与em的区别？"></a>4. title与h3的区别、b与strong的区别、i与em的区别？</h3><p>首先每一组的外观效果基本完全相同，标题效果、加粗效果、斜体效果。</p>
+<p>但是title、b、i仅仅只有外观效果，而h3、strong、em属于语义化标签，对SEO有很大的帮助，会告诉搜索引擎这是很重要的。所以区别是很大的。</p>
+<h3 id="5-HTML5标签的作用-用途"><a href="#5-HTML5标签的作用-用途" class="headerlink" title="5. HTML5标签的作用?(用途)"></a>5. HTML5标签的作用?(用途)</h3><p>a、使Web页面的内容更加有序和规范</p>
+<p>b、使搜索引擎更加容易按照HTML5规则识别出有效的内容 </p>
+<p>c、使Web页面更接近于一种数据字段和表</p>
+<h3 id="6-HTML5-有哪些新增的表单元素？"><a href="#6-HTML5-有哪些新增的表单元素？" class="headerlink" title="6. HTML5 有哪些新增的表单元素？"></a>6. HTML5 有哪些新增的表单元素？</h3><p>datalist keygen output</p>
+<h3 id="7-HTML5-标准提供了哪些新的-API？"><a href="#7-HTML5-标准提供了哪些新的-API？" class="headerlink" title="7. HTML5 标准提供了哪些新的 API？"></a>7. HTML5 标准提供了哪些新的 API？</h3><p>· Media API</p>
+<p>· Text Track API</p>
+<p>· Application Cache API</p>
+<p>· User Interaction</p>
+<p>· Data Transfer API</p>
+<p>· Command API</p>
+<p>· Constraint Validation API</p>
+<p>· History API</p>
+<h3 id="8-HTML5-应用程序缓存和浏览器缓存有什么区别？"><a href="#8-HTML5-应用程序缓存和浏览器缓存有什么区别？" class="headerlink" title="8. HTML5 应用程序缓存和浏览器缓存有什么区别？"></a>8. HTML5 应用程序缓存和浏览器缓存有什么区别？</h3><p>应用程序缓存是HTML5的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，这个特性可以提高网站性能，它的实现借助于 manifest 文件，如下： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;  &lt;html manifest=”example.app***”&gt;  …..  &lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>   与传统浏览器缓存相比，它不强制用户访问的网站内容被缓存。</p>
+<h3 id="9-HTML5-有哪些媒体标签？"><a href="#9-HTML5-有哪些媒体标签？" class="headerlink" title="9. HTML5 有哪些媒体标签？"></a>9. HTML5 有哪些媒体标签？</h3><p>H5总共新增了5个媒体标签：</p>
+<p>video：定义一个视频</p>
+<p>audio：定义音频内容</p>
+<p>source：替代audio、video中src属性定义媒体资源</p>
+<p>canvas：一个画布API</p>
+<p>embed：定义外部的可交互的内容或插件如flash</p>
+<h3 id="10-HTML5-中如何嵌入视频？"><a href="#10-HTML5-中如何嵌入视频？" class="headerlink" title="10. HTML5 中如何嵌入视频？"></a>10. HTML5 中如何嵌入视频？</h3><p>HTML5 支持 MP4 、 WebM 和 Ogg 格式的视频，下面是简单示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">”</span> <span class="attr">450</span> ″ <span class="attr">height</span>= <span class="string">”</span> <span class="attr">340</span> ″ <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”</span> <span class="attr">jamshed.mp4</span> ″ <span class="attr">type</span>= <span class="string">”</span> <span class="attr">video</span>/<span class="attr">mp4</span> ″ &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="11-HTML5中如何嵌入音频？"><a href="#11-HTML5中如何嵌入音频？" class="headerlink" title="11. HTML5中如何嵌入音频？"></a>11. HTML5中如何嵌入音频？</h3><p>HTML5 支持 MP3 、 Wav 和 Ogg 格式的音频，下面是简单示例：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”</span> <span class="attr">jamshed.mp3</span> ″ <span class="attr">type</span>= <span class="string">”</span> <span class="attr">audio</span>/<span class="attr">mpeg</span> ” &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="12-新的-HTML5-文档类型和字符集是？"><a href="#12-新的-HTML5-文档类型和字符集是？" class="headerlink" title="12. 新的 HTML5 文档类型和字符集是？"></a>12. 新的 HTML5 文档类型和字符集是？</h3><p>HTML5 文档类型： </p>
+<!doctype html>
+
+
+<p>HTML5 使用 UTF-8 编码示例： </p>
+<meta charset=” UTF-8 ″ >
+
+
+<h2 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h2><h3 id="1-iframe的缺点"><a href="#1-iframe的缺点" class="headerlink" title="1. iframe的缺点"></a>1. iframe的缺点</h3><p>iframe会阻塞主页面的 Onload 事件；</p>
+<p>搜索引擎的检索程序无法解读这种页面，不利于 SEO;</p>
+<p>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。</p>
+<h2 id="img"><a href="#img" class="headerlink" title="img"></a>img</h2><h3 id="1-img的title和alt有什么区别？"><a href="#1-img的title和alt有什么区别？" class="headerlink" title="1. img的title和alt有什么区别？"></a>1. img的title和alt有什么区别？</h3><p>Alt 用于图片无法加载时显示</p>
+<p>Title 为该属性提供信息，通常当鼠标滑动到元素上的时候显示</p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><h3 id="1-link和-import的区别"><a href="#1-link和-import的区别" class="headerlink" title="1. link和@import的区别?"></a>1. link和@import的区别?</h3><p>见link部分1</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-要动态改变层中内容可以使用的方法？"><a href="#1-要动态改变层中内容可以使用的方法？" class="headerlink" title="1. 要动态改变层中内容可以使用的方法？"></a>1. 要动态改变层中内容可以使用的方法？</h3><p>innerHTML，innerText</p>
+<h2 id="Label"><a href="#Label" class="headerlink" title="Label"></a>Label</h2><h3 id="1-Label的作用是什么，是怎么用的？"><a href="#1-Label的作用是什么，是怎么用的？" class="headerlink" title="1. Label的作用是什么，是怎么用的？"></a>1. Label的作用是什么，是怎么用的？</h3><p>label标签用来定义表单控制间的关系 , 当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</p>
+<p><label for='Name'>Number:</label></p>
+<p>&lt;input type&#x3D;“ text “ name&#x3D;’Name’ id&#x3D;’Name’&#x2F;&gt;</p>
+<p><label>Date:<input type='text' name='B'/></label></p>
+<p>注意:label的for属性值要与后面对应的input标签id属性值相同<br><label for='Name'>Number:</label><br>&lt;input type&#x3D;“ text “ name&#x3D;’Name’ id&#x3D;’Name’&#x2F;&gt;</p>
+<h2 id="具体场景"><a href="#具体场景" class="headerlink" title="具体场景"></a>具体场景</h2><h3 id="1-如何在页面上实现一个圆形的可点击区域？"><a href="#1-如何在页面上实现一个圆形的可点击区域？" class="headerlink" title="1. 如何在页面上实现一个圆形的可点击区域？"></a>1. 如何在页面上实现一个圆形的可点击区域？</h3><p>思路：先用html+css做出一个圆形，然后再用js为圆形添加一个点击事件</p>
+<p>css：width: 200px;<br>    height: 200px;<br>    border-radius: 50%;</p>
+<p>js：var a1&#x3D;document.querySelector(“.a1”)<br>        a1.onclick&#x3D;function(){<br>            console.log(11)<br>        }</p>
+<h3 id="2-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"><a href="#2-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？" class="headerlink" title="2. 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"></a>2. 实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？</h3><p>&lt; di v  style&#x3D;”width:100%;height:1px;background-color:black”&gt;&lt;&#x2F; div&gt;</p>
+<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><h3 id="1-link和-import的区别-1"><a href="#1-link和-import的区别-1" class="headerlink" title="1. link和@import的区别?"></a>1. link和@import的区别?</h3><p>XML&#x2F;HTML代码</p>
+<link rel='stylesheet' rev='stylesheet' href='CSS文件 ' type='text/css' media='all' />
+
+<p>XML&#x2F;HTML代码</p>
+<style type='text/css' media='screen'>
+
+
+@import url('CSS文件 ');
+
+</style>
+
+<p>两者都是外部引用CSS的方式，但是存在一定的区别：</p>
+<p>区别1： link 是 XHTML 标签，除了加载 CSS 外，还可以定义 RSS 等其他事务； @import 属于 CSS 范畴，只能加载 CSS 。</p>
+<p>区别2： link 引用 CSS 时，在页面载入时同时加载； @import 需要页面网页完全载入以后加载。</p>
+<p>区别3： link 是 XHTML 标签，无兼容问题； @import 是在 CSS2.1 提出的，低版本的浏览器不支持。</p>
+<p>区别4： link 支持使用 Javascript 控制 DOM 去改变样式；而 @import 不支持。</p>
+<h2 id="LocalStorage"><a href="#LocalStorage" class="headerlink" title="LocalStorage"></a>LocalStorage</h2><h3 id="1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-1"><a href="#1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-1" class="headerlink" title="1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?"></a>1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</h3><p>见cookie部分1</p>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="1-浏览器页面有哪三层构成，分别是什么，作用是什么"><a href="#1-浏览器页面有哪三层构成，分别是什么，作用是什么" class="headerlink" title="1. 浏览器页面有哪三层构成，分别是什么，作用是什么?"></a>1. 浏览器页面有哪三层构成，分别是什么，作用是什么?</h3><p>构成：结构层、表示层、行为层 </p>
+<p>分别是：HTML、CSS、JavaScript </p>
+<p>作用：HTML实现页面结构，CSS完成页面的表现与风格，JavaScript实现一些客户端的功能与业务。</p>
+<h3 id="2-浏览器的内核分别是什么"><a href="#2-浏览器的内核分别是什么" class="headerlink" title="2. 浏览器的内核分别是什么?"></a>2. 浏览器的内核分别是什么?</h3><p>a、 IE: trident 内核</p>
+<p>b、 Firefox ： gecko 内核</p>
+<p>c、 Safari:webkit 内核</p>
+<p>d、 Opera: 以前是 presto 内核， Opera 现已改用 Google Chrome 的 Blink 内核</p>
+<p>e、 Chrome:Blink( 基于 webkit ， Google 与 Opera Software 共同开发 )</p>
+<h3 id="3-对浏览器内核的理解？"><a href="#3-对浏览器内核的理解？" class="headerlink" title="3. 对浏览器内核的理解？"></a>3. 对浏览器内核的理解？</h3><p>浏览器内核包含渲染引擎和js引擎</p>
+<p>渲染引擎用于获取html、css和图片</p>
+<p>js引擎用于解析执行JavaScript</p>
+<h3 id="4-如何实现浏览器内多个标签页之间的通信"><a href="#4-如何实现浏览器内多个标签页之间的通信" class="headerlink" title="4. 如何实现浏览器内多个标签页之间的通信?"></a>4. 如何实现浏览器内多个标签页之间的通信?</h3><p>WebSocket、 SharedWorker ；</p>
+<p>也可以调用localstorage、 cookies 等本地存储方式。</p>
+<h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><h3 id="1-表单提交中Get和Post方式的区别？-1"><a href="#1-表单提交中Get和Post方式的区别？-1" class="headerlink" title="1. 表单提交中Get和Post方式的区别？"></a>1. 表单提交中Get和Post方式的区别？</h3><p>见GET部分1</p>
+<h2 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h2><h3 id="1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-2"><a href="#1-请你描述一下-cookies，sessionStorage-和-localStorage-的区别-2" class="headerlink" title="1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?"></a>1. 请你描述一下 cookies，sessionStorage 和 localStorage 的区别?</h3><p>见cookie部分1</p>
+<h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2><h3 id="1-简述一下src与href的区别？-1"><a href="#1-简述一下src与href的区别？-1" class="headerlink" title="1. 简述一下src与href的区别？"></a>1. 简述一下src与href的区别？</h3><p>见href部分 1</p>
+<h2 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h2><h3 id="1-对SVG的理解"><a href="#1-对SVG的理解" class="headerlink" title="1. 对SVG的理解"></a>1. 对SVG的理解</h3><p>SVG（ Scalable Vector Graphics ）是可缩放矢量图形 可任意缩放图形 缩放图形后图形不失真 另外下载速度比jpg png等要快.</p>
+<h2 id="target"><a href="#target" class="headerlink" title="target"></a>target</h2><h3 id="1-说说超链接target属性的取值和作用？"><a href="#1-说说超链接target属性的取值和作用？" class="headerlink" title="1. 说说超链接target属性的取值和作用？"></a>1. 说说超链接target属性的取值和作用？</h3><p>target这个属性指定所链接的页面在浏览器窗口中的打开方式。</p>
+<p>_blank：在新窗口中打开链接文档</p>
+<p>_self：默认。在相同的框架中打开链接文档</p>
+<p>_top：在整个窗口中打开链接文档</p>
+<p>_parent：在父级框架中集中打开</p>
+<p>_framename:在指定的框架中打开链接文档</p>
+<h2 id="W3C"><a href="#W3C" class="headerlink" title="W3C"></a>W3C</h2><h3 id="1-什么是w3c"><a href="#1-什么是w3c" class="headerlink" title="1. 什么是w3c"></a>1. 什么是w3c</h3><p>万维网联盟，是一个web开发的国际性联盟</p>
+<h2 id="WebGL"><a href="#WebGL" class="headerlink" title="WebGL"></a>WebGL</h2><h3 id="1-什么是WebGL"><a href="#1-什么是WebGL" class="headerlink" title="1. 什么是WebGL"></a>1. 什么是WebGL</h3><p>WebGL（Web Graphics Library）是一种3D绘图标准，是js和OpenGL的结合，通过增加一个OpenGL的js绑定，WebGL可以为H5canvas提供硬件3D加速渲染，无需任何浏览器插件支持。</p>
+<h3 id="2-WebGL有什么优点？"><a href="#2-WebGL有什么优点？" class="headerlink" title="2. WebGL有什么优点？"></a>2. WebGL有什么优点？</h3><p>第一，它通过HTML脚本本身实现 Web 交互式三维动画的制作，无需任何浏览器插件支持 ;</p>
+<p>第二，它利用底层的图形硬件加速功能进行的图形渲染，是通过统一的、标准的、跨平台的OpenGL接口实现的。</p>
+<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><h3 id="1-WebSocket与消息推送？"><a href="#1-WebSocket与消息推送？" class="headerlink" title="1. WebSocket与消息推送？"></a>1. WebSocket与消息推送？</h3><p>WebSocket是HTML5开始提供的一种浏览器与服务器间进行全双工通讯的网络技术。依靠这种技术可以实现客户端和服务器端的长连接，双向实时通信。<br> 特点:<br> 事件驱动<br> 异步<br> 使用ws或者wss协议的客户端socket 能够实现真正意义上的推送功能 </p>
+<p>  缺点： </p>
+<p>  少部分浏览器不支持，浏览器支持的程度与方式有区别。</p>
+<h2 id="web标准"><a href="#web标准" class="headerlink" title="web标准"></a>web标准</h2><h3 id="1-什么是web标准"><a href="#1-什么是web标准" class="headerlink" title="1. 什么是web标准"></a>1. 什么是web标准</h3><p>一系列标准的集合，包括结构化标准语言（html等）、表现标准语言（css）、行为标准语言（EMCAScript等）。这些标准大部分由万维网联盟起草和发布</p>
+<h3 id="2-为什么使用web标准"><a href="#2-为什么使用web标准" class="headerlink" title="2. 为什么使用web标准"></a>2. 为什么使用web标准</h3><p>为了解决因浏览器版本不同、软硬件设备不同导致的需多版本开发的问题</p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="1-CSS选择器"><a href="#1-CSS选择器" class="headerlink" title="1. CSS选择器"></a>1. CSS选择器</h3><p>标签选择器（如：body,div,p,ul,li）  </p>
+<p>类选择器（如：class&#x3D;”head”,class&#x3D;”head_logo”）  </p>
+<p>ID选择器（如：id&#x3D;”name”,id&#x3D;”name_txt”）  </p>
+<p>全局选择器（如：*号）  </p>
+<p>组合选择器（如：.head .head_logo,注意两选择器用空格键分开）  </p>
+<p>继承选择器（如：div p,注意两选择器用空格键分开） </p>
+<p>伪类选择器（如：就是链接样式,a元素的伪类，4种不同的状态：link、visited、active、hover。）</p>
+<h3 id="2-优先级"><a href="#2-优先级" class="headerlink" title="2. 优先级"></a>2. 优先级</h3><p>!important&gt;内联样式&gt;id选择器&gt;类选择器&#x3D;伪类选择器&#x3D;属性选择器&gt;标签选择器&#x3D;伪元素选择器&gt;通配符&gt;继承</p>
+]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务端开发：section1环境搭建</title>
+    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
+<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
+<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
+<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
+<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
+<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
+<ol start="3">
+<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
+<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
+<li>首先确保MySQL版本是5.7.x</li>
+<li>在MySQL命令行中create一个database，名称随意</li>
+<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
+<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
+<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>后端</tag>
+        <tag>服务端</tag>
       </tags>
   </entry>
 </search>
