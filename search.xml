@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JSX概述</title>
-    <url>/2022/02/14/JSX%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h2 id="一、JSX定义"><a href="#一、JSX定义" class="headerlink" title="一、JSX定义"></a>一、JSX定义</h2><p><code>JSX</code> 是 <code>JavaScript</code> 的扩展语法，这种 <code>&lt;&gt;&lt;/&gt;</code> 标签的写法就是 JSX。JSX就是Javascript+XML。即在Javascript里面写XML，因为JSX的这个特性，所以他即具备了Javascript的灵活性，同时又兼具html的语义化和直观性。JSX 编写的组件通过预处理器 babel 解析后，再交给 React 库渲染到指定父容器下，形成最终html页面，供浏览器解析和显示。</p>
-<h2 id="二、JSX使用"><a href="#二、JSX使用" class="headerlink" title="二、JSX使用"></a>二、JSX使用</h2><h3 id="1-声明变量"><a href="#1-声明变量" class="headerlink" title="1. 声明变量"></a>1. 声明变量</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-设置属性"><a href="#2-设置属性" class="headerlink" title="2. 设置属性"></a>2. 设置属性</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">tabIndex</span>=<span class="string">&quot;0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>; <span class="comment">// tabIndex指示元素能否聚焦</span></span><br><span class="line"><span class="keyword">const</span> e = <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;user.avatarUrl&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> inputAttrs = &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;email&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;Enter your email&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> &#123;<span class="attr">...</span>&#123; <span class="attr">attrs:</span> <span class="attr">inputAttrs</span> &#125;&#125; /&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-包含多个子元素"><a href="#3-包含多个子元素" class="headerlink" title="3. 包含多个子元素"></a>3. 包含多个子元素</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> e = (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Shit!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-作为表达式在return中返回"><a href="#4-作为表达式在return中返回" class="headerlink" title="4. 作为表达式在return中返回"></a>4. 作为表达式在return中返回</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getGreeting</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (user) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;formatName(user)&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, Stranger.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">FormRender</span> <span class="attr">node</span>=<span class="string">&#123;</span> <span class="attr">this.form.getRoot</span>() &#125; /&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">MyComponent</span> <span class="keyword">from</span> <span class="string">&#x27;./my-component&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">MyComponent</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">MyComponent</span>&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-使用JS表达式"><a href="#5-使用JS表达式" class="headerlink" title="5. 使用JS表达式"></a>5. 使用JS表达式</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// JSX 中调用 js 函数：</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">formatName</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> user.<span class="property">firstName</span> + <span class="string">&#x27; &#x27;</span> + user.<span class="property">lastName</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">    <span class="attr">firstName</span>: <span class="string">&#x27;Harper&#x27;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&#x27;Perez&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Hello, &#123;formatName(user)&#125;!</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">);</span><br><span class="line"><span class="comment">// 渲染element元素并加载到父容器root下</span></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">    element,</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// JSX 嵌入 复杂表达式</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">NumberList</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> numbers = props.<span class="property">numbers</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;numbers.map((number) =&gt;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;number.toString()&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">value</span>=<span class="string">&#123;number&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            )&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-消息框内html"><a href="#6-消息框内html" class="headerlink" title="6. 消息框内html"></a>6. 消息框内html</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Message</span>.<span class="title function_">alert</span>(&#123;</span><br><span class="line">  <span class="comment">// 此处使用了JSX</span></span><br><span class="line">  <span class="attr">messge</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>确定要删除<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;color:red&quot;</span>&gt;</span>学习子君Vue系列文章<span class="tag">&lt;/<span class="name">span</span>&gt;</span>的笔记?<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-函数式组件"><a href="#7-函数式组件" class="headerlink" title="7. 函数式组件"></a>7. 函数式组件</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// 通过配置functional属性指定组件为函数式组件</span></span><br><span class="line">  <span class="attr">functional</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 渲染函数</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; <span class="variable">h</span></span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; context 函数式组件没有this, props, slots等都在context上面挂着</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title function_">render</span>(<span class="params">h, context</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; props &#125; = context</span><br><span class="line">    <span class="keyword">if</span> (props.<span class="property">avatar</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;props.avatar&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;default-avatar.png&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><a href="https://zhuanlan.zhihu.com/p/419011328">https://zhuanlan.zhihu.com/p/419011328</a></li>
-<li><a href="https://blog.csdn.net/qq_31967569/article/details/118146056?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_aa&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4">https://blog.csdn.net/qq_31967569/article/details/118146056?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_aa&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4</a></li>
-<li><a href="https://github.com/vuejs/jsx-vue2#installation">https://github.com/vuejs/jsx-vue2#installation</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>JSX</tag>
-        <tag>前端</tag>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript权威指南——整理</title>
     <url>/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h2 id="一、词法结构"><a href="#一、词法结构" class="headerlink" title="一、词法结构"></a>一、词法结构</h2><h3 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1. 标识符"></a>1. 标识符</h3><p>必须以字母、_、$开头，后续字符还可以是数字。</p>
@@ -1979,6 +1943,60 @@
       </tags>
   </entry>
   <entry>
+    <title>JSX概述</title>
+    <url>/2022/02/14/JSX%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h2 id="一、JSX定义"><a href="#一、JSX定义" class="headerlink" title="一、JSX定义"></a>一、JSX定义</h2><p><code>JSX</code> 是 <code>JavaScript</code> 的扩展语法，这种 <code>&lt;&gt;&lt;/&gt;</code> 标签的写法就是 JSX。JSX就是Javascript+XML。即在Javascript里面写XML，因为JSX的这个特性，所以他即具备了Javascript的灵活性，同时又兼具html的语义化和直观性。JSX 编写的组件通过预处理器 babel 解析后，再交给 React 库渲染到指定父容器下，形成最终html页面，供浏览器解析和显示。</p>
+<h2 id="二、JSX使用"><a href="#二、JSX使用" class="headerlink" title="二、JSX使用"></a>二、JSX使用</h2><h3 id="1-声明变量"><a href="#1-声明变量" class="headerlink" title="1. 声明变量"></a>1. 声明变量</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-设置属性"><a href="#2-设置属性" class="headerlink" title="2. 设置属性"></a>2. 设置属性</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">tabIndex</span>=<span class="string">&quot;0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>; <span class="comment">// tabIndex指示元素能否聚焦</span></span><br><span class="line"><span class="keyword">const</span> e = <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;user.avatarUrl&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> inputAttrs = &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;email&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;Enter your email&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> &#123;<span class="attr">...</span>&#123; <span class="attr">attrs:</span> <span class="attr">inputAttrs</span> &#125;&#125; /&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-包含多个子元素"><a href="#3-包含多个子元素" class="headerlink" title="3. 包含多个子元素"></a>3. 包含多个子元素</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> e = (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Shit!<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-作为表达式在return中返回"><a href="#4-作为表达式在return中返回" class="headerlink" title="4. 作为表达式在return中返回"></a>4. 作为表达式在return中返回</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getGreeting</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (user) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &#123;formatName(user)&#125;!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, Stranger.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">FormRender</span> <span class="attr">node</span>=<span class="string">&#123;</span> <span class="attr">this.form.getRoot</span>() &#125; /&gt;</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">MyComponent</span> <span class="keyword">from</span> <span class="string">&#x27;./my-component&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">MyComponent</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">MyComponent</span>&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-使用JS表达式"><a href="#5-使用JS表达式" class="headerlink" title="5. 使用JS表达式"></a>5. 使用JS表达式</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// JSX 中调用 js 函数：</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">formatName</span>(<span class="params">user</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> user.<span class="property">firstName</span> + <span class="string">&#x27; &#x27;</span> + user.<span class="property">lastName</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">    <span class="attr">firstName</span>: <span class="string">&#x27;Harper&#x27;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&#x27;Perez&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element = (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Hello, &#123;formatName(user)&#125;!</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">);</span><br><span class="line"><span class="comment">// 渲染element元素并加载到父容器root下</span></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">    element,</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// JSX 嵌入 复杂表达式</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">NumberList</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> numbers = props.<span class="property">numbers</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;numbers.map((number) =&gt;</span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">ListItem</span> <span class="attr">key</span>=<span class="string">&#123;number.toString()&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                    <span class="attr">value</span>=<span class="string">&#123;number&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            )&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-消息框内html"><a href="#6-消息框内html" class="headerlink" title="6. 消息框内html"></a>6. 消息框内html</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Message</span>.<span class="title function_">alert</span>(&#123;</span><br><span class="line">  <span class="comment">// 此处使用了JSX</span></span><br><span class="line">  <span class="attr">messge</span>: <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>确定要删除<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;color:red&quot;</span>&gt;</span>学习子君Vue系列文章<span class="tag">&lt;/<span class="name">span</span>&gt;</span>的笔记?<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;warning&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-函数式组件"><a href="#7-函数式组件" class="headerlink" title="7. 函数式组件"></a>7. 函数式组件</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// 通过配置functional属性指定组件为函数式组件</span></span><br><span class="line">  <span class="attr">functional</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 渲染函数</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; <span class="variable">h</span></span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; context 函数式组件没有this, props, slots等都在context上面挂着</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="title function_">render</span>(<span class="params">h, context</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; props &#125; = context</span><br><span class="line">    <span class="keyword">if</span> (props.<span class="property">avatar</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;props.avatar&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;default-avatar.png&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/419011328">https://zhuanlan.zhihu.com/p/419011328</a></li>
+<li><a href="https://blog.csdn.net/qq_31967569/article/details/118146056?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_aa&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4">https://blog.csdn.net/qq_31967569/article/details/118146056?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_aa&amp;spm=1001.2101.3001.4242.2&amp;utm_relevant_index=4</a></li>
+<li><a href="https://github.com/vuejs/jsx-vue2#installation">https://github.com/vuejs/jsx-vue2#installation</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>vue</tag>
+        <tag>JSX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/02/14/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>win10环境下docker的安装与在docker安装Jenkins</title>
     <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
     <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
@@ -2392,34 +2410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>每日行程记录</title>
-    <url>/2022/03/14/%E6%AF%8F%E6%97%A5%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="3-14"><a href="#3-14" class="headerlink" title="3.14"></a>3.14</h3><p>8：26 进入珠江路地铁站 1号线</p>
-<p>8：40 安德门出站</p>
-<p>8：42 171路公交 安德门地铁站上车</p>
-<p>8：46 东向花站下车</p>
-<p>8：50 进入大楼</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/02/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>操作系统考前复习</title>
     <url>/2021/02/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="操作系统考前复习"><a href="#操作系统考前复习" class="headerlink" title="操作系统考前复习"></a>操作系统考前复习</h1><h2 id="0-选择题"><a href="#0-选择题" class="headerlink" title="0. 选择题"></a>0. 选择题</h2><ol>
@@ -2809,6 +2799,105 @@
 ]]></content>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每日行程记录</title>
+    <url>/2022/03/14/%E6%AF%8F%E6%97%A5%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="3-14"><a href="#3-14" class="headerlink" title="3.14"></a>3.14</h3><p>8：26 进入珠江路地铁站 1号线</p>
+<p>8：40 安德门出站</p>
+<p>8：42 171路公交 安德门地铁站上车</p>
+<p>8：46 东向花站下车</p>
+<p>8：50 进入大楼</p>
+<p>20：10 下班</p>
+<p>20：16 94路公交 东向花站 上车 </p>
+<p>20：20 安德门站下车</p>
+<p>20：30 100路 安德门 上车</p>
+<p>20：49 珠江路北下车</p>
+<p>20：53 百家超市</p>
+<p>21：00 回</p>
+<h3 id="3-15"><a href="#3-15" class="headerlink" title="3.15"></a>3.15</h3><p>8：19 进入珠江路地铁站 1号线</p>
+<p>8：33 安德门出站</p>
+<p>8：34 113路公交 安德门地铁站上车</p>
+<p>8：40 东向花站下车</p>
+<p>8：42 进入大楼</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>浏览器相关知识</title>
+    <url>/2022/03/14/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="1-浏览器缓存"><a href="#1-浏览器缓存" class="headerlink" title="1. 浏览器缓存"></a>1. 浏览器缓存</h2><h3 id="强缓存-amp-协商缓存"><a href="#强缓存-amp-协商缓存" class="headerlink" title="强缓存&amp;协商缓存"></a>强缓存&amp;协商缓存</h3><p>强缓存：不需要发送HTTP请求</p>
+<p>协商缓存：需要发送HTTP请求</p>
+<h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>不需要发送HTTP请求。</p>
+<p>HTTP&#x2F;1.0：Expires</p>
+<p>HTTP&#x2F;1.1：Cache-Control</p>
+<h5 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h5><p>Expires即过期时间，存在于服务端返回的响应头中，告诉浏览器这个过期时间之前可以直接从缓存里面获取数据，无需再次请求。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315094320.png" alt="image-20220315094313721"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315095603.png" alt="image-20220315095603481"></p>
+<p>表示资源过期的时间。</p>
+<p>问题是服务器的时间可能和浏览器的时间不一致，那么服务器返回的这个时间可能是不准确的。</p>
+<p>在HTTP&#x2F;1.1被抛弃</p>
+<h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>与Expires的区别就是它没有采用具体的过期时间点的形式，而是采用过期时长来控制缓存。max-age</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315095014.png" alt="image-20220315095013941"></p>
+<p>可以组合非常多的指令，完成更多场景的缓存判断：</p>
+<h6 id="public"><a href="#public" class="headerlink" title="public"></a>public</h6><p>客户端和代理服务器都可以缓存。因为一个请求要经过不同的代理服务器才能到达目标服务器，所以不仅仅浏览器，中间的任何代理节点都可以缓存。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315100135.png" alt="image-20220315100135600"></p>
+<h6 id="private"><a href="#private" class="headerlink" title="private"></a>private</h6><p>只有浏览器能缓存，中间的代理服务器不能缓存。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315100614.png" alt="image-20220315100614544"></p>
+<h6 id="no-cache"><a href="#no-cache" class="headerlink" title="no-cache"></a>no-cache</h6><p>跳过当前强缓存，直接发送HTTP请求，进入协商缓存阶段。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315100858.png" alt="image-20220315100858357"></p>
+<h6 id="s-maxage"><a href="#s-maxage" class="headerlink" title="s-maxage"></a>s-maxage</h6><p>针对代理服务器的缓存时间。</p>
+<p>当Expires和Cache-Control同时存在的时候，Cache-Control会优先考虑。</p>
+<p>强缓存失效了，就会进入协商缓存。</p>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>强缓存失效之后，浏览器在请求头中携带相应的缓存tag来向服务器发送请求，由服务器根据tag来决定是否使用缓存，这就是协商缓存。</p>
+<p>缓存tag分为两种：Last-Modified和ETag</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315102212.png" alt="image-20220315102212062"></p>
+<h5 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h5><p>最后修改时间。浏览器第一次向服务器发送请求后，服务器会在响应头中加上这个字段。</p>
+<p>浏览器接收到后，如果再次请求，会在请求头中携带If-Modified-Since字段，这个字段的值也就是服务器传来的最后修改时间。</p>
+<p>服务器拿到请求头中的If-Modified-Since字段后，会和这个服务器中该资源最后修改时间对比：</p>
+<p>如果这个值小于最后修改时间，说明是时候更新了，返回新的资源，和常规的HTTP请求流程一样。</p>
+<p>否则返回304，告诉浏览器直接用缓存。</p>
+<h5 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h5><p>ETag是服务器根据当前文件的内容，给文件生成的唯一标识，只要里面的内容有改动，这个值就会变。服务器通过响应头把这个值传给浏览器。</p>
+<p>浏览器收到ETag的值，会在下次请求时，将这个值作为If-None-Match这个字段的内容，并放到请求头中，然后发给服务器。</p>
+<p>服务器接收到If-None-Match后，会跟服务器上该资源的ETag进行比对：</p>
+<p>如果两者不一样，说明要更新了。返回新的资源，和常规的HTTP请求响应的流程一样。</p>
+<p>否则返回304，告诉浏览器直接用缓存。</p>
+<h5 id="两者对比"><a href="#两者对比" class="headerlink" title="两者对比"></a>两者对比</h5><ol>
+<li>在精准度上，ETag优于Last-Modified。优于ETag是按照内容给资源上标识，因此能准确感知资源的变化。而Last-Modified就不一样了，在以下情况不能准确感知变化：<ul>
+<li>编辑了资源文件，但是文件内容没有更改，会造成缓存失效</li>
+<li>Last-Modified能够感知的时间是秒，如果文件在1秒内改变了多次，那么这时候的Last-Modified就无法体现修改。</li>
+</ul>
+</li>
+<li>在性能上，Last-Modified优于ETag，也很简单理解，Last-Modified仅仅只是记录一个时间点，而ETag需要根据具体的文件内容生成哈希值。</li>
+</ol>
+<p>如果两种方式都支持，服务器优先考虑ETag。</p>
+<h3 id="缓存位置"><a href="#缓存位置" class="headerlink" title="缓存位置"></a>缓存位置</h3><p>当强缓存命中或者协商缓存服务器返回304，直接从缓存的位置获取资源。</p>
+<p>Service Worker、Memory Cache、Disk Cache、Push Cache</p>
+<h4 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h4><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315135819.png" alt="image-20220315135819839"></p>
+<p>Service Worker借鉴了Web Worker的思路，即让JS运行在主线程之外，由于它脱离了浏览器的窗体，因此无法直接访问DOM。可以完成离线缓存、消息推送和网络代理的功能。其中离线缓存靠的是Service Worker Cache。离线缓存就是Service Worker Cache。</p>
+<p>也是PWA的重要实现机制。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220315140655.png" alt="image-20220315140655167"></p>
+<h4 id="Memory-Cache和Disk-Cache"><a href="#Memory-Cache和Disk-Cache" class="headerlink" title="Memory Cache和Disk Cache"></a>Memory Cache和Disk Cache</h4><h5 id="Memory-Cache"><a href="#Memory-Cache" class="headerlink" title="Memory Cache"></a>Memory Cache</h5><p>内存缓存，效率上最快。存活时间最短，当渲染进程结束后，内存缓存不存在了。</p>
+<h5 id="Disk-Cache"><a href="#Disk-Cache" class="headerlink" title="Disk Cache"></a>Disk Cache</h5><p>是磁盘缓存，存取效率慢，优势在存储容量和时长。</p>
+<h5 id="使用策略"><a href="#使用策略" class="headerlink" title="使用策略"></a>使用策略</h5><p>比较大的js、css放入磁盘，否则放入内存</p>
+<p>内存占用率高的时候，放入磁盘</p>
+<h4 id="Push-Cache"><a href="#Push-Cache" class="headerlink" title="Push Cache"></a>Push Cache</h4><p>推送缓存，是HTTP&#x2F;2的内容</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>首先通过Cache-Control验证强缓存是否可用</li>
+<li><ol>
+<li>如果强缓存可用直接使用</li>
+<li>否则进入协商缓存，发送HTTP请求，服务器通过请求头中的If-Modified-Since或者If-None-Match检查资源是否更新<ol>
+<li>如果资源更新返回200，和资源</li>
+<li>否则返回304告诉浏览器直接从缓存获取</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2>]]></content>
+      <tags>
+        <tag>浏览器</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
 </search>
