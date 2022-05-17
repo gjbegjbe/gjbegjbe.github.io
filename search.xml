@@ -53,6 +53,16 @@
       </tags>
   </entry>
   <entry>
+    <title>Jenkins的git配置踩坑</title>
+    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
+    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Javascript异步</title>
     <url>/2022/02/18/Javascript%E5%BC%82%E6%AD%A5/</url>
     <content><![CDATA[<h1 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h1><p>程序的运行是同步的（同步不意味着所有步骤同时运行，而是指步骤在一个控制流序列中按顺序执行）。而异步的概念则是不保证同步的概念，也就是说，一个异步过程的执行将不再与原有的序列有顺序关系。</p>
@@ -404,16 +414,6 @@
         <tag>JavaScript</tag>
         <tag>TODO</tag>
         <tag>异步</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jenkins的git配置踩坑</title>
-    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
-    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-]]></content>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -1471,48 +1471,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>win10环境下docker的安装与在docker安装Jenkins</title>
-    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
-    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
-<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
-<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
-<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
-<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
-<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
-<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
-<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
-<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于MySQL数据格式的问题</title>
-    <url>/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin<br>命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）<br>注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin</p>
-<p><img src="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210208114001864.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210208114031424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-]]></content>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue学习（二）——组件</title>
     <url>/2022/02/28/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="一、组件注册"><a href="#一、组件注册" class="headerlink" title="一、组件注册"></a>一、组件注册</h1><h2 id="1-1-组件名"><a href="#1-1-组件名" class="headerlink" title="1.1 组件名"></a>1.1 组件名</h2><p>在注册一个组件的时候，我们始终需要给它一个名字。比如在全局注册的时候我们已经看到了：</p>
@@ -2039,6 +1997,48 @@
       </tags>
   </entry>
   <entry>
+    <title>win10环境下docker的安装与在docker安装Jenkins</title>
+    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
+    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
+<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
+<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
+<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
+<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
+<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
+<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
+<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
+<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>jenkins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于MySQL数据格式的问题</title>
+    <url>/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin<br>命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）<br>注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin</p>
+<p><img src="https://img-blog.csdnimg.cn/20210208113929699.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210208114001864.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210208114031424.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端面试题整理</title>
     <url>/2022/02/17/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="面试题整理"><a href="#面试题整理" class="headerlink" title="面试题整理"></a>面试题整理</h1><h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="1-表单的基本组成部分有哪些，表单的主要用途是什么？"><a href="#1-表单的基本组成部分有哪些，表单的主要用途是什么？" class="headerlink" title="1. 表单的基本组成部分有哪些，表单的主要用途是什么？"></a>1. 表单的基本组成部分有哪些，表单的主要用途是什么？</h3><p>组成：表单标签、表单域、表单按钮</p>
@@ -2373,40 +2373,6 @@
       <tags>
         <tag>前端</tag>
         <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务端开发：section1环境搭建</title>
-    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
-<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
-<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
-<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
-<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
-<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
-<ol start="3">
-<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
-<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
-<li>首先确保MySQL版本是5.7.x</li>
-<li>在MySQL命令行中create一个database，名称随意</li>
-<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
-<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
-<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>后端</tag>
-        <tag>服务端</tag>
       </tags>
   </entry>
   <entry>
@@ -2824,6 +2790,40 @@
 ]]></content>
   </entry>
   <entry>
+    <title>服务端开发：section1环境搭建</title>
+    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
+<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
+<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
+<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
+<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
+<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
+<ol start="3">
+<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
+<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
+<li>首先确保MySQL版本是5.7.x</li>
+<li>在MySQL命令行中create一个database，名称随意</li>
+<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
+<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
+<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>后端</tag>
+        <tag>服务端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>浏览器相关知识</title>
     <url>/2022/03/14/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h2 id="1-浏览器缓存"><a href="#1-浏览器缓存" class="headerlink" title="1. 浏览器缓存"></a>1. 浏览器缓存</h2><h3 id="强缓存-amp-协商缓存"><a href="#强缓存-amp-协商缓存" class="headerlink" title="强缓存&amp;协商缓存"></a>强缓存&amp;协商缓存</h3><p>强缓存：不需要发送HTTP请求</p>
@@ -2919,7 +2919,12 @@
 <li><p>接口封装。通过localStorage暴露在全局，通过setItem和getItem进行操作，非常方便。</p>
 </li>
 </ol>
-<h4 id="操作方式"><a href="#操作方式" class="headerlink" title="操作方式"></a>操作方式</h4>]]></content>
+<h4 id="操作方式"><a href="#操作方式" class="headerlink" title="操作方式"></a>操作方式</h4><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202205171352062.png"></p>
+<p>接着进入相同的域名时就能拿到相应的值：</p>
+<p><img src="https://github.com/gjbegjbe/pics/raw/main/202205171407788.png"></p>
+<p>localStorage存储的都是字符串，如果是存储对象需要调用JSON的stringfy方法，并且用JSON.parse解析成对象。</p>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>利用localStorage的较大容量和持久特性，可以利用localStorage存储一些内容稳定的资源，比如官网的logo，存储Base64格式的图片资源。</p>
+]]></content>
       <tags>
         <tag>浏览器</tag>
         <tag>面试题</tag>
