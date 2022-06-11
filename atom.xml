@@ -6,7 +6,7 @@
   <link href="https://gjbegjbe.github.io/atom.xml" rel="self"/>
   
   <link href="https://gjbegjbe.github.io/"/>
-  <updated>2022-05-17T09:04:11.018Z</updated>
+  <updated>2022-06-11T06:47:04.732Z</updated>
   <id>https://gjbegjbe.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《TypeScript编程》阅读</title>
+    <link href="https://gjbegjbe.github.io/2022/06/11/%E3%80%8ATypeScript%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB/"/>
+    <id>https://gjbegjbe.github.io/2022/06/11/%E3%80%8ATypeScript%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB/</id>
+    <published>2022-06-11T05:26:26.000Z</published>
+    <updated>2022-06-11T06:47:04.732Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一章-导言"><a href="#第一章-导言" class="headerlink" title="第一章 导言"></a>第一章 导言</h2><p>TS具有类型安全（借助类型避免程序做无效的事情）。比如JS在对一些不同类型进行操作的时候，不会抛出异常，TS就会抛出。</p><h2 id="第二章-TypeScript概述"><a href="#第二章-TypeScript概述" class="headerlink" title="第二章 TypeScript概述"></a>第二章 TypeScript概述</h2><h3 id="2-1-编译器"><a href="#2-1-编译器" class="headerlink" title="2.1 编译器"></a>2.1 编译器</h3><ol><li><p>TS的特殊之处在于不直接编译成字节码，而是编译成JS代码。</p></li><li><p>TS编译器生成AST之后，真正运行代码之前，会对代码做类型检查。</p><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-11-13-59-16-image.png"></p><p>1-3步由TSC操作，4-6步由浏览器、NodeJS或者其他JS引擎的JS运行时操作。</p></li></ol><h3 id="2-2-类型系统"><a href="#2-2-类型系统" class="headerlink" title="2.2 类型系统"></a>2.2 类型系统</h3><ol><li><p>类型系统：类型检查器为程序分配类型时使用的一系列规则。有两种：一种通过显式句法告诉编译器所有值的类型，另一种自动推导值的类型。</p></li><li><p>TS身兼两种类型系统。可以显式注解，也可以让TypeScript推导。</p></li><li><p>告诉TS类型，使用注解。value:type。</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>:<span class="built_in">number</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">b</span>:<span class="built_in">string</span> = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">c</span>:<span class="built_in">boolean</span>[] = [<span class="literal">true</span>, <span class="literal">false</span>]</span><br></pre></td></tr></table></figure></li><li><p>如果想让TS推导，就去掉注解。TS自动推导。</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">let</span> c = [<span class="literal">true</span>, <span class="literal">false</span>]</span><br></pre></td></tr></table></figure></li><li><p>TS vs. JS</p><p>类型是如何绑定的？</p><p>JS动态绑定类型，必须运行程序才能知道类型，运行前对类型一无所知。TS是渐进式类型语言，编译时知道所有类型能让TS充分发挥作用，但是在编译之前不需要知道全部类型。</p><p>是否自动转换类型？</p><p>JS是弱类型语言，如果执行无效操作，JS会根据规则判断真实意图。3+[1]结果是”31”。TS遇到这种运算会报错。</p><p>何时检查类型？</p><p>JS不在乎使用的是什么类型，会尽所能把值转换成预期类型。TS在编译时会对代码做类型检查。</p><p>何时报告错误？</p><p>JS运行时抛出异常或执行隐式类型转换，意味着必须真正运行程序才知道有些操作无效。TS编译时报告句法或者类型相关错误，会在输入代码后立即反馈。</p><p>堆栈溢出、网络断连和恶意的用户输入在编译时无法捕获。</p></li></ol><h3 id="2-3-代码编辑器设置"><a href="#2-3-代码编辑器设置" class="headerlink" title="2.3 代码编辑器设置"></a>2.3 代码编辑器设置</h3><h4 id="2-3-1-tsconfig-json"><a href="#2-3-1-tsconfig-json" class="headerlink" title="2.3.1 tsconfig.json"></a>2.3.1 tsconfig.json</h4><ol><li><p>每个TS项目应该在根目录放一个tsconfig.json文件。定义要编译哪些文件、把文件编译到哪个目录中，使用哪个版本的JS运行。</p></li><li><p>内容：</p><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-11-14-37-56-image.png"></p><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-11-14-38-17-image.png"></p></li></ol><h4 id="2-3-2-tslint-json"><a href="#2-3-2-tslint-json" class="headerlink" title="2.3.2 tslint.json"></a>2.3.2 tslint.json</h4><ol><li><p>保存TSLint配置，为代码制订风格上的约定。</p></li><li><p>内容：</p><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-11-14-41-49-image.png"></p></li></ol><h3 id="2-4-index-ts"><a href="#2-4-index-ts" class="headerlink" title="2.4 index.ts"></a>2.4 index.ts</h3><ol><li><pre><code class="typescript">console.log(&#39;Hello TypeScript!&#39;)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 2.5 练习题</span><br><span class="line"></span><br><span class="line">1. ```typescript</span><br><span class="line">   let a = 1 + 2</span><br><span class="line">   let b = 2 + 3</span><br><span class="line">   let c = &#123;</span><br><span class="line">       apple: a,</span><br><span class="line">       banana: b</span><br><span class="line">   &#125;</span><br><span class="line">   let d = c.apple * 4</span><br></pre></td></tr></table></figure></code></pre></li><li><p>推导出d也是number类型。</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;第一章-导言&quot;&gt;&lt;a href=&quot;#第一章-导言&quot; class=&quot;headerlink&quot; title=&quot;第一章 导言&quot;&gt;&lt;/a&gt;第一章 导言&lt;/h2&gt;&lt;p&gt;TS具有类型安全（借助类型避免程序做无效的事情）。比如JS在对一些不同类型进行操作的时候，不会抛出异常，TS</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>浏览器相关知识</title>
