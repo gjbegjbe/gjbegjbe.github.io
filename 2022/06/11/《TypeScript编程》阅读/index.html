@@ -31,8 +31,11 @@
 <meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-11-14-37-56-image.png">
 <meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-11-14-38-17-image.png">
 <meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-11-14-41-49-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-13-12-51-43-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-13-15-42-44-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-13-16-00-47-image.png">
 <meta property="article:published_time" content="2022-06-11T05:26:26.000Z">
-<meta property="article:modified_time" content="2022-06-11T06:47:04.732Z">
+<meta property="article:modified_time" content="2022-06-13T08:01:41.036Z">
 <meta property="article:author" content="gjbe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-11-13-59-16-image.png">
@@ -199,10 +202,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-06-11 13:26:26 / 修改时间：14:47:04" itemprop="dateCreated datePublished" datetime="2022-06-11T13:26:26+08:00">2022-06-11</time>
+              <time title="创建时间：2022-06-11 13:26:26" itemprop="dateCreated datePublished" datetime="2022-06-11T13:26:26+08:00">2022-06-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-13 16:01:41" itemprop="dateModified" datetime="2022-06-13T16:01:41+08:00">2022-06-13</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -275,6 +284,115 @@
 </code></pre>
 </li>
 <li><p>推导出d也是number类型。</p>
+</li>
+</ol>
+<h2 id="第三章-类型全解"><a href="#第三章-类型全解" class="headerlink" title="第三章 类型全解"></a>第三章 类型全解</h2><ol>
+<li><p>类型：一系列值及可以对其执行的操作。</p>
+</li>
+<li><p>类型检查器可以通过使用的类型和具体用法判断操作是否有效。</p>
+</li>
+<li><p>类型：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-13-12-51-43-image.png"></p>
+</li>
+</ol>
+<h3 id="3-1-类型术语"><a href="#3-1-类型术语" class="headerlink" title="3.1 类型术语"></a>3.1 类型术语</h3><ol>
+<li><p>&#96;&#96;&#96;typescript<br>function squareOf(n: number) {<br>return n * n<br>}<br>squareOf(2) &#x2F;&#x2F; 求值结果为4<br>squareOf(‘z’) &#x2F;&#x2F; 报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 3.2 类型浅谈</span><br><span class="line"></span><br><span class="line">#### 3.2.1 any</span><br><span class="line"></span><br><span class="line">1. any是在不确定类型是什么的时候使用的，不要轻易使用。</span><br><span class="line"></span><br><span class="line">2. any相加可能会报错。</span><br><span class="line"></span><br><span class="line">#### 3.2.2 unknown</span><br><span class="line"></span><br><span class="line">1. 如果确实不知道一个值的类型，不要使用any，应该使用unknown。</span><br><span class="line"></span><br><span class="line">2. ```typescript</span><br><span class="line">   let a: unknown = 30 // unknown</span><br><span class="line">   let b = a === 123 // boolean</span><br><span class="line">   let c = a + 10 // 错误</span><br><span class="line">   if (typeof a === &#x27;number&#x27;) &#123;</span><br><span class="line">       let d = a + 10 // number</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>TS不会把任何值推导为unknown类型，必须显式注解。</p>
+<p>unknown类型的值可以比较。</p>
+<p>执行操作时不能假定unknown类型为某种特定类型，必须先向TS证明一个值确实是某种类型。</p>
+</li>
+</ol>
+<h4 id="3-2-3-boolean"><a href="#3-2-3-boolean" class="headerlink" title="3.2.3 boolean"></a>3.2.3 boolean</h4><ol>
+<li><p>boolean值有true和false，可以比较和否定。</p>
+</li>
+<li><p>类型字面量：仅表示一个值的类型。</p>
+</li>
+</ol>
+<h4 id="3-2-4-number"><a href="#3-2-4-number" class="headerlink" title="3.2.4 number"></a>3.2.4 number</h4><ol>
+<li><p>包括所有数字：整数、浮点数、正数、负数、Infinity、NaN等。</p>
+</li>
+<li><p>没有特殊原因，不要把值的类型显式注解为number。</p>
+</li>
+</ol>
+<h4 id="3-2-5-bigint"><a href="#3-2-5-bigint" class="headerlink" title="3.2.5 bigint"></a>3.2.5 bigint</h4><ol>
+<li><p>处理较大的整数时，不用担心舍入误差。</p>
+</li>
+<li><p>number类型最大2^53，bigint类型表示的更大。</p>
+</li>
+<li><p>声明时数字后面要加n。</p>
+</li>
+</ol>
+<h4 id="3-2-6-string"><a href="#3-2-6-string" class="headerlink" title="3.2.6 string"></a>3.2.6 string</h4><ol>
+<li>包含所有字符串以及对字符串执行的操作。</li>
+</ol>
+<h4 id="3-2-7-symbol"><a href="#3-2-7-symbol" class="headerlink" title="3.2.7 symbol"></a>3.2.7 symbol</h4><ol>
+<li><p>symbol经常用于代替对象和映射的字符串键。</p>
+</li>
+<li><p>这个符号是唯一的，不与其他符号相等。</p>
+</li>
+</ol>
+<h4 id="3-2-8-对象"><a href="#3-2-8-对象" class="headerlink" title="3.2.8 对象"></a>3.2.8 对象</h4><ol>
+<li><p>表示对象的结构。</p>
+</li>
+<li><p>结构化类型：只关心对象有哪些属性，不管属性使用什么名称（名义化类型）。</p>
+</li>
+<li><p>声明对象类型的方式，对象字面量句法。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    <span class="attr">b</span>: <span class="string">&#x27;x&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123;</span><br><span class="line">    <span class="attr">c</span>: &#123;</span><br><span class="line">        <span class="attr">d</span>: <span class="string">&#x27;f&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="built_in">number</span>&#125; = &#123;</span><br><span class="line">    <span class="attr">b</span>: <span class="number">12</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="built_in">number</span>&#125; = &#123;</span><br><span class="line">    <span class="attr">b</span>: <span class="number">12</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象字面量句法的意思是：这个对象的结构是这样的。</p>
+<p>这个对象可能是一个对象字面量，也可能是一个类：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: &#123;</span><br><span class="line">    <span class="attr">firstName</span>: <span class="built_in">string</span></span><br><span class="line">    <span class="attr">lastName</span>: <span class="built_in">string</span></span><br><span class="line">&#125; = &#123;</span><br><span class="line">    <span class="attr">firstName</span>: <span class="string">&#x27;john&#x27;</span>,</span><br><span class="line">    <span class="attr">lastName</span>: <span class="string">&#x27;barrowman&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">        <span class="keyword">public</span> firstName: <span class="built_in">string</span>,</span></span><br><span class="line"><span class="params">        <span class="keyword">public</span> lastName: <span class="built_in">string</span></span></span><br><span class="line"><span class="params">    </span>)&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">c = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;matt&#x27;</span>, <span class="string">&#x27;smith&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加额外的属性或者缺少必要的属性会报错：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="built_in">number</span>&#125;</span><br><span class="line">a = &#123;&#125; <span class="comment">// 报错</span></span><br><span class="line">a = &#123;</span><br><span class="line">    <span class="attr">b</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">c</span>: <span class="number">2</span> <span class="comment">// 报错</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>明确赋值：先声明变量再使用值初始化的情况。</p>
+</li>
+<li><p>某个属性是可选的：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: &#123;</span><br><span class="line">    <span class="attr">b</span>: <span class="built_in">number</span></span><br><span class="line">    c?: <span class="built_in">string</span></span><br><span class="line">    [<span class="attr">key</span>: <span class="built_in">number</span>]: <span class="built_in">boolean</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>a有个类型为number的属性b。</p>
+<p>a可能有个类型为string的属性c。如果有，值可以为undefined。</p>
+<p>a可以有多个数字属性，其值为布尔值。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;</span><br><span class="line">a = &#123;<span class="attr">b</span>: <span class="number">1</span>, <span class="attr">c</span>: <span class="literal">undefined</span>&#125;</span><br><span class="line">a = &#123;<span class="attr">b</span>: <span class="number">1</span>, <span class="attr">c</span>: <span class="string">&#x27;d&#x27;</span>&#125;</span><br><span class="line">a = &#123;<span class="attr">b</span>: <span class="number">1</span>, <span class="number">10</span>: <span class="literal">true</span>&#125;</span><br><span class="line">a = &#123;<span class="attr">b</span>: <span class="number">1</span>, <span class="number">10</span>: <span class="literal">true</span>, <span class="number">20</span>: <span class="literal">false</span>&#125;</span><br><span class="line">a = &#123;<span class="number">10</span>: <span class="literal">true</span>&#125; <span class="comment">// 错误，没有属性b</span></span><br><span class="line">a = &#123;<span class="attr">b</span>: <span class="number">1</span>, <span class="number">33</span>: <span class="string">&#x27;red&#x27;</span>&#125; <span class="comment">// 错误，33应该是boolean而不是string</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>索引签名：告诉TS，指定的对象可能有更多的键。在这个对象中，类型为T的键对应的值为U类型。</p>
+<p>[key: T]。键的类型（T）必须可赋值给number或string。</p>
+<p>索引签名中键的名称可以是任何词，不一定非得key：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">airplaneSeatingAssignments</span>: &#123;</span><br><span class="line">    [<span class="attr">seatNumber</span>: <span class="built_in">string</span>]: <span class="built_in">string</span></span><br><span class="line">&#125; = &#123;</span><br><span class="line">    <span class="string">&#x27;34D&#x27;</span>: <span class="string">&#x27;Boris Cherny&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;34E&#x27;</span>: <span class="string">&#x27;Bill Gates&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以用readonly修饰符把字段标记为只读：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">user</span>: &#123;</span><br><span class="line">    <span class="keyword">readonly</span> <span class="attr">firstName</span>: <span class="built_in">string</span></span><br><span class="line">&#125; = &#123;</span><br><span class="line">    <span class="attr">firstName</span>: <span class="string">&#x27;abby&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>空对象类型，{}。除了null和undefined之外的任何类型都可以赋值给空对象类型。避免使用。</p>
+</li>
+<li><p>声明Object，和声明{}作用基本一样。避免使用。</p>
+</li>
+<li><p>是否有效的对象：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-13-15-42-44-image.png"></p>
+</li>
+</ol>
+<h4 id="3-2-9-类型别名、并集和交集"><a href="#3-2-9-类型别名、并集和交集" class="headerlink" title="3.2.9 类型别名、并集和交集"></a>3.2.9 类型别名、并集和交集</h4><ol>
+<li><p>类型别名：使用变量声明（let、const、var）为值声明别名。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Age</span> = <span class="built_in">number</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Person</span> = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">    <span class="attr">age</span>: <span class="title class_">Age</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TS无法推导类型别名，因此必须显式注解：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">age</span>: <span class="title class_">Age</span> = <span class="number">55</span> <span class="comment">// 因为Age是number的别名，所以: Age也可以不写</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">driver</span>: <span class="title class_">Person</span> = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;James May&#x27;</span></span><br><span class="line">    <span class="attr">age</span>: age</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同一类型不能声明两次。</p>
+<p>类型别名采用块级作用域，内部的类型别名将遮盖外部的类型别名。</p>
+</li>
+<li><p>并集类型和交集类型：并集使用|，交集使用&amp;。</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-13-16-00-47-image.png"></p>
+<p>并集通常比交集更符合常理。</p>
 </li>
 </ol>
 
@@ -355,7 +473,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%AF%BC%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">第一章 导言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-TypeScript%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">第二章 TypeScript概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 类型系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 代码编辑器设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-tsconfig-json"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 tsconfig.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-tslint-json"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 tslint.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-index-ts"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 index.ts</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%AF%BC%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">第一章 导言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-TypeScript%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">第二章 TypeScript概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 类型系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 代码编辑器设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-tsconfig-json"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 tsconfig.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-tslint-json"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 tslint.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-index-ts"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 index.ts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B1%BB%E5%9E%8B%E5%85%A8%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">第三章 类型全解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%B1%BB%E5%9E%8B%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 类型术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-boolean"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.2.3 boolean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-4-number"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.2.4 number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-5-bigint"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.2.5 bigint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-6-string"><span class="nav-number">3.1.4.</span> <span class="nav-text">3.2.6 string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-7-symbol"><span class="nav-number">3.1.5.</span> <span class="nav-text">3.2.7 symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-8-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.1.6.</span> <span class="nav-text">3.2.8 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-9-%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E3%80%81%E5%B9%B6%E9%9B%86%E5%92%8C%E4%BA%A4%E9%9B%86"><span class="nav-number">3.1.7.</span> <span class="nav-text">3.2.9 类型别名、并集和交集</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
