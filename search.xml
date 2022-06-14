@@ -53,6 +53,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Jenkins的git配置踩坑</title>
+    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
+    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PostMan访问需要登录的接口</title>
+    <url>/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p>
+<p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p>
+<p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p>
+<p>访问成功。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>
+]]></content>
+      <tags>
+        <tag>PostMan</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Javascript异步</title>
     <url>/2022/02/18/Javascript%E5%BC%82%E6%AD%A5/</url>
     <content><![CDATA[<h1 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h1><p>程序的运行是同步的（同步不意味着所有步骤同时运行，而是指步骤在一个控制流序列中按顺序执行）。而异步的概念则是不保证同步的概念，也就是说，一个异步过程的执行将不再与原有的序列有顺序关系。</p>
@@ -407,32 +433,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Jenkins的git配置踩坑</title>
-    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
-    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-]]></content>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PostMan访问需要登录的接口</title>
-    <url>/2022/02/23/PostMan%E8%AE%BF%E9%97%AE%E9%9C%80%E8%A6%81%E7%99%BB%E5%BD%95%E7%9A%84%E6%8E%A5%E5%8F%A3/</url>
-    <content><![CDATA[<p>如果需要访问一个接口，可以使用PostMan。但是，如果该接口是需要登录的，直接通过PostMan访问会出现401.</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191645.png" alt="image-20220223191638753"></p>
-<p>在浏览器中找到该请求，找到Request Headers中的Authorization。</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191755.png" alt="image-20220223191755145"></p>
-<p>找到Authorization，切换类型为Bearer Token，在右边的Token中输入刚才Authorization的内容。</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223191850.png" alt="image-20220223191850515"></p>
-<p>访问成功。</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220223192023.png" alt="image-20220223192023675"></p>
-]]></content>
-      <tags>
-        <tag>PostMan</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue学习（三）——过渡和动画</title>
     <url>/2022/03/11/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%BF%87%E6%B8%A1%E5%92%8C%E5%8A%A8%E7%94%BB/</url>
     <content><![CDATA[<h1 id="一、进入-x2F-离开-amp-列表过渡"><a href="#一、进入-x2F-离开-amp-列表过渡" class="headerlink" title="一、进入&#x2F;离开&amp;列表过渡"></a>一、进入&#x2F;离开&amp;列表过渡</h1><h2 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h2><p>Vue 在插入、更新或者移除 DOM 时，提供多种不同方式的应用过渡效果。包括以下工具：</p>
@@ -685,6 +685,53 @@
 ]]></content>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/02/14/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>win10环境下docker的安装与在docker安装Jenkins</title>
+    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
+    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
+<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
+<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
+<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
+<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
+<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
+<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
+<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
+<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>jenkins</tag>
       </tags>
   </entry>
   <entry>
@@ -1979,53 +2026,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/02/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>win10环境下docker的安装与在docker安装Jenkins</title>
-    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
-    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
-<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
-<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
-<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
-<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
-<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
-<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
-<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
-<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于MySQL数据格式的问题</title>
     <url>/2021/02/08/%E5%85%B3%E4%BA%8EMySQL%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>说明：将已经建好的表字符集转改成 utf8mb4，排序规则改为 utf8mb4_bin<br>命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）<br>注意：排序规则不是 utf8mb4_general_ci，而是utf8mb4_bin</p>
@@ -2271,7 +2271,40 @@
 <p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-13-21-50-29-image.png"></p>
 </li>
 </ol>
-<h3 id="3-4-练习题"><a href="#3-4-练习题" class="headerlink" title="3.4 练习题"></a>3.4 练习题</h3><p>1. </p>
+<h3 id="3-4-练习题"><a href="#3-4-练习题" class="headerlink" title="3.4 练习题"></a>3.4 练习题</h3><ol>
+<li><p>下列各值，TS推导出的类型是什么？</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1042</span> <span class="comment">// number</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;apples and oranges&#x27;</span> <span class="comment">// string</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="string">&#x27;pineapples&#x27;</span> <span class="comment">// &#x27;pineapples&#x27;</span></span><br><span class="line"><span class="keyword">let</span> d = [<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">false</span>] <span class="comment">// boolean[]</span></span><br><span class="line"><span class="keyword">let</span> e = &#123;<span class="attr">type</span>: <span class="string">&#x27;ficus&#x27;</span>&#125; <span class="comment">// &#123;type: string&#125;</span></span><br><span class="line"><span class="keyword">let</span> f = [<span class="number">1</span>, <span class="literal">false</span>] <span class="comment">// (number | boolean)[]</span></span><br><span class="line"><span class="keyword">const</span> g = [<span class="number">3</span>] <span class="comment">// number[]</span></span><br><span class="line"><span class="keyword">let</span> h = <span class="literal">null</span> <span class="comment">// any 类型拓宽，详见6.1.4</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>为什么会报错？</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">i</span>: <span class="number">3</span> = <span class="number">3</span></span><br><span class="line">i = <span class="number">4</span> <span class="comment">// 类型&#x27;4&#x27;不能赋值给类型&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> j = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">j.<span class="title function_">push</span>(<span class="number">4</span>)</span><br><span class="line">j.<span class="title function_">push</span>(<span class="string">&#x27;5&#x27;</span>) <span class="comment">// &#x27;5&#x27;不能加入number[]类型的数组中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">k</span>: <span class="built_in">never</span> = <span class="number">4</span> <span class="comment">// 4不能赋值给类型&#x27;never&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">l</span>: unknown = <span class="number">4</span></span><br><span class="line"><span class="keyword">let</span> m = l * <span class="number">2</span> <span class="comment">// unknown类型不能和具体类型做运算</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="第四章-函数"><a href="#第四章-函数" class="headerlink" title="第四章 函数"></a>第四章 函数</h2><h3 id="4-1-声明和调用函数"><a href="#4-1-声明和调用函数" class="headerlink" title="4.1 声明和调用函数"></a>4.1 声明和调用函数</h3><ol>
+<li><p>在JS中，函数是一等对象，可以像对象那样使用函数，TS延续了这一传统：可以赋值给变量；可以作为参数传递给其他函数；可以作为函数的返回值；可以赋值给对象和原型；可以赋予属性；可以读取属性。</p>
+</li>
+<li><p>通常会显式注解函数的参数。因为TS多数情况下不能推导出参数的类型。返回类型能推导出来，也可以显式注解。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面使用的是具名函数句法，JS和TS还支持五种声明函数的方式：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 具名函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello&#x27;</span> + name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数表达式</span></span><br><span class="line"><span class="keyword">let</span> greet2 = <span class="keyword">function</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello &#x27;</span> + name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 箭头函数表达式</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">greet3</span> = (<span class="params">name: <span class="built_in">string</span></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello &#x27;</span> + name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 箭头函数表达式简写形式</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">greet4</span> = (<span class="params">name: <span class="built_in">string</span></span>) =&gt;</span><br><span class="line">    <span class="string">&#x27;hello &#x27;</span> + name</span><br><span class="line"><span class="comment">// 函数构造方法</span></span><br><span class="line"><span class="keyword">let</span> greet5 = <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;return &quot;hello &quot; + name&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>遵守的注解规则也一样：注解参数的类型，返回类型不必须注解。</p>
+</li>
+<li><p>形参：声明函数时指定的运行函数所需的数据。</p>
+<p>实参：调用函数时传给函数的数据。</p>
+</li>
+<li><p>调用函数时，无需提供任何额外信息，直接传入实参，TS将会检查是否与函数形参类型兼容。如果忘记传入某个参数，或者传入的参数类型有误，TS将指出问题。</p>
+</li>
+</ol>
+<h4 id="4-1-1-可选和默认的参数"><a href="#4-1-1-可选和默认的参数" class="headerlink" title="4.1.1 可选和默认的参数"></a>4.1.1 可选和默认的参数</h4><ol>
+<li><p>可以使用?把参数标记为可选的。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">message: <span class="built_in">string</span>, userId?: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleTimeString</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(time, message, userId || <span class="string">&#x27;Not signed in&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Page loaded&#x27;</span>)</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;User signed in&#x27;</span>, <span class="string">&#x27;da763be&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以为可选参数提供默认值，调用时无需传入参数的值。区别是带默认值的参数不要求放在参数列表的末尾，可选参数必须放在末尾。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">message: <span class="built_in">string</span>, userId = <span class="string">&#x27;Not signed in&#x27;</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleTimeString</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(time, message, userId)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;User clicked on a button&#x27;</span>, <span class="string">&#x27;da763be&#x27;</span>)</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;User signed out&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>TS足够智能，能够根据默认值推导出参数的类型。</p>
+</li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -2610,6 +2643,28 @@
         <tag>前端</tag>
         <tag>面试</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>每日行程记录</title>
+    <url>/2022/03/14/%E6%AF%8F%E6%97%A5%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="3-14"><a href="#3-14" class="headerlink" title="3.14"></a>3.14</h3><p>8：26 进入珠江路地铁站 1号线</p>
+<p>8：40 安德门出站</p>
+<p>8：42 171路公交 安德门地铁站上车</p>
+<p>8：46 东向花站下车</p>
+<p>8：50 进入大楼</p>
+<p>20：10 下班</p>
+<p>20：16 94路公交 东向花站 上车 </p>
+<p>20：20 安德门站下车</p>
+<p>20：30 100路 安德门 上车</p>
+<p>20：49 珠江路北下车</p>
+<p>20：53 百家超市</p>
+<p>21：00 回</p>
+<h3 id="3-15"><a href="#3-15" class="headerlink" title="3.15"></a>3.15</h3><p>8：19 进入珠江路地铁站 1号线</p>
+<p>8：33 安德门出站</p>
+<p>8：34 113路公交 安德门地铁站上车</p>
+<p>8：40 东向花站下车</p>
+<p>8：42 进入大楼</p>
+]]></content>
   </entry>
   <entry>
     <title>服务端开发：section1环境搭建</title>
@@ -3036,28 +3091,6 @@
       <tags>
         <tag>操作系统</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>每日行程记录</title>
-    <url>/2022/03/14/%E6%AF%8F%E6%97%A5%E8%A1%8C%E7%A8%8B%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="3-14"><a href="#3-14" class="headerlink" title="3.14"></a>3.14</h3><p>8：26 进入珠江路地铁站 1号线</p>
-<p>8：40 安德门出站</p>
-<p>8：42 171路公交 安德门地铁站上车</p>
-<p>8：46 东向花站下车</p>
-<p>8：50 进入大楼</p>
-<p>20：10 下班</p>
-<p>20：16 94路公交 东向花站 上车 </p>
-<p>20：20 安德门站下车</p>
-<p>20：30 100路 安德门 上车</p>
-<p>20：49 珠江路北下车</p>
-<p>20：53 百家超市</p>
-<p>21：00 回</p>
-<h3 id="3-15"><a href="#3-15" class="headerlink" title="3.15"></a>3.15</h3><p>8：19 进入珠江路地铁站 1号线</p>
-<p>8：33 安德门出站</p>
-<p>8：34 113路公交 安德门地铁站上车</p>
-<p>8：40 东向花站下车</p>
-<p>8：42 进入大楼</p>
-]]></content>
   </entry>
   <entry>
     <title>浏览器相关知识</title>
