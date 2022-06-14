@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-14 15:12:43" itemprop="dateModified" datetime="2022-06-14T15:12:43+08:00">2022-06-14</time>
+                <time title="修改时间：2022-06-14 17:00:10" itemprop="dateModified" datetime="2022-06-14T17:00:10+08:00">2022-06-14</time>
               </span>
 
           
@@ -474,6 +474,21 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">message: <span class="built_in">string</span>, userId = <span class="string">&#x27;Not signed in&#x27;</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleTimeString</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(time, message, userId)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;User clicked on a button&#x27;</span>, <span class="string">&#x27;da763be&#x27;</span>)</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;User signed out&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>TS足够智能，能够根据默认值推导出参数的类型。</p>
+</li>
+<li><p>如果愿意也可以显式注解默认参数的类型，像没有默认值的参数一样：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Context</span> = &#123;</span><br><span class="line">    appId?: <span class="built_in">string</span></span><br><span class="line">    userId?: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">message: <span class="built_in">string</span>, context: Context = &#123;&#125;</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toISOString</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(time, message, context.<span class="property">userId</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="4-1-2-剩余参数"><a href="#4-1-2-剩余参数" class="headerlink" title="4.1.2 剩余参数"></a>4.1.2 剩余参数</h4><ol>
+<li><p>如果一个函数接受一组参数，简单起见，可以通过一个数组传入这些参数。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">numbers: <span class="built_in">number</span>[]</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> numbers.<span class="title function_">reduce</span>(<span class="function">(<span class="params">total, n</span>) =&gt;</span> total + n, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) <span class="comment">// 结果为6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可变参数函数，即参数数量不定，而不是让参数数量固定。以前通过JS的arguments对象实现。</p>
+<p>JS在运行时自动在函数内定义该对象，并把传给函数的参数列表赋予该对象。但是使用arguments的时候问题是不安全。</p>
+</li>
+<li><p>为了确保函数可以安全接受任意个参数，应该使用剩余参数。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sumVariadicSafe</span>(<span class="params">...numbers: <span class="built_in">number</span>[]</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> numbers.<span class="title function_">reduce</span>(<span class="function">(<span class="params">total, n</span>) =&gt;</span> total + n, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sumVariadicSafe</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="comment">// 求值结果为6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个函数最多只能有一个剩余参数，而且必须位于参数列表的最后。</p>
 </li>
 </ol>
 
