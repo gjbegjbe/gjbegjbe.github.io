@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-15 16:17:13" itemprop="dateModified" datetime="2022-06-15T16:17:13+08:00">2022-06-15</time>
+                <time title="修改时间：2022-06-16 16:28:43" itemprop="dateModified" datetime="2022-06-16T16:28:43+08:00">2022-06-16</time>
               </span>
 
           
@@ -555,6 +555,27 @@
 </li>
 <li><p>还可以使用JS内置的常用集合类型（Array、Map、Set、String）。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用for-of迭代一个迭代器</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> a <span class="keyword">of</span> numbers) &#123;</span><br><span class="line">    <span class="comment">// 1, 2, 3, etc.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 展开一个迭代器</span></span><br><span class="line"><span class="keyword">let</span> allNumbers = [...numbers] <span class="comment">// number[]</span></span><br><span class="line"><span class="comment">// 析构一个迭代器</span></span><br><span class="line"><span class="keyword">let</span> [one, two, ...rest] = <span class="built_in">number</span> <span class="comment">// [number, number, number[]]</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-1-7-调用签名"><a href="#4-1-7-调用签名" class="headerlink" title="4.1.7 调用签名"></a>4.1.7 调用签名</h3><ol>
+<li><p>函数自身的类型的Function，也可以表示所有函数，但是并不能体现函数的具体类型。</p>
+</li>
+<li><pre><code class="typescript">(a: number, b: number) =&gt; number
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">表示如下函数的类型：</span><br><span class="line"></span><br><span class="line">```typescript</span><br><span class="line">function sum(a: number, b: number): number &#123;</span><br><span class="line">    return a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>函数的调用签名只包含类型层面的代码，即只有类型，没有值。因此，函数的调用签名可以表示参数的类型、this的类型、返回值的类型、剩余参数的类型和可选参数的类型，但是无法表示默认值。</p>
+</li>
+<li><p>调用签名没有函数的定义体，无法推导出返回类型，所以必须显式注解。</p>
+</li>
+<li><p>函数的调用签名和具体实现十分相似。</p>
+</li>
+<li><p>使用签名重写函数Log：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-16-16-25-32-image.png"></p>
+<p>声明一个函数表达式Log，显式注解其类型为Log。</p>
+<p>不必再次注解参数的类型，因为在定义Log类型时已经注解了message的类型为string。这里不用再次注解，TS能从Log中推导出来。</p>
+<p>为userId设置一个默认值。userId的类型可以从Log的签名中获取，但是默认值却不得而知，因为Log是类型，不包含值。</p>
+<p>无需再次注解返回类型，因为在Log类型中已经声明为void。</p>
+</li>
 </ol>
 
       
