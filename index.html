@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-16 16:28:43" itemprop="dateModified" datetime="2022-06-16T16:28:43+08:00">2022-06-16</time>
+                <time title="修改时间：2022-06-17 21:40:26" itemprop="dateModified" datetime="2022-06-17T21:40:26+08:00">2022-06-17</time>
               </span>
 
           
@@ -577,7 +577,20 @@
 <p>无需再次注解返回类型，因为在Log类型中已经声明为void。</p>
 </li>
 </ol>
+<h3 id="4-1-8-上下文类型推导"><a href="#4-1-8-上下文类型推导" class="headerlink" title="4.1.8 上下文类型推导"></a>4.1.8 上下文类型推导</h3><ol>
+<li><p>上面的函数因为已经把log的类型声明为Log，所以TS能从上下文中推导出message的类型为string。这是TS类型推导的一个强大特性，称为上下文类型推导。</p>
+</li>
+<li><p>使用上下文类型推导的情形：回调函数。</p>
+<p>函数times，调用n次回调f，每次把当前索引传给f：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">times</span>(<span class="params"></span></span><br><span class="line"><span class="params">    f: (index: <span class="built_in">number</span>) =&gt; <span class="built_in">void</span>,</span></span><br><span class="line"><span class="params">    n: <span class="built_in">number</span></span></span><br><span class="line"><span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="title function_">f</span>(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>调用times时，传给times的函数如果是在行内声明的，无需显式注解函数的类型：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">times</span>(<span class="function"><span class="params">n</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(n), <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果f不是在行内声明的，TS则无法推导出它的类型：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">times</span>(f, <span class="number">4</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-1-9-函数类型重载"><a href="#4-1-9-函数类型重载" class="headerlink" title="4.1.9 函数类型重载"></a>4.1.9 函数类型重载</h3>
       
     </div>
 
