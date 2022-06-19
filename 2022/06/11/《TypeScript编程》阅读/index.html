@@ -38,8 +38,12 @@
 <meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-13-20-30-27-image.png">
 <meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-13-21-50-29-image.png">
 <meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-16-16-25-32-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-19-14-51-37-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-19-15-14-19-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-19-15-29-34-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-19-16-10-34-image.png">
 <meta property="article:published_time" content="2022-06-11T05:26:26.000Z">
-<meta property="article:modified_time" content="2022-06-17T13:40:26.277Z">
+<meta property="article:modified_time" content="2022-06-19T08:29:21.340Z">
 <meta property="article:author" content="gjbe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-06-11-13-59-16-image.png">
@@ -214,7 +218,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-17 21:40:26" itemprop="dateModified" datetime="2022-06-17T21:40:26+08:00">2022-06-17</time>
+                <time title="修改时间：2022-06-19 16:29:21" itemprop="dateModified" datetime="2022-06-19T16:29:21+08:00">2022-06-19</time>
               </span>
 
           
@@ -491,7 +495,7 @@
 <li><p>调用函数时，无需提供任何额外信息，直接传入实参，TS将会检查是否与函数形参类型兼容。如果忘记传入某个参数，或者传入的参数类型有误，TS将指出问题。</p>
 </li>
 </ol>
-<h4 id="4-1-1-可选和默认的参数"><a href="#4-1-1-可选和默认的参数" class="headerlink" title="4.1.1 可选和默认的参数"></a>4.1.1 可选和默认的参数</h4><ol>
+<h2 id="第四章-函数"><a href="#第四章-函数" class="headerlink" title="第四章 函数"></a>第四章 函数</h2><h3 id="4-1-声明和调用函数"><a href="#4-1-声明和调用函数" class="headerlink" title="4.1 声明和调用函数"></a>4.1 声明和调用函数</h3><h4 id="4-1-1-可选和默认的参数"><a href="#4-1-1-可选和默认的参数" class="headerlink" title="4.1.1 可选和默认的参数"></a>4.1.1 可选和默认的参数</h4><ol>
 <li><p>可以使用?把参数标记为可选的。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">log</span>(<span class="params">message: <span class="built_in">string</span>, userId?: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleTimeString</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(time, message, userId || <span class="string">&#x27;Not signed in&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;Page loaded&#x27;</span>)</span><br><span class="line"><span class="title function_">log</span>(<span class="string">&#x27;User signed in&#x27;</span>, <span class="string">&#x27;da763be&#x27;</span>)</span><br></pre></td></tr></table></figure>
 </li>
@@ -516,7 +520,7 @@
 <li><p>一个函数最多只能有一个剩余参数，而且必须位于参数列表的最后。</p>
 </li>
 </ol>
-<h3 id="4-1-3-call、apply和bind"><a href="#4-1-3-call、apply和bind" class="headerlink" title="4.1.3 call、apply和bind"></a>4.1.3 call、apply和bind</h3><ol>
+<h4 id="4-1-3-call、apply和bind"><a href="#4-1-3-call、apply和bind" class="headerlink" title="4.1.3 call、apply和bind"></a>4.1.3 call、apply和bind</h4><ol>
 <li><p>调用函数还可以用call、apply和bind方法。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 求值结果均为30</span></span><br><span class="line"><span class="title function_">add</span>(<span class="number">10</span>,<span class="number">20</span>)</span><br><span class="line">add.<span class="title function_">apply</span>(<span class="literal">null</span>, [<span class="number">10</span>, <span class="number">20</span>])</span><br><span class="line">add.<span class="title function_">call</span>(<span class="literal">null</span>, <span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line">add.<span class="title function_">bind</span>(<span class="literal">null</span>, <span class="number">10</span>, <span class="number">20</span>)()</span><br></pre></td></tr></table></figure>
 </li>
@@ -527,7 +531,7 @@
 <li><p>bind()差不多，也是为函数的this和参数绑定值。但是bind不调用函数，而是返回一个新函数，通过()、.call、.apply调用，可以再传入参数，绑定到尚未绑定值的参数上。</p>
 </li>
 </ol>
-<h3 id="4-1-4-注解this的类型"><a href="#4-1-4-注解this的类型" class="headerlink" title="4.1.4 注解this的类型"></a>4.1.4 注解this的类型</h3><ol>
+<h4 id="4-1-4-注解this的类型"><a href="#4-1-4-注解this的类型" class="headerlink" title="4.1.4 注解this的类型"></a>4.1.4 注解this的类型</h4><ol>
 <li><p>JS中的每个函数都有this变量，而不局限于类中的方法。以不同的方式调用函数，this的值也不同，这极易导致代码脆弱、难以理解。</p>
 </li>
 <li><p>一般来说，this的值为调用方法时位于点号左侧的对象。</p>
@@ -545,7 +549,7 @@
 <li><p>在TS中，如果函数使用this，需要在函数的第一个参数中声明this的类型。this不是常规的参数，是保留字，是函数签名的一部分：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fancyDate</span>(<span class="params"><span class="variable language_">this</span>: <span class="built_in">Date</span></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> $&#123;<span class="variable language_">this</span>.<span class="title function_">getDate</span>()&#125;/$&#123;<span class="variable language_">this</span>.<span class="title function_">getMonth</span>()&#125;/$&#123;<span class="variable language_">this</span>.<span class="title function_">getFullYear</span>()&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="4-1-5-生成器函数"><a href="#4-1-5-生成器函数" class="headerlink" title="4.1.5 生成器函数"></a>4.1.5 生成器函数</h3><ol>
+<h4 id="4-1-5-生成器函数"><a href="#4-1-5-生成器函数" class="headerlink" title="4.1.5 生成器函数"></a>4.1.5 生成器函数</h4><ol>
 <li><p>生成器函数：简称生成器，是生成一系列值的便利方式。生成器的使用方可以精确控制生成什么值。生成器是惰性的，只有使用方要求时才会计算下一个值，可以利用生成器实现一些其他方式难以实现的操作，例如生成无穷列表。</p>
 </li>
 <li><p>用法：</p>
@@ -561,7 +565,7 @@
 <li><p>也可以显式注解生成器，把产出值的类型放在IterableIterator中：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span>* <span class="title function_">createNumbers</span>(): <span class="title class_">IterableIterator</span>&lt;<span class="built_in">number</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">yield</span> n++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> numbers = <span class="title function_">createNumbers</span>()</span><br><span class="line">numbers.<span class="title function_">next</span>()</span><br><span class="line">numbers.<span class="title function_">next</span>()</span><br><span class="line">numbers.<span class="title function_">next</span>()</span><br><span class="line"><span class="comment">// 求值结果依次</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="4-1-6-迭代器"><a href="#4-1-6-迭代器" class="headerlink" title="4.1.6 迭代器"></a>4.1.6 迭代器</h3><ol>
+<h4 id="4-1-6-迭代器"><a href="#4-1-6-迭代器" class="headerlink" title="4.1.6 迭代器"></a>4.1.6 迭代器</h4><ol>
 <li><p>迭代器是生成器的相对面：生成器是生成一系列值的方式，迭代器是使用这些值的方式。</p>
 </li>
 <li><p>可迭代的对象：有Symbol.iterator属性的对象，而且该属性的值为一个函数，返回一个迭代器。</p>
@@ -579,7 +583,7 @@
 <li><p>还可以使用JS内置的常用集合类型（Array、Map、Set、String）。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用for-of迭代一个迭代器</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> a <span class="keyword">of</span> numbers) &#123;</span><br><span class="line">    <span class="comment">// 1, 2, 3, etc.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 展开一个迭代器</span></span><br><span class="line"><span class="keyword">let</span> allNumbers = [...numbers] <span class="comment">// number[]</span></span><br><span class="line"><span class="comment">// 析构一个迭代器</span></span><br><span class="line"><span class="keyword">let</span> [one, two, ...rest] = <span class="built_in">number</span> <span class="comment">// [number, number, number[]]</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="4-1-7-调用签名"><a href="#4-1-7-调用签名" class="headerlink" title="4.1.7 调用签名"></a>4.1.7 调用签名</h3><ol>
+<h4 id="4-1-7-调用签名"><a href="#4-1-7-调用签名" class="headerlink" title="4.1.7 调用签名"></a>4.1.7 调用签名</h4><ol>
 <li><p>函数自身的类型的Function，也可以表示所有函数，但是并不能体现函数的具体类型。</p>
 </li>
 <li><pre><code class="typescript">(a: number, b: number) =&gt; number
@@ -600,7 +604,7 @@
 <p>无需再次注解返回类型，因为在Log类型中已经声明为void。</p>
 </li>
 </ol>
-<h3 id="4-1-8-上下文类型推导"><a href="#4-1-8-上下文类型推导" class="headerlink" title="4.1.8 上下文类型推导"></a>4.1.8 上下文类型推导</h3><ol>
+<h4 id="4-1-8-上下文类型推导"><a href="#4-1-8-上下文类型推导" class="headerlink" title="4.1.8 上下文类型推导"></a>4.1.8 上下文类型推导</h4><ol>
 <li><p>上面的函数因为已经把log的类型声明为Log，所以TS能从上下文中推导出message的类型为string。这是TS类型推导的一个强大特性，称为上下文类型推导。</p>
 </li>
 <li><p>使用上下文类型推导的情形：回调函数。</p>
@@ -613,7 +617,112 @@
 <li><p>如果f不是在行内声明的，TS则无法推导出它的类型：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">f</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(n)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">times</span>(f, <span class="number">4</span>)</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="4-1-9-函数类型重载"><a href="#4-1-9-函数类型重载" class="headerlink" title="4.1.9 函数类型重载"></a>4.1.9 函数类型重载</h3>
+<h4 id="4-1-9-函数类型重载"><a href="#4-1-9-函数类型重载" class="headerlink" title="4.1.9 函数类型重载"></a>4.1.9 函数类型重载</h4><ol>
+<li><p>前一节的type Fn &#x3D; (…) &#x3D;&gt; …，其实是简写型调用签名，完整形式，以Log为例：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简写型</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Log</span> = <span class="function">(<span class="params">message: <span class="built_in">string</span>, userId?: <span class="built_in">string</span></span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line"><span class="comment">// 完整型调用签名</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Log</span> = &#123;</span><br><span class="line">    (<span class="attr">message</span>: <span class="built_in">string</span>, userId?: <span class="built_in">string</span>): <span class="built_in">void</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两种写法完全等效，只是使用的句法不同。</p>
+</li>
+<li><p>更复杂的函数，使用完整的签名更有好处。</p>
+</li>
+<li><p>重载函数：有多个调用签名的函数。</p>
+</li>
+<li><p>JS是一门动态语言，需要以多种方式调用一个函数的方法。有时输出类型取决于输入的参数类型。</p>
+</li>
+<li><p>TS也支持动态重载函数声明，而且函数的输出类型取决于输入类型，都得益于TS的静态类型系统。</p>
+</li>
+<li><p>reserve函数：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Reserve</span> = &#123;</span><br><span class="line">    (<span class="attr">from</span>: <span class="title class_">Date</span>, <span class="attr">to</span>: <span class="title class_">Date</span>, <span class="attr">destination</span>: <span class="built_in">string</span>): <span class="title class_">Reservation</span></span><br><span class="line">    (<span class="attr">from</span>: <span class="title class_">Date</span>, <span class="attr">destination</span>: <span class="built_in">string</span>): <span class="title class_">Reservation</span></span><br><span class="line">&#125; <span class="comment">// 声明两个重载的函数签名</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">reserve</span>: <span class="title class_">Reserve</span> = <span class="function">(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="keyword">from</span>: <span class="built_in">Date</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    toOrDestination: <span class="built_in">Date</span> | <span class="built_in">string</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    destination?: <span class="built_in">string</span></span></span></span><br><span class="line"><span class="params"><span class="function"></span>) =&gt;</span> &#123; <span class="comment">// 自己动手组合两个签名</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类型声明中没有组合后的签名。</p>
+<p>实现reserve时要向TS证明检查过了调用方式：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">reserve</span>: <span class="title class_">Reserve</span> = <span class="function">(<span class="params"></span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="keyword">from</span>: <span class="built_in">Date</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    toOrDestination: <span class="built_in">Date</span> | <span class="built_in">string</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    destination?: <span class="built_in">string</span></span></span></span><br><span class="line"><span class="params"><span class="function"></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (toOrDestination <span class="keyword">instanceof</span> <span class="title class_">Date</span> &amp;&amp; destination !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="comment">// 预定单程旅行</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> toOrDestination === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 预定往返旅行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器的DOM API中有大量重载，比如createElement用于新建HTML元素。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">CreateElement</span> = &#123;</span><br><span class="line">    (<span class="attr">tag</span>: <span class="string">&#x27;a&#x27;</span>): <span class="title class_">HTMLAnchorElement</span></span><br><span class="line">    (<span class="attr">tag</span>: <span class="string">&#x27;canvas&#x27;</span>): <span class="title class_">HTMLCanvasElement</span></span><br><span class="line">    (<span class="attr">tag</span>: <span class="string">&#x27;table&#x27;</span>): <span class="title class_">HTMLTableElement</span></span><br><span class="line">    (<span class="attr">tag</span>: <span class="built_in">string</span>): <span class="title class_">HTMLElement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">createElement</span>: <span class="title class_">CreateElement</span> = (<span class="attr">tag</span>: <span class="built_in">string</span>):<span class="function"><span class="params">HTMLElement</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-2-多态"><a href="#4-2-多态" class="headerlink" title="4.2 多态"></a>4.2 多态</h3><ol>
+<li><p>使用具体类型的前提是明确知道需要什么类型，并且确认传入的确实是那个类型。但是，有时事先并不知道需要什么类型，不想限制函数只能接受某个类型。</p>
+</li>
+<li><p>比如实现一个filter函数。在尝试访问对象数组中某个对象属性时，TS抛出错误，毕竟没有指明对象具体结构。</p>
+</li>
+<li><p>泛型参数：在类型层面施加约束的占位类型，也称多态类型参数。</p>
+</li>
+<li><p>T就像一个占位类型，根据上下文填充具体的类型。T把Filter的类型参数化了，因此才称其为泛型参数。</p>
+</li>
+<li><p>泛型参数使用尖括号&lt;&gt;声明，尖括号的位置限定泛型的作用域。</p>
+</li>
+<li><p>TS将在调用filter函数时为泛型T绑定具体类型。为T绑定哪一个具体类型，取决于调用filter函数时传入的参数。</p>
+</li>
+<li><p>比如filter函数，每次调用都要重新绑定T：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-19-14-51-37-image.png"></p>
+</li>
+<li><p>泛型T把T所在位置的类型约束为T绑定的类型。</p>
+</li>
+</ol>
+<h4 id="4-2-1-什么时候绑定泛型"><a href="#4-2-1-什么时候绑定泛型" class="headerlink" title="4.2.1 什么时候绑定泛型"></a>4.2.1 什么时候绑定泛型</h4><ol>
+<li><p>声明泛型的位置不仅限定泛型的作用域，还决定TS什么时候为泛型绑定具体的类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Filter</span> = &#123;</span><br><span class="line">    &lt;T&gt;(<span class="attr">array</span>: T[], <span class="attr">f</span>: <span class="function">(<span class="params">item: T</span>) =&gt;</span> <span class="built_in">boolean</span>): T[]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">filter</span>: <span class="title class_">Filter</span> = <span class="function">(<span class="params">array, f</span>) =&gt;</span></span><br><span class="line">    <span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TS在使用泛型时为泛型绑定具体类型：对函数来说，调用函数时；对类来说，在实例化类时；对类型别名和接口来说，在使用别名和实现接口时。</p>
+</li>
+</ol>
+<h4 id="4-2-2-可以在什么地方声明泛型"><a href="#4-2-2-可以在什么地方声明泛型" class="headerlink" title="4.2.2 可以在什么地方声明泛型"></a>4.2.2 可以在什么地方声明泛型</h4><ol>
+<li><p>只要是TS支持的调用签名的方式，都有办法在签名中加入泛型：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-19-15-14-19-image.png"></p>
+<p>1：一个完整的调用签名，T的作用域在单个签名中。鉴于此，TS将在调用filter类型的函数时为签名中的T绑定具体类型。每次调用filter将为T绑定独立的类型。</p>
+<p>2：一个完整的调用签名，T的作用域涵盖全部签名。由于T是filter类型的一部分（而不属于某个具体的签名），因此TypeScript将在声明filter类型时绑定T。</p>
+<p>3：与1类似，不过声明的不是完整调用签名，而是简写形式。</p>
+<p>4：与2类似，不过声明的不是完整调用签名，而是简写形式。</p>
+<p>5：一个具名函数调用签名，T的作用域在签名中。TS将在调用filter时为T绑定具体类型，而且每次调用filter时将为T绑定独立的类型。</p>
+</li>
+<li><p>map函数：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-19-15-29-34-image.png"></p>
+<p>需要两个泛型：表示输入数组中元素类型的T，表述输出数组中元素类型的U。</p>
+</li>
+</ol>
+<h4 id="4-2-3-泛型推导"><a href="#4-2-3-泛型推导" class="headerlink" title="4.2.3 泛型推导"></a>4.2.3 泛型推导</h4><ol>
+<li><p>也可以显式注解泛型。显式注解泛型时，要么必须所有的泛型都注解，要么都不注解。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map &lt;<span class="built_in">string</span>, <span class="built_in">boolean</span>&gt;(</span><br><span class="line">    [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>],</span><br><span class="line">    <span class="function"><span class="params">_</span> =&gt;</span> _ === <span class="string">&#x27;a&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TS将检查推导出来的每个泛型是否可赋值给显式绑定的泛型，如果不可赋值，将报错：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map&lt;<span class="built_in">string</span>, <span class="built_in">number</span>&gt;(</span><br><span class="line">    [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>],</span><br><span class="line">    <span class="function"><span class="params">_</span> =&gt;</span> _ === <span class="string">&#x27;a&#x27;</span> <span class="comment">// 报错</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="4-2-4-泛型别名"><a href="#4-2-4-泛型别名" class="headerlink" title="4.2.4 泛型别名"></a>4.2.4 泛型别名</h4><ol>
+<li><p>定义一个MyEvent类型，描述DOM事件，例如click或mousedown：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">MyEvent</span>&lt;T&gt; = &#123;</span><br><span class="line">    <span class="attr">target</span>: T</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在类型别名中只有这一个地方可以声明泛型，即紧随类型别名的名称之后、赋值运算符（&#x3D;）之前。</p>
+</li>
+<li><p>泛型别名也可以在函数的签名中使用。</p>
+</li>
+</ol>
+<h4 id="4-2-5-受限的多态"><a href="#4-2-5-受限的多态" class="headerlink" title="4.2.5 受限的多态"></a>4.2.5 受限的多态</h4><ol>
+<li><p>想表达类型U至少应为T，即为U设一个上限。</p>
+</li>
+<li><p>约束：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-06-19-16-10-34-image.png"></p>
+<p>T的上限为TreeNode，即T可以是TreeNode，也可以是TreeNode的子类型。</p>
+</li>
+<li><p>需要多个类型约束，扩展多个约束的交集&amp;。</p>
+</li>
+<li><p>使用受限的多态模拟变长参数。</p>
+</li>
+</ol>
+<h4 id="4-2-6-泛型默认类型"><a href="#4-2-6-泛型默认类型" class="headerlink" title="4.2.6 泛型默认类型"></a>4.2.6 泛型默认类型</h4><ol>
+<li><p>可以为MyEvent的泛型参数指定一个默认类型：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">MyEvent</span>&lt;T = <span class="title class_">HTMLElement</span>&gt; = &#123;</span><br><span class="line">    <span class="attr">target</span>: T</span><br><span class="line">    <span class="attr">type</span>: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>与函数的可选参数一样，有默认类型的泛型要放在没有默认类型的泛型后面。</p>
+</li>
+</ol>
+<h3 id="4-3-类型驱动开发"><a href="#4-3-类型驱动开发" class="headerlink" title="4.3 类型驱动开发"></a>4.3 类型驱动开发</h3><ol>
+<li>类型驱动开发：先草拟类型签名，然后填充值的编程风格。</li>
+</ol>
+<h3 id="4-4-小结"><a href="#4-4-小结" class="headerlink" title="4.4 小结"></a>4.4 小结</h3><ol>
+<li>无</li>
+</ol>
+<h3 id="4-5-练习题"><a href="#4-5-练习题" class="headerlink" title="4.5 练习题"></a>4.5 练习题</h3>
     </div>
 
     
@@ -691,7 +800,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%AF%BC%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">第一章 导言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-TypeScript%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">第二章 TypeScript概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 类型系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 代码编辑器设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-tsconfig-json"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 tsconfig.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-tslint-json"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 tslint.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-index-ts"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 index.ts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B1%BB%E5%9E%8B%E5%85%A8%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">第三章 类型全解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%B1%BB%E5%9E%8B%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 类型术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-boolean"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.2.3 boolean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-4-number"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.2.4 number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-5-bigint"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.2.5 bigint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-6-string"><span class="nav-number">3.1.4.</span> <span class="nav-text">3.2.6 string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-7-symbol"><span class="nav-number">3.1.5.</span> <span class="nav-text">3.2.7 symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-8-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.1.6.</span> <span class="nav-text">3.2.8 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-9-%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E3%80%81%E5%B9%B6%E9%9B%86%E5%92%8C%E4%BA%A4%E9%9B%86"><span class="nav-number">3.1.7.</span> <span class="nav-text">3.2.9 类型别名、并集和交集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-10-%E6%95%B0%E7%BB%84"><span class="nav-number">3.1.8.</span> <span class="nav-text">3.2.10 数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-11-%E5%85%83%E7%BB%84"><span class="nav-number">3.1.9.</span> <span class="nav-text">3.2.11 元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-12-null%E3%80%81undefined%E3%80%81void%E5%92%8Cnever"><span class="nav-number">3.1.10.</span> <span class="nav-text">3.2.12 null、undefined、void和never</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-13-%E6%9E%9A%E4%B8%BE"><span class="nav-number">3.1.11.</span> <span class="nav-text">3.2.13 枚举</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%B0%8F%E7%BB%93"><span class="nav-number">3.2.</span> <span class="nav-text">3.3 小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">3.4 练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-%E5%8F%AF%E9%80%89%E5%92%8C%E9%BB%98%E8%AE%A4%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">3.3.1.</span> <span class="nav-text">4.1.1 可选和默认的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0"><span class="nav-number">3.3.2.</span> <span class="nav-text">4.1.2 剩余参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3-call%E3%80%81apply%E5%92%8Cbind"><span class="nav-number">3.4.</span> <span class="nav-text">4.1.3 call、apply和bind</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4-%E6%B3%A8%E8%A7%A3this%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.5.</span> <span class="nav-text">4.1.4 注解this的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-5-%E7%94%9F%E6%88%90%E5%99%A8%E5%87%BD%E6%95%B0"><span class="nav-number">3.6.</span> <span class="nav-text">4.1.5 生成器函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-6-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">3.7.</span> <span class="nav-text">4.1.6 迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-7-%E8%B0%83%E7%94%A8%E7%AD%BE%E5%90%8D"><span class="nav-number">3.8.</span> <span class="nav-text">4.1.7 调用签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-8-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC"><span class="nav-number">3.9.</span> <span class="nav-text">4.1.8 上下文类型推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-9-%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E9%87%8D%E8%BD%BD"><span class="nav-number">3.10.</span> <span class="nav-text">4.1.9 函数类型重载</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%AF%BC%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">第一章 导言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-TypeScript%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">第二章 TypeScript概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 类型系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 代码编辑器设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-1-tsconfig-json"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.3.1 tsconfig.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-2-tslint-json"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.3.2 tslint.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-index-ts"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 index.ts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%B1%BB%E5%9E%8B%E5%85%A8%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">第三章 类型全解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%B1%BB%E5%9E%8B%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 类型术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-boolean"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.2.3 boolean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-4-number"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.2.4 number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-5-bigint"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.2.5 bigint</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-6-string"><span class="nav-number">3.1.4.</span> <span class="nav-text">3.2.6 string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-7-symbol"><span class="nav-number">3.1.5.</span> <span class="nav-text">3.2.7 symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-8-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.1.6.</span> <span class="nav-text">3.2.8 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-9-%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E3%80%81%E5%B9%B6%E9%9B%86%E5%92%8C%E4%BA%A4%E9%9B%86"><span class="nav-number">3.1.7.</span> <span class="nav-text">3.2.9 类型别名、并集和交集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-10-%E6%95%B0%E7%BB%84"><span class="nav-number">3.1.8.</span> <span class="nav-text">3.2.10 数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-11-%E5%85%83%E7%BB%84"><span class="nav-number">3.1.9.</span> <span class="nav-text">3.2.11 元组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-12-null%E3%80%81undefined%E3%80%81void%E5%92%8Cnever"><span class="nav-number">3.1.10.</span> <span class="nav-text">3.2.12 null、undefined、void和never</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-13-%E6%9E%9A%E4%B8%BE"><span class="nav-number">3.1.11.</span> <span class="nav-text">3.2.13 枚举</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%B0%8F%E7%BB%93"><span class="nav-number">3.2.</span> <span class="nav-text">3.3 小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">3.4 练习题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">第四章 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%A3%B0%E6%98%8E%E5%92%8C%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 声明和调用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-%E5%8F%AF%E9%80%89%E5%92%8C%E9%BB%98%E8%AE%A4%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">4.1.1 可选和默认的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">4.1.2 剩余参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-call%E3%80%81apply%E5%92%8Cbind"><span class="nav-number">4.1.3.</span> <span class="nav-text">4.1.3 call、apply和bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-4-%E6%B3%A8%E8%A7%A3this%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.1.4.</span> <span class="nav-text">4.1.4 注解this的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-5-%E7%94%9F%E6%88%90%E5%99%A8%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.5.</span> <span class="nav-text">4.1.5 生成器函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-6-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">4.1.6.</span> <span class="nav-text">4.1.6 迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-7-%E8%B0%83%E7%94%A8%E7%AD%BE%E5%90%8D"><span class="nav-number">4.1.7.</span> <span class="nav-text">4.1.7 调用签名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-8-%E4%B8%8A%E4%B8%8B%E6%96%87%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC"><span class="nav-number">4.1.8.</span> <span class="nav-text">4.1.8 上下文类型推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-9-%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B%E9%87%8D%E8%BD%BD"><span class="nav-number">4.1.9.</span> <span class="nav-text">4.1.9 函数类型重载</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%A4%9A%E6%80%81"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 多态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%BB%91%E5%AE%9A%E6%B3%9B%E5%9E%8B"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1 什么时候绑定泛型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-%E5%8F%AF%E4%BB%A5%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%B0%E6%96%B9%E5%A3%B0%E6%98%8E%E6%B3%9B%E5%9E%8B"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2 可以在什么地方声明泛型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-%E6%B3%9B%E5%9E%8B%E6%8E%A8%E5%AF%BC"><span class="nav-number">4.2.3.</span> <span class="nav-text">4.2.3 泛型推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-%E6%B3%9B%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="nav-number">4.2.4.</span> <span class="nav-text">4.2.4 泛型别名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-5-%E5%8F%97%E9%99%90%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-number">4.2.5.</span> <span class="nav-text">4.2.5 受限的多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-6-%E6%B3%9B%E5%9E%8B%E9%BB%98%E8%AE%A4%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.2.6.</span> <span class="nav-text">4.2.6 泛型默认类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E7%B1%BB%E5%9E%8B%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 类型驱动开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E5%B0%8F%E7%BB%93"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 练习题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
