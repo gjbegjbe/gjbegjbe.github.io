@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gjbegjbe.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基于 vue3 实现的json配置的表单设计器，使用了最新的前端技术栈，内置了element-plus基础表单组件和vant基础表单组件，开箱即用 表单组件内部动态联动（内置了钩子函数控制） 各表单外部也可以监听到变化（发布订阅） 可以自定义二次封装的vue3生态的组件库动态传入直接使用  引入12345678910111213&#x2F;&#x2F; 把用到的表单组件聪对应组件库按需引入遍历use，不建议全局使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个前端表单设计器">
+<meta property="og:url" content="https://gjbegjbe.github.io/2022/07/04/%E4%B8%80%E4%B8%AA%E5%89%8D%E7%AB%AF%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1%E5%99%A8/index.html">
+<meta property="og:site_name" content="gjbe">
+<meta property="og:description" content="基于 vue3 实现的json配置的表单设计器，使用了最新的前端技术栈，内置了element-plus基础表单组件和vant基础表单组件，开箱即用 表单组件内部动态联动（内置了钩子函数控制） 各表单外部也可以监听到变化（发布订阅） 可以自定义二次封装的vue3生态的组件库动态传入直接使用  引入12345678910111213&#x2F;&#x2F; 把用到的表单组件聪对应组件库按需引入遍历use，不建议全局使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-04T09:03:49.000Z">
+<meta property="article:modified_time" content="2022-07-05T03:59:42.122Z">
+<meta property="article:author" content="gjbe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://gjbegjbe.github.io/2022/07/04/%E4%B8%80%E4%B8%AA%E5%89%8D%E7%AB%AF%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一个前端表单设计器 | gjbe</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXN04CBZXN"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MXN04CBZXN');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?49e659bd9c945277731a2e39ec566e9d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="gjbe" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">gjbe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/gjbegjbe" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2022/07/04/%E4%B8%80%E4%B8%AA%E5%89%8D%E7%AB%AF%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gjbe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjbe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个前端表单设计器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-04 17:03:49" itemprop="dateCreated datePublished" datetime="2022-07-04T17:03:49+08:00">2022-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-05 11:59:42" itemprop="dateModified" datetime="2022-07-05T11:59:42+08:00">2022-07-05</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li>基于 vue3 实现的json配置的表单设计器，使用了最新的前端技术栈，内置了element-plus基础表单组件和vant基础表单组件，开箱即用</li>
+<li>表单组件内部动态联动（内置了钩子函数控制）</li>
+<li>各表单外部也可以监听到变化（发布订阅）</li>
+<li>可以自定义二次封装的vue3生态的组件库动态传入直接使用</li>
+</ul>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把用到的表单组件聪对应组件库按需引入遍历use，不建议全局使用</span></span><br><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">// import elementPlus from &#x27;element-plus&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vant</span> <span class="keyword">from</span> <span class="string">&#x27;vant&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">FormRender</span> <span class="keyword">from</span> <span class="string">&#x27;@aegis/form-designer&#x27;</span></span><br><span class="line"><span class="comment">// import &#x27;element-plus/dist/index.css&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;vant/lib/index.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// useWitchUI切换组件库模式默认提供elementPlus和vant</span></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(router).<span class="title function_">use</span>(<span class="title function_">createPinia</span>()).<span class="title function_">use</span>(<span class="title class_">Vant</span>).<span class="title function_">use</span>(<span class="title class_">FormRender</span>, &#123; <span class="attr">useWitchUI</span>: <span class="string">&#x27;vant&#x27;</span> &#125;).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="FormDSL的ts模型"><a href="#FormDSL的ts模型" class="headerlink" title="FormDSL的ts模型"></a>FormDSL的ts模型</h2><p>FormDSL.d.ts文件</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// form表单的领域语言</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">FormDSL</span> &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="built_in">string</span> <span class="comment">// 当前节点的组件类型，配合组件库的重要字段</span></span><br><span class="line">  name?: <span class="built_in">string</span> <span class="comment">// 当前节点的名称</span></span><br><span class="line">  children?: <span class="title class_">FormDSL</span>[] <span class="comment">// 子节点</span></span><br><span class="line">  path?: (<span class="built_in">string</span> | <span class="built_in">number</span>)[] | <span class="built_in">string</span> <span class="comment">// 数据集合的存取路径</span></span><br><span class="line">  props?: &#123;</span><br><span class="line">    typeSetting?: &#123; <span class="comment">// 表单排版</span></span><br><span class="line">      rowOptions?: <span class="title class_">Partial</span>&lt;<span class="title class_">RowProps</span>&gt; <span class="comment">// 行</span></span><br><span class="line">      colOptions?: <span class="title class_">Partial</span>&lt;<span class="title class_">ColProps</span>&gt; <span class="comment">// 列</span></span><br><span class="line">    &#125;</span><br><span class="line">    formProps?: <span class="title class_">Partial</span>&lt;(<span class="title class_">FormInstance</span> &amp; <span class="title class_">FormEmitsFn</span>) | <span class="title class_">Anything</span>&gt; <span class="comment">// el-form对应的属性</span></span><br><span class="line">    formItemProps?: <span class="title class_">Partial</span>&lt;<span class="title class_">FormItemInstance</span> &amp; <span class="title class_">FormItemEmitsFn</span>&gt; <span class="comment">// el-form-item对应的属性</span></span><br><span class="line">    baseComponentProps?: <span class="title class_">Partial</span>&lt;(<span class="title class_">ElementOptions</span> | <span class="title class_">VantOptions</span> | <span class="title class_">Anything</span>) &amp; <span class="title class_">Selection</span>&gt; <span class="comment">// 基础组件的配置</span></span><br><span class="line">    [<span class="attr">key</span>: <span class="built_in">string</span>]: <span class="built_in">any</span></span><br><span class="line">  &#125; <span class="comment">// form节点的props属性集合</span></span><br><span class="line">  hooks?: &#123; <span class="comment">// 低代码钩子函数,可扩展</span></span><br><span class="line">    <span class="comment">// 初始化表单，对应关联到联动的组件重新渲染钩子</span></span><br><span class="line">    initForm?: <span class="function">(<span class="params">initalValue: Record&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;, context: Form</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line">    <span class="comment">// 表单项联动钩子</span></span><br><span class="line">    onChangeData?: <span class="function">(<span class="params">key: <span class="built_in">string</span>, value: <span class="built_in">any</span>, context: Form</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line">    [<span class="attr">key</span>: <span class="built_in">string</span>]: <span class="function">(<span class="params">...args: <span class="built_in">any</span>[]</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>必备节点：type是必填项，表明当前节点是以什么基础组件渲染，类似vnode的type。</p>
+<ol>
+<li><p>首层顶层容器节点type必须为form</p>
+</li>
+<li><p>下一级type必须为form-group</p>
+</li>
+<li><p>继续下一级可以根据自己组件库各组件名称给到type</p>
+</li>
+</ol>
+</li>
+<li><p>props是当前节点用到的所有属性，可自定义，如element-plus的props</p>
+<ol>
+<li><p>typeSetting是表单的排版，利用el-row和el-col</p>
+<ol>
+<li><p>rowOptions代表el-row的属性</p>
+</li>
+<li><p>colOptions代表el-col的属性</p>
+</li>
+</ol>
+</li>
+<li><p>formProps表示el-form上的属性传递</p>
+</li>
+<li><p>formItemProps表示el-form-item上的必要属性传递</p>
+</li>
+<li><p>baseComponentProps表示当前正在使用的组件库基础组件可接收的所有属性</p>
+<ol>
+<li><p>其中基础组件中的事件以on开头，事件名称大写或者驼峰，如onChange，onClick</p>
+</li>
+<li><p>像下拉框或者单选多选有枚举值的，可以自定义any[]数组或者编写async的异步接口获取</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>表单内的联动项需要给要联动的项外层加入type是branch分支的节点</p>
+<ol>
+<li><p>branch节点需要配置hooks钩子函数来编写你的联动项逻辑，如下图代码中所示</p>
+<ol>
+<li><p>initHook初始化页面中这个表单组件中获取的初始值渲染</p>
+</li>
+<li><p>onChangeData是联动的钩子，当某个节点改变时，自定义你的渲染逻辑</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FormDSL是整个模型的ts类型</span></span><br><span class="line"><span class="comment">// Form是领域模型层的Form表单整个模型层</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FormDSL</span>, <span class="title class_">Form</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;../../../packages/src/Form&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; button &#125; <span class="keyword">from</span> <span class="string">&#x27;../../pages/Form2/button&#x27;</span> <span class="comment">// 某个组件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 此文件是一个例子，仅举例的json数据配置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">FormModel</span>: <span class="title class_">FormDSL</span> = &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;form&#x27;</span>,</span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="attr">typeSetting</span>: &#123;</span><br><span class="line">      <span class="attr">rowOptions</span>: &#123;</span><br><span class="line">        <span class="attr">gutter</span>: <span class="number">10</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">formProps</span>: &#123;</span><br><span class="line">      <span class="attr">ref</span>: <span class="string">&#x27;formRef&#x27;</span>,</span><br><span class="line">      <span class="attr">rules</span>: &#123;</span><br><span class="line">        <span class="attr">username</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">required</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">message</span>: <span class="string">&#x27;Please select Activity zone&#x27;</span>,</span><br><span class="line">            <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">children</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;form-group&#x27;</span>,</span><br><span class="line">      <span class="attr">props</span>: &#123;</span><br><span class="line">        <span class="attr">typeSetting</span>: &#123;</span><br><span class="line">          <span class="attr">colOptions</span>: &#123;</span><br><span class="line">            <span class="attr">span</span>: <span class="number">6</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">children</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;input&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;username&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;username&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;用户名&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;switch&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;isOpen&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;isOpen&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;开关&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">              <span class="attr">size</span>: <span class="string">&#x27;large&#x27;</span>,</span><br><span class="line">              <span class="attr">inlinePrompt</span>: <span class="literal">true</span>,</span><br><span class="line">              <span class="attr">activeText</span>: <span class="string">&#x27;是&#x27;</span>,</span><br><span class="line">              <span class="attr">inactiveText</span>: <span class="string">&#x27;否&#x27;</span>,</span><br><span class="line">              <span class="attr">onChange</span>: <span class="function">(<span class="params">val: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;onchange&#x27;</span>, val)</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;slider&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;value&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;value&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;取值&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">              <span class="attr">size</span>: <span class="string">&#x27;small&#x27;</span>,</span><br><span class="line">              <span class="attr">showStops</span>: <span class="literal">true</span>,</span><br><span class="line">              <span class="attr">step</span>: <span class="number">12</span>,</span><br><span class="line">              <span class="attr">onChange</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">12345</span>) &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;upload&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;pics&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;pics&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;图片&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">              <span class="attr">multiple</span>: <span class="literal">true</span>,</span><br><span class="line">              <span class="attr">defaultSlot</span>: button,</span><br><span class="line">              <span class="attr">action</span>: <span class="string">&#x27;/api/posts/&#x27;</span>,</span><br><span class="line">              <span class="attr">autoUpload</span>: <span class="literal">false</span>,</span><br><span class="line">              <span class="attr">limit</span>: <span class="number">3</span>,</span><br><span class="line">              <span class="attr">onClick</span>: <span class="function">() =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">123</span>) &#125;,</span><br><span class="line">              <span class="attr">onPreview</span>: <span class="function">(<span class="params">uploadFile: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(uploadFile)</span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="attr">beforeRemove</span>: <span class="function">(<span class="params">uploadFile: <span class="built_in">any</span>, uploadFiles: <span class="built_in">any</span></span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(uploadFile, uploadFiles)</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;datePicker&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;time&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;time&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;日期&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;datetimerange&#x27;</span>,</span><br><span class="line">              <span class="attr">rangeSeparator</span>: <span class="string">&#x27;To&#x27;</span>,</span><br><span class="line">              <span class="attr">startPlaceholder</span>: <span class="string">&#x27;开始时间&#x27;</span>,</span><br><span class="line">              <span class="attr">endPlaceholder</span>: <span class="string">&#x27;结束时间&#x27;</span>,</span><br><span class="line">              <span class="attr">format</span>: <span class="string">&#x27;YYYY/MM/DD hh:mm:ss&#x27;</span>,</span><br><span class="line">              <span class="attr">valueFormat</span>: <span class="string">&#x27;YYYY-MM-DD hh:mm:ss&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;radio&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;sex&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;sex&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">              <span class="attr">selection</span>: [</span><br><span class="line">                &#123; <span class="attr">value</span>: <span class="string">&#x27;male&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;男&#x27;</span> &#125;,</span><br><span class="line">                &#123; <span class="attr">value</span>: <span class="string">&#x27;female&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;女&#x27;</span> &#125;,</span><br><span class="line">              ],</span><br><span class="line">            &#125;,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;form-group&#x27;</span>,</span><br><span class="line">      <span class="attr">children</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;input&#x27;</span>,</span><br><span class="line">          <span class="attr">path</span>: <span class="string">&#x27;detail&#x27;</span>,</span><br><span class="line">          <span class="attr">props</span>: &#123;</span><br><span class="line">            <span class="attr">typeSetting</span>: &#123;</span><br><span class="line">              <span class="attr">colOptions</span>: &#123;</span><br><span class="line">                <span class="attr">span</span>: <span class="number">6</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">              <span class="attr">prop</span>: <span class="string">&#x27;detail&#x27;</span>,</span><br><span class="line">              <span class="attr">label</span>: <span class="string">&#x27;地址&#x27;</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;textarea&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&#x27;branch&#x27;</span>,</span><br><span class="line">          <span class="attr">name</span>: <span class="string">&#x27;sexBranch&#x27;</span>,</span><br><span class="line">          <span class="attr">hooks</span>: &#123;</span><br><span class="line">            <span class="title function_">initForm</span>(<span class="params">initalValue:<span class="built_in">any</span>, context: Form</span>) &#123;</span><br><span class="line">              <span class="keyword">const</span> node = context.<span class="title function_">getNodeByName</span>(<span class="string">&#x27;sexBranch&#x27;</span>)</span><br><span class="line">              <span class="keyword">const</span> activeValue = initalValue &amp;&amp; initalValue.<span class="property">basic</span> &amp;&amp; initalValue.<span class="property">basic</span>[<span class="string">&#x27;sex&#x27;</span>]</span><br><span class="line">              node.<span class="title function_">setProps</span>(<span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123; ...props, <span class="attr">active</span>: activeValue === <span class="string">&#x27;male&#x27;</span> ? <span class="number">0</span> : <span class="number">1</span> &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="title function_">onChangeData</span>(<span class="params">path: <span class="built_in">string</span>, value: <span class="built_in">any</span>, context: Form</span>) &#123;</span><br><span class="line">              <span class="keyword">if</span>(path === <span class="string">&#x27;sex&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">const</span> node = context.<span class="title function_">getNodeByName</span>(<span class="string">&#x27;sexBranch&#x27;</span>)</span><br><span class="line">                node.<span class="title function_">setProps</span>(<span class="function"><span class="params">props</span> =&gt;</span> &#123;</span><br><span class="line">                  <span class="keyword">return</span> &#123; ...props, <span class="attr">active</span>: value === <span class="string">&#x27;male&#x27;</span> ? <span class="number">0</span> : <span class="number">1</span> &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">children</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;radio&#x27;</span>,</span><br><span class="line">              <span class="attr">path</span>: <span class="string">&#x27;color&#x27;</span>,</span><br><span class="line">              <span class="attr">props</span>: &#123;</span><br><span class="line">                <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">                  <span class="attr">prop</span>: <span class="string">&#x27;color&#x27;</span>,</span><br><span class="line">                  <span class="attr">label</span>: <span class="string">&#x27;颜色&#x27;</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">                  <span class="attr">selection</span>: [</span><br><span class="line">                    &#123; <span class="attr">value</span>: <span class="string">&#x27;red&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;红色&#x27;</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">value</span>: <span class="string">&#x27;bule&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;蓝色&#x27;</span> &#125;,</span><br><span class="line">                  ],</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;radio&#x27;</span>,</span><br><span class="line">              <span class="attr">path</span>: <span class="string">&#x27;shape&#x27;</span>,</span><br><span class="line">              <span class="attr">props</span>: &#123;</span><br><span class="line">                <span class="attr">formItemProps</span>: &#123;</span><br><span class="line">                  <span class="attr">prop</span>: <span class="string">&#x27;shape&#x27;</span>,</span><br><span class="line">                  <span class="attr">label</span>: <span class="string">&#x27;形状&#x27;</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">baseComponentProps</span>: &#123;</span><br><span class="line">                  <span class="attr">selection</span>: [</span><br><span class="line">                    &#123; <span class="attr">value</span>: <span class="string">&#x27;box&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;方形&#x27;</span> &#125;,</span><br><span class="line">                    &#123; <span class="attr">value</span>: <span class="string">&#x27;circle&#x27;</span>, <span class="attr">label</span>: <span class="string">&#x27;圆形&#x27;</span> &#125;,</span><br><span class="line">                  ],</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">          ],</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">FormModel</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="编写该表单对应的组件"><a href="#编写该表单对应的组件" class="headerlink" title="编写该表单对应的组件"></a>编写该表单对应的组件</h2><ol>
+<li>useForm库中提供的hook<ol>
+<li>第一个参数是你配置的FormModel</li>
+<li>第二个参数是表单初始值,可以不传默认{}空对象</li>
+</ol>
+</li>
+<li>FormNode库中提供的节点领域语言<ol>
+<li>包括了当前节点的所有信息都可以通过该实例获取</li>
+</ol>
+</li>
+<li>FormRender库中提供的渲染器（接收props如下:）<ol>
+<li>node是FormNode类型，必传 核心之一</li>
+<li>components是对应的动态传入的你的二次封装的组件库（命名方式例如ESelect文件夹）</li>
+<li>regexp正则表达式，autoImportModule方法接受的参数，目的为了拿到对应组件并注册</li>
+<li>componentRenderFn核心之一渲染器的渲染函数，默认是element-plus（如下图2）</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineComponent, ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">FormDSL</span> <span class="keyword">from</span> <span class="string">&#x27;上面的FormModel&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FormRender</span>, useForm &#125; <span class="keyword">from</span> <span class="string">&#x27;@aegis/form-designer&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">Form2</span> = <span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Form2&#x27;</span>,</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> form = <span class="title function_">useForm</span>(<span class="title class_">FormDSL</span>, &#123;</span><br><span class="line">      <span class="attr">email</span>: <span class="string">&#x27;330933978@qq.com&#x27;</span>,</span><br><span class="line">      <span class="attr">hobby</span>: <span class="string">&#x27;moeny&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> formRef2 = <span class="title function_">ref</span>()</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(formRef2)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="language-xml"><span class="tag">&lt;<span class="name">FormRender</span> <span class="attr">node</span>=<span class="string">&#123;form.getRoot()&#125;</span> /&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个是element的渲染函数，可以仿照自定义</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">renderForElement</span> = (<span class="params">version: <span class="built_in">number</span>, node: FormNode, passProps: Record&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;, modules: Record&lt;<span class="built_in">string</span>, <span class="built_in">any</span>&gt;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">type</span> = node.<span class="title function_">getType</span>()</span><br><span class="line">  <span class="keyword">const</span> &#123;</span><br><span class="line">    typeSetting = &#123;&#125;,</span><br><span class="line">    formProps = &#123;&#125;,</span><br><span class="line">    formItemProps = &#123;&#125;,</span><br><span class="line">    baseComponentProps = &#123;&#125;</span><br><span class="line">  &#125; = passProps</span><br><span class="line">  <span class="keyword">const</span> componentName = modules[<span class="keyword">type</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (componentName) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">el-form-item</span> &#123;<span class="attr">...formItemProps</span>&#125; <span class="attr">key</span>=<span class="string">&#123;version&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">componentName</span> <span class="attr">node</span>=<span class="string">&#123;node&#125;</span> &#123;<span class="attr">...baseComponentProps</span>&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">switch</span>(<span class="keyword">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;form&#x27;</span>:</span><br><span class="line">      <span class="keyword">const</span> model = node.<span class="title function_">getForm</span>().<span class="title function_">getValues</span>()</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">el-form</span> &#123;<span class="attr">...formProps</span>&#125; <span class="attr">model</span>=<span class="string">&#123;model&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">el-row</span> &#123;<span class="attr">...typeSetting.rowOptions</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">          &#123; node.getChildren().map(child =&gt; <span class="tag">&lt;<span class="name">FormRender</span> <span class="attr">node</span>=<span class="string">&#123;child&#125;</span> /&gt;</span>) &#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;form-group&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> node.<span class="title function_">getChildren</span>().<span class="title function_">map</span>(<span class="function"><span class="params">child</span> =&gt;</span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">el-col</span> &#123;<span class="attr">...typeSetting.colOptions</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">FormRender</span> <span class="attr">node</span>=<span class="string">&#123;child&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;branch&#x27;</span>:</span><br><span class="line">      <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Branch</span> <span class="attr">key</span>=<span class="string">&#123;passProps.active&#125;</span> <span class="attr">children</span>=<span class="string">&#123;node.getChildren()&#125;</span> <span class="attr">active</span>=<span class="string">&#123;passProps.active&#125;</span> /&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="然后将该组件带入你的程序中，即可完成渲染和逻辑"><a href="#然后将该组件带入你的程序中，即可完成渲染和逻辑" class="headerlink" title="然后将该组件带入你的程序中，即可完成渲染和逻辑"></a>然后将该组件带入你的程序中，即可完成渲染和逻辑</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/11/%E3%80%8ATypeScript%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB/" rel="prev" title="《TypeScript编程》阅读">
+      <i class="fa fa-chevron-left"></i> 《TypeScript编程》阅读
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FormDSL%E7%9A%84ts%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">FormDSL的ts模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%AF%A5%E8%A1%A8%E5%8D%95%E5%AF%B9%E5%BA%94%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">编写该表单对应的组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%B0%86%E8%AF%A5%E7%BB%84%E4%BB%B6%E5%B8%A6%E5%85%A5%E4%BD%A0%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%B8%AD%EF%BC%8C%E5%8D%B3%E5%8F%AF%E5%AE%8C%E6%88%90%E6%B8%B2%E6%9F%93%E5%92%8C%E9%80%BB%E8%BE%91"><span class="nav-number">4.</span> <span class="nav-text">然后将该组件带入你的程序中，即可完成渲染和逻辑</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">gjbe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gjbe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '0345980f9d756faa9ef0',
+      clientSecret: '403968f743ab1c228a563989e36b914904436d8e',
+      repo        : 'comments',
+      owner       : 'gjbegjbe',
+      admin       : ['gjbegjbe'],
+      id          : 'b68f4bc6bc60be074909853f53c17e03',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>
