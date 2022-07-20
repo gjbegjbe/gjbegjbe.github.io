@@ -6,7 +6,7 @@
   <link href="https://gjbegjbe.github.io/atom.xml" rel="self"/>
   
   <link href="https://gjbegjbe.github.io/"/>
-  <updated>2022-07-19T06:00:56.111Z</updated>
+  <updated>2022-07-20T05:53:31.869Z</updated>
   <id>https://gjbegjbe.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HBuilder中的已有项目如何运行到微信开发者工具中</title>
+    <link href="https://gjbegjbe.github.io/2022/07/20/HBuilder%E4%B8%AD%E7%9A%84%E5%B7%B2%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E5%88%B0%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E4%B8%AD/"/>
+    <id>https://gjbegjbe.github.io/2022/07/20/HBuilder%E4%B8%AD%E7%9A%84%E5%B7%B2%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E5%88%B0%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E4%B8%AD/</id>
+    <published>2022-07-20T03:47:50.000Z</published>
+    <updated>2022-07-20T05:53:31.869Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>从git上clone项目，在HBuilder直接打开，其他IDE先不要打开。</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202207201150336.png"></p></li><li><p>在HBuilder工具中-配置微信开发者安装路径 【工具–设置】</p><p><img src="https://img-blog.csdnimg.cn/20210204175349746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxOTMwMDk0,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p></li><li><p>微信小程序打开服务端口，不要打开此项目</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202207201343409.png"></p></li><li><p>HBuilder配置小程序id</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202207201348953.png"></p></li><li><p>点击运行到微信开发者工具，自动启动微信开发者工具</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202207201350734.png"></p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202207201352354.png"></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;从git上clone项目，在HBuilder直接打开，其他IDE先不要打开。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/gjbegjbe/pics/main/202207201150336.png</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Vue学习（四）——可复用和组合</title>
@@ -282,9 +304,9 @@
     
     
     
-    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
+    
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
