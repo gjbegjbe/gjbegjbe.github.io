@@ -226,9 +226,9 @@
     
     <category term="JavaScript" scheme="https://gjbegjbe.github.io/tags/JavaScript/"/>
     
-    <category term="TODO" scheme="https://gjbegjbe.github.io/tags/TODO/"/>
-    
     <category term="异步" scheme="https://gjbegjbe.github.io/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+    <category term="TODO" scheme="https://gjbegjbe.github.io/tags/TODO/"/>
     
   </entry>
   
@@ -324,9 +324,9 @@
     
     
     
-    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
+    
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
