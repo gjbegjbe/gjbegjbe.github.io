@@ -1948,7 +1948,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-17 17:04:11" itemprop="dateModified" datetime="2022-05-17T17:04:11+08:00">2022-05-17</time>
+                <time title="修改时间：2022-08-17 11:50:19" itemprop="dateModified" datetime="2022-08-17T11:50:19+08:00">2022-08-17</time>
               </span>
 
           
@@ -2077,6 +2077,47 @@
 <li><p>可以用它存储本地浏览记录。如果关闭页面后不需要，那么sessionStorage就很合适。</p>
 </li>
 </ol>
+<h3 id="IndexedDB"><a href="#IndexedDB" class="headerlink" title="IndexedDB"></a>IndexedDB</h3><p>IndexedDB是运行在浏览器中的非关系型数据库，本质上是数据库，理论上容量没有上限。</p>
+<p>IndexedDB重要特性，除了拥有数据库本身的特性，除了拥有数据库本身的特性，比如支持事务、存储二进制数据，还有这些特性：</p>
+<ol>
+<li><p>键值对存储。内部采用对象仓库存放数据，在这个对象仓库中数据采用键值对的方式来存储。</p>
+</li>
+<li><p>异步操作。数据库的读写属于I&#x2F;O操作，浏览器中对异步I&#x2F;O提供了支持。</p>
+</li>
+<li><p>受同源策略限制，即无法访问跨域的数据库。</p>
+</li>
+</ol>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><p>cookie并不适合存储，而且存在非常多的缺陷。</p>
+</li>
+<li><p>Web Storage包括localStorage和sessionStorage，默认不会参与和服务器的通信。</p>
+</li>
+<li><p>IndexedDB为运行在浏览器上的非关系型数据库，为大型数据的存储提供了接口。</p>
+</li>
+</ol>
+<h2 id="3-从输入URL到页面呈现了什么？"><a href="#3-从输入URL到页面呈现了什么？" class="headerlink" title="3. 从输入URL到页面呈现了什么？"></a>3. 从输入URL到页面呈现了什么？</h2><p>在浏览器地址栏输入百度地址：<a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a></p>
+<h3 id="构建请求"><a href="#构建请求" class="headerlink" title="构建请求"></a>构建请求</h3><p>浏览器会构建请求行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求方法是GET，路径为根路径，HTTP协议版本为1.1</span></span><br><span class="line"><span class="variable constant_">GET</span> / <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查找强缓存"><a href="#查找强缓存" class="headerlink" title="查找强缓存"></a>查找强缓存</h3><p>先检查强缓存，如果命中直接使用，否则进入下一步。强缓存见前面。</p>
+<h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>由于输入的是域名，数据包是通过IP地址传给对方。需要得到域名对应的IP地址。这个过程需要依赖一个服务系统，这个系统将域名和IP一一映射，这个系统就叫DNS（域名系统，domain name system）。得到具体IP的过程就是DNS解析。</p>
+<p>浏览器提供了DNS数据缓存功能。即一个域名如果解析过，那会把解析的结果缓存下来，下次处理直接走缓存，不需要经过DNS解析。</p>
+<p>如果不指定端口的话，默认采用对应IP的80端口。</p>
+<h3 id="建立TCP连接"><a href="#建立TCP连接" class="headerlink" title="建立TCP连接"></a>建立TCP连接</h3><p>Chrome在同一个域名下要求同时最多有6个TCP连接，超过6个的话剩下的请求就得等待。</p>
+<p>假如现在不需要等待，进入了TCP连接的建立阶段。首先解释一下什么是TCP：</p>
+<p>TCP（transmission control protocol，传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<p>建立TCP连接经历了下面三个阶段：</p>
+<ol>
+<li><p>通过3次握手（总共发送3个数据包确认已经建立连接）建立客户端和服务器之间的连接。</p>
+</li>
+<li><p>进行数据传输。这里有一个重要的机制，接收方接收到数据包之后必须要向发送方确认，如果发送方没有接到这个确认的消息，就判定为数据包丢失，并重新发送该数据包。发送的过程还有一个优化的策略，把大的数据包拆成一个个小的数据包，一次传输到接收方，接收方按照这个小包的顺序把它们组装成完整数据包。</p>
+</li>
+<li><p>断开连接的阶段。数据传输完成，靠四次挥手来断开连接。</p>
+</li>
+</ol>
+<p>TCP保证数据传输的可靠性的手段：1. 三次握手确认连接；2. 数据包校验保证数据到达接收方；3. 四次挥手断开连接。</p>
+<p>关于握手的深入研究：<a href="">https://zhuanlan.zhihu.com/p/86426969</a></p>
+<h3 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h3><p>TCP连接建立完毕，浏览器可以和服务器开始通信，开始发送HTTP请求。浏览器发HTTP请求要携带三样东西：请求行、请求头和请求体。</p>
 
       
     </div>
