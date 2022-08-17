@@ -39,8 +39,13 @@
 <meta property="og:image" content="https://github.com/gjbegjbe/pics/raw/main/202205161732674.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/202205171352062.png">
 <meta property="og:image" content="https://github.com/gjbegjbe/pics/raw/main/202205171407788.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-08-17-14-11-31-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-08-17-14-44-06-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-08-17-14-55-54-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-08-17-17-00-23-image.png">
+<meta property="og:image" content="c:/Users/ThinkPad/AppData/Roaming/marktext/images/2022-08-17-17-52-01-image.png">
 <meta property="article:published_time" content="2022-03-14T11:18:45.000Z">
-<meta property="article:modified_time" content="2022-08-17T03:50:19.289Z">
+<meta property="article:modified_time" content="2022-08-17T10:00:54.410Z">
 <meta property="article:author" content="gjbe">
 <meta property="article:tag" content="浏览器">
 <meta property="article:tag" content="面试题">
@@ -217,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-17 11:50:19" itemprop="dateModified" datetime="2022-08-17T11:50:19+08:00">2022-08-17</time>
+                <time title="修改时间：2022-08-17 18:00:54" itemprop="dateModified" datetime="2022-08-17T18:00:54+08:00">2022-08-17</time>
               </span>
 
           
@@ -371,7 +376,7 @@
 <li><p>IndexedDB为运行在浏览器上的非关系型数据库，为大型数据的存储提供了接口。</p>
 </li>
 </ol>
-<h2 id="3-从输入URL到页面呈现了什么？"><a href="#3-从输入URL到页面呈现了什么？" class="headerlink" title="3. 从输入URL到页面呈现了什么？"></a>3. 从输入URL到页面呈现了什么？</h2><p>在浏览器地址栏输入百度地址：<a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a></p>
+<h2 id="3-从输入URL到页面呈现发生了什么？"><a href="#3-从输入URL到页面呈现发生了什么？" class="headerlink" title="3. 从输入URL到页面呈现发生了什么？"></a>3. 从输入URL到页面呈现发生了什么？</h2><p>在浏览器地址栏输入百度地址：<a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a></p>
 <h3 id="构建请求"><a href="#构建请求" class="headerlink" title="构建请求"></a>构建请求</h3><p>浏览器会构建请求行：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求方法是GET，路径为根路径，HTTP协议版本为1.1</span></span><br><span class="line"><span class="variable constant_">GET</span> / <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br></pre></td></tr></table></figure>
 
@@ -394,6 +399,119 @@
 <p>TCP保证数据传输的可靠性的手段：1. 三次握手确认连接；2. 数据包校验保证数据到达接收方；3. 四次挥手断开连接。</p>
 <p>关于握手的深入研究：<a href="">https://zhuanlan.zhihu.com/p/86426969</a></p>
 <h3 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h3><p>TCP连接建立完毕，浏览器可以和服务器开始通信，开始发送HTTP请求。浏览器发HTTP请求要携带三样东西：请求行、请求头和请求体。</p>
+<ol>
+<li><p>首先，浏览器会向服务器发送请求行，之前构建请求的时候就构建了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求方法是GET，路径为根路径，HTTP协议版本为1.1</span></span><br><span class="line"><span class="variable constant_">GET</span> / <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br></pre></td></tr></table></figure>
+
+<p>结构很简单，由请求方法、请求URI和HTTP版本协议组成。</p>
+</li>
+<li><p>同时也要带上请求头，比如Cache-Control、If-Modified-Since、If-None-Match都有可能放入请求头中作为缓存的标识信息。还有其他一些属性：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-17-14-11-31-image.png"></p>
+</li>
+<li><p>最后是请求体，只有在POST方法下存在，常见的场景是表单提交。</p>
+</li>
+</ol>
+<h3 id="网络响应"><a href="#网络响应" class="headerlink" title="网络响应"></a>网络响应</h3><p>HTTP请求到达服务器，服务器进行对应的处理。最后要把数据传给浏览器，也就是返回网络响应。</p>
+<p>跟请求部分类似，网络响应具有三个部分：响应行、响应头和响应体。</p>
+<p>响应行类似下面这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">HTTP</span>/<span class="number">1.1</span> <span class="number">200</span> <span class="variable constant_">OK</span></span><br></pre></td></tr></table></figure>
+
+<p>由HTTP协议版本、状态码和状态描述组成。</p>
+<p>响应头包含了服务器及其返回数据的一些信息，服务器生成数据的时间、返回的数据类型以及对即将写入的Cookie信息。</p>
+<p>举例如下：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-17-14-44-06-image.png"></p>
+<p>响应完成之后TCP不一定断开。这时候要判断Connection字段，如果请求头或者响应头中含有Connection: Keep-Alive，表示建立了持久连接，这样TCP连接会一直保持，之后请求统一站点的资源会复用这个连接。否则断开TCP连接，请求-响应流程结束。</p>
+<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p>总结浏览器端的网络请求过程：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-17-14-55-54-image.png"></p>
+<h2 id="4-从输入URL到页面呈现发生了什么？——解析算法篇"><a href="#4-从输入URL到页面呈现发生了什么？——解析算法篇" class="headerlink" title="4. 从输入URL到页面呈现发生了什么？——解析算法篇"></a>4. 从输入URL到页面呈现发生了什么？——解析算法篇</h2><p>完成了网络请求和响应，如果响应头中Content-Type的值是text&#x2F;html，那么接下来就是浏览器的解析和渲染工作了。</p>
+<p>首先来介绍解析部分，主要分为以下几个步骤：构建DOM树、样式计算、生成布局树（Layout Tree）。</p>
+<h3 id="构建DOM树"><a href="#构建DOM树" class="headerlink" title="构建DOM树"></a>构建DOM树</h3><p>由于浏览器无法直接理解HTML字符串，因此将这一系列的字节流转换为一种有意义并且方便操作的数据结构，这种数据结构就是DOM树。DOM树本质上是一个以document为根节点的多叉树。</p>
+<h4 id="HTML文法的本质"><a href="#HTML文法的本质" class="headerlink" title="HTML文法的本质"></a>HTML文法的本质</h4><p>HTML的文法并不是上下文无关文法。</p>
+<p>规范的HTML语法，是符合上下文无关文法的，能够体现它非上下文无关的是不标准的语法。</p>
+<p>比如解析器扫描到form标签的时候，上下文无关文法的处理方式是直接创建对应form的DOM对象，而真实的HTML5场景中却不是这样，解析器会查看form标签的上下文，如果这个form标签的父标签也是form，那么直接跳过当前的form标签，否则才创建DOM对象。</p>
+<p>常规的编程语言都是上下文无关的，而HTML却相反，也真是它非上下文无关的特性，决定了HTML Parser并不能使用常规编程语言的解析器来完成，需要另辟蹊径。</p>
+<h4 id="解析算法"><a href="#解析算法" class="headerlink" title="解析算法"></a>解析算法</h4><p>HTML5规范详细地介绍了解析算法。这个算法分为两个阶段：标记化、建树。</p>
+<p>对应的两个过程就是词法分析和语法分析。</p>
+<h5 id="标记化算法"><a href="#标记化算法" class="headerlink" title="标记化算法"></a>标记化算法</h5><p>这个算法输入为HTML文本，输出为HTML标记，也称为标记生成器。其中运用有限自动状态机来完成。即在当前状态下，接收一个或多个字符，就会更新到下一个状态。</p>
+<h5 id="建树算法"><a href="#建树算法" class="headerlink" title="建树算法"></a>建树算法</h5><p>DOM树是一个以document为根节点的多叉树。因此解析器首先会创建一个document对象。标记生成器会把每个标记的信息发送给建树器。建树器接收到相应的标记时，会创建对应的DOM对象。创建这个DOM对象后会做两件事情：1. 将DOM对象加入DOM树中；2. 将对应标记压入存放开放（与闭合标签意思对应）元素的栈中。</p>
+<h4 id="容错机制"><a href="#容错机制" class="headerlink" title="容错机制"></a>容错机制</h4><p>HTML5强大的容错策略，容错能力非常强。</p>
+<h3 id="样式计算"><a href="#样式计算" class="headerlink" title="样式计算"></a>样式计算</h3><p>关于CSS样式，来源一般是三种：</p>
+<ol>
+<li><p>link标签引用</p>
+</li>
+<li><p>style标签中的样式</p>
+</li>
+<li><p>元素的内嵌style属性</p>
+</li>
+</ol>
+<h4 id="格式化样式表"><a href="#格式化样式表" class="headerlink" title="格式化样式表"></a>格式化样式表</h4><p>浏览器是无法识别css文本的，渲染引擎接收到css文本之后第一件事情就是将其转化为一个结构化的对象，即styleSheets。</p>
+<p>格式化的过程过于复杂，对于不同的浏览器会有不同的优化策略。</p>
+<p>在浏览器控制台可以通过document.styleSheets来查看这个最终的结构。</p>
+<h4 id="标准化样式属性"><a href="#标准化样式属性" class="headerlink" title="标准化样式属性"></a>标准化样式属性</h4><p>有一些css样式的数值并不容易被渲染引擎所理解，因此需要在计算样式之前将他们标准化，如em-&gt;px，red-&gt;#ff0000，bold-&gt;700等。</p>
+<h4 id="计算每个节点的具体样式"><a href="#计算每个节点的具体样式" class="headerlink" title="计算每个节点的具体样式"></a>计算每个节点的具体样式</h4><p>样式已经被格式化和标准化，接下来可以计算每个节点的具体样式信息。</p>
+<p>两个规则：继承和层叠。</p>
+<p>每个子节点都会默认继承父节点的样式属性，如果父节点中没有找到，就会采用浏览器默认样式，也叫UserAgent样式。这就是继承规则，非常容易理解。</p>
+<p>然后是层叠规则，css最大的特点在于它的层叠性，也就是最终的样式取决于各个属性共同作用的效果。</p>
+<p>计算完样式后，所有样式会被挂载到window.getComputedStyle上，可以通过js获取。</p>
+<h3 id="生成布局树"><a href="#生成布局树" class="headerlink" title="生成布局树"></a>生成布局树</h3><p>现在已经生成了DOM树和DOM样式，接下来通过浏览器的布局系统确定元素的位置，生成一棵布局树。</p>
+<p>布局树生成的大致工作：</p>
+<ol>
+<li><p>遍历生成的DOM树节点，并把它们添加到布局树中。</p>
+</li>
+<li><p>计算布局树节点的坐标位置。</p>
+</li>
+</ol>
+<p>布局树只包含可见元素，对于head标签和设置了display:none的元素，将不会被放入其中。</p>
+<p>Chrome现在已经没有生成Render Tree的功能。</p>
+<p>从Chrome源码看浏览器如何layout布局<a target="_blank" rel="noopener" href="https://www.rrfed.com/2017/02/26/chrome-layout/">从Chrome源码看浏览器如何layout布局 &amp;#8211; 人人FED</a></p>
+<h3 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h3><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-17-17-00-23-image.png"></p>
+<h2 id="5-从输入URL到页面呈现发生了什么？——渲染过程篇"><a href="#5-从输入URL到页面呈现发生了什么？——渲染过程篇" class="headerlink" title="5. 从输入URL到页面呈现发生了什么？——渲染过程篇"></a>5. 从输入URL到页面呈现发生了什么？——渲染过程篇</h2><p>渲染分为以下几个步骤：</p>
+<ol>
+<li><p>建立图层树（Layer Tree）</p>
+</li>
+<li><p>生成绘制列表</p>
+</li>
+<li><p>生成图块并栅格化</p>
+</li>
+<li><p>显示器显示内容</p>
+</li>
+</ol>
+<h3 id="建图层树"><a href="#建图层树" class="headerlink" title="建图层树"></a>建图层树</h3><p>一些复杂的场景，比如3D动画如何呈现出变换效果，当元素含有层叠上下文时如何控制显示和隐藏。所以浏览器在构建完布局树之后，还会对特定的节点进行分层，构建一棵图层树（Layer Tree）。</p>
+<p>一般情况下，节点的图层默认属于父亲节点的图层（称为合成层）。什么时候能提升成为一个单独的合成层呢？</p>
+<p>有两种分别讨论的情况：显式合成、隐式合成。</p>
+<h4 id="显式合成"><a href="#显式合成" class="headerlink" title="显式合成"></a>显式合成</h4><p>显式合成的情况：</p>
+<ol>
+<li><p>拥有层叠上下文的节点。</p>
+<ol>
+<li><p>HTML根元素本身就具有层叠上下文。</p>
+</li>
+<li><p>普通元素设置position不为static并且设置了z-index属性，会产生层叠上下文。</p>
+</li>
+<li><p>元素的opacity值不是1。</p>
+</li>
+<li><p>元素的transform值不是none。</p>
+</li>
+<li><p>元素的filter值不是none。</p>
+</li>
+<li><p>元素的isolation值是isolate。</p>
+</li>
+<li><p>will-change指定的属性值为上面任意一个。</p>
+</li>
+</ol>
+</li>
+<li><p>需要剪裁的地方。比如一个div只给他设置100*100的大小，而在里面放了非常多的文字，超出的文字部分就要被剪裁。出现了滚动条，滚动条会被单独提升为一个图层。</p>
+</li>
+</ol>
+<h4 id="隐式合成"><a href="#隐式合成" class="headerlink" title="隐式合成"></a>隐式合成</h4><p>层叠等级低的节点被提升为单独的图层后，所有层叠等级高的节点都会成为一个单独的图层。</p>
+<p>这个隐式合成隐藏着巨大的风险，当一个z-index较低的图层被提升为单独的图层后，层叠在上面的元素都会被提升为单独的图层，可能会增加上千个图层，增加内存压力，让页面崩溃。这就是层爆炸。</p>
+<p>需要repaint时，只需要repaint本身，不会影响到其他层。</p>
+<h3 id="生成绘制列表"><a href="#生成绘制列表" class="headerlink" title="生成绘制列表"></a>生成绘制列表</h3><p>渲染引擎会将图层的绘制拆分成一个个绘制指令，比如先画背景再描绘边框。然后将这些指令按顺序组合成一个待绘制列表，相当于给后面的绘制操作做了一波计划。</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-17-17-52-01-image.png"></p>
+<h3 id="生成图块和生成位图"><a href="#生成图块和生成位图" class="headerlink" title="生成图块和生成位图"></a>生成图块和生成位图</h3><p>渲染进程中绘制操作由专门的线程完成的，这个线程叫合成线程。绘制列表准备好之后，渲染进程的主线程会给合成线程发送commit消息，把绘制列表提交给合成线程。</p>
+<p>当页面非常大需要滑动的时候，全部绘制出来很浪费性能，将页面分块可以加速页面的首屏展示。</p>
+<p>即使绘制一个图块也会耗时，所以Chrome首次合成先合成低分辨率图片，然后正常图块绘制完毕后，将低分辨率的替换。</p>
+<p>渲染过程中专门维护了一个栅格化线程池，专门负责把图块转换为位图数据。然后合成线程会选择视口附近图块交给栅格化线程池生成位图。</p>
+<p>生成位图的过程实际上都会使用GPU进行加速，生成的位图最后发送给合成线程。</p>
 
     </div>
 
@@ -479,7 +597,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">1.</span> <span class="nav-text">1. 浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98-amp-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存&amp;协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expires"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#public"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">public</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#private"><span class="nav-number">1.1.1.2.2.</span> <span class="nav-text">private</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#no-cache"><span class="nav-number">1.1.1.2.3.</span> <span class="nav-text">no-cache</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#s-maxage"><span class="nav-number">1.1.1.2.4.</span> <span class="nav-text">s-maxage</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.2.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Last-Modified"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Last-Modified</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">ETag</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E5%AF%B9%E6%AF%94"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">两者对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">缓存位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Service-Worker"><span class="nav-number">1.2.1.</span> <span class="nav-text">Service Worker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-Cache%E5%92%8CDisk-Cache"><span class="nav-number">1.2.2.</span> <span class="nav-text">Memory Cache和Disk Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Memory-Cache"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Memory Cache</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Disk-Cache"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Disk Cache</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">使用策略</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Push-Cache"><span class="nav-number">1.2.3.</span> <span class="nav-text">Push Cache</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">2.</span> <span class="nav-text">2. 浏览器本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">Cookie的缺陷</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">2.2.</span> <span class="nav-text">localStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#localStorage%E5%92%8CCookie%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9"><span class="nav-number">2.2.1.</span> <span class="nav-text">localStorage和Cookie的异同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">操作方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.2.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">2.3.</span> <span class="nav-text">sessionStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">2.3.1.</span> <span class="nav-text">sessionStorage和localStorage的异同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IndexedDB"><span class="nav-number">2.4.</span> <span class="nav-text">IndexedDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">2.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">3. 从输入URL到页面呈现了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E8%AF%B7%E6%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">构建请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">3.2.</span> <span class="nav-text">查找强缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">3.3.</span> <span class="nav-text">DNS解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BTCP%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.4.</span> <span class="nav-text">建立TCP连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82"><span class="nav-number">3.5.</span> <span class="nav-text">发送HTTP请求</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">1.</span> <span class="nav-text">1. 浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98-amp-%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存&amp;协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">强缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Expires"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cache-Control"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">Cache-Control</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#public"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">public</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#private"><span class="nav-number">1.1.1.2.2.</span> <span class="nav-text">private</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#no-cache"><span class="nav-number">1.1.1.2.3.</span> <span class="nav-text">no-cache</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#s-maxage"><span class="nav-number">1.1.1.2.4.</span> <span class="nav-text">s-maxage</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="nav-number">1.1.2.</span> <span class="nav-text">协商缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Last-Modified"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Last-Modified</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ETag"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">ETag</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E5%AF%B9%E6%AF%94"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">两者对比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">缓存位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Service-Worker"><span class="nav-number">1.2.1.</span> <span class="nav-text">Service Worker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Memory-Cache%E5%92%8CDisk-Cache"><span class="nav-number">1.2.2.</span> <span class="nav-text">Memory Cache和Disk Cache</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Memory-Cache"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Memory Cache</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Disk-Cache"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Disk Cache</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">使用策略</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Push-Cache"><span class="nav-number">1.2.3.</span> <span class="nav-text">Push Cache</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="nav-number">2.</span> <span class="nav-text">2. 浏览器本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">Cookie的缺陷</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage"><span class="nav-number">2.2.</span> <span class="nav-text">localStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#localStorage%E5%92%8CCookie%E7%9A%84%E5%BC%82%E5%90%8C%E7%82%B9"><span class="nav-number">2.2.1.</span> <span class="nav-text">localStorage和Cookie的异同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">操作方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.2.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage"><span class="nav-number">2.3.</span> <span class="nav-text">sessionStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sessionStorage%E5%92%8ClocalStorage%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">2.3.1.</span> <span class="nav-text">sessionStorage和localStorage的异同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IndexedDB"><span class="nav-number">2.4.</span> <span class="nav-text">IndexedDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">2.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">3. 从输入URL到页面呈现发生了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E8%AF%B7%E6%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">构建请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="nav-number">3.2.</span> <span class="nav-text">查找强缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">3.3.</span> <span class="nav-text">DNS解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BTCP%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.4.</span> <span class="nav-text">建立TCP连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82"><span class="nav-number">3.5.</span> <span class="nav-text">发送HTTP请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%93%8D%E5%BA%94"><span class="nav-number">3.6.</span> <span class="nav-text">网络响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-2"><span class="nav-number">3.7.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F%E2%80%94%E2%80%94%E8%A7%A3%E6%9E%90%E7%AE%97%E6%B3%95%E7%AF%87"><span class="nav-number">4.</span> <span class="nav-text">4. 从输入URL到页面呈现发生了什么？——解析算法篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BADOM%E6%A0%91"><span class="nav-number">4.1.</span> <span class="nav-text">构建DOM树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML%E6%96%87%E6%B3%95%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">4.1.1.</span> <span class="nav-text">HTML文法的本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90%E7%AE%97%E6%B3%95"><span class="nav-number">4.1.2.</span> <span class="nav-text">解析算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0%E5%8C%96%E7%AE%97%E6%B3%95"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">标记化算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BB%BA%E6%A0%91%E7%AE%97%E6%B3%95"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">建树算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E9%94%99%E6%9C%BA%E5%88%B6"><span class="nav-number">4.1.3.</span> <span class="nav-text">容错机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E8%AE%A1%E7%AE%97"><span class="nav-number">4.2.</span> <span class="nav-text">样式计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-number">4.2.1.</span> <span class="nav-text">格式化样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E6%A0%B7%E5%BC%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">4.2.2.</span> <span class="nav-text">标准化样式属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E5%85%B7%E4%BD%93%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.2.3.</span> <span class="nav-text">计算每个节点的具体样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%B8%83%E5%B1%80%E6%A0%91"><span class="nav-number">4.3.</span> <span class="nav-text">生成布局树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-3"><span class="nav-number">4.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F%E2%80%94%E2%80%94%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B%E7%AF%87"><span class="nav-number">5.</span> <span class="nav-text">5. 从输入URL到页面呈现发生了什么？——渲染过程篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E5%9B%BE%E5%B1%82%E6%A0%91"><span class="nav-number">5.1.</span> <span class="nav-text">建图层树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E5%90%88%E6%88%90"><span class="nav-number">5.1.1.</span> <span class="nav-text">显式合成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E5%90%88%E6%88%90"><span class="nav-number">5.1.2.</span> <span class="nav-text">隐式合成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E7%BB%98%E5%88%B6%E5%88%97%E8%A1%A8"><span class="nav-number">5.2.</span> <span class="nav-text">生成绘制列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%9B%BE%E5%9D%97%E5%92%8C%E7%94%9F%E6%88%90%E4%BD%8D%E5%9B%BE"><span class="nav-number">5.3.</span> <span class="nav-text">生成图块和生成位图</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
