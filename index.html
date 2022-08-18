@@ -1948,7 +1948,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-17 18:00:54" itemprop="dateModified" datetime="2022-08-17T18:00:54+08:00">2022-08-17</time>
+                <time title="修改时间：2022-08-18 11:34:50" itemprop="dateModified" datetime="2022-08-18T11:34:50+08:00">2022-08-18</time>
               </span>
 
           
@@ -2231,6 +2231,50 @@
 <p>即使绘制一个图块也会耗时，所以Chrome首次合成先合成低分辨率图片，然后正常图块绘制完毕后，将低分辨率的替换。</p>
 <p>渲染过程中专门维护了一个栅格化线程池，专门负责把图块转换为位图数据。然后合成线程会选择视口附近图块交给栅格化线程池生成位图。</p>
 <p>生成位图的过程实际上都会使用GPU进行加速，生成的位图最后发送给合成线程。</p>
+<h3 id="显示器显示内容"><a href="#显示器显示内容" class="headerlink" title="显示器显示内容"></a>显示器显示内容</h3><p>栅格化操作完成后，合成线程会生成一个绘制命令，即“DrawQuad”，并发送给浏览器进程。</p>
+<p>浏览器的viz组件接收到命令，根据命令发送到内存，再发送到显卡。</p>
+<p>屏幕都有一个固定的刷新频率。</p>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-09-04-image.png"></p>
+<h2 id="6-对重绘和回流的理解"><a href="#6-对重绘和回流的理解" class="headerlink" title="6. 对重绘和回流的理解"></a>6. 对重绘和回流的理解</h2><p>渲染流水线的流程：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-15-25-image.png"></p>
+<h3 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h3><p>回流也叫重排。</p>
+<h4 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h4><p>对DOM结构修改引发DOM几何尺寸变化的时候，会发生回流的过程。</p>
+<p>以下的操作会触发回流：</p>
+<ol>
+<li><p>一个DOM元素的几何属性变化，width、height、padding、margin、left、top、border。</p>
+</li>
+<li><p>DOM节点发生增减或移动。</p>
+</li>
+<li><p>读写offset族、scroll族和client族属性的时候，浏览器为了获取这些值，需要进行回流操作。</p>
+</li>
+<li><p>调用window.getComputedStyle方法。</p>
+</li>
+</ol>
+<h4 id="回流过程"><a href="#回流过程" class="headerlink" title="回流过程"></a>回流过程</h4><p>触发回流的时候，如果DOM结构发生改变，重新渲染DOM树，然后将后面的流程全部走一遍。开销非常大。</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-40-56-image.png"></p>
+<h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><h4 id="触发条件-1"><a href="#触发条件-1" class="headerlink" title="触发条件"></a>触发条件</h4><p>当DOM修改导致样式变化，并且没有影响几何属性的时候，会导致重绘（repaint）。</p>
+<h4 id="重绘过程"><a href="#重绘过程" class="headerlink" title="重绘过程"></a>重绘过程</h4><p>没有导致DOM几何属性的变化，元素的位置信息不需要更新，省去了布局的过程。流程如下：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-50-16-image.png"></p>
+<p>跳过生成布局树和建图层树，直接绘制列表，然后继续进行分块生成位图等后面一系列操作。</p>
+<p>重绘不一定导致回流，回流一定导致重绘。</p>
+<h3 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h3><p>CSS3的transform、opacity、filter这些属性可以实现合成的效果，也就是GPU加速。</p>
+<h4 id="GPU加速的原因"><a href="#GPU加速的原因" class="headerlink" title="GPU加速的原因"></a>GPU加速的原因</h4><p>在合成的情况下，直接跳过布局和绘制流程，直接进入非主线程处理的部分，直接交给合成线程处理。交给它处理的好处：</p>
+<ol>
+<li><p>能够充分发挥GPU的优势。合成线程生成位图的过程中会调用线程池，并在其中使用GPU进行加速生成，GPU擅长处理位图数据。</p>
+</li>
+<li><p>没有占用主线程的资源，即使主线程卡住了，效果依然能够流畅地展示。</p>
+</li>
+</ol>
+<h3 id="实践意义"><a href="#实践意义" class="headerlink" title="实践意义"></a>实践意义</h3><ol>
+<li><p>避免频繁使用style，而是采用修改class的方式。</p>
+</li>
+<li><p>使用createDocumentFragment进行批量的DOM操作。</p>
+</li>
+<li><p>对resize、scroll进行防抖&#x2F;节流处理。</p>
+</li>
+<li><p>添加will-change: tranform，让渲染引擎为其单独实现一个图层，当这些变换发生时，仅仅需要合成线程处理这些变换，而不牵扯到主线程，提高渲染效率。</p>
+</li>
+</ol>
 
       
     </div>

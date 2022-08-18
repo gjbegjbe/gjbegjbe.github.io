@@ -76,16 +76,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Jenkins的git配置踩坑</title>
-    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
-    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-]]></content>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Javascript异步</title>
     <url>/2022/02/18/Javascript%E5%BC%82%E6%AD%A5/</url>
     <content><![CDATA[<h1 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h1><p>程序的运行是同步的（同步不意味着所有步骤同时运行，而是指步骤在一个控制流序列中按顺序执行）。而异步的概念则是不保证同步的概念，也就是说，一个异步过程的执行将不再与原有的序列有顺序关系。</p>
@@ -437,6 +427,16 @@
         <tag>JavaScript</tag>
         <tag>TODO</tag>
         <tag>异步</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jenkins的git配置踩坑</title>
+    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
+    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -3276,432 +3276,6 @@
       </tags>
   </entry>
   <entry>
-    <title>操作系统考前复习</title>
-    <url>/2021/02/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="操作系统考前复习"><a href="#操作系统考前复习" class="headerlink" title="操作系统考前复习"></a>操作系统考前复习</h1><h2 id="0-选择题"><a href="#0-选择题" class="headerlink" title="0. 选择题"></a>0. 选择题</h2><ol>
-<li><p>多道程序设计提高利用率 2016 2015</p>
-</li>
-<li><p>系统调用是操作系统向用户提供的接口，而库函数是通过操作系统调用所形成的特定功能的函数 2016 2015 2015期中 2013B 2013A</p>
-</li>
-<li><p>FIFO会产生belady异常 2016 2013B 2013A</p>
-</li>
-<li><p>实时操作系统系统响应时间的重要性超过协同资源的利用率 2016 </p>
-</li>
-<li><p>周转时间为完成时刻减去提交给系统时刻，带权周转时间为周转时间与运行时间的比 2016 2015 2013B 2013A</p>
-</li>
-<li><p>unix系统通过目录项实现按名存取 2016 2015</p>
-</li>
-<li><p>采用分段式不会产生内部碎片，采用分页式不会产生外部碎片 2016 2015 2015期中 2014 2013B 2013A</p>
-</li>
-<li><p>linux的slab分配器采用伙伴系统 2016 2015 2013B 2013A</p>
-</li>
-<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101746.png"></p>
-<p>2016 2013A</p>
-</li>
-<li><p>solaris多线程实现方式混合式 2016 2015 2013B 2013A</p>
-</li>
-<li><p>如果I&#x2F;O设备与存储设备进行数据交换不经过CPU来完成，这种数据交换方式是DMA方式 2016 2015 2014 2013B 2013A</p>
-</li>
-<li><p>引入多道程序设计技术的前提条件之一是系统具有中断功能 2016 2015期中 2013A</p>
-</li>
-<li><p>通道程序由一系列通道指令构成 2016 2015 2013A</p>
-</li>
-<li><p>对文件的访问常由用户访问权限和文件属性共同限制 2016 2015 2013B 2013A</p>
-</li>
-<li><p>I&#x2F;O软件的分层结构中，设备驱动程序负责将把用户提交的逻辑I&#x2F;O请求转化为物理I&#x2F;O操作的启动和执行。 2016 2015 2013B 2013A</p>
-</li>
-<li><p><img src="C:\Users\ThinkPad\Desktop\image-20210109191445197.png"></p>
-<p>2016 2015 2014 2013B 2013A</p>
-</li>
-<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101951.png"></p>
-<p>2016 2015 2013B 2013A</p>
-</li>
-<li><p>create、open返回的是文件描述符（字），read、write返回的是读写的字数 2016</p>
-</li>
-<li><p>当同时提供管态（核心态）和目态（用户态）时，输入、输出指令必须在管态（核心态）执行 2016 2013B</p>
-</li>
-<li><p>操作系统中的SPOOLing技术，实质是指独占设备转化为共享设备的技术 2016 2013B</p>
-</li>
-<li><p>一个进程被唤醒意味着进程变为就绪状态 2016 2015</p>
-</li>
-<li><p>分布式操作系统允许在一台主机上同时连接多个终端，各个用户可以通过各自的终端交互使用计算机 2015</p>
-</li>
-<li><p>对进程的管理和控制使用原语 2015</p>
-</li>
-<li><p>unix中文件的索引结构存放在inode节点中 2015 2013B 2013A</p>
-</li>
-<li><p>逻辑地址与物理地址的转换：1 逻辑地址除以页的大小求页号 2 逻辑地址对页的大小取余求页内偏移 3 根据页表获取页框号 4 页框号乘以页的大小加上偏移量得到物理地址 2015 2015期中 2013B</p>
-</li>
-<li><p>无结构文件的含义是流式文件 2015 2014</p>
-</li>
-<li><p>位示图可用于磁盘空间的分配和管理 2015</p>
-</li>
-<li><p>分页由操作系统实现 2015</p>
-</li>
-<li><p>并发性指若干事件在同一时间间隔内发生 2014</p>
-</li>
-<li><p>多道程序设计指在一台处理机上并发运行多个程序 2014</p>
-</li>
-<li><p>linux、windows CE、solaris是操作系统环境，celeron不是操作系统环境，是处理器 2014</p>
-</li>
-<li><p>分时系统时间片一定，用户数越多，响应时间越长 2014</p>
-</li>
-<li><p>实时系统必须在规定时间内处理来自外部事件 2014</p>
-</li>
-<li><p>死锁定理：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102057.png"></p>
-<p>在处理死锁的检测阶段。处理死锁的方法：死锁防止、死锁避免、死锁检测和恢复 2014</p>
-</li>
-<li><p>逻辑文件：流式文件和记录式文件；物理文件：顺序文件、连接文件、索引文件和直接文件。 2014</p>
-</li>
-<li><p>文件目录主要作用是按名存取 2014 2013B</p>
-</li>
-<li><p>I&#x2F;O缓冲是为了解决CPU和设备间速度不匹配 2014</p>
-</li>
-<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102121.png"></p>
-<p>2014</p>
-</li>
-<li><p>磁盘最小的读写单位是扇区 2014</p>
-</li>
-<li><p>有利于短作业又兼顾长作业的调度算法是最高响应比优先，既考虑作业运行时间又考虑等待时间的是最高响应比优先 2014</p>
-</li>
-<li><p>信号量与进程状态转换模型</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102133.png"></p>
-</li>
-<li><p>配置了操作系统的机器是一台比原来的物理机器功能更强的计算机，这样的计算机只是一台逻辑上的计算机，称为虚拟计算机。 2014</p>
-</li>
-<li><p>从实模式进入保护模式的指令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lgdt [GdtPtr]</span><br><span class="line">out 92h,al</span><br><span class="line">mov cr0,eax</span><br></pre></td></tr></table></figure>
-
-<p>不包括jmp $ 2013B 2013A</p>
-</li>
-<li><p>FAT12中两个FAT表，各占9扇区 2013B 2013A</p>
-</li>
-<li><p>操作系统的描述符表GDT、LDT、IDT 2013B 2013A</p>
-</li>
-<li><p>C语言调用汇编函数的方法是C中用extern声明，汇编用global导出 2013B 2013A</p>
-</li>
-<li><p>逻辑地址和物理地址转换 2013A</p>
-</li>
-<li><p>实模式下16位CPU使用段偏移方式寻址能力1M 2013A</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102349.png"></p>
-</li>
-<li><p>分时操作系统允许在同一台计算机上连接多台终端，多个用户可以通过各自的终端同时交互使用计算机 2013A</p>
-</li>
-<li><p>可并行的是：处理机与设备、处理机与通道、设备与设备 2009考研</p>
-</li>
-<li><p>饥饿现象<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102401.png"></p>
-</li>
-<li><p>实现临界区管理的硬件设施：关中断、测试并设置指令、对换指令</p>
-</li>
-<li><p>特权指令和非特权指令<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102437.png"></p>
-</li>
-<li><p>Bernstein条件<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102520.png"></p>
-</li>
-<li><p>操作系统分类：多道批处理操作系统（脱机控制方式）、分时操作系统（交互式控制方式）、实时操作系统（既有分时又有实时）</p>
-</li>
-<li><p>最早提出信号量和PV操作同步机制的是Dijkstra</p>
-</li>
-<li><p>进程在挂起状态不参与进程调度</p>
-</li>
-<li><p>Minix操作系统是A.S.Tanenbaum设计实现的</p>
-</li>
-<li><p>处理时间与周期比之和小于1<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102558.png"></p>
-</li>
-<li><p>外中断：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102613.png"></p>
-<p>内中断：</p>
-<p>访管中断、硬件故障中断、程序性异常</p>
-</li>
-<li><p>虚拟存储管理的核心是部分装入和部分对换</p>
-</li>
-<li><p>内核功能：中断管理、时钟管理、短程调度、原语管理</p>
-</li>
-<li><p>操作系统负责管理计算机系统的资源，包括处理机、内存、外围设备和文件</p>
-</li>
-<li><p>操作系统资源管理实现过程中常用的数据结构是表格</p>
-</li>
-<li><p>页式存储管理中，逻辑地址到物理地址的转换由mmu完成</p>
-</li>
-<li><p>引入挂起的原因：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102717.png"></p>
-</li>
-<li><p>用户程序的输入&#x2F;输出操作是通过系统调用，借助操作系统完成</p>
-</li>
-<li><p>unix采用的进程优先数动态调度算法</p>
-</li>
-<li><p>特权指令在管态（核心态）运行</p>
-</li>
-<li><p>以字符为单位组织处理信息的设备是字符设备</p>
-</li>
-<li><p>文件系统采用二级目录的主要原因是避免不同用户之间的文件名冲突</p>
-</li>
-<li><p>进程调度是在就绪队列中选取一个进程执行</p>
-</li>
-<li><p>分时系统多采用时间片轮转调度算法</p>
-</li>
-<li><p>资源的层次式分配可以破坏死锁的循环等待条件，静态分配通过破坏占有并等待条件</p>
-</li>
-<li><p>进程的优先数在创建时就确定并且在进程生命周期不改变，这个调度算法是动态优先数</p>
-</li>
-<li><p>挂起的进程大部分内容处于外部存储器</p>
-</li>
-<li><p>页式存储中，页面不在内存，产生缺页中断</p>
-</li>
-<li><p>段的划分由程序员决定</p>
-</li>
-<li><p>批处理系统的缺点是缺乏交互性</p>
-</li>
-<li><p>分时系统基本特征是并发性、交互性、独立性</p>
-</li>
-<li><p>进程控制块PCB，包括标识信息、现场信息、控制信息：</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103248.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103323.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103327.png"></p>
-</li>
-<li><p>进程的内存映像包括：控制块、程序块、数据块、核心栈</p>
-</li>
-<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103412.png"></p>
-</li>
-<li><p>引入多道程序设计的主要目的是充分利用CPU和提高外设利用率</p>
-</li>
-<li><p>进程间通信机制：信号通信、管道通信（共享文件）、消息传递、共享内存</p>
-</li>
-<li><p>页大小由操作系统决定，段长度由用户决定。页面物理起始地址是页面大小整数倍，段的物理地址任意的。页式采用静态重定位，段式采用动态重定位。</p>
-</li>
-<li><p>文件存储空间管理：位示图、空闲区表、空闲块链、成组空闲块链</p>
-</li>
-</ol>
-<h2 id="1-I-x2F-O层次-5层-2019"><a href="#1-I-x2F-O层次-5层-2019" class="headerlink" title="1. I&#x2F;O层次 5层 2019"></a>1. I&#x2F;O层次 5层 2019</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103739.png"></p>
-<h2 id="2-磁头调度算法-2019-2016-2015-2013B-2013A"><a href="#2-磁头调度算法-2019-2016-2015-2013B-2013A" class="headerlink" title="2. 磁头调度算法 2019 2016 2015 2013B 2013A"></a>2. 磁头调度算法 2019 2016 2015 2013B 2013A</h2><p>先来先服务</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103807.png"></p>
-<p>最短寻道时间优先</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103856.png"></p>
-<p>扫描算法</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103917.png"></p>
-<p>循环扫描算法</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104005.png"></p>
-<p>look（电梯）算法</p>
-<p>循环look算法</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104018.png"></p>
-<h2 id="3-fork-2019"><a href="#3-fork-2019" class="headerlink" title="3. fork 2019"></a>3. fork 2019</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104110.png"></p>
-<p>mooc</p>
-<blockquote>
-<p>20单选(2分)</p>
-<p>在UNIX系统中运行以下程序，最多可再产生出_7__进程?</p>
-<p>main( ){</p>
-<p>fork( ); &#x2F;*←pc(程序计数器)，进程A</p>
-<p>fork( );</p>
-<p>fork( );</p>
-<p>}</p>
-<p>A.5；</p>
-<p>B.7；</p>
-<p>C.3；</p>
-<p>D.9；</p>
-<p>正确答案：B你选对了</p>
-</blockquote>
-<h2 id="4-盘块数-2019-2016-2015-2013B-2013A"><a href="#4-盘块数-2019-2016-2015-2013B-2013A" class="headerlink" title="4. 盘块数 2019 2016 2015 2013B 2013A"></a>4. 盘块数 2019 2016 2015 2013B 2013A</h2><p>先求一共多少盘块，再分别计算</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104133.png"></p>
-<h2 id="5-虚存分页原理-2019"><a href="#5-虚存分页原理-2019" class="headerlink" title="5. 虚存分页原理 2019"></a>5. 虚存分页原理 2019</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104141.png"></p>
-<h2 id="6-处理器调度算法-2019-2015"><a href="#6-处理器调度算法-2019-2015" class="headerlink" title="6. 处理器调度算法 2019 2015"></a>6. 处理器调度算法 2019 2015</h2><h3 id="6-1-RR-2019-2015-2015期中-2014-2013B-2013A"><a href="#6-1-RR-2019-2015-2015期中-2014-2013B-2013A" class="headerlink" title="6.1 RR 2019 2015 2015期中 2014 2013B 2013A"></a>6.1 RR 2019 2015 2015期中 2014 2013B 2013A</h3><p>一个歧义问题：</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104158.png"></p>
-<h3 id="6-2-Feedback-2019-2015期中-2014-2013B-2013A"><a href="#6-2-Feedback-2019-2015期中-2014-2013B-2013A" class="headerlink" title="6.2 Feedback 2019 2015期中 2014 2013B 2013A"></a>6.2 Feedback 2019 2015期中 2014 2013B 2013A</h3><p>一个进程被后面的抢占了，就到下一级优先队列</p>
-<p>如果是q&#x3D;2<sup>i</sup>，下面一层的时间片长度依次是上面两倍</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104246.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104255.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104305.png"></p>
-<h3 id="6-3-HRRN最高响应比优先-2019-2015期中"><a href="#6-3-HRRN最高响应比优先-2019-2015期中" class="headerlink" title="6.3 HRRN最高响应比优先 2019 2015期中"></a>6.3 HRRN最高响应比优先 2019 2015期中</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104323.png"></p>
-<h3 id="6-4-FCFS-2019-2015"><a href="#6-4-FCFS-2019-2015" class="headerlink" title="6.4 FCFS 2019 2015"></a>6.4 FCFS 2019 2015</h3><h3 id="6-5-SRT-2015期中"><a href="#6-5-SRT-2015期中" class="headerlink" title="6.5 SRT 2015期中"></a>6.5 SRT 2015期中</h3><h2 id="7-页面替换算法-2019-2016-2015-2014-2013B"><a href="#7-页面替换算法-2019-2016-2015-2014-2013B" class="headerlink" title="7. 页面替换算法 2019 2016 2015 2014 2013B"></a>7. 页面替换算法 2019 2016 2015 2014 2013B</h2><h3 id="7-1-LRU-2019-2016-2015-2014-2013A"><a href="#7-1-LRU-2019-2016-2015-2014-2013A" class="headerlink" title="7.1 LRU 2019 2016 2015 2014 2013A"></a>7.1 LRU 2019 2016 2015 2014 2013A</h3><p>写的时候，用一次，就把它提上来。淘汰最底下的。</p>
-<table>
-<thead>
-<tr>
-<th><strong>页面序列</strong></th>
-<th><strong>1</strong></th>
-<th><strong>2</strong></th>
-<th><strong>3</strong></th>
-<th><strong>1</strong></th>
-<th><strong>4</strong></th>
-<th><strong>5</strong></th>
-<th><strong>1</strong></th>
-<th><strong>2</strong></th>
-<th><strong>1</strong></th>
-<th><strong>4</strong></th>
-<th><strong>5</strong></th>
-<th><strong>3</strong></th>
-<th><strong>4</strong></th>
-<th><strong>5</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>页框1</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr>
-<td>页框2</td>
-<td></td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-<td>3</td>
-<td>4</td>
-</tr>
-<tr>
-<td>页框3</td>
-<td></td>
-<td></td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-<td>5</td>
-<td>3</td>
-</tr>
-<tr>
-<td>页框4</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>2</td>
-<td>3</td>
-<td>3</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>缺页标记</td>
-<td>缺</td>
-<td>缺</td>
-<td>缺</td>
-<td></td>
-<td>缺</td>
-<td>缺</td>
-<td></td>
-<td>缺</td>
-<td></td>
-<td></td>
-<td></td>
-<td>缺</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="7-2-clock-2019-2016-2014-2013B-2013A"><a href="#7-2-clock-2019-2016-2014-2013B-2013A" class="headerlink" title="7.2 clock 2019 2016 2014 2013B 2013A"></a>7.2 clock 2019 2016 2014 2013B 2013A</h3><p>如果内存里有且为1但是指针不在相应位置，不要移动指针</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104419.png"></p>
-<h3 id="7-3-opt-2015"><a href="#7-3-opt-2015" class="headerlink" title="7.3 opt 2015"></a>7.3 opt 2015</h3><p>替换掉以后不再访问或者以后最长时间不访问的页</p>
-<h2 id="8-PV-2019-2016-2015"><a href="#8-PV-2019-2016-2015" class="headerlink" title="8. PV 2019 2016 2015"></a>8. PV 2019 2016 2015</h2><h3 id="8-1-吸烟者问题-2013A"><a href="#8-1-吸烟者问题-2013A" class="headerlink" title="8.1 吸烟者问题 2013A"></a>8.1 吸烟者问题 2013A</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104505.png"></p>
-<h3 id="8-2-读者写者问题-2015"><a href="#8-2-读者写者问题-2015" class="headerlink" title="8.2 读者写者问题 2015"></a>8.2 读者写者问题 2015</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104522.png"></p>
-<h3 id="8-3-哲学家就餐-2014"><a href="#8-3-哲学家就餐-2014" class="headerlink" title="8.3 哲学家就餐 2014"></a>8.3 哲学家就餐 2014</h3><ol>
-<li><p>最多允许四个人</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104537.png"></p>
-</li>
-<li><p>偶数先右手奇数先左手</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104556.png"></p>
-</li>
-</ol>
-<h3 id="8-4-农夫猎人问题-2013B"><a href="#8-4-农夫猎人问题-2013B" class="headerlink" title="8.4 农夫猎人问题 2013B"></a>8.4 农夫猎人问题 2013B</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104617.png"></p>
-<h2 id="9-进程映像结构-2016-2015-2013B"><a href="#9-进程映像结构-2016-2015-2013B" class="headerlink" title="9. 进程映像结构 2016 2015 2013B"></a>9. 进程映像结构 2016 2015 2013B</h2><p>进程的内存映像包括：进程控制块PCB、程序块、数据块、核心栈</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104632.png"></p>
-<h2 id="10-状态模型-2016-2015"><a href="#10-状态模型-2016-2015" class="headerlink" title="10. 状态模型 2016 2015"></a>10. 状态模型 2016 2015</h2><h3 id="10-1-三态-2016"><a href="#10-1-三态-2016" class="headerlink" title="10.1 三态 2016"></a>10.1 三态 2016</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104652.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104706.png"></p>
-<h3 id="10-2-五态-2013A"><a href="#10-2-五态-2013A" class="headerlink" title="10.2 五态 2013A"></a>10.2 五态 2013A</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104739.png"></p>
-<h3 id="10-3-七态-2015-2015期中"><a href="#10-3-七态-2015-2015期中" class="headerlink" title="10.3 七态 2015 2015期中"></a>10.3 七态 2015 2015期中</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104752.png"></p>
-<h2 id="11-银行家算法-2016-2015-2014-2013B-2013A"><a href="#11-银行家算法-2016-2015-2014-2013B-2013A" class="headerlink" title="11. 银行家算法 2016 2015 2014 2013B 2013A"></a>11. 银行家算法 2016 2015 2014 2013B 2013A</h2><ol>
-<li>先用C-A算出还需要的</li>
-<li>然后用完一个进程把A加上，算出此时的剩余</li>
-</ol>
-<h2 id="12-管程-2016"><a href="#12-管程-2016" class="headerlink" title="12. 管程 2016"></a>12. 管程 2016</h2><h3 id="12-1-哲学家就餐问题-2016-2013A"><a href="#12-1-哲学家就餐问题-2016-2013A" class="headerlink" title="12.1 哲学家就餐问题 2016 2013A"></a>12.1 哲学家就餐问题 2016 2013A</h3><p>想吃调用pickup，吃完调用putdown</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104926.png"></p>
-<h3 id="12-2-生产者消费者-2014"><a href="#12-2-生产者消费者-2014" class="headerlink" title="12.2 生产者消费者 2014"></a>12.2 生产者消费者 2014</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104937.png"></p>
-<h3 id="12-3-读者写者问题-2013B"><a href="#12-3-读者写者问题-2013B" class="headerlink" title="12.3 读者写者问题 2013B"></a>12.3 读者写者问题 2013B</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104959.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105019.png"></p>
-<h2 id="13-操作系统三个抽象-2014"><a href="#13-操作系统三个抽象-2014" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105123.png"></p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105136.png"></p>
-<h2 id="14-求页表项-2013B-2013A"><a href="#14-求页表项-2013B-2013A" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
-<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105518.png"></p>
-<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
-<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
-<h2 id="15-访问时间"><a href="#15-访问时间" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105601.png"></p>
-<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
-<h2 id="16-位示图"><a href="#16-位示图" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105604.png"></p>
-<h2 id="13-操作系统三个抽象-2014-1"><a href="#13-操作系统三个抽象-2014-1" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p>[外链图片转存中…(img-Mo0dm323-1612771884121)]</p>
-<p>[外链图片转存中…(img-wlyEGQl2-1612771884122)]</p>
-<h2 id="14-求页表项-2013B-2013A-1"><a href="#14-求页表项-2013B-2013A-1" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
-<p>[外链图片转存中…(img-f8H6IxqW-1612771884123)]</p>
-<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
-<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
-<h2 id="15-访问时间-1"><a href="#15-访问时间-1" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p>[外链图片转存中…(img-vCaquhUT-1612771884125)]</p>
-<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
-<h2 id="16-位示图-1"><a href="#16-位示图-1" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p>[外链图片转存中…(img-BpKUCmVI-1612771884126)]</p>
-]]></content>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务端开发：section1环境搭建</title>
-    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
-<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
-<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
-<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
-<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
-<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
-<ol start="3">
-<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
-<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
-<li>首先确保MySQL版本是5.7.x</li>
-<li>在MySQL命令行中create一个database，名称随意</li>
-<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
-<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
-<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>后端</tag>
-        <tag>服务端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《TypeScript编程》阅读</title>
     <url>/2022/06/11/%E3%80%8ATypeScript%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB/</url>
     <content><![CDATA[<h2 id="第一章-导言"><a href="#第一章-导言" class="headerlink" title="第一章 导言"></a>第一章 导言</h2><p>TS具有类型安全（借助类型避免程序做无效的事情）。比如JS在对一些不同类型进行操作的时候，不会抛出异常，TS就会抛出。</p>
@@ -4265,6 +3839,432 @@
 ]]></content>
   </entry>
   <entry>
+    <title>操作系统考前复习</title>
+    <url>/2021/02/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%80%83%E5%89%8D%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="操作系统考前复习"><a href="#操作系统考前复习" class="headerlink" title="操作系统考前复习"></a>操作系统考前复习</h1><h2 id="0-选择题"><a href="#0-选择题" class="headerlink" title="0. 选择题"></a>0. 选择题</h2><ol>
+<li><p>多道程序设计提高利用率 2016 2015</p>
+</li>
+<li><p>系统调用是操作系统向用户提供的接口，而库函数是通过操作系统调用所形成的特定功能的函数 2016 2015 2015期中 2013B 2013A</p>
+</li>
+<li><p>FIFO会产生belady异常 2016 2013B 2013A</p>
+</li>
+<li><p>实时操作系统系统响应时间的重要性超过协同资源的利用率 2016 </p>
+</li>
+<li><p>周转时间为完成时刻减去提交给系统时刻，带权周转时间为周转时间与运行时间的比 2016 2015 2013B 2013A</p>
+</li>
+<li><p>unix系统通过目录项实现按名存取 2016 2015</p>
+</li>
+<li><p>采用分段式不会产生内部碎片，采用分页式不会产生外部碎片 2016 2015 2015期中 2014 2013B 2013A</p>
+</li>
+<li><p>linux的slab分配器采用伙伴系统 2016 2015 2013B 2013A</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101746.png"></p>
+<p>2016 2013A</p>
+</li>
+<li><p>solaris多线程实现方式混合式 2016 2015 2013B 2013A</p>
+</li>
+<li><p>如果I&#x2F;O设备与存储设备进行数据交换不经过CPU来完成，这种数据交换方式是DMA方式 2016 2015 2014 2013B 2013A</p>
+</li>
+<li><p>引入多道程序设计技术的前提条件之一是系统具有中断功能 2016 2015期中 2013A</p>
+</li>
+<li><p>通道程序由一系列通道指令构成 2016 2015 2013A</p>
+</li>
+<li><p>对文件的访问常由用户访问权限和文件属性共同限制 2016 2015 2013B 2013A</p>
+</li>
+<li><p>I&#x2F;O软件的分层结构中，设备驱动程序负责将把用户提交的逻辑I&#x2F;O请求转化为物理I&#x2F;O操作的启动和执行。 2016 2015 2013B 2013A</p>
+</li>
+<li><p><img src="C:\Users\ThinkPad\Desktop\image-20210109191445197.png"></p>
+<p>2016 2015 2014 2013B 2013A</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301101951.png"></p>
+<p>2016 2015 2013B 2013A</p>
+</li>
+<li><p>create、open返回的是文件描述符（字），read、write返回的是读写的字数 2016</p>
+</li>
+<li><p>当同时提供管态（核心态）和目态（用户态）时，输入、输出指令必须在管态（核心态）执行 2016 2013B</p>
+</li>
+<li><p>操作系统中的SPOOLing技术，实质是指独占设备转化为共享设备的技术 2016 2013B</p>
+</li>
+<li><p>一个进程被唤醒意味着进程变为就绪状态 2016 2015</p>
+</li>
+<li><p>分布式操作系统允许在一台主机上同时连接多个终端，各个用户可以通过各自的终端交互使用计算机 2015</p>
+</li>
+<li><p>对进程的管理和控制使用原语 2015</p>
+</li>
+<li><p>unix中文件的索引结构存放在inode节点中 2015 2013B 2013A</p>
+</li>
+<li><p>逻辑地址与物理地址的转换：1 逻辑地址除以页的大小求页号 2 逻辑地址对页的大小取余求页内偏移 3 根据页表获取页框号 4 页框号乘以页的大小加上偏移量得到物理地址 2015 2015期中 2013B</p>
+</li>
+<li><p>无结构文件的含义是流式文件 2015 2014</p>
+</li>
+<li><p>位示图可用于磁盘空间的分配和管理 2015</p>
+</li>
+<li><p>分页由操作系统实现 2015</p>
+</li>
+<li><p>并发性指若干事件在同一时间间隔内发生 2014</p>
+</li>
+<li><p>多道程序设计指在一台处理机上并发运行多个程序 2014</p>
+</li>
+<li><p>linux、windows CE、solaris是操作系统环境，celeron不是操作系统环境，是处理器 2014</p>
+</li>
+<li><p>分时系统时间片一定，用户数越多，响应时间越长 2014</p>
+</li>
+<li><p>实时系统必须在规定时间内处理来自外部事件 2014</p>
+</li>
+<li><p>死锁定理：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102057.png"></p>
+<p>在处理死锁的检测阶段。处理死锁的方法：死锁防止、死锁避免、死锁检测和恢复 2014</p>
+</li>
+<li><p>逻辑文件：流式文件和记录式文件；物理文件：顺序文件、连接文件、索引文件和直接文件。 2014</p>
+</li>
+<li><p>文件目录主要作用是按名存取 2014 2013B</p>
+</li>
+<li><p>I&#x2F;O缓冲是为了解决CPU和设备间速度不匹配 2014</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102121.png"></p>
+<p>2014</p>
+</li>
+<li><p>磁盘最小的读写单位是扇区 2014</p>
+</li>
+<li><p>有利于短作业又兼顾长作业的调度算法是最高响应比优先，既考虑作业运行时间又考虑等待时间的是最高响应比优先 2014</p>
+</li>
+<li><p>信号量与进程状态转换模型</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102133.png"></p>
+</li>
+<li><p>配置了操作系统的机器是一台比原来的物理机器功能更强的计算机，这样的计算机只是一台逻辑上的计算机，称为虚拟计算机。 2014</p>
+</li>
+<li><p>从实模式进入保护模式的指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lgdt [GdtPtr]</span><br><span class="line">out 92h,al</span><br><span class="line">mov cr0,eax</span><br></pre></td></tr></table></figure>
+
+<p>不包括jmp $ 2013B 2013A</p>
+</li>
+<li><p>FAT12中两个FAT表，各占9扇区 2013B 2013A</p>
+</li>
+<li><p>操作系统的描述符表GDT、LDT、IDT 2013B 2013A</p>
+</li>
+<li><p>C语言调用汇编函数的方法是C中用extern声明，汇编用global导出 2013B 2013A</p>
+</li>
+<li><p>逻辑地址和物理地址转换 2013A</p>
+</li>
+<li><p>实模式下16位CPU使用段偏移方式寻址能力1M 2013A</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102349.png"></p>
+</li>
+<li><p>分时操作系统允许在同一台计算机上连接多台终端，多个用户可以通过各自的终端同时交互使用计算机 2013A</p>
+</li>
+<li><p>可并行的是：处理机与设备、处理机与通道、设备与设备 2009考研</p>
+</li>
+<li><p>饥饿现象<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102401.png"></p>
+</li>
+<li><p>实现临界区管理的硬件设施：关中断、测试并设置指令、对换指令</p>
+</li>
+<li><p>特权指令和非特权指令<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102437.png"></p>
+</li>
+<li><p>Bernstein条件<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102520.png"></p>
+</li>
+<li><p>操作系统分类：多道批处理操作系统（脱机控制方式）、分时操作系统（交互式控制方式）、实时操作系统（既有分时又有实时）</p>
+</li>
+<li><p>最早提出信号量和PV操作同步机制的是Dijkstra</p>
+</li>
+<li><p>进程在挂起状态不参与进程调度</p>
+</li>
+<li><p>Minix操作系统是A.S.Tanenbaum设计实现的</p>
+</li>
+<li><p>处理时间与周期比之和小于1<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102558.png"></p>
+</li>
+<li><p>外中断：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102613.png"></p>
+<p>内中断：</p>
+<p>访管中断、硬件故障中断、程序性异常</p>
+</li>
+<li><p>虚拟存储管理的核心是部分装入和部分对换</p>
+</li>
+<li><p>内核功能：中断管理、时钟管理、短程调度、原语管理</p>
+</li>
+<li><p>操作系统负责管理计算机系统的资源，包括处理机、内存、外围设备和文件</p>
+</li>
+<li><p>操作系统资源管理实现过程中常用的数据结构是表格</p>
+</li>
+<li><p>页式存储管理中，逻辑地址到物理地址的转换由mmu完成</p>
+</li>
+<li><p>引入挂起的原因：<img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301102717.png"></p>
+</li>
+<li><p>用户程序的输入&#x2F;输出操作是通过系统调用，借助操作系统完成</p>
+</li>
+<li><p>unix采用的进程优先数动态调度算法</p>
+</li>
+<li><p>特权指令在管态（核心态）运行</p>
+</li>
+<li><p>以字符为单位组织处理信息的设备是字符设备</p>
+</li>
+<li><p>文件系统采用二级目录的主要原因是避免不同用户之间的文件名冲突</p>
+</li>
+<li><p>进程调度是在就绪队列中选取一个进程执行</p>
+</li>
+<li><p>分时系统多采用时间片轮转调度算法</p>
+</li>
+<li><p>资源的层次式分配可以破坏死锁的循环等待条件，静态分配通过破坏占有并等待条件</p>
+</li>
+<li><p>进程的优先数在创建时就确定并且在进程生命周期不改变，这个调度算法是动态优先数</p>
+</li>
+<li><p>挂起的进程大部分内容处于外部存储器</p>
+</li>
+<li><p>页式存储中，页面不在内存，产生缺页中断</p>
+</li>
+<li><p>段的划分由程序员决定</p>
+</li>
+<li><p>批处理系统的缺点是缺乏交互性</p>
+</li>
+<li><p>分时系统基本特征是并发性、交互性、独立性</p>
+</li>
+<li><p>进程控制块PCB，包括标识信息、现场信息、控制信息：</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103248.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103323.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103327.png"></p>
+</li>
+<li><p>进程的内存映像包括：控制块、程序块、数据块、核心栈</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103412.png"></p>
+</li>
+<li><p>引入多道程序设计的主要目的是充分利用CPU和提高外设利用率</p>
+</li>
+<li><p>进程间通信机制：信号通信、管道通信（共享文件）、消息传递、共享内存</p>
+</li>
+<li><p>页大小由操作系统决定，段长度由用户决定。页面物理起始地址是页面大小整数倍，段的物理地址任意的。页式采用静态重定位，段式采用动态重定位。</p>
+</li>
+<li><p>文件存储空间管理：位示图、空闲区表、空闲块链、成组空闲块链</p>
+</li>
+</ol>
+<h2 id="1-I-x2F-O层次-5层-2019"><a href="#1-I-x2F-O层次-5层-2019" class="headerlink" title="1. I&#x2F;O层次 5层 2019"></a>1. I&#x2F;O层次 5层 2019</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103739.png"></p>
+<h2 id="2-磁头调度算法-2019-2016-2015-2013B-2013A"><a href="#2-磁头调度算法-2019-2016-2015-2013B-2013A" class="headerlink" title="2. 磁头调度算法 2019 2016 2015 2013B 2013A"></a>2. 磁头调度算法 2019 2016 2015 2013B 2013A</h2><p>先来先服务</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103807.png"></p>
+<p>最短寻道时间优先</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103856.png"></p>
+<p>扫描算法</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301103917.png"></p>
+<p>循环扫描算法</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104005.png"></p>
+<p>look（电梯）算法</p>
+<p>循环look算法</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104018.png"></p>
+<h2 id="3-fork-2019"><a href="#3-fork-2019" class="headerlink" title="3. fork 2019"></a>3. fork 2019</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104110.png"></p>
+<p>mooc</p>
+<blockquote>
+<p>20单选(2分)</p>
+<p>在UNIX系统中运行以下程序，最多可再产生出_7__进程?</p>
+<p>main( ){</p>
+<p>fork( ); &#x2F;*←pc(程序计数器)，进程A</p>
+<p>fork( );</p>
+<p>fork( );</p>
+<p>}</p>
+<p>A.5；</p>
+<p>B.7；</p>
+<p>C.3；</p>
+<p>D.9；</p>
+<p>正确答案：B你选对了</p>
+</blockquote>
+<h2 id="4-盘块数-2019-2016-2015-2013B-2013A"><a href="#4-盘块数-2019-2016-2015-2013B-2013A" class="headerlink" title="4. 盘块数 2019 2016 2015 2013B 2013A"></a>4. 盘块数 2019 2016 2015 2013B 2013A</h2><p>先求一共多少盘块，再分别计算</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104133.png"></p>
+<h2 id="5-虚存分页原理-2019"><a href="#5-虚存分页原理-2019" class="headerlink" title="5. 虚存分页原理 2019"></a>5. 虚存分页原理 2019</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104141.png"></p>
+<h2 id="6-处理器调度算法-2019-2015"><a href="#6-处理器调度算法-2019-2015" class="headerlink" title="6. 处理器调度算法 2019 2015"></a>6. 处理器调度算法 2019 2015</h2><h3 id="6-1-RR-2019-2015-2015期中-2014-2013B-2013A"><a href="#6-1-RR-2019-2015-2015期中-2014-2013B-2013A" class="headerlink" title="6.1 RR 2019 2015 2015期中 2014 2013B 2013A"></a>6.1 RR 2019 2015 2015期中 2014 2013B 2013A</h3><p>一个歧义问题：</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104158.png"></p>
+<h3 id="6-2-Feedback-2019-2015期中-2014-2013B-2013A"><a href="#6-2-Feedback-2019-2015期中-2014-2013B-2013A" class="headerlink" title="6.2 Feedback 2019 2015期中 2014 2013B 2013A"></a>6.2 Feedback 2019 2015期中 2014 2013B 2013A</h3><p>一个进程被后面的抢占了，就到下一级优先队列</p>
+<p>如果是q&#x3D;2<sup>i</sup>，下面一层的时间片长度依次是上面两倍</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104246.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104255.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104305.png"></p>
+<h3 id="6-3-HRRN最高响应比优先-2019-2015期中"><a href="#6-3-HRRN最高响应比优先-2019-2015期中" class="headerlink" title="6.3 HRRN最高响应比优先 2019 2015期中"></a>6.3 HRRN最高响应比优先 2019 2015期中</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104323.png"></p>
+<h3 id="6-4-FCFS-2019-2015"><a href="#6-4-FCFS-2019-2015" class="headerlink" title="6.4 FCFS 2019 2015"></a>6.4 FCFS 2019 2015</h3><h3 id="6-5-SRT-2015期中"><a href="#6-5-SRT-2015期中" class="headerlink" title="6.5 SRT 2015期中"></a>6.5 SRT 2015期中</h3><h2 id="7-页面替换算法-2019-2016-2015-2014-2013B"><a href="#7-页面替换算法-2019-2016-2015-2014-2013B" class="headerlink" title="7. 页面替换算法 2019 2016 2015 2014 2013B"></a>7. 页面替换算法 2019 2016 2015 2014 2013B</h2><h3 id="7-1-LRU-2019-2016-2015-2014-2013A"><a href="#7-1-LRU-2019-2016-2015-2014-2013A" class="headerlink" title="7.1 LRU 2019 2016 2015 2014 2013A"></a>7.1 LRU 2019 2016 2015 2014 2013A</h3><p>写的时候，用一次，就把它提上来。淘汰最底下的。</p>
+<table>
+<thead>
+<tr>
+<th><strong>页面序列</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>3</strong></th>
+<th><strong>1</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>1</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+<th><strong>3</strong></th>
+<th><strong>4</strong></th>
+<th><strong>5</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页框1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>页框2</td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>页框3</td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>页框4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>缺页标记</td>
+<td>缺</td>
+<td>缺</td>
+<td>缺</td>
+<td></td>
+<td>缺</td>
+<td>缺</td>
+<td></td>
+<td>缺</td>
+<td></td>
+<td></td>
+<td></td>
+<td>缺</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="7-2-clock-2019-2016-2014-2013B-2013A"><a href="#7-2-clock-2019-2016-2014-2013B-2013A" class="headerlink" title="7.2 clock 2019 2016 2014 2013B 2013A"></a>7.2 clock 2019 2016 2014 2013B 2013A</h3><p>如果内存里有且为1但是指针不在相应位置，不要移动指针</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104419.png"></p>
+<h3 id="7-3-opt-2015"><a href="#7-3-opt-2015" class="headerlink" title="7.3 opt 2015"></a>7.3 opt 2015</h3><p>替换掉以后不再访问或者以后最长时间不访问的页</p>
+<h2 id="8-PV-2019-2016-2015"><a href="#8-PV-2019-2016-2015" class="headerlink" title="8. PV 2019 2016 2015"></a>8. PV 2019 2016 2015</h2><h3 id="8-1-吸烟者问题-2013A"><a href="#8-1-吸烟者问题-2013A" class="headerlink" title="8.1 吸烟者问题 2013A"></a>8.1 吸烟者问题 2013A</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104505.png"></p>
+<h3 id="8-2-读者写者问题-2015"><a href="#8-2-读者写者问题-2015" class="headerlink" title="8.2 读者写者问题 2015"></a>8.2 读者写者问题 2015</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104522.png"></p>
+<h3 id="8-3-哲学家就餐-2014"><a href="#8-3-哲学家就餐-2014" class="headerlink" title="8.3 哲学家就餐 2014"></a>8.3 哲学家就餐 2014</h3><ol>
+<li><p>最多允许四个人</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104537.png"></p>
+</li>
+<li><p>偶数先右手奇数先左手</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104556.png"></p>
+</li>
+</ol>
+<h3 id="8-4-农夫猎人问题-2013B"><a href="#8-4-农夫猎人问题-2013B" class="headerlink" title="8.4 农夫猎人问题 2013B"></a>8.4 农夫猎人问题 2013B</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104617.png"></p>
+<h2 id="9-进程映像结构-2016-2015-2013B"><a href="#9-进程映像结构-2016-2015-2013B" class="headerlink" title="9. 进程映像结构 2016 2015 2013B"></a>9. 进程映像结构 2016 2015 2013B</h2><p>进程的内存映像包括：进程控制块PCB、程序块、数据块、核心栈</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104632.png"></p>
+<h2 id="10-状态模型-2016-2015"><a href="#10-状态模型-2016-2015" class="headerlink" title="10. 状态模型 2016 2015"></a>10. 状态模型 2016 2015</h2><h3 id="10-1-三态-2016"><a href="#10-1-三态-2016" class="headerlink" title="10.1 三态 2016"></a>10.1 三态 2016</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104652.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104706.png"></p>
+<h3 id="10-2-五态-2013A"><a href="#10-2-五态-2013A" class="headerlink" title="10.2 五态 2013A"></a>10.2 五态 2013A</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104739.png"></p>
+<h3 id="10-3-七态-2015-2015期中"><a href="#10-3-七态-2015-2015期中" class="headerlink" title="10.3 七态 2015 2015期中"></a>10.3 七态 2015 2015期中</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104752.png"></p>
+<h2 id="11-银行家算法-2016-2015-2014-2013B-2013A"><a href="#11-银行家算法-2016-2015-2014-2013B-2013A" class="headerlink" title="11. 银行家算法 2016 2015 2014 2013B 2013A"></a>11. 银行家算法 2016 2015 2014 2013B 2013A</h2><ol>
+<li>先用C-A算出还需要的</li>
+<li>然后用完一个进程把A加上，算出此时的剩余</li>
+</ol>
+<h2 id="12-管程-2016"><a href="#12-管程-2016" class="headerlink" title="12. 管程 2016"></a>12. 管程 2016</h2><h3 id="12-1-哲学家就餐问题-2016-2013A"><a href="#12-1-哲学家就餐问题-2016-2013A" class="headerlink" title="12.1 哲学家就餐问题 2016 2013A"></a>12.1 哲学家就餐问题 2016 2013A</h3><p>想吃调用pickup，吃完调用putdown</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104926.png"></p>
+<h3 id="12-2-生产者消费者-2014"><a href="#12-2-生产者消费者-2014" class="headerlink" title="12.2 生产者消费者 2014"></a>12.2 生产者消费者 2014</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104937.png"></p>
+<h3 id="12-3-读者写者问题-2013B"><a href="#12-3-读者写者问题-2013B" class="headerlink" title="12.3 读者写者问题 2013B"></a>12.3 读者写者问题 2013B</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301104959.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105019.png"></p>
+<h2 id="13-操作系统三个抽象-2014"><a href="#13-操作系统三个抽象-2014" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105123.png"></p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105136.png"></p>
+<h2 id="14-求页表项-2013B-2013A"><a href="#14-求页表项-2013B-2013A" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105518.png"></p>
+<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
+<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
+<h2 id="15-访问时间"><a href="#15-访问时间" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105601.png"></p>
+<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
+<h2 id="16-位示图"><a href="#16-位示图" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/pics20220301105604.png"></p>
+<h2 id="13-操作系统三个抽象-2014-1"><a href="#13-操作系统三个抽象-2014-1" class="headerlink" title="13. 操作系统三个抽象 2014"></a>13. 操作系统三个抽象 2014</h2><p>[外链图片转存中…(img-Mo0dm323-1612771884121)]</p>
+<p>[外链图片转存中…(img-wlyEGQl2-1612771884122)]</p>
+<h2 id="14-求页表项-2013B-2013A-1"><a href="#14-求页表项-2013B-2013A-1" class="headerlink" title="14. 求页表项 2013B 2013A"></a>14. 求页表项 2013B 2013A</h2><p>1KB&#x3D;2<sup>10</sup>B&#x3D;1024B</p>
+<p>[外链图片转存中…(img-f8H6IxqW-1612771884123)]</p>
+<p>offset为页内偏移，页的大小为2的几次方，offset就是几位</p>
+<p>页表项个数为2的pagenum次方，反置页表项个数为2的framenum次方</p>
+<h2 id="15-访问时间-1"><a href="#15-访问时间-1" class="headerlink" title="15. 访问时间"></a>15. 访问时间</h2><p>[外链图片转存中…(img-vCaquhUT-1612771884125)]</p>
+<p>没有快表或者快表没有命中的情况就要访问两次内存</p>
+<h2 id="16-位示图-1"><a href="#16-位示图-1" class="headerlink" title="16. 位示图"></a>16. 位示图</h2><p>[外链图片转存中…(img-BpKUCmVI-1612771884126)]</p>
+]]></content>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>服务端开发：section1环境搭建</title>
+    <url>/2021/03/02/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91%EF%BC%9Asection1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="服务端开发：section1环境搭建"><a href="#服务端开发：section1环境搭建" class="headerlink" title="服务端开发：section1环境搭建"></a>服务端开发：section1环境搭建</h2><h3 id="一、clone项目"><a href="#一、clone项目" class="headerlink" title="一、clone项目"></a>一、clone项目</h3><p><a href="https://github.com/tzs919/section1">https://github.com/tzs919/section1</a></p>
+<h3 id="二、在idea打开项目"><a href="#二、在idea打开项目" class="headerlink" title="二、在idea打开项目"></a>二、在idea打开项目</h3><ol>
+<li>这里前提是你已经安装好IntelliJ IDEA ultimate并已经注册</li>
+<li>点击Open or Import ，选择刚才的项目打开<br><img src="https://img-blog.csdnimg.cn/20210302144945378.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="三、jdk配置"><a href="#三、jdk配置" class="headerlink" title="三、jdk配置"></a>三、jdk配置</h3>在project structure设置jdk1.8<br><img src="https://img-blog.csdnimg.cn/20210302145316957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="四、maven配置"><a href="#四、maven配置" class="headerlink" title="四、maven配置"></a>四、maven配置</h3></li>
+<li><a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a>在这里下载maven，下这个。<br><img src="https://img-blog.csdnimg.cn/20210302145459597.png" alt="在这里插入图片描述"></li>
+<li>把这个文件：apache-maven-3.*.*\conf\settings.xml<br>拷贝到C:\Users\你的用户.m2，并增加以下镜像：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要在xml文件的&lt;mirrors&gt;标签里插入</p>
+<ol start="3">
+<li>保证你的设置里相应内容和上面的xml对应<br><img src="https://img-blog.csdnimg.cn/20210302145923270.png" alt="在这里插入图片描述"></li>
+<li>在idea刷新一下maven<br><img src="https://img-blog.csdnimg.cn/20210302150136409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="五、MySQL配置与启动"><a href="#五、MySQL配置与启动" class="headerlink" title="五、MySQL配置与启动"></a>五、MySQL配置与启动</h3><ol>
+<li>首先确保MySQL版本是5.7.x</li>
+<li>在MySQL命令行中create一个database，名称随意</li>
+<li>进入idea，配置数据库，名字要和之前的一样<br><img src="https://img-blog.csdnimg.cn/20210302150240618.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入resources里面的xml文件，修改数据库口令为你的密码<br><img src="https://img-blog.csdnimg.cn/20210302150342354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>运行sql文件<h3 id="六、打包"><a href="#六、打包" class="headerlink" title="六、打包"></a>六、打包</h3></li>
+<li>点击maven栏中的package，待显示成功即可<br><img src="https://img-blog.csdnimg.cn/20210302150540686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>下载tomcat安装<br><img src="https://img-blog.csdnimg.cn/20210302150729475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>把section1.war文件复制到tomcat安装目录的webapp文件夹下<br><img src="https://img-blog.csdnimg.cn/20210302150920871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>进入<a href="http://localhost:8080/section1">http://localhost:8080/section1</a>即可看到页面<br><img src="https://img-blog.csdnimg.cn/20210302151042827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h3 id="七、测试"><a href="#七、测试" class="headerlink" title="七、测试"></a>七、测试</h3></li>
+<li>运行所有测试用例，应该是pass的<br><img src="https://img-blog.csdnimg.cn/20210302151130959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>后端</tag>
+        <tag>服务端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>某个项目的代码分析</title>
     <url>/2022/07/05/%E6%9F%90%E4%B8%AA%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[]]></content>
@@ -4541,6 +4541,50 @@
 <p>即使绘制一个图块也会耗时，所以Chrome首次合成先合成低分辨率图片，然后正常图块绘制完毕后，将低分辨率的替换。</p>
 <p>渲染过程中专门维护了一个栅格化线程池，专门负责把图块转换为位图数据。然后合成线程会选择视口附近图块交给栅格化线程池生成位图。</p>
 <p>生成位图的过程实际上都会使用GPU进行加速，生成的位图最后发送给合成线程。</p>
+<h3 id="显示器显示内容"><a href="#显示器显示内容" class="headerlink" title="显示器显示内容"></a>显示器显示内容</h3><p>栅格化操作完成后，合成线程会生成一个绘制命令，即“DrawQuad”，并发送给浏览器进程。</p>
+<p>浏览器的viz组件接收到命令，根据命令发送到内存，再发送到显卡。</p>
+<p>屏幕都有一个固定的刷新频率。</p>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-09-04-image.png"></p>
+<h2 id="6-对重绘和回流的理解"><a href="#6-对重绘和回流的理解" class="headerlink" title="6. 对重绘和回流的理解"></a>6. 对重绘和回流的理解</h2><p>渲染流水线的流程：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-15-25-image.png"></p>
+<h3 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h3><p>回流也叫重排。</p>
+<h4 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h4><p>对DOM结构修改引发DOM几何尺寸变化的时候，会发生回流的过程。</p>
+<p>以下的操作会触发回流：</p>
+<ol>
+<li><p>一个DOM元素的几何属性变化，width、height、padding、margin、left、top、border。</p>
+</li>
+<li><p>DOM节点发生增减或移动。</p>
+</li>
+<li><p>读写offset族、scroll族和client族属性的时候，浏览器为了获取这些值，需要进行回流操作。</p>
+</li>
+<li><p>调用window.getComputedStyle方法。</p>
+</li>
+</ol>
+<h4 id="回流过程"><a href="#回流过程" class="headerlink" title="回流过程"></a>回流过程</h4><p>触发回流的时候，如果DOM结构发生改变，重新渲染DOM树，然后将后面的流程全部走一遍。开销非常大。</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-40-56-image.png"></p>
+<h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><h4 id="触发条件-1"><a href="#触发条件-1" class="headerlink" title="触发条件"></a>触发条件</h4><p>当DOM修改导致样式变化，并且没有影响几何属性的时候，会导致重绘（repaint）。</p>
+<h4 id="重绘过程"><a href="#重绘过程" class="headerlink" title="重绘过程"></a>重绘过程</h4><p>没有导致DOM几何属性的变化，元素的位置信息不需要更新，省去了布局的过程。流程如下：</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-18-10-50-16-image.png"></p>
+<p>跳过生成布局树和建图层树，直接绘制列表，然后继续进行分块生成位图等后面一系列操作。</p>
+<p>重绘不一定导致回流，回流一定导致重绘。</p>
+<h3 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h3><p>CSS3的transform、opacity、filter这些属性可以实现合成的效果，也就是GPU加速。</p>
+<h4 id="GPU加速的原因"><a href="#GPU加速的原因" class="headerlink" title="GPU加速的原因"></a>GPU加速的原因</h4><p>在合成的情况下，直接跳过布局和绘制流程，直接进入非主线程处理的部分，直接交给合成线程处理。交给它处理的好处：</p>
+<ol>
+<li><p>能够充分发挥GPU的优势。合成线程生成位图的过程中会调用线程池，并在其中使用GPU进行加速生成，GPU擅长处理位图数据。</p>
+</li>
+<li><p>没有占用主线程的资源，即使主线程卡住了，效果依然能够流畅地展示。</p>
+</li>
+</ol>
+<h3 id="实践意义"><a href="#实践意义" class="headerlink" title="实践意义"></a>实践意义</h3><ol>
+<li><p>避免频繁使用style，而是采用修改class的方式。</p>
+</li>
+<li><p>使用createDocumentFragment进行批量的DOM操作。</p>
+</li>
+<li><p>对resize、scroll进行防抖&#x2F;节流处理。</p>
+</li>
+<li><p>添加will-change: tranform，让渲染引擎为其单独实现一个图层，当这些变换发生时，仅仅需要合成线程处理这些变换，而不牵扯到主线程，提高渲染效率。</p>
+</li>
+</ol>
 ]]></content>
       <tags>
         <tag>浏览器</tag>
