@@ -1948,7 +1948,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-19 11:56:28" itemprop="dateModified" datetime="2022-08-19T11:56:28+08:00">2022-08-19</time>
+                <time title="修改时间：2022-08-19 17:48:15" itemprop="dateModified" datetime="2022-08-19T17:48:15+08:00">2022-08-19</time>
               </span>
 
           
@@ -2350,7 +2350,46 @@
 <li><p>用这个加密方法将两个随机数生成秘钥，就是浏览器和服务器通信的密钥。</p>
 </li>
 </ol>
-<h4 id="各自应用的效果"><a href="#各自应用的效果" class="headerlink" title="各自应用的效果"></a>各自应用的效果</h4>
+<h4 id="各自应用的效果"><a href="#各自应用的效果" class="headerlink" title="各自应用的效果"></a>各自应用的效果</h4><p>用对称加密的方式，第三方可以在中间获取到client_random、server_random和加密方法，加密方法同时可以解密，中间人可以成功对暗号进行解密破解。</p>
+<p>非对称加密中服务器有公钥，是公开的，有私钥，是只有服务器自己知道。</p>
+<p>传输时浏览器把client_random和加密方法列表传过来，服务器接收到，把server_random、加密方法和公钥传给浏览器。</p>
+<p>现在两者拥有相同的client_random、server_random和加密方法。浏览器用公钥将client_random、server_random加密，生成与服务器通信的暗号。</p>
+<p>由于是非对称加密，公钥加密过的数据只能用私钥解密，中间人就算拿到了数据也无法解密。</p>
+<p>服务器的数据只能用私钥进行加密，中间人一旦拿到公钥，就可以对服务端数据进行解密了。</p>
+<h3 id="对称加密和非对称加密结合"><a href="#对称加密和非对称加密结合" class="headerlink" title="对称加密和非对称加密结合"></a>对称加密和非对称加密结合</h3><ol>
+<li><p>浏览器向服务器发送client_random和加密方法列表。</p>
+</li>
+<li><p>服务器接收到后返回server_random、加密方法和公钥。</p>
+</li>
+<li><p>浏览器接收，生成另一个随机数pre_random，用公钥加密，传给服务器。</p>
+</li>
+<li><p>服务器用私钥解密这个被加密的pre_random。</p>
+</li>
+</ol>
+<p>浏览器和服务器有三个相同的凭证client_random、server_random、pre_random。然后两者用相同的加密方法混合这三个随机数，生成最终的密钥。</p>
+<p>浏览器和服务器用一样的密钥进行通信，就是对称加密。</p>
+<p>最终的密钥很难被中间人拿到，因为中间人没有私钥，拿不到pre_random，无法生成最终的密钥。</p>
+<p>改进是防止了私钥加密的数据外传。单独使用非对称加密，漏洞在于服务器传数据给浏览器只能用私钥加密，这是危险产生的根源。利用对称非对称结合可以防止。</p>
+<h3 id="添加数字证书"><a href="#添加数字证书" class="headerlink" title="添加数字证书"></a>添加数字证书</h3><p>黑客采用DNS劫持，将目标地址替换成黑客服务器地址，然后黑客自己造公钥私钥，照样能进行数据传输。浏览器用户不知道自己正在访问一个危险的服务器。</p>
+<p>HTTPS在上面结合对称和非对称的基础上，又添加了数字证书认证的步骤，目的是给服务器证明自己的身份。</p>
+<h4 id="传输过程"><a href="#传输过程" class="headerlink" title="传输过程"></a>传输过程</h4><p>为了获取这个证书，服务器运营者需要向第三方认证机构获取授权，第三方认证机构也叫CA ( Certificate Authority )，认证通过后CA会给服务器颁发证书。</p>
+<p>数字证书两个作用：服务器向浏览器证明自己的身份、把公钥传给浏览器。</p>
+<p>当服务器传送server_random、加密方法的时候，顺便会带上数字证书（包含了公钥），浏览器接收之后就会开始验证数字证书。如果验证通过，后面的过程照常执行，否则拒绝执行。</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-19-16-40-29-image.png"></p>
+<h4 id="认证过程"><a href="#认证过程" class="headerlink" title="认证过程"></a>认证过程</h4><p>首先读取证书中的明文内容，CA进行数字证书的签名的时候会保存一个hash函数，这个函数计算明文内容得到信息A，公钥解密明文内容得到信息B，两份信息做比对，一致则代表合法。</p>
+<p>有时候对于浏览器而言，不知道哪些CA值得信任的，会继续查找CA的上级CA，验证上级CA的合法性。一般根级的CA会内置在操作系统中，如果向上没有找到根级CA就会认为不合法。</p>
+<h3 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h3><p>HTTPS不是一个新的协议，在HTTP和TCP的传输中建立了一个安全层，利用对称加密和非对称加密结合数字证书认证的方式，大大提高安全性。</p>
+<h2 id="10-实现事件的防抖和节流"><a href="#10-实现事件的防抖和节流" class="headerlink" title="10. 实现事件的防抖和节流"></a>10. 实现事件的防抖和节流</h2><h3 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h3><p>在定时器的范围内再次出发则不予理睬，等当前定时器完成才能启动下一个定时器任务。比如十分钟一趟的公交车，十分钟内有没有人在等待不管，到了十分钟准时走。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn, interval</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> context = <span class="variable language_">this</span>;</span><br><span class="line"><span class="keyword">if</span> (!flag) <span class="keyword">return</span>;</span><br><span class="line">flag = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">fn.<span class="title function_">apply</span>(context, args);</span><br><span class="line">flag = <span class="literal">true</span>;</span><br><span class="line">&#125;, interval);</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="keyword">function</span>(<span class="params">fn, interval</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> last = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> context = <span class="variable language_">this</span>;</span><br><span class="line"><span class="keyword">let</span> now = +<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="comment">// 还没到时间</span></span><br><span class="line"><span class="keyword">if</span>(now - last &lt; interval) <span class="keyword">return</span>;</span><br><span class="line">last = now;</span><br><span class="line">fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>每次事件触发删除原来的定时器，建立新的定时器，只认最后一次，从最后一次开始计时。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> context = <span class="variable language_">this</span>;</span><br><span class="line"><span class="keyword">if</span>(timer) <span class="built_in">clearTimeout</span>(timer);</span><br><span class="line">timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">fn.<span class="title function_">apply</span>(context, args);</span><br><span class="line">&#125;, delay);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="加强版节流"><a href="#加强版节流" class="headerlink" title="加强版节流"></a>加强版节流</h3><p>把防抖和节流放到一起。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">fn, delay</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> last = <span class="number">0</span>, timer = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">...args</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> context = <span class="variable language_">this</span>;</span><br><span class="line"><span class="keyword">let</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"><span class="keyword">if</span>(now - last &lt; delay)&#123;</span><br><span class="line"><span class="built_in">clearTimeout</span>(timer);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">last = now;</span><br><span class="line">fn.<span class="title function_">apply</span>(context, args);</span><br><span class="line">&#125;, delay);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 这个时候表示时间到了，必须给响应</span></span><br><span class="line">last = now;</span><br><span class="line">fn.<span class="title function_">apply</span>(context, args);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
