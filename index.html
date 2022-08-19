@@ -1948,7 +1948,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-18 17:39:17" itemprop="dateModified" datetime="2022-08-18T17:39:17+08:00">2022-08-18</time>
+                <time title="修改时间：2022-08-19 11:56:28" itemprop="dateModified" datetime="2022-08-19T11:56:28+08:00">2022-08-19</time>
               </span>
 
           
@@ -2287,7 +2287,7 @@
 <h4 id="文档型"><a href="#文档型" class="headerlink" title="文档型"></a>文档型</h4><p>XSS攻击并不会经过服务端，而是作为中间人，传书过程中劫持数据包，修改里面的html文档。包括WIFI路由器劫持和本地恶意软件。</p>
 <h3 id="防范措施"><a href="#防范措施" class="headerlink" title="防范措施"></a>防范措施</h3><ol>
 <li><p>不要相信任何用户的输入，无论在前端还是服务端都要对用户的输入进行转码或过滤。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="title function_">alert</span>(<span class="string">&#x27;你完蛋了&#x27;</span>)&lt;/script&gt;</span><br><span class="line"><span class="comment">// 转为</span></span><br><span class="line">&amp;lt;script&amp;gt;<span class="title function_">alert</span>(&amp;#<span class="number">39</span>;你完蛋了&amp;#<span class="number">39</span>;)&amp;lt;/script&amp;gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;<span class="title function_">alert</span>(<span class="string">&#x27;你完蛋了&#x27;</span>)&lt;/script&gt;</span><br><span class="line"><span class="comment">// 转为</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml">alert(<span class="symbol">&amp;#39;</span>你完蛋了<span class="symbol">&amp;#39;</span>)</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>也可以利用关键词过滤的方式，将script标签删除。</p>
 </li>
@@ -2334,8 +2334,23 @@
 <p>这两者都可以伪造，通过Ajax自定义请求头，安全性略差。</p>
 <h4 id="CSRF-Token"><a href="#CSRF-Token" class="headerlink" title="CSRF Token"></a>CSRF Token</h4><p>浏览器向服务器发送请求时，服务器生成一个字符串，植入到返回的页面中。浏览器如果要发送请求，就必须带上这个字符串，然后服务器验证是否合法，如果不合法不予响应。</p>
 <p>这个字符串是CSRF Token，通过第三方站点无法拿到，会被服务器拒绝。</p>
-<h2 id="9-HTTPS为什么让数据传输更安全？"><a href="#9-HTTPS为什么让数据传输更安全？" class="headerlink" title="9. HTTPS为什么让数据传输更安全？"></a>9. HTTPS为什么让数据传输更安全？</h2><p>HTTP的特性是明文传输，传输的每个环节数据都可能被第三方窃取或者篡改。</p>
-
+<h2 id="9-HTTPS为什么让数据传输更安全？"><a href="#9-HTTPS为什么让数据传输更安全？" class="headerlink" title="9. HTTPS为什么让数据传输更安全？"></a>9. HTTPS为什么让数据传输更安全？</h2><p>HTTP的特性是明文传输，传输的每个环节数据都可能被第三方窃取或者篡改。HTTP数据经过TCP层，经过WIFI路由器、运营商和目标服务器，都可能被中间人拿到数据篡改，就是中间人攻击。</p>
+<p>新的加密方案HTTPS。</p>
+<p>HTTPS不是一个新的协议，而是一个加强版的HTTP，在HTTP和TCP之间建立了一个中间层，不是直接通信而是经过中间层加密，将加密后的数据包传给TCP响应，然后TCP必须将数据包解密才能传给HTTP。中间层也叫安全层，安全层的核心就是对数据加解密。</p>
+<h3 id="对称加密和非对称加密"><a href="#对称加密和非对称加密" class="headerlink" title="对称加密和非对称加密"></a>对称加密和非对称加密</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>对称加密是最简单的方式，指加密和解密用的同样的密钥。</p>
+<p>非对称加密，如果有A、B两把密钥，A加密过的数据包只能用B解密，B加密过的数据包只能用A解密。</p>
+<h4 id="加解密过程"><a href="#加解密过程" class="headerlink" title="加解密过程"></a>加解密过程</h4><p>浏览器和服务器进行协商加解密的过程：</p>
+<ol>
+<li><p>浏览器给服务器发送一个随机数client_random，和加密方法列表。</p>
+</li>
+<li><p>服务器接收后给浏览器返回另一个随机数server_random和加密方法。</p>
+</li>
+<li><p>现在浏览器和服务器有了相同的client_random、server_random和加密方法三个凭证。</p>
+</li>
+<li><p>用这个加密方法将两个随机数生成秘钥，就是浏览器和服务器通信的密钥。</p>
+</li>
+</ol>
+<h4 id="各自应用的效果"><a href="#各自应用的效果" class="headerlink" title="各自应用的效果"></a>各自应用的效果</h4>
       
     </div>
 
