@@ -192,7 +192,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-22 15:48:40 / 修改时间：18:00:14" itemprop="dateCreated datePublished" datetime="2022-08-22T15:48:40+08:00">2022-08-22</time>
+              <time title="创建时间：2022-08-22 15:48:40 / 修改时间：20:04:07" itemprop="dateCreated datePublished" datetime="2022-08-22T15:48:40+08:00">2022-08-22</time>
             </span>
 
           
@@ -233,6 +233,58 @@
 <li>所有同步任务都会在主线程上执行，同时会形成一个执行栈（execution context<br>stack），直至栈空，即任务结束。</li>
 <li>主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在<br>任务队列之中放置⼀个事件。</li>
 <li>一旦执行栈上的任务执行完毕，系统就会从任务队列读取新的任务，结束等待状态，进入执行栈，开始执行，循环往复。</li>
+</ol>
+<p>从C语言角度理解：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">TaskQueue task_queue；</span><br><span class="line"><span class="type">void</span> <span class="title function_">ProcessTask</span><span class="params">()</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ProcessDelayTask</span><span class="params">()</span>;</span><br><span class="line"><span class="type">bool</span> keep_running = <span class="literal">true</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">MainThread</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (task_queue.waitForTask()) &#123;</span><br><span class="line">    Task task = task_queue.takeTask();<span class="comment">// 取出消息队列中任务</span></span><br><span class="line">    ProcessTask(task);<span class="comment">// 执⾏任务</span></span><br><span class="line">    ProcessDelayTask()<span class="comment">// 执⾏延迟队列中的任务</span></span><br><span class="line">    <span class="keyword">if</span>(!keep_running) <span class="comment">//如果设置了退出标志，那么直接退出线程循环</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="callback"><a href="#callback" class="headerlink" title="callback"></a>callback</h3><p>A callback is a function that is passed as an argument to another function and is executed after its parent function has completed.<br>回调是作为参数传递给另一个函数并在其父函数完成后执行的函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步请求的回调函数</span></span><br><span class="line">$.<span class="title function_">get</span>(<span class="string">&#x27;api/find&#x27;</span>,<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 点击事件的回调函数</span></span><br><span class="line">$(<span class="string">&#x27;.btn&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;this is a callback of click event&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 数组中遍历每⼀项调⽤的回调函数</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 同步回调</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getNodes</span>(<span class="params">params,callback</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> list = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(params)</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> callback === <span class="string">&#x27;function&#x27;</span>)&#123;</span><br><span class="line"><span class="title function_">callback</span>(list)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getNodes</span>(<span class="string">&#x27;[1,2,3]&#x27;</span>,<span class="keyword">function</span>(<span class="params">list</span>)&#123;</span><br><span class="line"><span class="comment">// ....</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>既可以有同步回调，也可以有异步回调，还可以有事件处理回调和延迟函数回调。</p>
+<h3 id="同步vs异步"><a href="#同步vs异步" class="headerlink" title="同步vs异步"></a>同步vs异步</h3><p>同步就是后⼀个任务等待前⼀个任务结束，然后再执⾏，程序的执⾏顺序与任务的排列顺序是⼀致的、同步的。</p>
+<p>异步则完全不同，从程序⻆度来理解就是改变程序正常执⾏顺序的操作，每⼀个任务有⼀个或多个回调函数（callback），前⼀个任务结束后，不是执⾏后⼀个任务，⽽是执⾏回调函数，后⼀个任务则是不等前⼀个任务结束就执⾏，所以程序的执⾏顺序与任务的排列顺序是不⼀致的、异步的。</p>
+<p>JS作为一种单线程的语言如何实现异步的？</p>
+<p>JS 异步的实现靠的就是浏览器的多线程，当他遇到异步 API 时，就将这个任务交给对应的线程，当这个异步 API 满⾜回调条件时，对应的线程⼜通过事件触发线程将这个事件放⼊任务队列，然后主线程执⾏完主线任务后从任务队列取出任务事件继续执⾏。</p>
+<p><strong>总结：</strong></p>
+<p>同步 &#x2F; 异步指的是各个任务之间执⾏顺序的确定性。同时， 任务≠回调函数 , 不管是同步任务，异步任务都可以通过回调函数去实现。</p>
+<h4 id="从同步异步角度理解JS的执行机制"><a href="#从同步异步角度理解JS的执行机制" class="headerlink" title="从同步异步角度理解JS的执行机制"></a>从同步异步角度理解JS的执行机制</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="comment">// 200ms后，新任务task_1进⼊ 任务队列</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">200</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果是132，思路（暂不考虑宏任务微任务）：</p>
+<ol>
+<li>整体 script 作为第⼀个任务进⼊主线程，console 输出 1;</li>
+<li>遇到异步 API setTimeout ，将异步回调函数交给 Web API 处理 (此处为定时器触发线程，200ms 之后，即满⾜触发条件后，将 task_1 推⼊任务队列 task queue )。</li>
+<li>主线程继续往下执⾏，console 输出3，任务执⾏结束，调⽤栈为空</li>
+<li>进⼊下⼀个循环，取出任务队列中的下个任务，此时任务队列为空，主线程进⼊等待状态。</li>
+<li>直到 200ms 之后，发现新推⼊任务队列的 task_1 , 开始执⾏，console 输出 2</li>
+</ol>
+<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3><p>javascript 是⼀⻔单线程的脚本语⾔，也就意味着同⼀个时间只能做⼀件事，但是单线程有⼀个问题：⼀旦这个线程被阻塞就⽆法继续⼯作了，这肯定是不⾏的。上⾯谈的EventLoop 模型通过异步编程实现⾮阻塞的调⽤效果⽅式解决了⼀个任务⻓时间霸占线程问题，但由于队列是⼀种数据结构，可以存放要执⾏的任务。它符合队列先进先出的特点，也就是说要添加任务的话，添加到队列的尾部；要取出任务的话，从队列头部去取，但这不能解决任务优先级问题 (紧急任务插队的需求)。为解决这个问题引⼊宏任务，微任务概念。</p>
+<h4 id="宏任务VS微任务"><a href="#宏任务VS微任务" class="headerlink" title="宏任务VS微任务"></a>宏任务VS微任务</h4><p>ES6 规范中，Microtask 称为 jobs，Macrotask 称为 task。即微任务是 ES 对异步的定义；⽽宏任务是浏览器对异步的定义。</p>
+<p>宏任务与微任务都是独⽴于主执⾏栈之外的另外两个队列。<br>为了处理任务的优先级，权衡效率和实时性。浏览器端事件循环中的异步队列有两种：Macrotask（宏任务）队列和 Microtask（微任务）队列.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>宏任务 (Macrotask)</th>
+<th>微任务 (Microtask)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>谁发起</td>
+<td>浏览器、Node</td>
+<td>Javascript</td>
+</tr>
+<tr>
+<td>具体事件</td>
+<td>script（全局任务）, setTimeout, setInterval, setImmediate, I&#x2F;O, UI rendering</td>
+<td>process.nextTick, Promise 的 then 或 catch, Object.observer, MutationObserver</td>
+</tr>
+</tbody></table>
+<p>在事件循环这个机制当中，我们将进⾏⼀次循环操作称为 tick ，每⼀次 tick 的任务处理模型是⽐较复杂的，但关键步骤如下：</p>
+<ol>
+<li>进⼊循环，⾸先选择最先进⼊宏任务队列的任务 (oldest task)，如果有则执⾏ (⼀次)</li>
+<li>检查是否存在 Microtasks，如果存在则不停地执⾏，直⾄清空微任务 (Microtasks Queue)，此时执⾏栈也为清空了。</li>
+<li>GUI 线程更新 (render) 界⾯（与主线程互斥）</li>
+<li>进⼊下⼀个 Tick 主线程重复执⾏上述步骤</li>
 </ol>
 
       
