@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>JavaScript权威指南——整理</title>
-    <url>/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h2 id="一、词法结构"><a href="#一、词法结构" class="headerlink" title="一、词法结构"></a>一、词法结构</h2><h3 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1. 标识符"></a>1. 标识符</h3><p>必须以字母、_、$开头，后续字符还可以是数字。</p>
-<h3 id="2-保留字"><a href="#2-保留字" class="headerlink" title="2. 保留字"></a>2. 保留字</h3><p>as async await break case catch class const continue debugger default delete do else export extends false </p>
-<p>finally for from function get if import in instanceof let new null of return set static super switch target this throw true try typeof var void while with yield</p>
-<p>enum implements interface package private protected public</p>
-<p>arguments eval</p>
-<h3 id="3-可选的分号"><a href="#3-可选的分号" class="headerlink" title="3. 可选的分号"></a>3. 可选的分号</h3><p>并不是所有情况下才会把所有换行符当成分号，只有当一行没法解释的时候才会读入下一行。</p>
-]]></content>
-      <tags>
-        <tag>前端</tag>
-        <tag>JavaScript</tag>
-        <tag>TODO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HBuilder中的已有项目如何运行到微信开发者工具中</title>
     <url>/2022/07/20/HBuilder%E4%B8%AD%E7%9A%84%E5%B7%B2%E6%9C%89%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E5%88%B0%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E4%B8%AD/</url>
     <content><![CDATA[<ol>
@@ -70,9 +54,35 @@
 </ol>
 ]]></content>
       <tags>
-        <tag>前端</tag>
         <tag>JSX</tag>
+        <tag>前端</tag>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript权威指南——整理</title>
+    <url>/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h2 id="一、词法结构"><a href="#一、词法结构" class="headerlink" title="一、词法结构"></a>一、词法结构</h2><h3 id="1-标识符"><a href="#1-标识符" class="headerlink" title="1. 标识符"></a>1. 标识符</h3><p>必须以字母、_、$开头，后续字符还可以是数字。</p>
+<h3 id="2-保留字"><a href="#2-保留字" class="headerlink" title="2. 保留字"></a>2. 保留字</h3><p>as async await break case catch class const continue debugger default delete do else export extends false </p>
+<p>finally for from function get if import in instanceof let new null of return set static super switch target this throw true try typeof var void while with yield</p>
+<p>enum implements interface package private protected public</p>
+<p>arguments eval</p>
+<h3 id="3-可选的分号"><a href="#3-可选的分号" class="headerlink" title="3. 可选的分号"></a>3. 可选的分号</h3><p>并不是所有情况下才会把所有换行符当成分号，只有当一行没法解释的时候才会读入下一行。</p>
+]]></content>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript</tag>
+        <tag>TODO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jenkins的git配置踩坑</title>
+    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
+    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+]]></content>
+      <tags>
+        <tag>Jenkins</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -89,16 +99,6 @@
 ]]></content>
       <tags>
         <tag>PostMan</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jenkins的git配置踩坑</title>
-    <url>/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</url>
-    <content><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-]]></content>
-      <tags>
-        <tag>Jenkins</tag>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -1476,6 +1476,283 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue学习（五）————高阶指南</title>
+    <url>/2022/07/20/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E9%AB%98%E9%98%B6%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="一、Vue与Web-Components"><a href="#一、Vue与Web-Components" class="headerlink" title="一、Vue与Web Components"></a>一、Vue与Web Components</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components">Web Components</a> 是一组 Web 原生 API 的总称，允许开发人员创建可重用的自定义组件。</p>
+<p>Vue 和 Web Components 大体上是互补的技术。Vue 能很好地解析和创建自定义元素。不论是在将自定义元素整合到已有的 Vue 应用中，还是使用 Vue 构建和分发自定义元素，你都能获得很好的支持。</p>
+<h2 id="1-在Vue中使用自定义元素"><a href="#1-在Vue中使用自定义元素" class="headerlink" title="1. 在Vue中使用自定义元素"></a>1. 在Vue中使用自定义元素</h2><p>Vue 应用程序中解析出的自定义元素大体上和原生 HTML 元素相同，但需要牢记以下几点：</p>
+<h3 id="1-1-跳过组件的解析"><a href="#1-1-跳过组件的解析" class="headerlink" title="1.1 跳过组件的解析"></a>1.1 跳过组件的解析</h3><p>默认情况下，Vue 会优先尝试将一个非原生的 HTML 标签解析为一个注册的 Vue 组件，如果失败则会将其渲染为自定义元素。这种行为会导致在开发模式下的 Vue 发出“failed to resolve component”的警告。如果你希望 Vue 能将某些确切的元素作为自定义元素处理并跳过组件解析，请指定 <a href="https://v3.cn.vuejs.org/api/application-config.html#compileroptions"><code>compilerOptions.isCustomElement</code> 选项</a>。</p>
+<p>如果你正在构建步骤中使用 Vue，则此选项需要通过构建配置传递，因为这是一个编译时选项。</p>
+<h4 id="1-1-1-浏览器内配置示例"><a href="#1-1-1-浏览器内配置示例" class="headerlink" title="1.1.1 浏览器内配置示例"></a>1.1.1 浏览器内配置示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 仅当使用浏览器内编译时有效</span></span><br><span class="line"><span class="comment">// 如果你正在使用构建工具，请查看下方的配置示例</span></span><br><span class="line">app.<span class="property">config</span>.<span class="property">compilerOptions</span>.<span class="property">isCustomElement</span> = <span class="function"><span class="params">tag</span> =&gt;</span> tag.<span class="title function_">includes</span>(<span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-2-Vite配置示例"><a href="#1-1-2-Vite配置示例" class="headerlink" title="1.1.2 Vite配置示例"></a>1.1.2 Vite配置示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">vue</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: &#123;</span><br><span class="line">        <span class="attr">compilerOptions</span>: &#123;</span><br><span class="line">          <span class="comment">// 将所有包含短横线的标签作为自定义元素处理</span></span><br><span class="line">          <span class="attr">isCustomElement</span>: <span class="function"><span class="params">tag</span> =&gt;</span> tag.<span class="title function_">includes</span>(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-3-Vue-CLI配置示例"><a href="#1-1-3-Vue-CLI配置示例" class="headerlink" title="1.1.3 Vue CLI配置示例"></a>1.1.3 Vue CLI配置示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.<span class="property">module</span></span><br><span class="line">      .<span class="title function_">rule</span>(<span class="string">&#x27;vue&#x27;</span>)</span><br><span class="line">      .<span class="title function_">use</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line">      .<span class="title function_">tap</span>(<span class="function"><span class="params">options</span> =&gt;</span> (&#123;</span><br><span class="line">        ...options,</span><br><span class="line">        <span class="attr">compilerOptions</span>: &#123;</span><br><span class="line">          <span class="comment">// 将所有以 ion- 开头的标签作为自定义元素处理</span></span><br><span class="line">          <span class="attr">isCustomElement</span>: <span class="function"><span class="params">tag</span> =&gt;</span> tag.<span class="title function_">startsWith</span>(<span class="string">&#x27;ion-&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-传递-DOM-Property"><a href="#1-2-传递-DOM-Property" class="headerlink" title="1.2 传递 DOM Property"></a>1.2 传递 DOM Property</h3><p>由于 DOM attribute 只能是字符串，因此我们得将复杂数据作为 DOM property 传递给自定义元素。在自定义元素上配置 prop 时，Vue 3 会自动使用 <code>in</code> 操作符检查是否存在 DOM-property，如果此键存在则会优先将值配置为一个 DOM property。也就是说大多数情况下，如果自定义元素遵守<a href="https://web.dev/index.md/">推荐的最佳实践</a>，则无需考虑这一点。</p>
+<p>但是，在极少数情况下，数据必须作为 DOM property 传递，但自定义元素没有正确定义&#x2F;反映 property (导致 <code>in</code> 检查失败)。此时，可以使用 <code>.prop</code> 修饰符强制将一个 <code>v-bind</code> 绑定设置为一个 DOM property：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-element</span> <span class="attr">:user.prop</span>=<span class="string">&quot;&#123; name: &#x27;jack&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 等效的简写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-element</span> <span class="attr">.user</span>=<span class="string">&quot;&#123; name: &#x27;jack&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用-Vue-构建自定义元素"><a href="#2-使用-Vue-构建自定义元素" class="headerlink" title="2. 使用 Vue 构建自定义元素"></a>2. 使用 Vue 构建自定义元素</h2><p>自定义元素的一大好处就是它们可以与任何框架一起使用，甚至可以在没有框架的情况下使用。当你需要向可能使用不同前端技术栈的终端用户分发组件时，或者希望向最终应用程序隐藏其所用组件的实现细节时，使用自定义元素非常适合。</p>
+<h3 id="2-1-defineCustomElement"><a href="#2-1-defineCustomElement" class="headerlink" title="2.1 defineCustomElement"></a>2.1 defineCustomElement</h3><p>Vue 支持使用 <a href="https://v3.cn.vuejs.org/api/global-api.html#definecustomelement"><code>defineCustomElement</code></a> 方法创建自定义元素，并且使用与 Vue 组件完全一致的 API。该方法接受与 <a href="https://v3.cn.vuejs.org/api/global-api.html#definecomponent"><code>defineComponent</code></a> 相同的参数，但是会返回一个扩展自 <code>HTMLElement</code> 的自定义元素构造函数：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-vue-element</span>&gt;</span><span class="tag">&lt;/<span class="name">my-vue-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineCustomElement &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyVueElement</span> = <span class="title function_">defineCustomElement</span>(&#123;</span><br><span class="line">  <span class="comment">// 在此提供正常的 Vue 组件选项</span></span><br><span class="line">  <span class="attr">props</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">emits</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`...`</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// defineCustomElement 独有特性: CSS 会被注入到隐式根 (shadow root) 中</span></span><br><span class="line">  <span class="attr">styles</span>: [<span class="string">`/* inlined css */`</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册自定义元素</span></span><br><span class="line"><span class="comment">// 注册完成后，此页面上的所有的 `&lt;my-vue-element&gt;` 标签会被更新</span></span><br><span class="line">customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-vue-element&#x27;</span>, <span class="title class_">MyVueElement</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 你也可以编程式地实例化这个元素：</span></span><br><span class="line"><span class="comment">// (只能在注册后完成此操作)</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">MyVueElement</span>(&#123;</span><br><span class="line">    <span class="comment">// initial props (optional)</span></span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-1-生命周期"><a href="#2-1-1-生命周期" class="headerlink" title="2.1.1 生命周期"></a>2.1.1 生命周期</h4><ul>
+<li><p>当元素的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components/Using_custom_elements#%E4%BD%BF%E7%94%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><code>connectedCallback</code></a> 被首次调用时，Vue 自定义元素会在其隐式根部挂载一个内部的 Vue 组件实例。</p>
+</li>
+<li><p>当元素的 <code>disconnectedCallback</code> 被调用时，Vue 会在很短的时间后检查此元素是否已被移出页面。</p>
+<ul>
+<li><p>如果元素仍在文档中，说明是移动，组件实例将被保留；</p>
+</li>
+<li><p>如果元素已被移出文档，说明是移除，组件实例将被卸载。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-Props"><a href="#2-1-2-Props" class="headerlink" title="2.1.2 Props"></a>2.1.2 Props</h4><ul>
+<li><p>所有使用 <code>props</code> 选项声明的 prop 都将在自定义元素上定义为 property。Vue 将在合适的时候自动处理 attribute &#x2F; property 之间的映射。</p>
+<ul>
+<li><p>Attribute 总是映射为相应的 property。</p>
+</li>
+<li><p>基础类型 (<code>string</code>、<code>boolean</code> 或 <code>number</code>) 的 property 会被映射为 attribute。</p>
+</li>
+</ul>
+</li>
+<li><p>Vue 也会自动将声明为 <code>Boolean</code> 或 <code>Number</code> 类型的 attribute prop (始终为字符串)转换为所需的类型。例如给出以下 prop 声明：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: &#123;</span><br><span class="line">  <span class="attr">selected</span>: <span class="title class_">Boolean</span>,</span><br><span class="line">  <span class="attr">index</span>: <span class="title class_">Number</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以及自定义元素用法：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-element</span> <span class="attr">selected</span> <span class="attr">index</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在组件中，<code>selected</code> 会被转换为 <code>true</code> (boolean)，<code>index</code> 会被转换为 <code>1</code> (number)。</p>
+</li>
+</ul>
+<h4 id="2-1-3-事件"><a href="#2-1-3-事件" class="headerlink" title="2.1.3 事件"></a>2.1.3 事件</h4><p>在自定义元素中，通过 <code>this.$emit</code> 或在 setup 中的 <code>emit</code> 发出的事件会被调度为原生 <a href="https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent">CustomEvents</a>。附加的事件参数 (payload) 会作为数组暴露在 CustomEvent 对象的 <code>details</code> property 上。</p>
+<h4 id="2-1-4-插槽"><a href="#2-1-4-插槽" class="headerlink" title="2.1.4 插槽"></a>2.1.4 插槽</h4><p>在组件内部，可以像往常一样使用 <code>&lt;slot/&gt;</code> 渲染插槽。但是在解析最终生成的元素时，它只接受<a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components/Using_templates_and_slots">原生插槽语法</a>：</p>
+<ul>
+<li><p>不支持<a href="https://v3.cn.vuejs.org/guide/component-slots.html#scoped-slot#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD">作用域插槽</a>。</p>
+</li>
+<li><p>传递命名插槽时，请使用 <code>slot</code> attribute 而非 <code>v-slot</code> 指令：</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-element</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">&quot;named&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-5-Provide-x2F-Inject"><a href="#2-1-5-Provide-x2F-Inject" class="headerlink" title="2.1.5 Provide&#x2F;Inject"></a>2.1.5 Provide&#x2F;Inject</h4><p><a href="https://v3.cn.vuejs.org/guide/component-provide-inject.html#provide-inject">Provide &#x2F; Inject API</a> 和<a href="https://v3.cn.vuejs.org/api/composition-api.html#provide-inject">组合式 API 中的 Provide &#x2F; Inject</a> 在 Vue 定义的自定义元素之间可以正常工作。但是请注意这<strong>仅适用于自定义元素之间</strong>，即 Vue 定义的自定义元素将无法注入非自定义元素的 Vue 组件提供的属性。</p>
+<h3 id="2-2-将-SFC-作为自定义元素"><a href="#2-2-将-SFC-作为自定义元素" class="headerlink" title="2.2 将 SFC 作为自定义元素"></a>2.2 将 SFC 作为自定义元素</h3><p><code>defineCustomElement</code> 也适用于 Vue 单文件组件 (SFC)。但是，在默认工具链配置下，生产构建时 SFC 内部的 <code>&lt;style&gt;</code> 会被提取并合并到单独的 CSS 文件中。当使用 SFC 作为自定义元素时，通常需要将 <code>&lt;style&gt;</code> 标签注入自定义元素的隐式根。</p>
+<p>官方 SFC 工具支持以“自定义元素模式”(需要 <code>@vitejs/plugin-vue@^1.4.0</code> 或 <code>vue-loader@^16.5.0</code> )导入 SFC。以自定义元素模式加载的 SFC 将其 <code>&lt;style&gt;</code> 标签作为 CSS 字符串内联，并在组件的 <code>styles</code> 选项中暴露出来，然后会被 <code>defineCustomElement</code> 获取并在实例化时注入隐式根。</p>
+<p>要选用此模式，只需使用 <code>.ce.vue</code> 作为文件拓展名即可：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineCustomElement &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Example</span> <span class="keyword">from</span> <span class="string">&#x27;./Example.ce.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Example</span>.<span class="property">styles</span>) <span class="comment">// [&quot;/* 内联的 css */&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 转换为自定义元素构造器</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ExampleElement</span> = <span class="title function_">defineCustomElement</span>(<span class="title class_">Example</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册</span></span><br><span class="line">customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-example&#x27;</span>, <span class="title class_">ExampleElement</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果你希望指定应在自定义元素模式下导入的文件(例如将 <em>所有</em> SFC 视为自定义元素)，你可以将 <code>customElement</code> 选项传递给相应的构建插件：</p>
+<ul>
+<li><a href="https://github.com/vitejs/vite/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements">@vitejs&#x2F;plugin-vue</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/tree/next#v16-only-options">vue-loader</a></li>
+</ul>
+<h3 id="2-3-Vue自定义元素库的提示"><a href="#2-3-Vue自定义元素库的提示" class="headerlink" title="2.3 Vue自定义元素库的提示"></a>2.3 Vue自定义元素库的提示</h3><p>如果使用 Vue 构建自定义元素，则此元素将依赖于 Vue 的运行时。这会导致一个 16kb 左右的基础大小开销 (具体取决于使用了多少特性)。这意味着如果你准备发布单个自定义元素，使用 Vue 可能不是最佳方案——你可能想要使用纯 JavaScript，<a href="https://github.com/vuejs/petite-vue">petite-vue</a>，或是其他专注于轻量化运行时的框架。但是，如果你要发布具有复杂逻辑的自定义元素集合，那么这点基础大小就会显得合理了，因为 Vue 可以使用非常精简的代码耦合每个组件。你准备发布的元素越多，开销权衡就越好。</p>
+<p>如果自定义元素会在同样使用 Vue 的项目中使用，你可以选择从构建的包中外部化 Vue，这样元素就会使用与宿主应用程序相同的 Vue 副本。</p>
+<p>我们推荐你提供一个导出独立元素的构造函数，这样你的用户就可以灵活地按需导入它们并使用他们所需的标签名注册自定义元素。你还可以导出一个能自动注册所有元素的函数以便于使用。这是一个 Vue 自定义元素库示例的入口点：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineCustomElement &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Foo</span> <span class="keyword">from</span> <span class="string">&#x27;./MyFoo.ce.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Bar</span> <span class="keyword">from</span> <span class="string">&#x27;./MyBar.ce.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyFoo</span> = <span class="title function_">defineCustomElement</span>(<span class="title class_">Foo</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyBar</span> = <span class="title function_">defineCustomElement</span>(<span class="title class_">Bar</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出独立的元素</span></span><br><span class="line"><span class="keyword">export</span> &#123; <span class="title class_">MyFoo</span>, <span class="title class_">MyBar</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">register</span>(<span class="params"></span>) &#123;</span><br><span class="line">  customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-foo&#x27;</span>, <span class="title class_">MyFoo</span>)</span><br><span class="line">  customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-bar&#x27;</span>, <span class="title class_">MyBar</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你有许多组件，你还可以利用构建工具提供的功能，例如 Vite 的 <a href="https://cn.vitejs.dev/guide/features.html#glob-import">glob 导入</a>或是 webpack 的 <a href="https://webpack.js.org/guides/dependency-management/#requirecontext"><code>require.context</code></a>。</p>
+<h2 id="3-对比-Web-Components-与-Vue-组件"><a href="#3-对比-Web-Components-与-Vue-组件" class="headerlink" title="3. 对比 Web Components 与 Vue 组件"></a>3. 对比 Web Components 与 Vue 组件</h2><p>一些开发人员认为应该避免使用框架专有的组件模型，并且仅使用自定义元素以便应用程序“面向未来”。我们将在此处尝试解释为什么我们认为这种看法过于简单化了问题。</p>
+<p>自定义元素和 Vue 组件之间确实存在一定程度的功能重叠：它们都允许我们定义具有数据传递、事件发出和生命周期管理功能的可重用组件。然而，Web Components API 是相对低级和简单的。为了构建一个实际可用的应用程序，我们需要很多平台没有涵盖的附加功能：</p>
+<ul>
+<li><p>一个声明式的、高效的模板系统；</p>
+</li>
+<li><p>一个有助于跨组件逻辑提取和重用的响应式状态管理系统；</p>
+</li>
+<li><p>一个能在服务器端渲染组件并在客户端集成的高效方法(SSR)，这对于 SEO 和 <a href="https://web.dev/vitals/">Web 关键指标 (例如 LCP)</a> 来说很重要。原生自定义元素 SSR 通常涉及在 Node.js 中模拟 DOM，然后序列化被改变的 DOM，而 Vue SSR 会尽可能编译为字符串连接，后者的效率更高。</p>
+</li>
+</ul>
+<p>作为一个考虑周到的系统，Vue 的组件模型在设计时就考虑到了这些需求。</p>
+<p>如果你拥有一支称职的工程团队，或许可以基于原生自定义元素构建出近似效果的产品——但这也意味着你需要承担对内部框架的长期维护负担，同时失去了像 Vue 这样拥有生态系统和社区贡献的成熟的框架。</p>
+<p>也有使用自定义元素作为其组件模型基础构建的框架，但它们都不可避免地要针对上面列出的问题引入自己的专有解决方案。使用这些框架需要学习或是购买他们对这些问题的技术决策——尽管他们可能会打广告宣传——这依旧无法使你免除后顾之忧。</p>
+<p>我们还找到了一些自定义元素无法胜任的应用场景：</p>
+<ul>
+<li><p>激进的插槽定值会阻碍组件的整合。Vue 的<a href="https://v3.cn.vuejs.org/guide/component-slots.html#scoped-slots">作用域插槽</a>提供了非常强大的组件整合机制，这是原生插槽所没有的，因为原生插槽的激进特性。激进特性插槽同样意味着接收组件无法控制何时或是否需要渲染一段插槽内容。</p>
+</li>
+<li><p>目前，发布带有隐式 DOM scoped CSS 的自定义元素需要将 CSS 嵌入到 JavaScript 中，以便它们可以在运行时注入到隐式根中。在 SSR 场景中，它们还会导致重复定义样式。该领域有一些<a href="https://github.com/whatwg/html/pull/4898/">平台特性</a>正在开发中——但截至目前，它们尚未得到普遍支持，并且仍有生产环境性能&#x2F; SSR 问题需要解决。而与此同时，Vue SFC 已经提供了 <a href="https://v3.cn.vuejs.org/api/sfc-style.html">CSS 作用域机制</a>，支持将样式提取到纯 CSS 文件中。</p>
+</li>
+</ul>
+<p>Vue 将始终与 Web 平台中的最新标准保持同步，如果平台提供的任何内容能使我们的工作更轻松，我们将很乐意利用它。但是，我们的目标是提供运行良好且开箱即用的解决方案。这意味着我们必须以批判的心态整合新的平台功能——这会涉及到在遵循现有标准的前提下弥补标准的不足。</p>
+<h1 id="二、响应性原理"><a href="#二、响应性原理" class="headerlink" title="二、响应性原理"></a>二、响应性原理</h1><h2 id="1-深入响应性原理"><a href="#1-深入响应性原理" class="headerlink" title="1. 深入响应性原理"></a>1. 深入响应性原理</h2><p>Vue 最独特的特性之一，是其非侵入性的响应性系统。数据模型是被代理的 JavaScript 对象。而当你修改它们时，视图会进行更新。这让状态管理非常简单直观，不过理解其工作原理同样重要，这样你可以避开一些常见的问题。在这个章节，我们将研究一下 Vue 响应性系统的底层的细节。</p>
+<h3 id="1-1-什么是响应性"><a href="#1-1-什么是响应性" class="headerlink" title="1.1 什么是响应性"></a>1.1 什么是响应性</h3><p>响应性是一种允许我们以声明式的方式去适应变化的编程范例。人们通常展示的典型例子，是一份 excel 电子表格 (一个非常好的例子)。</p>
+<p>如果将数字 2 放在第一个单元格中，将数字 3 放在第二个单元格中并要求提供 SUM，则电子表格会将其计算出来给你。不要惊奇，同时，如果你更新第一个数字，SUM 也会自动更新。</p>
+<p>JavaScript 通常不是这样工作的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> val1 = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> val2 = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> sum = val1 + val2</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum) <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line">val1 = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum) <span class="comment">// 仍然是 5</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们更新第一个值，sum 不会被修改。</p>
+<p>那么我们如何用 JavaScript 实现这一点呢？</p>
+<p>作为一个高阶的概述，我们需要做到以下几点：</p>
+<ol>
+<li><strong>当一个值被读取时进行追踪</strong>，例如 <code>val1 + val2</code> 会同时读取 <code>val1</code> 和 <code>val2</code>。</li>
+<li><strong>当某个值改变时进行检测</strong>，例如，当我们赋值 <code>val1 = 3</code>。</li>
+<li><strong>重新运行代码来读取原始值</strong>，例如，再次运行 <code>sum = val1 + val2</code> 来更新 <code>sum</code> 的值。</li>
+</ol>
+<p>我们不能直接用前面的例子中的代码来继续，但是我们后面会再来看看这个例子，以及如何调整它来兼容 Vue 的响应性系统。</p>
+<p>首先，让我们深入了解一下 Vue 是如何实现上述核心响应性要求的。</p>
+<h3 id="1-2-Vue如何知道哪些代码在执行"><a href="#1-2-Vue如何知道哪些代码在执行" class="headerlink" title="1.2 Vue如何知道哪些代码在执行"></a>1.2 Vue如何知道哪些代码在执行</h3><p>为了能够在数值变化时，随时运行我们的总和，我们首先要做的是将其包裹在一个函数中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">updateSum</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  sum = val1 + val2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但我们如何告知 Vue 这个函数呢？</p>
+<p>Vue 通过一个<em>副作用 (effect)</em> 来跟踪当前正在运行的函数。副作用是一个函数的包裹器，在函数被调用之前就启动跟踪。Vue 知道哪个副作用在何时运行，并能在需要时再次执行它。</p>
+<p>为了更好地理解这一点，让我们尝试脱离 Vue 实现类似的东西，以看看它如何工作。</p>
+<p>我们需要的是能够包裹总和的东西，像这样：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">createEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  sum = val1 + val2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们需要 <code>createEffect</code> 来跟踪和执行。我们的实现如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 维持一个执行副作用的栈</span></span><br><span class="line"><span class="keyword">const</span> runningEffects = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">createEffect</span> = fn =&gt; &#123;</span><br><span class="line">  <span class="comment">// 将传来的 fn 包裹在一个副作用函数中</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">effect</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    runningEffects.<span class="title function_">push</span>(effect)</span><br><span class="line">    <span class="title function_">fn</span>()</span><br><span class="line">    runningEffects.<span class="title function_">pop</span>()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 立即自动执行副作用</span></span><br><span class="line">  <span class="title function_">effect</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当我们的副作用被调用时，在调用 <code>fn</code> 之前，它会把自己推到 <code>runningEffects</code> 数组中。这个数组可以用来检查当前正在运行的副作用。</p>
+<p>副作用是许多关键功能的起点。例如，组件的渲染和计算属性都在内部使用副作用。任何时候，只要有东西对数据变化做出奇妙的回应，你就可以肯定它已经被包裹在一个副作用中了。</p>
+<p>虽然 Vue 的公开 API 不包括任何直接创建副作用的方法，但它确实暴露了一个叫做 <code>watchEffect</code> 的函数，它的行为很像我们例子中的 <code>createEffect</code> 函数。我们会在<a href="https://v3.cn.vuejs.org/guide/reactivity-computed-watchers.html#watcheffect">该指南后面的部分</a>详细讨论这个问题。</p>
+<p>但知道什么代码在执行只是难题的一部分。Vue 如何知道副作用使用了什么值，以及如何知道它们何时发生变化？</p>
+<h3 id="1-3-Vue如何跟踪变化"><a href="#1-3-Vue如何跟踪变化" class="headerlink" title="1.3 Vue如何跟踪变化"></a>1.3 Vue如何跟踪变化</h3><p>我们不能像前面的例子中那样跟踪局部变量的重新分配，在 JavaScript 中没有这样的机制。我们可以跟踪的是对象 property 的变化。</p>
+<p>当我们从一个组件的 <code>data</code> 函数中返回一个普通的 JavaScript 对象时，Vue 会将该对象包裹在一个带有 <code>get</code> 和 <code>set</code> 处理程序的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a> 中。Proxy 是在 ES6 中引入的，它使 Vue 3 避免了 Vue 早期版本中存在的一些响应性问题。</p>
+<p>那看起来灵敏，不过，需要一些 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a> 的知识才能理解！所以让我们深入了解一下。有很多关于 Proxy 的文档，但你真正需要知道的是，<strong>Proxy 是一个对象，它包装了另一个对象，并允许你拦截对该对象的任何交互。</strong></p>
+<p>我们这样使用它：<code>new Proxy(target, handler)</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;intercepted!&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> target[property]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// intercepted!</span></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们截获了读取目标对象 property 的举动。像这样的处理函数也称为一个*捕捉器 (trap)*。有许多可用的不同类型的捕捉器，每个都处理不同类型的交互。</p>
+<p>除了控制台日志，我们可以在这里做任何我们想做的事情。如果我们愿意，我们甚至可以不返回实际值。这就是为什么 Proxy 对于创建 API 如此强大。</p>
+<p>使用 Proxy 的一个难点是 <code>this</code> 绑定。我们希望任何方法都绑定到这个 Proxy，而不是目标对象，这样我们也可以拦截它们。值得庆幸的是，ES6 引入了另一个名为 <code>Reflect</code> 的新特性，它允许我们以最小的代价消除了这个问题：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 Proxy 实现响应性的第一步就是跟踪一个 property 何时被读取。我们在一个名为 <code>track</code> 的处理器函数中执行此操作，该函数可以传入 <code>target</code> 和 <code>property</code> 两个参数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">track</span>(target, property)</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
+
+<p>这里没有展示 <code>track</code> 的实现。它将检查当前运行的是哪个<em>副作用</em>，并将其与 <code>target</code> 和 <code>property</code> 记录在一起。这就是 Vue 如何知道这个 property 是该副作用的依赖项。</p>
+<p>最后，我们需要在 property 值更改时重新运行这个副作用。为此，我们需要在代理上使用一个 <code>set</code> 处理函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">track</span>(target, property)</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">set</span>(<span class="params">target, property, value, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">trigger</span>(target, property)</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
+
+<p>还记得前面的表格吗？现在，我们对 Vue 如何实现这些关键步骤有了答案：</p>
+<ol>
+<li><strong>当一个值被读取时进行追踪</strong>：proxy 的 <code>get</code> 处理函数中 <code>track</code> 函数记录了该 property 和当前副作用。</li>
+<li><strong>当某个值改变时进行检测</strong>：在 proxy 上调用 <code>set</code> 处理函数。</li>
+<li><strong>重新运行代码来读取原始值</strong>：<code>trigger</code> 函数查找哪些副作用依赖于该 property 并执行它们。</li>
+</ol>
+<p>该被代理的对象对于用户来说是不可见的，但是在内部，它们使 Vue 能够在 property 的值被访问或修改的情况下进行依赖跟踪和变更通知。有一点需要注意，控制台日志会以不同的方式对 proxy 对象进行格式化，因此你可能需要安装 <a href="https://github.com/vuejs/vue-devtools">vue-devtools</a>，以提供一种更易于检查的界面。</p>
+<p>如果我们要用一个组件重写我们原来的例子，我们可以这样做：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="title function_">createApp</span>(&#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">val1</span>: <span class="number">2</span>,</span><br><span class="line">      <span class="attr">val2</span>: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">val1</span> + <span class="variable language_">this</span>.<span class="property">val2</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(vm.<span class="property">sum</span>) <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line">vm.<span class="property">val1</span> = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(vm.<span class="property">sum</span>) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<p><code>data</code> 返回的对象将被包裹在响应式代理中，并存储为 <code>this.$data</code>。Property <code>this.val1</code> 和 <code>this.val2</code> 分别是 <code>this.$data.val1</code> 和 <code>this.$data.val2</code> 的别名，因此它们通过相同的代理。</p>
+<p>Vue 将把 <code>sum</code> 的函数包裹在一个副作用中。当我们试图访问 <code>this.sum</code> 时，它将运行该副作用来计算数值。包裹 <code>$data</code> 的响应式代理将会追踪到，当副作用运行时，property <code>val1</code> 和 <code>val2</code> 被读取了。</p>
+<p>从 Vue 3 开始，我们的响应性现在可以在一个<a href="https://github.com/vuejs/vue-next/tree/master/packages/reactivity">独立包</a>中使用。将 <code>$data</code> 包裹在一个代理中的函数被称为 <a href="https://v3.cn.vuejs.org/api/basic-reactivity.html#reactive"><code>reactive</code></a>。我们可以自己直接调用这个函数，允许我们在不需要使用组件的情况下将一个对象包裹在一个响应式代理中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> proxy = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">val1</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">val2</span>: <span class="number">3</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在指南接下来的几页中，我们将探索响应性包所暴露的功能。这包括我们已经见过的 <code>reactive</code> 和 <code>watchEffect</code> 等函数，以及使用其他响应性特性的方法，如不需要创建组件的 <code>computed</code> 和 <code>watch</code>。</p>
+<h4 id="1-3-1-被代理的对象"><a href="#1-3-1-被代理的对象" class="headerlink" title="1.3.1 被代理的对象"></a>1.3.1 被代理的对象</h4><p>Vue 在内部跟踪所有已经被转成响应式的对象，所以它总是为同一个对象返回相同的代理。</p>
+<p>当从一个响应式代理中访问一个嵌套对象时，该对象在被返回之前<em>也</em>被转换为一个代理：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">track</span>(target, property)</span><br><span class="line">    <span class="keyword">const</span> value = <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isObject</span>(value)) &#123;</span><br><span class="line">      <span class="comment">// 将嵌套对象包裹在自己的响应式代理中</span></span><br><span class="line">      <span class="keyword">return</span> <span class="title function_">reactive</span>(value)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> value</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-Proxy-vs-原始标识"><a href="#1-3-2-Proxy-vs-原始标识" class="headerlink" title="1.3.2 Proxy vs 原始标识"></a>1.3.2 Proxy vs 原始标识</h4><p>Proxy 的使用确实引入了一个需要注意的新警告：在身份比较方面，被代理对象与原始对象不相等 (<code>===</code>)。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> wrapped = <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj, handlers)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj === wrapped) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>其他依赖严格等于比较的操作也会受到影响，例如 <code>.includes()</code> 或 <code>.indexOf()</code>。</p>
+<p>这里的最佳实践是永远不要持有对原始对象的引用，而只使用响应式版本。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;) <span class="comment">// 未引用原始</span></span><br></pre></td></tr></table></figure>
+
+<p>这确保了等值的比较和响应性的行为都符合预期。</p>
+<p>请注意，Vue 不会在 Proxy 中包裹数字或字符串等原始值，所以你仍然可以对这些值直接使用 <code>===</code> 来比较：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">count</span> === <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-如何让渲染响应变化"><a href="#1-4-如何让渲染响应变化" class="headerlink" title="1.4 如何让渲染响应变化"></a>1.4 如何让渲染响应变化</h3><p>一个组件的模板被编译成一个 <a href="https://v3.cn.vuejs.org/guide/render-function.html"><code>render</code></a> 函数。渲染函数创建 <a href="https://v3.cn.vuejs.org/guide/render-function.html#%E8%99%9A%E6%8B%9F-dom-%E6%A0%91">VNodes</a>，描述该组件应该如何被渲染。它被包裹在一个副作用中，允许 Vue 在运行时跟踪被“触达”的 property。</p>
+<p>一个 <code>render</code> 函数在概念上与一个 <code>computed</code> property 非常相似。Vue 并不确切地追踪依赖关系是如何被使用的，它只知道在函数运行的某个时间点上使用了这些依赖关系。如果这些 property 中的任何一个随后发生了变化，它将触发副作用再次运行，重新运行 <code>render</code> 函数以生成新的 VNodes。然后这些举动被用来对 DOM 进行必要的修改。</p>
+<h2 id="2-响应性基础"><a href="#2-响应性基础" class="headerlink" title="2. 响应性基础"></a>2. 响应性基础</h2><h3 id="2-1-声明响应式状态"><a href="#2-1-声明响应式状态" class="headerlink" title="2.1 声明响应式状态"></a>2.1 声明响应式状态</h3><p>要为 JavaScript 对象创建响应式状态，可以使用 <code>reactive</code> 方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应式状态</span></span><br><span class="line"><span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>reactive</code> 相当于 Vue 2.x 中的 <code>Vue.observable()</code> API，为避免与 RxJS 中的 observables 混淆因此对其重命名。该 API 返回一个响应式的对象状态。该响应式转换是“深度转换”——它会影响传递对象的所有嵌套 property。</p>
+<p>Vue 中响应式状态的基本用例是我们可以在渲染期间使用它。因为依赖跟踪的关系，当响应式状态改变时视图会自动更新。</p>
+<p>这就是 Vue 响应性系统的本质。当从组件中的 <code>data()</code> 返回一个对象时，它在内部交由 <code>reactive()</code> 使其成为响应式对象。模板会被编译成能够使用这些响应式 property 的<a href="https://v3.cn.vuejs.org/guide/render-function.html">渲染函数</a>。</p>
+<p>在<a href="https://v3.cn.vuejs.org/api/basic-reactivity.html">响应性基础 API</a> 章节你可以学习更多关于 <code>reactive</code> 的内容。</p>
+<h3 id="2-2-创建独立的响应式值作为-refs"><a href="#2-2-创建独立的响应式值作为-refs" class="headerlink" title="2.2 创建独立的响应式值作为 refs"></a>2.2 创建独立的响应式值作为 <code>refs</code></h3><p>想象一下，我们有一个独立的原始值 (例如，一个字符串)，我们想让它变成响应式的。当然，我们可以创建一个拥有相同字符串 property 的对象，并将其传递给 <code>reactive</code>。Vue 为我们提供了一个可以做相同事情的方法——<code>ref</code>：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>ref</code> 会返回一个可变的响应式对象，该对象作为一个<strong>响应式的引用</strong>维护着它内部的值，这就是 <code>ref</code> 名称的来源。该对象只包含一个名为 <code>value</code> 的 property：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">count.<span class="property">value</span>++</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-1-Ref解包"><a href="#2-2-1-Ref解包" class="headerlink" title="2.2.1 Ref解包"></a>2.2.1 Ref解包</h4><p>当 ref 作为渲染上下文 (从 <a href="https://v3.cn.vuejs.org/guide/composition-api-setup.html">setup()</a> 中返回的对象) 上的 property 返回并可以在模板中被访问时，它将自动浅层次解包内部值。只有访问嵌套的 ref 时需要在模板中添加 <code>.value</code>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; count &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;count ++&quot;</span>&gt;</span>Increment count<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;nested.count.value ++&quot;</span>&gt;</span>Nested Increment count<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        count,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">nested</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          count</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果你不想要访问实际的对象实例，可将其用 <code>reactive</code> 包裹:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">nested</span>: <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  count</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-访问响应式对象"><a href="#2-2-2-访问响应式对象" class="headerlink" title="2.2.2 访问响应式对象"></a>2.2.2 访问响应式对象</h4><p>当 <code>ref</code> 作为响应式对象的 property 被访问或更改时，为使其行为类似于普通 property，它会自动解包内部值：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  count</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(state.<span class="property">count</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">state.<span class="property">count</span> = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>如果将新的 ref 赋值给现有 ref 的 property，将会替换旧的 ref：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> otherCount = <span class="title function_">ref</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">state.<span class="property">count</span> = otherCount</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(state.<span class="property">count</span>) <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>Ref 解包仅发生在被响应式 <code>Object</code> 嵌套的时候。当从 <code>Array</code> 或原生集合类型如 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"><code>Map</code></a>访问 ref 时，不会进行解包：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> books = <span class="title function_">reactive</span>([<span class="title function_">ref</span>(<span class="string">&#x27;Vue 3 Guide&#x27;</span>)])</span><br><span class="line"><span class="comment">// 这里需要 .value</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(books[<span class="number">0</span>].<span class="property">value</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map = <span class="title function_">reactive</span>(<span class="keyword">new</span> <span class="title class_">Map</span>([[<span class="string">&#x27;count&#x27;</span>, <span class="title function_">ref</span>(<span class="number">0</span>)]]))</span><br><span class="line"><span class="comment">// 这里需要 .value</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map.<span class="title function_">get</span>(<span class="string">&#x27;count&#x27;</span>).<span class="property">value</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-响应式状态结构"><a href="#2-3-响应式状态结构" class="headerlink" title="2.3 响应式状态结构"></a>2.3 响应式状态结构</h3><p>当我们想使用大型响应式对象的一些 property 时，可能很想使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">ES6 解构</a>来获取我们想要的 property：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> book = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">author</span>: <span class="string">&#x27;Vue Team&#x27;</span>,</span><br><span class="line">  <span class="attr">year</span>: <span class="string">&#x27;2020&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;Vue 3 Guide&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;You are reading this book right now ;)&#x27;</span>,</span><br><span class="line">  <span class="attr">price</span>: <span class="string">&#x27;free&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; author, title &#125; = book</span><br></pre></td></tr></table></figure>
+
+<p>遗憾的是，使用解构的两个 property 的响应性都会丢失。对于这种情况，我们需要将我们的响应式对象转换为一组 ref。这些 ref 将保留与源对象的响应式关联：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, toRefs &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> book = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">author</span>: <span class="string">&#x27;Vue Team&#x27;</span>,</span><br><span class="line">  <span class="attr">year</span>: <span class="string">&#x27;2020&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;Vue 3 Guide&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;You are reading this book right now ;)&#x27;</span>,</span><br><span class="line">  <span class="attr">price</span>: <span class="string">&#x27;free&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; author, title &#125; = <span class="title function_">toRefs</span>(book)</span><br><span class="line"></span><br><span class="line">title.<span class="property">value</span> = <span class="string">&#x27;Vue 3 Detailed Guide&#x27;</span> <span class="comment">// 我们需要使用 .value 作为标题，现在是 ref</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(book.<span class="property">title</span>) <span class="comment">// &#x27;Vue 3 Detailed Guide&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>你可以在 <a href="https://v3.cn.vuejs.org/api/refs-api.html#ref">Refs API</a> 部分中了解更多有关 <code>refs</code> 的信息</p>
+<h3 id="2-4-使用-readonly-防止更改响应式对象"><a href="#2-4-使用-readonly-防止更改响应式对象" class="headerlink" title="2.4 使用 readonly 防止更改响应式对象"></a>2.4 使用 <code>readonly</code> 防止更改响应式对象</h3><p>有时我们想跟踪响应式对象 (<code>ref</code> 或 <code>reactive</code>) 的变化，但我们也希望防止在应用程序的某个位置更改它。例如，当我们有一个被 <a href="https://v3.cn.vuejs.org/guide/component-provide-inject.html">provide</a> 的响应式对象时，我们不想让它在注入之后被改变。为此，我们可以基于原始对象创建一个只读的 proxy 对象：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, readonly &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> original = <span class="title function_">reactive</span>(&#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> copy = <span class="title function_">readonly</span>(original)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 original 修改 count，将会触发依赖 copy 的侦听器</span></span><br><span class="line"></span><br><span class="line">original.<span class="property">count</span>++</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 copy 修改 count，将导致失败并出现警告</span></span><br><span class="line">copy.<span class="property">count</span>++ <span class="comment">// 警告: &quot;Set operation on key &#x27;count&#x27; failed: target is readonly.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-响应式计算和侦听"><a href="#3-响应式计算和侦听" class="headerlink" title="3. 响应式计算和侦听"></a>3. 响应式计算和侦听</h2><h3 id="3-1-计算值"><a href="#3-1-计算值" class="headerlink" title="3.1 计算值"></a>3.1 计算值</h3><p>有时我们需要依赖于其他状态的状态——在 Vue 中，这是用组件<a href="https://v3.cn.vuejs.org/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8">计算属性</a>处理的，以直接创建计算值，我们可以使用 <code>computed</code> 函数：它接受 getter 函数并为 getter 返回的值返回一个不可变的响应式 <a href="https://v3.cn.vuejs.org/guide/reactivity-fundamentals.html#%E5%88%9B%E5%BB%BA%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%80%BC%E4%BD%9C%E4%B8%BA-refs">ref</a> 对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> plusOne = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(plusOne.<span class="property">value</span>) <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">plusOne.<span class="property">value</span>++ <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+
+<p>或者，它可以使用一个带有 <code>get</code> 和 <code>set</code> 函数的对象来创建一个可写的 ref 对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> plusOne = <span class="title function_">computed</span>(&#123;</span><br><span class="line">  <span class="attr">get</span>: <span class="function">() =&gt;</span> count.<span class="property">value</span> + <span class="number">1</span>,</span><br><span class="line">  <span class="attr">set</span>: <span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">    count.<span class="property">value</span> = val - <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">plusOne.<span class="property">value</span> = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-1-调试Computed"><a href="#3-1-1-调试Computed" class="headerlink" title="3.1.1 调试Computed"></a>3.1.1 调试Computed</h4><p><code>computed</code> 可接受一个带有 <code>onTrack</code> 和 <code>onTrigger</code> 选项的对象作为第二个参数：</p>
+<ul>
+<li><code>onTrack</code> 会在某个响应式 property 或 ref 作为依赖被追踪时调用。</li>
+<li><code>onTrigger</code> 会在侦听回调被某个依赖的修改触发时调用。</li>
+</ul>
+<p>所有回调都会收到一个 debugger 事件，其中包含了一些依赖相关的信息。推荐在这些回调内放置一个 <code>debugger</code> 语句以调试依赖。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> plusOne = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> + <span class="number">1</span>, &#123;</span><br><span class="line">  <span class="title function_">onTrack</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 当 count.value 作为依赖被追踪时触发</span></span><br><span class="line">    <span class="keyword">debugger</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">onTrigger</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 当 count.value 被修改时触发</span></span><br><span class="line">    <span class="keyword">debugger</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 访问 plusOne，应该触发 onTrack</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(plusOne.<span class="property">value</span>)</span><br><span class="line"><span class="comment">// 修改 count.value，应该触发 onTrigger</span></span><br><span class="line">count.<span class="property">value</span>++</span><br></pre></td></tr></table></figure>
+
+<p><code>onTrack</code> 和 <code>onTrigger</code> 仅在开发模式下生效。</p>
+<h3 id="3-2-watchEffect"><a href="#3-2-watchEffect" class="headerlink" title="3.2 watchEffect"></a>3.2 <code>watchEffect</code></h3><p>为了根据响应式状态<em>自动应用</em>和<em>重新应用</em>副作用，我们可以使用 <code>watchEffect</code> 函数。它立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>))</span><br><span class="line"><span class="comment">// -&gt; logs 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  count.<span class="property">value</span>++</span><br><span class="line">  <span class="comment">// -&gt; logs 1</span></span><br><span class="line">&#125;, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-1-停止侦听"><a href="#3-2-1-停止侦听" class="headerlink" title="3.2.1 停止侦听"></a>3.2.1 停止侦听</h4><p>当 <code>watchEffect</code> 在组件的 <a href="https://v3.cn.vuejs.org/guide/composition-api-setup.html">setup()</a> 函数或<a href="https://v3.cn.vuejs.org/guide/composition-api-lifecycle-hooks.html">生命周期钩子</a>被调用时，侦听器会被链接到该组件的生命周期，并在组件卸载时自动停止。</p>
+<p>在一些情况下，也可以显式调用返回值以停止侦听：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> stop = <span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// later</span></span><br><span class="line"><span class="title function_">stop</span>()</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-清除副作用"><a href="#3-2-2-清除副作用" class="headerlink" title="3.2.2 清除副作用"></a>3.2.2 清除副作用</h4><p>有时副作用函数会执行一些异步的副作用，这些响应需要在其失效时清除 (即完成之前状态已改变了) 。所以侦听副作用传入的函数可以接收一个 <code>onInvalidate</code> 函数作入参，用来注册清理失效时的回调。当以下情况发生时，这个失效回调会被触发：</p>
+<ul>
+<li>副作用即将重新执行时</li>
+<li>侦听器被停止 (如果在 <code>setup()</code> 或生命周期钩子函数中使用了 <code>watchEffect</code>，则在组件卸载时)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">watchEffect</span>(<span class="function"><span class="params">onInvalidate</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> token = <span class="title function_">performAsyncOperation</span>(id.<span class="property">value</span>)</span><br><span class="line">  <span class="title function_">onInvalidate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// id has changed or watcher is stopped.</span></span><br><span class="line">    <span class="comment">// invalidate previously pending async operation</span></span><br><span class="line">    token.<span class="title function_">cancel</span>()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们之所以是通过传入一个函数去注册失效回调，而不是从回调返回它，是因为返回值对于异步错误处理很重要。</p>
+<p>在执行数据请求时，副作用函数往往是一个异步函数：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> data = <span class="title function_">ref</span>(<span class="literal">null</span>)</span><br><span class="line"><span class="title function_">watchEffect</span>(<span class="keyword">async</span> onInvalidate =&gt; &#123;</span><br><span class="line">  <span class="title function_">onInvalidate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;) <span class="comment">// 我们在Promise解析之前注册清除函数</span></span><br><span class="line">  data.<span class="property">value</span> = <span class="keyword">await</span> <span class="title function_">fetchData</span>(props.<span class="property">id</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们知道异步函数都会隐式地返回一个 Promise，但是清理函数必须要在 Promise 被 resolve 之前被注册。另外，Vue 依赖这个返回的 Promise 来自动处理 Promise 链上的潜在错误。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/02/14/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Vue学习（二）——组件</title>
     <url>/2022/02/28/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="一、组件注册"><a href="#一、组件注册" class="headerlink" title="一、组件注册"></a>一、组件注册</h1><h2 id="1-1-组件名"><a href="#1-1-组件名" class="headerlink" title="1.1 组件名"></a>1.1 组件名</h2><p>在注册一个组件的时候，我们始终需要给它一个名字。比如在全局注册的时候我们已经看到了：</p>
@@ -1999,6 +2276,35 @@
       <tags>
         <tag>前端</tag>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win10环境下docker的安装与在docker安装Jenkins</title>
+    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
+    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
+<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
+<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
+<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
+<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
+<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
+<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
+<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
+<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>jenkins</tag>
       </tags>
   </entry>
   <entry>
@@ -2620,309 +2926,152 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/02/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>win10环境下docker的安装与在docker安装Jenkins</title>
-    <url>/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</url>
-    <content><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol>
-<li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li>
-<li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li>
-<li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li>
-<li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li>
-<li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li>
-<li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li>
-<li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li>
-<li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>jenkins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue学习（五）————高阶指南</title>
-    <url>/2022/07/20/Vue%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%94%EF%BC%89%E2%80%94%E2%80%94%E9%AB%98%E9%98%B6%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="一、Vue与Web-Components"><a href="#一、Vue与Web-Components" class="headerlink" title="一、Vue与Web Components"></a>一、Vue与Web Components</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components">Web Components</a> 是一组 Web 原生 API 的总称，允许开发人员创建可重用的自定义组件。</p>
-<p>Vue 和 Web Components 大体上是互补的技术。Vue 能很好地解析和创建自定义元素。不论是在将自定义元素整合到已有的 Vue 应用中，还是使用 Vue 构建和分发自定义元素，你都能获得很好的支持。</p>
-<h2 id="1-在Vue中使用自定义元素"><a href="#1-在Vue中使用自定义元素" class="headerlink" title="1. 在Vue中使用自定义元素"></a>1. 在Vue中使用自定义元素</h2><p>Vue 应用程序中解析出的自定义元素大体上和原生 HTML 元素相同，但需要牢记以下几点：</p>
-<h3 id="1-1-跳过组件的解析"><a href="#1-1-跳过组件的解析" class="headerlink" title="1.1 跳过组件的解析"></a>1.1 跳过组件的解析</h3><p>默认情况下，Vue 会优先尝试将一个非原生的 HTML 标签解析为一个注册的 Vue 组件，如果失败则会将其渲染为自定义元素。这种行为会导致在开发模式下的 Vue 发出“failed to resolve component”的警告。如果你希望 Vue 能将某些确切的元素作为自定义元素处理并跳过组件解析，请指定 <a href="https://v3.cn.vuejs.org/api/application-config.html#compileroptions"><code>compilerOptions.isCustomElement</code> 选项</a>。</p>
-<p>如果你正在构建步骤中使用 Vue，则此选项需要通过构建配置传递，因为这是一个编译时选项。</p>
-<h4 id="1-1-1-浏览器内配置示例"><a href="#1-1-1-浏览器内配置示例" class="headerlink" title="1.1.1 浏览器内配置示例"></a>1.1.1 浏览器内配置示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 仅当使用浏览器内编译时有效</span></span><br><span class="line"><span class="comment">// 如果你正在使用构建工具，请查看下方的配置示例</span></span><br><span class="line">app.<span class="property">config</span>.<span class="property">compilerOptions</span>.<span class="property">isCustomElement</span> = <span class="function"><span class="params">tag</span> =&gt;</span> tag.<span class="title function_">includes</span>(<span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-1-2-Vite配置示例"><a href="#1-1-2-Vite配置示例" class="headerlink" title="1.1.2 Vite配置示例"></a>1.1.2 Vite配置示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">vue</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: &#123;</span><br><span class="line">        <span class="attr">compilerOptions</span>: &#123;</span><br><span class="line">          <span class="comment">// 将所有包含短横线的标签作为自定义元素处理</span></span><br><span class="line">          <span class="attr">isCustomElement</span>: <span class="function"><span class="params">tag</span> =&gt;</span> tag.<span class="title function_">includes</span>(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-1-3-Vue-CLI配置示例"><a href="#1-1-3-Vue-CLI配置示例" class="headerlink" title="1.1.3 Vue CLI配置示例"></a>1.1.3 Vue CLI配置示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.<span class="property">module</span></span><br><span class="line">      .<span class="title function_">rule</span>(<span class="string">&#x27;vue&#x27;</span>)</span><br><span class="line">      .<span class="title function_">use</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line">      .<span class="title function_">tap</span>(<span class="function"><span class="params">options</span> =&gt;</span> (&#123;</span><br><span class="line">        ...options,</span><br><span class="line">        <span class="attr">compilerOptions</span>: &#123;</span><br><span class="line">          <span class="comment">// 将所有以 ion- 开头的标签作为自定义元素处理</span></span><br><span class="line">          <span class="attr">isCustomElement</span>: <span class="function"><span class="params">tag</span> =&gt;</span> tag.<span class="title function_">startsWith</span>(<span class="string">&#x27;ion-&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-传递-DOM-Property"><a href="#1-2-传递-DOM-Property" class="headerlink" title="1.2 传递 DOM Property"></a>1.2 传递 DOM Property</h3><p>由于 DOM attribute 只能是字符串，因此我们得将复杂数据作为 DOM property 传递给自定义元素。在自定义元素上配置 prop 时，Vue 3 会自动使用 <code>in</code> 操作符检查是否存在 DOM-property，如果此键存在则会优先将值配置为一个 DOM property。也就是说大多数情况下，如果自定义元素遵守<a href="https://web.dev/index.md/">推荐的最佳实践</a>，则无需考虑这一点。</p>
-<p>但是，在极少数情况下，数据必须作为 DOM property 传递，但自定义元素没有正确定义&#x2F;反映 property (导致 <code>in</code> 检查失败)。此时，可以使用 <code>.prop</code> 修饰符强制将一个 <code>v-bind</code> 绑定设置为一个 DOM property：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-element</span> <span class="attr">:user.prop</span>=<span class="string">&quot;&#123; name: &#x27;jack&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 等效的简写 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-element</span> <span class="attr">.user</span>=<span class="string">&quot;&#123; name: &#x27;jack&#x27; &#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-使用-Vue-构建自定义元素"><a href="#2-使用-Vue-构建自定义元素" class="headerlink" title="2. 使用 Vue 构建自定义元素"></a>2. 使用 Vue 构建自定义元素</h2><p>自定义元素的一大好处就是它们可以与任何框架一起使用，甚至可以在没有框架的情况下使用。当你需要向可能使用不同前端技术栈的终端用户分发组件时，或者希望向最终应用程序隐藏其所用组件的实现细节时，使用自定义元素非常适合。</p>
-<h3 id="2-1-defineCustomElement"><a href="#2-1-defineCustomElement" class="headerlink" title="2.1 defineCustomElement"></a>2.1 defineCustomElement</h3><p>Vue 支持使用 <a href="https://v3.cn.vuejs.org/api/global-api.html#definecustomelement"><code>defineCustomElement</code></a> 方法创建自定义元素，并且使用与 Vue 组件完全一致的 API。该方法接受与 <a href="https://v3.cn.vuejs.org/api/global-api.html#definecomponent"><code>defineComponent</code></a> 相同的参数，但是会返回一个扩展自 <code>HTMLElement</code> 的自定义元素构造函数：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-vue-element</span>&gt;</span><span class="tag">&lt;/<span class="name">my-vue-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineCustomElement &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyVueElement</span> = <span class="title function_">defineCustomElement</span>(&#123;</span><br><span class="line">  <span class="comment">// 在此提供正常的 Vue 组件选项</span></span><br><span class="line">  <span class="attr">props</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">emits</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`...`</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// defineCustomElement 独有特性: CSS 会被注入到隐式根 (shadow root) 中</span></span><br><span class="line">  <span class="attr">styles</span>: [<span class="string">`/* inlined css */`</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册自定义元素</span></span><br><span class="line"><span class="comment">// 注册完成后，此页面上的所有的 `&lt;my-vue-element&gt;` 标签会被更新</span></span><br><span class="line">customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-vue-element&#x27;</span>, <span class="title class_">MyVueElement</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 你也可以编程式地实例化这个元素：</span></span><br><span class="line"><span class="comment">// (只能在注册后完成此操作)</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(</span><br><span class="line">  <span class="keyword">new</span> <span class="title class_">MyVueElement</span>(&#123;</span><br><span class="line">    <span class="comment">// initial props (optional)</span></span><br><span class="line">  &#125;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-1-1-生命周期"><a href="#2-1-1-生命周期" class="headerlink" title="2.1.1 生命周期"></a>2.1.1 生命周期</h4><ul>
-<li><p>当元素的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components/Using_custom_elements#%E4%BD%BF%E7%94%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><code>connectedCallback</code></a> 被首次调用时，Vue 自定义元素会在其隐式根部挂载一个内部的 Vue 组件实例。</p>
-</li>
-<li><p>当元素的 <code>disconnectedCallback</code> 被调用时，Vue 会在很短的时间后检查此元素是否已被移出页面。</p>
-<ul>
-<li><p>如果元素仍在文档中，说明是移动，组件实例将被保留；</p>
-</li>
-<li><p>如果元素已被移出文档，说明是移除，组件实例将被卸载。</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-1-2-Props"><a href="#2-1-2-Props" class="headerlink" title="2.1.2 Props"></a>2.1.2 Props</h4><ul>
-<li><p>所有使用 <code>props</code> 选项声明的 prop 都将在自定义元素上定义为 property。Vue 将在合适的时候自动处理 attribute &#x2F; property 之间的映射。</p>
-<ul>
-<li><p>Attribute 总是映射为相应的 property。</p>
-</li>
-<li><p>基础类型 (<code>string</code>、<code>boolean</code> 或 <code>number</code>) 的 property 会被映射为 attribute。</p>
-</li>
-</ul>
-</li>
-<li><p>Vue 也会自动将声明为 <code>Boolean</code> 或 <code>Number</code> 类型的 attribute prop (始终为字符串)转换为所需的类型。例如给出以下 prop 声明：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">props</span>: &#123;</span><br><span class="line">  <span class="attr">selected</span>: <span class="title class_">Boolean</span>,</span><br><span class="line">  <span class="attr">index</span>: <span class="title class_">Number</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以及自定义元素用法：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-element</span> <span class="attr">selected</span> <span class="attr">index</span>=<span class="string">&quot;1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在组件中，<code>selected</code> 会被转换为 <code>true</code> (boolean)，<code>index</code> 会被转换为 <code>1</code> (number)。</p>
-</li>
-</ul>
-<h4 id="2-1-3-事件"><a href="#2-1-3-事件" class="headerlink" title="2.1.3 事件"></a>2.1.3 事件</h4><p>在自定义元素中，通过 <code>this.$emit</code> 或在 setup 中的 <code>emit</code> 发出的事件会被调度为原生 <a href="https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events#adding_custom_data_%E2%80%93_customevent">CustomEvents</a>。附加的事件参数 (payload) 会作为数组暴露在 CustomEvent 对象的 <code>details</code> property 上。</p>
-<h4 id="2-1-4-插槽"><a href="#2-1-4-插槽" class="headerlink" title="2.1.4 插槽"></a>2.1.4 插槽</h4><p>在组件内部，可以像往常一样使用 <code>&lt;slot/&gt;</code> 渲染插槽。但是在解析最终生成的元素时，它只接受<a href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components/Using_templates_and_slots">原生插槽语法</a>：</p>
-<ul>
-<li><p>不支持<a href="https://v3.cn.vuejs.org/guide/component-slots.html#scoped-slot#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD">作用域插槽</a>。</p>
-</li>
-<li><p>传递命名插槽时，请使用 <code>slot</code> attribute 而非 <code>v-slot</code> 指令：</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-element</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">&quot;named&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-element</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-1-5-Provide-x2F-Inject"><a href="#2-1-5-Provide-x2F-Inject" class="headerlink" title="2.1.5 Provide&#x2F;Inject"></a>2.1.5 Provide&#x2F;Inject</h4><p><a href="https://v3.cn.vuejs.org/guide/component-provide-inject.html#provide-inject">Provide &#x2F; Inject API</a> 和<a href="https://v3.cn.vuejs.org/api/composition-api.html#provide-inject">组合式 API 中的 Provide &#x2F; Inject</a> 在 Vue 定义的自定义元素之间可以正常工作。但是请注意这<strong>仅适用于自定义元素之间</strong>，即 Vue 定义的自定义元素将无法注入非自定义元素的 Vue 组件提供的属性。</p>
-<h3 id="2-2-将-SFC-作为自定义元素"><a href="#2-2-将-SFC-作为自定义元素" class="headerlink" title="2.2 将 SFC 作为自定义元素"></a>2.2 将 SFC 作为自定义元素</h3><p><code>defineCustomElement</code> 也适用于 Vue 单文件组件 (SFC)。但是，在默认工具链配置下，生产构建时 SFC 内部的 <code>&lt;style&gt;</code> 会被提取并合并到单独的 CSS 文件中。当使用 SFC 作为自定义元素时，通常需要将 <code>&lt;style&gt;</code> 标签注入自定义元素的隐式根。</p>
-<p>官方 SFC 工具支持以“自定义元素模式”(需要 <code>@vitejs/plugin-vue@^1.4.0</code> 或 <code>vue-loader@^16.5.0</code> )导入 SFC。以自定义元素模式加载的 SFC 将其 <code>&lt;style&gt;</code> 标签作为 CSS 字符串内联，并在组件的 <code>styles</code> 选项中暴露出来，然后会被 <code>defineCustomElement</code> 获取并在实例化时注入隐式根。</p>
-<p>要选用此模式，只需使用 <code>.ce.vue</code> 作为文件拓展名即可：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineCustomElement &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Example</span> <span class="keyword">from</span> <span class="string">&#x27;./Example.ce.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Example</span>.<span class="property">styles</span>) <span class="comment">// [&quot;/* 内联的 css */&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 转换为自定义元素构造器</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ExampleElement</span> = <span class="title function_">defineCustomElement</span>(<span class="title class_">Example</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册</span></span><br><span class="line">customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-example&#x27;</span>, <span class="title class_">ExampleElement</span>)</span><br></pre></td></tr></table></figure>
-
-<p>如果你希望指定应在自定义元素模式下导入的文件(例如将 <em>所有</em> SFC 视为自定义元素)，你可以将 <code>customElement</code> 选项传递给相应的构建插件：</p>
-<ul>
-<li><a href="https://github.com/vitejs/vite/tree/main/packages/plugin-vue#using-vue-sfcs-as-custom-elements">@vitejs&#x2F;plugin-vue</a></li>
-<li><a href="https://github.com/vuejs/vue-loader/tree/next#v16-only-options">vue-loader</a></li>
-</ul>
-<h3 id="2-3-Vue自定义元素库的提示"><a href="#2-3-Vue自定义元素库的提示" class="headerlink" title="2.3 Vue自定义元素库的提示"></a>2.3 Vue自定义元素库的提示</h3><p>如果使用 Vue 构建自定义元素，则此元素将依赖于 Vue 的运行时。这会导致一个 16kb 左右的基础大小开销 (具体取决于使用了多少特性)。这意味着如果你准备发布单个自定义元素，使用 Vue 可能不是最佳方案——你可能想要使用纯 JavaScript，<a href="https://github.com/vuejs/petite-vue">petite-vue</a>，或是其他专注于轻量化运行时的框架。但是，如果你要发布具有复杂逻辑的自定义元素集合，那么这点基础大小就会显得合理了，因为 Vue 可以使用非常精简的代码耦合每个组件。你准备发布的元素越多，开销权衡就越好。</p>
-<p>如果自定义元素会在同样使用 Vue 的项目中使用，你可以选择从构建的包中外部化 Vue，这样元素就会使用与宿主应用程序相同的 Vue 副本。</p>
-<p>我们推荐你提供一个导出独立元素的构造函数，这样你的用户就可以灵活地按需导入它们并使用他们所需的标签名注册自定义元素。你还可以导出一个能自动注册所有元素的函数以便于使用。这是一个 Vue 自定义元素库示例的入口点：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineCustomElement &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Foo</span> <span class="keyword">from</span> <span class="string">&#x27;./MyFoo.ce.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Bar</span> <span class="keyword">from</span> <span class="string">&#x27;./MyBar.ce.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyFoo</span> = <span class="title function_">defineCustomElement</span>(<span class="title class_">Foo</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyBar</span> = <span class="title function_">defineCustomElement</span>(<span class="title class_">Bar</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 导出独立的元素</span></span><br><span class="line"><span class="keyword">export</span> &#123; <span class="title class_">MyFoo</span>, <span class="title class_">MyBar</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">register</span>(<span class="params"></span>) &#123;</span><br><span class="line">  customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-foo&#x27;</span>, <span class="title class_">MyFoo</span>)</span><br><span class="line">  customElements.<span class="title function_">define</span>(<span class="string">&#x27;my-bar&#x27;</span>, <span class="title class_">MyBar</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果你有许多组件，你还可以利用构建工具提供的功能，例如 Vite 的 <a href="https://cn.vitejs.dev/guide/features.html#glob-import">glob 导入</a>或是 webpack 的 <a href="https://webpack.js.org/guides/dependency-management/#requirecontext"><code>require.context</code></a>。</p>
-<h2 id="3-对比-Web-Components-与-Vue-组件"><a href="#3-对比-Web-Components-与-Vue-组件" class="headerlink" title="3. 对比 Web Components 与 Vue 组件"></a>3. 对比 Web Components 与 Vue 组件</h2><p>一些开发人员认为应该避免使用框架专有的组件模型，并且仅使用自定义元素以便应用程序“面向未来”。我们将在此处尝试解释为什么我们认为这种看法过于简单化了问题。</p>
-<p>自定义元素和 Vue 组件之间确实存在一定程度的功能重叠：它们都允许我们定义具有数据传递、事件发出和生命周期管理功能的可重用组件。然而，Web Components API 是相对低级和简单的。为了构建一个实际可用的应用程序，我们需要很多平台没有涵盖的附加功能：</p>
-<ul>
-<li><p>一个声明式的、高效的模板系统；</p>
-</li>
-<li><p>一个有助于跨组件逻辑提取和重用的响应式状态管理系统；</p>
-</li>
-<li><p>一个能在服务器端渲染组件并在客户端集成的高效方法(SSR)，这对于 SEO 和 <a href="https://web.dev/vitals/">Web 关键指标 (例如 LCP)</a> 来说很重要。原生自定义元素 SSR 通常涉及在 Node.js 中模拟 DOM，然后序列化被改变的 DOM，而 Vue SSR 会尽可能编译为字符串连接，后者的效率更高。</p>
-</li>
-</ul>
-<p>作为一个考虑周到的系统，Vue 的组件模型在设计时就考虑到了这些需求。</p>
-<p>如果你拥有一支称职的工程团队，或许可以基于原生自定义元素构建出近似效果的产品——但这也意味着你需要承担对内部框架的长期维护负担，同时失去了像 Vue 这样拥有生态系统和社区贡献的成熟的框架。</p>
-<p>也有使用自定义元素作为其组件模型基础构建的框架，但它们都不可避免地要针对上面列出的问题引入自己的专有解决方案。使用这些框架需要学习或是购买他们对这些问题的技术决策——尽管他们可能会打广告宣传——这依旧无法使你免除后顾之忧。</p>
-<p>我们还找到了一些自定义元素无法胜任的应用场景：</p>
-<ul>
-<li><p>激进的插槽定值会阻碍组件的整合。Vue 的<a href="https://v3.cn.vuejs.org/guide/component-slots.html#scoped-slots">作用域插槽</a>提供了非常强大的组件整合机制，这是原生插槽所没有的，因为原生插槽的激进特性。激进特性插槽同样意味着接收组件无法控制何时或是否需要渲染一段插槽内容。</p>
-</li>
-<li><p>目前，发布带有隐式 DOM scoped CSS 的自定义元素需要将 CSS 嵌入到 JavaScript 中，以便它们可以在运行时注入到隐式根中。在 SSR 场景中，它们还会导致重复定义样式。该领域有一些<a href="https://github.com/whatwg/html/pull/4898/">平台特性</a>正在开发中——但截至目前，它们尚未得到普遍支持，并且仍有生产环境性能&#x2F; SSR 问题需要解决。而与此同时，Vue SFC 已经提供了 <a href="https://v3.cn.vuejs.org/api/sfc-style.html">CSS 作用域机制</a>，支持将样式提取到纯 CSS 文件中。</p>
-</li>
-</ul>
-<p>Vue 将始终与 Web 平台中的最新标准保持同步，如果平台提供的任何内容能使我们的工作更轻松，我们将很乐意利用它。但是，我们的目标是提供运行良好且开箱即用的解决方案。这意味着我们必须以批判的心态整合新的平台功能——这会涉及到在遵循现有标准的前提下弥补标准的不足。</p>
-<h1 id="二、响应性原理"><a href="#二、响应性原理" class="headerlink" title="二、响应性原理"></a>二、响应性原理</h1><h2 id="1-深入响应性原理"><a href="#1-深入响应性原理" class="headerlink" title="1. 深入响应性原理"></a>1. 深入响应性原理</h2><p>Vue 最独特的特性之一，是其非侵入性的响应性系统。数据模型是被代理的 JavaScript 对象。而当你修改它们时，视图会进行更新。这让状态管理非常简单直观，不过理解其工作原理同样重要，这样你可以避开一些常见的问题。在这个章节，我们将研究一下 Vue 响应性系统的底层的细节。</p>
-<h3 id="1-1-什么是响应性"><a href="#1-1-什么是响应性" class="headerlink" title="1.1 什么是响应性"></a>1.1 什么是响应性</h3><p>响应性是一种允许我们以声明式的方式去适应变化的编程范例。人们通常展示的典型例子，是一份 excel 电子表格 (一个非常好的例子)。</p>
-<p>如果将数字 2 放在第一个单元格中，将数字 3 放在第二个单元格中并要求提供 SUM，则电子表格会将其计算出来给你。不要惊奇，同时，如果你更新第一个数字，SUM 也会自动更新。</p>
-<p>JavaScript 通常不是这样工作的。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> val1 = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> val2 = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> sum = val1 + val2</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum) <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line">val1 = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sum) <span class="comment">// 仍然是 5</span></span><br></pre></td></tr></table></figure>
-
-<p>如果我们更新第一个值，sum 不会被修改。</p>
-<p>那么我们如何用 JavaScript 实现这一点呢？</p>
-<p>作为一个高阶的概述，我们需要做到以下几点：</p>
+    <title>任务队列与事件循环</title>
+    <url>/2022/08/22/%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每个tab页面都有自己的渲染进程，而每个渲染进程又由多个线程组成，每个渲染进程都有一个主线程，主线程非常繁忙，既要处理 DOM，又要计算样式，还要处理布局，同时还需要处理 JavaScript 任务以及各种输入事件。要让这么多不同类型的任务在主线程中有条不紊地执行，这就需要⼀个系统来统筹调度这些任务。这个系统就是今天的主角 – 消息队列和事件循环系统。</p>
+<p>JS为什么是单线程的？为什么需要异步？既然 JS 是单线程的，只能在⼀条线程上执⾏，⼜是如何实现的异步呢？</p>
+<p>本文Event Loop 只针对浏览器，暂不为 node 展开讨论。</p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>JS是单线程执行的，指的是一个进程里有且只有一个主线程负责执行js代码。</p>
+<p>进程是CPU资源分配的最小单位。线程是CPU调度的最小单位。</p>
+<h3 id="多线程与多进程"><a href="#多线程与多进程" class="headerlink" title="多线程与多进程"></a>多线程与多进程</h3><p>多进程是指同一个时间里，同一个计算机系统允许两个或者两个以上的进程处于运行状态。比如可以在听歌的同时写代码。</p>
+<p>多线程是指程序中包含多个执行流，一个程序中可以同时运行多个不同的线程来执行不同的任务，允许单个程序创建多个并行执行的线程来完成各自的任务。</p>
+<p>浏览器打开一个Tab页就是创建了一个进程，一个进程可以有多个线程，JS 引擎线程、HTTP 请求线程、事件触发线程、GUI 渲染线程等等。发起请求是就创建了一个线程，请求结束后线程可能被销毁。</p>
+<p>由于单线程原因，主线程一次只能执行一个任务，每次任务执行完成会去消息队列取新的任务执行。</p>
 <ol>
-<li><strong>当一个值被读取时进行追踪</strong>，例如 <code>val1 + val2</code> 会同时读取 <code>val1</code> 和 <code>val2</code>。</li>
-<li><strong>当某个值改变时进行检测</strong>，例如，当我们赋值 <code>val1 = 3</code>。</li>
-<li><strong>重新运行代码来读取原始值</strong>，例如，再次运行 <code>sum = val1 + val2</code> 来更新 <code>sum</code> 的值。</li>
+<li>一个任务执行时间过长，导致主线程长期被霸占，如何优化？&#x3D;&#x3D;&gt; 引入异步编程，实现<br>非阻塞调用</li>
+<li>如何处理任务优先级？ &#x3D;&#x3D;&#x3D;》引⼊任务队列，先进先出来管理任务执行顺序</li>
+<li>紧急任务无法插队？&#x3D;&#x3D;&#x3D;》引入宏任务、微任务处理不同任务队列的优先级</li>
 </ol>
-<p>我们不能直接用前面的例子中的代码来继续，但是我们后面会再来看看这个例子，以及如何调整它来兼容 Vue 的响应性系统。</p>
-<p>首先，让我们深入了解一下 Vue 是如何实现上述核心响应性要求的。</p>
-<h3 id="1-2-Vue如何知道哪些代码在执行"><a href="#1-2-Vue如何知道哪些代码在执行" class="headerlink" title="1.2 Vue如何知道哪些代码在执行"></a>1.2 Vue如何知道哪些代码在执行</h3><p>为了能够在数值变化时，随时运行我们的总和，我们首先要做的是将其包裹在一个函数中。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">updateSum</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  sum = val1 + val2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但我们如何告知 Vue 这个函数呢？</p>
-<p>Vue 通过一个<em>副作用 (effect)</em> 来跟踪当前正在运行的函数。副作用是一个函数的包裹器，在函数被调用之前就启动跟踪。Vue 知道哪个副作用在何时运行，并能在需要时再次执行它。</p>
-<p>为了更好地理解这一点，让我们尝试脱离 Vue 实现类似的东西，以看看它如何工作。</p>
-<p>我们需要的是能够包裹总和的东西，像这样：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">createEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  sum = val1 + val2</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>我们需要 <code>createEffect</code> 来跟踪和执行。我们的实现如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 维持一个执行副作用的栈</span></span><br><span class="line"><span class="keyword">const</span> runningEffects = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">createEffect</span> = fn =&gt; &#123;</span><br><span class="line">  <span class="comment">// 将传来的 fn 包裹在一个副作用函数中</span></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">effect</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    runningEffects.<span class="title function_">push</span>(effect)</span><br><span class="line">    <span class="title function_">fn</span>()</span><br><span class="line">    runningEffects.<span class="title function_">pop</span>()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 立即自动执行副作用</span></span><br><span class="line">  <span class="title function_">effect</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当我们的副作用被调用时，在调用 <code>fn</code> 之前，它会把自己推到 <code>runningEffects</code> 数组中。这个数组可以用来检查当前正在运行的副作用。</p>
-<p>副作用是许多关键功能的起点。例如，组件的渲染和计算属性都在内部使用副作用。任何时候，只要有东西对数据变化做出奇妙的回应，你就可以肯定它已经被包裹在一个副作用中了。</p>
-<p>虽然 Vue 的公开 API 不包括任何直接创建副作用的方法，但它确实暴露了一个叫做 <code>watchEffect</code> 的函数，它的行为很像我们例子中的 <code>createEffect</code> 函数。我们会在<a href="https://v3.cn.vuejs.org/guide/reactivity-computed-watchers.html#watcheffect">该指南后面的部分</a>详细讨论这个问题。</p>
-<p>但知道什么代码在执行只是难题的一部分。Vue 如何知道副作用使用了什么值，以及如何知道它们何时发生变化？</p>
-<h3 id="1-3-Vue如何跟踪变化"><a href="#1-3-Vue如何跟踪变化" class="headerlink" title="1.3 Vue如何跟踪变化"></a>1.3 Vue如何跟踪变化</h3><p>我们不能像前面的例子中那样跟踪局部变量的重新分配，在 JavaScript 中没有这样的机制。我们可以跟踪的是对象 property 的变化。</p>
-<p>当我们从一个组件的 <code>data</code> 函数中返回一个普通的 JavaScript 对象时，Vue 会将该对象包裹在一个带有 <code>get</code> 和 <code>set</code> 处理程序的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a> 中。Proxy 是在 ES6 中引入的，它使 Vue 3 避免了 Vue 早期版本中存在的一些响应性问题。</p>
-<p>那看起来灵敏，不过，需要一些 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a> 的知识才能理解！所以让我们深入了解一下。有很多关于 Proxy 的文档，但你真正需要知道的是，<strong>Proxy 是一个对象，它包装了另一个对象，并允许你拦截对该对象的任何交互。</strong></p>
-<p>我们这样使用它：<code>new Proxy(target, handler)</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;intercepted!&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> target[property]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// intercepted!</span></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
-
-<p>这里我们截获了读取目标对象 property 的举动。像这样的处理函数也称为一个*捕捉器 (trap)*。有许多可用的不同类型的捕捉器，每个都处理不同类型的交互。</p>
-<p>除了控制台日志，我们可以在这里做任何我们想做的事情。如果我们愿意，我们甚至可以不返回实际值。这就是为什么 Proxy 对于创建 API 如此强大。</p>
-<p>使用 Proxy 的一个难点是 <code>this</code> 绑定。我们希望任何方法都绑定到这个 Proxy，而不是目标对象，这样我们也可以拦截它们。值得庆幸的是，ES6 引入了另一个名为 <code>Reflect</code> 的新特性，它允许我们以最小的代价消除了这个问题：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
-
-<p>使用 Proxy 实现响应性的第一步就是跟踪一个 property 何时被读取。我们在一个名为 <code>track</code> 的处理器函数中执行此操作，该函数可以传入 <code>target</code> 和 <code>property</code> 两个参数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">track</span>(target, property)</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
-
-<p>这里没有展示 <code>track</code> 的实现。它将检查当前运行的是哪个<em>副作用</em>，并将其与 <code>target</code> 和 <code>property</code> 记录在一起。这就是 Vue 如何知道这个 property 是该副作用的依赖项。</p>
-<p>最后，我们需要在 property 值更改时重新运行这个副作用。为此，我们需要在代理上使用一个 <code>set</code> 处理函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dinner = &#123;</span><br><span class="line">  <span class="attr">meal</span>: <span class="string">&#x27;tacos&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">track</span>(target, property)</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">set</span>(<span class="params">target, property, value, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">trigger</span>(target, property)</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(dinner, handler)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(proxy.<span class="property">meal</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// tacos</span></span><br></pre></td></tr></table></figure>
-
-<p>还记得前面的表格吗？现在，我们对 Vue 如何实现这些关键步骤有了答案：</p>
+<h2 id="Event-Loop（事件循环）"><a href="#Event-Loop（事件循环）" class="headerlink" title="Event Loop（事件循环）"></a>Event Loop（事件循环）</h2><p>JS是一种单线程语言，一次只能完成一个任务。如果有多个任务，就必须排队，前面一个任务完成再完成下面的任务。如果前面的任务过长，后面的就会一直等待，拖延整个程序。为了解决这个问题，引入Event Loop，将任务分为同步任务和异步任务，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会交给相应的WebAPIs 线程处理，在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。</p>
+<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-22-17-36-48-image.png"></p>
+<p>事件循环可以理解为由三部分组成：</p>
 <ol>
-<li><strong>当一个值被读取时进行追踪</strong>：proxy 的 <code>get</code> 处理函数中 <code>track</code> 函数记录了该 property 和当前副作用。</li>
-<li><strong>当某个值改变时进行检测</strong>：在 proxy 上调用 <code>set</code> 处理函数。</li>
-<li><strong>重新运行代码来读取原始值</strong>：<code>trigger</code> 函数查找哪些副作用依赖于该 property 并执行它们。</li>
+<li>主线程执行栈</li>
+<li>异步任务等待触发：浏览器为异步任务单独开辟的几个辅佐线程 (事件触发线程、Http异步请求线程、GUI 渲染线程) 可以统⼀理解为 WebAPIs</li>
+<li>异步任务队列：以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出。</li>
 </ol>
-<p>该被代理的对象对于用户来说是不可见的，但是在内部，它们使 Vue 能够在 property 的值被访问或修改的情况下进行依赖跟踪和变更通知。有一点需要注意，控制台日志会以不同的方式对 proxy 对象进行格式化，因此你可能需要安装 <a href="https://github.com/vuejs/vue-devtools">vue-devtools</a>，以提供一种更易于检查的界面。</p>
-<p>如果我们要用一个组件重写我们原来的例子，我们可以这样做：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="title function_">createApp</span>(&#123;</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">val1</span>: <span class="number">2</span>,</span><br><span class="line">      <span class="attr">val2</span>: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">computed</span>: &#123;</span><br><span class="line">    <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">val1</span> + <span class="variable language_">this</span>.<span class="property">val2</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(vm.<span class="property">sum</span>) <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line">vm.<span class="property">val1</span> = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(vm.<span class="property">sum</span>) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>模型特点：</p>
+<ol>
+<li>所有同步任务都会在主线程上执行，同时会形成一个执行栈（execution context<br>stack），直至栈空，即任务结束。</li>
+<li>主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在<br>任务队列之中放置⼀个事件。</li>
+<li>一旦执行栈上的任务执行完毕，系统就会从任务队列读取新的任务，结束等待状态，进入执行栈，开始执行，循环往复。</li>
+</ol>
+<p>从C语言角度理解：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">TaskQueue task_queue；</span><br><span class="line"><span class="type">void</span> <span class="title function_">ProcessTask</span><span class="params">()</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ProcessDelayTask</span><span class="params">()</span>;</span><br><span class="line"><span class="type">bool</span> keep_running = <span class="literal">true</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">MainThread</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (task_queue.waitForTask()) &#123;</span><br><span class="line">    Task task = task_queue.takeTask();<span class="comment">// 取出消息队列中任务</span></span><br><span class="line">    ProcessTask(task);<span class="comment">// 执⾏任务</span></span><br><span class="line">    ProcessDelayTask()<span class="comment">// 执⾏延迟队列中的任务</span></span><br><span class="line">    <span class="keyword">if</span>(!keep_running) <span class="comment">//如果设置了退出标志，那么直接退出线程循环</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><code>data</code> 返回的对象将被包裹在响应式代理中，并存储为 <code>this.$data</code>。Property <code>this.val1</code> 和 <code>this.val2</code> 分别是 <code>this.$data.val1</code> 和 <code>this.$data.val2</code> 的别名，因此它们通过相同的代理。</p>
-<p>Vue 将把 <code>sum</code> 的函数包裹在一个副作用中。当我们试图访问 <code>this.sum</code> 时，它将运行该副作用来计算数值。包裹 <code>$data</code> 的响应式代理将会追踪到，当副作用运行时，property <code>val1</code> 和 <code>val2</code> 被读取了。</p>
-<p>从 Vue 3 开始，我们的响应性现在可以在一个<a href="https://github.com/vuejs/vue-next/tree/master/packages/reactivity">独立包</a>中使用。将 <code>$data</code> 包裹在一个代理中的函数被称为 <a href="https://v3.cn.vuejs.org/api/basic-reactivity.html#reactive"><code>reactive</code></a>。我们可以自己直接调用这个函数，允许我们在不需要使用组件的情况下将一个对象包裹在一个响应式代理中。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> proxy = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">val1</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">val2</span>: <span class="number">3</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="callback"><a href="#callback" class="headerlink" title="callback"></a>callback</h3><p>A callback is a function that is passed as an argument to another function and is executed after its parent function has completed.<br>回调是作为参数传递给另一个函数并在其父函数完成后执行的函数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步请求的回调函数</span></span><br><span class="line">$.<span class="title function_">get</span>(<span class="string">&#x27;api/find&#x27;</span>,<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 点击事件的回调函数</span></span><br><span class="line">$(<span class="string">&#x27;.btn&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;this is a callback of click event&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 数组中遍历每⼀项调⽤的回调函数</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 同步回调</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getNodes</span>(<span class="params">params,callback</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> list = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(params)</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> callback === <span class="string">&#x27;function&#x27;</span>)&#123;</span><br><span class="line"><span class="title function_">callback</span>(list)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getNodes</span>(<span class="string">&#x27;[1,2,3]&#x27;</span>,<span class="keyword">function</span>(<span class="params">list</span>)&#123;</span><br><span class="line"><span class="comment">// ....</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>在指南接下来的几页中，我们将探索响应性包所暴露的功能。这包括我们已经见过的 <code>reactive</code> 和 <code>watchEffect</code> 等函数，以及使用其他响应性特性的方法，如不需要创建组件的 <code>computed</code> 和 <code>watch</code>。</p>
-<h4 id="1-3-1-被代理的对象"><a href="#1-3-1-被代理的对象" class="headerlink" title="1.3.1 被代理的对象"></a>1.3.1 被代理的对象</h4><p>Vue 在内部跟踪所有已经被转成响应式的对象，所以它总是为同一个对象返回相同的代理。</p>
-<p>当从一个响应式代理中访问一个嵌套对象时，该对象在被返回之前<em>也</em>被转换为一个代理：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> handler = &#123;</span><br><span class="line">  <span class="title function_">get</span>(<span class="params">target, property, receiver</span>) &#123;</span><br><span class="line">    <span class="title function_">track</span>(target, property)</span><br><span class="line">    <span class="keyword">const</span> value = <span class="title class_">Reflect</span>.<span class="title function_">get</span>(...<span class="variable language_">arguments</span>)</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">isObject</span>(value)) &#123;</span><br><span class="line">      <span class="comment">// 将嵌套对象包裹在自己的响应式代理中</span></span><br><span class="line">      <span class="keyword">return</span> <span class="title function_">reactive</span>(value)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> value</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>既可以有同步回调，也可以有异步回调，还可以有事件处理回调和延迟函数回调。</p>
+<h3 id="同步vs异步"><a href="#同步vs异步" class="headerlink" title="同步vs异步"></a>同步vs异步</h3><p>同步就是后⼀个任务等待前⼀个任务结束，然后再执⾏，程序的执⾏顺序与任务的排列顺序是⼀致的、同步的。</p>
+<p>异步则完全不同，从程序⻆度来理解就是改变程序正常执⾏顺序的操作，每⼀个任务有⼀个或多个回调函数（callback），前⼀个任务结束后，不是执⾏后⼀个任务，⽽是执⾏回调函数，后⼀个任务则是不等前⼀个任务结束就执⾏，所以程序的执⾏顺序与任务的排列顺序是不⼀致的、异步的。</p>
+<p>JS作为一种单线程的语言如何实现异步的？</p>
+<p>JS 异步的实现靠的就是浏览器的多线程，当他遇到异步 API 时，就将这个任务交给对应的线程，当这个异步 API 满⾜回调条件时，对应的线程⼜通过事件触发线程将这个事件放⼊任务队列，然后主线程执⾏完主线任务后从任务队列取出任务事件继续执⾏。</p>
+<p><strong>总结：</strong></p>
+<p>同步 &#x2F; 异步指的是各个任务之间执⾏顺序的确定性。同时， 任务≠回调函数 , 不管是同步任务，异步任务都可以通过回调函数去实现。</p>
+<h4 id="从同步异步角度理解JS的执行机制"><a href="#从同步异步角度理解JS的执行机制" class="headerlink" title="从同步异步角度理解JS的执行机制"></a>从同步异步角度理解JS的执行机制</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="comment">// 200ms后，新任务task_1进⼊ 任务队列</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">200</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
-<h4 id="1-3-2-Proxy-vs-原始标识"><a href="#1-3-2-Proxy-vs-原始标识" class="headerlink" title="1.3.2 Proxy vs 原始标识"></a>1.3.2 Proxy vs 原始标识</h4><p>Proxy 的使用确实引入了一个需要注意的新警告：在身份比较方面，被代理对象与原始对象不相等 (<code>===</code>)。例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> wrapped = <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj, handlers)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj === wrapped) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>输出结果是132，思路（暂不考虑宏任务微任务）：</p>
+<ol>
+<li>整体 script 作为第⼀个任务进⼊主线程，console 输出 1;</li>
+<li>遇到异步 API setTimeout ，将异步回调函数交给 Web API 处理 (此处为定时器触发线程，200ms 之后，即满⾜触发条件后，将 task_1 推⼊任务队列 task queue )。</li>
+<li>主线程继续往下执⾏，console 输出3，任务执⾏结束，调⽤栈为空</li>
+<li>进⼊下⼀个循环，取出任务队列中的下个任务，此时任务队列为空，主线程进⼊等待状态。</li>
+<li>直到 200ms 之后，发现新推⼊任务队列的 task_1 , 开始执⾏，console 输出 2</li>
+</ol>
+<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3><p>javascript 是⼀⻔单线程的脚本语⾔，也就意味着同⼀个时间只能做⼀件事，但是单线程有⼀个问题：⼀旦这个线程被阻塞就⽆法继续⼯作了，这肯定是不⾏的。上⾯谈的EventLoop 模型通过异步编程实现⾮阻塞的调⽤效果⽅式解决了⼀个任务⻓时间霸占线程问题，但由于队列是⼀种数据结构，可以存放要执⾏的任务。它符合队列先进先出的特点，也就是说要添加任务的话，添加到队列的尾部；要取出任务的话，从队列头部去取，但这不能解决任务优先级问题 (紧急任务插队的需求)。为解决这个问题引⼊宏任务，微任务概念。</p>
+<h4 id="宏任务VS微任务"><a href="#宏任务VS微任务" class="headerlink" title="宏任务VS微任务"></a>宏任务VS微任务</h4><p>ES6 规范中，Microtask 称为 jobs，Macrotask 称为 task。即微任务是 ES 对异步的定义；⽽宏任务是浏览器对异步的定义。</p>
+<p>宏任务与微任务都是独⽴于主执⾏栈之外的另外两个队列。<br>为了处理任务的优先级，权衡效率和实时性。浏览器端事件循环中的异步队列有两种：Macrotask（宏任务）队列和 Microtask（微任务）队列.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>宏任务 (Macrotask)</th>
+<th>微任务 (Microtask)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>谁发起</td>
+<td>浏览器、Node</td>
+<td>Javascript</td>
+</tr>
+<tr>
+<td>具体事件</td>
+<td>script（全局任务）, setTimeout, setInterval, setImmediate, I&#x2F;O, UI rendering</td>
+<td>process.nextTick, Promise 的 then 或 catch, Object.observer, MutationObserver</td>
+</tr>
+</tbody></table>
+<p>在事件循环这个机制当中，我们将进⾏⼀次循环操作称为 tick ，每⼀次 tick 的任务处理模型是⽐较复杂的，但关键步骤如下：</p>
+<ol>
+<li>进⼊循环，⾸先选择最先进⼊宏任务队列的任务 (oldest task)，如果有则执⾏ (⼀次)</li>
+<li>检查是否存在 Microtasks，如果存在则不停地执⾏，直⾄清空微任务 (Microtasks Queue)，此时执⾏栈也为清空了。</li>
+<li>GUI 线程更新 (render) 界⾯（与主线程互斥）</li>
+<li>进⼊下⼀个 Tick 主线程重复执⾏上述步骤</li>
+</ol>
+<h3 id="Event-Loop-的模型-Macrotask-Microtask"><a href="#Event-Loop-的模型-Macrotask-Microtask" class="headerlink" title="Event Loop 的模型 (Macrotask + Microtask)"></a>Event Loop 的模型 (Macrotask + Microtask)</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208230953801.png"></p>
+<p>这个 Event Loop 模型运⾏机制如下：</p>
+<ol>
+<li>选择当前要执⾏的宏任务队列，选择任务队列中最先进⼊的任务 ( oldest task )，如果<br>宏任务队列为空即 null，则执⾏跳转到微任务（MicroTask）的执⾏步骤。</li>
+<li>将事件循环中的任务设置为已选择任务。</li>
+<li>执⾏任务。当执⾏栈中的函数调⽤到⼀些异步执⾏的 API（例如异步 Ajax，DOM 事件，<br>setTimeout 等 API），则会开启对应的线程（Http 异步请求线程，事件触发线程和定时<br>器触发线程）进⾏监控和控制，当异步任务的事件满⾜触发条件时，对应的线程则会把<br>该事件的回调函数推进任务队列 (task queue) 中，等待主线程读取执⾏。</li>
+<li>任务结束后，将事件循环中当前运⾏任务设置为 null，同时将已经运⾏完成的任务从任<br>务队列中删除。</li>
+<li>microtasks 步骤：进⼊ microtask 检查点。⽤户代理会执⾏以下步骤：<br>5.1 设置 microtask 检查点标志为 true。<br>5.2 当事件循环 microtask 执⾏不为空时：选择⼀个最先进⼊的 microtask 队列的<br>microtask，将事件循环的 microtask 设置为已选择的 microtask，运⾏ microtask，将已<br>经执⾏完成的 microtask 置为 null，移出 microtask 中的 microtask。<br>5.3 清理 IndexDB 事务<br>5.4 设置进⼊ microtask 检查点的标志为 false。</li>
+<li>更新界⾯渲染。</li>
+<li>返回第⼀步。</li>
+</ol>
+<p>流程图：</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208231021363.png"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script start&#x27;</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;    </span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;resolve1&#x27;</span>)</span><br><span class="line">  <span class="title function_">resolve</span>()</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123; <span class="comment">// 创建微任务 micro_1</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise1&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123; <span class="comment">// 创建了⼀个setTimeout的宏任务 macro_1</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;timeout&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;resolve2&#x27;</span>)</span><br><span class="line">  <span class="title function_">resolve</span>()</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123; <span class="comment">// 创建微任务 micro_2</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise2&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;script end&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>其他依赖严格等于比较的操作也会受到影响，例如 <code>.includes()</code> 或 <code>.indexOf()</code>。</p>
-<p>这里的最佳实践是永远不要持有对原始对象的引用，而只使用响应式版本。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;) <span class="comment">// 未引用原始</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>整体 script 作为第⼀个宏任务进⼊主线程，console 输出 script start ，</p>
+</li>
+<li><p>遇到 new Promise, ⼊栈处理，发现是同步回调，直接执⾏，console 输出 resolve1 ；<br>遇到 then，⼊栈处理，发现是异步回调函数（创建微任务 micro_1），出栈，移交给对应Web API 处理，将回调函数加⼊微任务队列尾部；</p>
+</li>
+<li><p>遇到 setTimeout ⼊栈处理，发现是异步回调函数（创建宏任务 macro_1），出栈，移交给 Web API（此处为定时器触发线程）处理 (0 秒等待后，将回调函数加到宏任务队列尾部)；</p>
+</li>
+<li><p>遇到 new Promise, ⼊栈处理，发现是同步回调，直接执⾏，console 输出 resolve2；遇到 then，⼊栈处理，发现是异步回调（创建微任务 micro2），出栈，移交给 Web API 处理，将回调函数加⼊微任务队列尾部；</p>
+</li>
+<li><p>执⾏到 script 任务末尾，console 输出 script end , 此时执⾏栈已清空 (将当前任务从任<br>务队列移除)，进⼊ microtask 检查点，此时任务队列情况如下：</p>
+<table>
+<thead>
+<tr>
+<th>任务队列</th>
+<th>任务1</th>
+<th>任务2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>宏任务队列1</td>
+<td>macro_1</td>
+<td></td>
+</tr>
+<tr>
+<td>微任务队列</td>
+<td>micro_1</td>
+<td>micro_2</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>取出第⼀个微任务，⼊栈处理，console 直接输出 promise1 , 出栈；</p>
+</li>
+<li><p>继续从微任务队列中取下⼀个，⼊栈处理，console 直接输出 promise2 ，出栈，</p>
+</li>
+<li><p>继续从微任务队列中取下⼀个，发现微任务队列已清空，</p>
+</li>
+<li><p>渲染界⾯，结束第⼀轮事件循环；</p>
+</li>
+<li><p>从宏任务队列中取出第⼀个宏任务，⼊栈处理，发现是 console 直接输出 timeout，未发现有微任务，再次渲染界⾯，结束本轮事件循环。</p>
+</li>
+</ol>
+<h4 id="任务的优先级"><a href="#任务的优先级" class="headerlink" title="任务的优先级"></a>任务的优先级</h4><p>Event Loop事件循环是通过任务队列的机制来协调⼯作的。⼀个 Event Loop 中，可以有⼀个或者多个任务队列 (task queue)，⼀个任务队列便是⼀系列有序任务 (task) 的集合；每个任务都有⼀个任务源 (task source)，源⾃同⼀个任务源的 task 必须放到同⼀个任务队列，从不同源来的则被添加到不同队列。</p>
+<p>一个事件循环有一个或多个任务队列。 任务队列是一组任务。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;outer&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;inner&quot;</span>&gt;</span>点击我试试<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">const</span> $inner = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#inner&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">const</span> $outer = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#outer&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">function</span> <span class="title function_">handler</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;click&#x27;</span>) <span class="comment">// 直接输出 (js同步代码)</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function"><span class="params">_</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;promise&#x27;</span>)) <span class="comment">// 注册微任务</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;timeout&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function"><span class="params">_</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;timeout&gt;promise&#x27;</span>))</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;) <span class="comment">// 注册宏任务</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">requestAnimationFrame</span>(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;animationFrame&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="function"><span class="params">_</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;animationFrame&gt;promise&#x27;</span>))</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;) <span class="comment">// 注册宏任务</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    $outer.<span class="title function_">setAttribute</span>(<span class="string">&#x27;data-random&#x27;</span>, <span class="title class_">Math</span>.<span class="title function_">random</span>()) <span class="comment">// DOM属性修改，触发微任务</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="keyword">new</span> <span class="title class_">MutationObserver</span>(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;observer&#x27;</span>)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;).<span class="title function_">observe</span>($outer, &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">attributes</span>: <span class="literal">true</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  $inner.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, handler)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  $outer.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, handler)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="comment">// 左边是⾼优先级</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="comment">// 宏任务: requestAnimationFrame=&gt;setTimeout =&gt; setInterval </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="comment">// =&gt; setImmediate(nodeJS) =&gt; I/O =&gt; UI Rendering</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="comment">// 微任务: process.nextTick(nodeJS)</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="comment">// =&gt; Promise(Promise.then)/mutationObserver</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-<p>这确保了等值的比较和响应性的行为都符合预期。</p>
-<p>请注意，Vue 不会在 Proxy 中包裹数字或字符串等原始值，所以你仍然可以对这些值直接使用 <code>===</code> 来比较：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">count</span> === <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>点击#outter 输出结果，可以看出：requestAnimationFrame 优先级⽐ setTimeout ⾼</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Tick1</span></span><br><span class="line">click</span><br><span class="line">resolve1</span><br><span class="line">promise</span><br><span class="line">observer</span><br><span class="line"><span class="comment">// Tick2</span></span><br><span class="line">animationFrame</span><br><span class="line">animationFrame&gt;promise</span><br><span class="line"><span class="comment">// Tick3</span></span><br><span class="line">timeout</span><br><span class="line">timeout&gt;promise</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-4-如何让渲染响应变化"><a href="#1-4-如何让渲染响应变化" class="headerlink" title="1.4 如何让渲染响应变化"></a>1.4 如何让渲染响应变化</h3><p>一个组件的模板被编译成一个 <a href="https://v3.cn.vuejs.org/guide/render-function.html"><code>render</code></a> 函数。渲染函数创建 <a href="https://v3.cn.vuejs.org/guide/render-function.html#%E8%99%9A%E6%8B%9F-dom-%E6%A0%91">VNodes</a>，描述该组件应该如何被渲染。它被包裹在一个副作用中，允许 Vue 在运行时跟踪被“触达”的 property。</p>
-<p>一个 <code>render</code> 函数在概念上与一个 <code>computed</code> property 非常相似。Vue 并不确切地追踪依赖关系是如何被使用的，它只知道在函数运行的某个时间点上使用了这些依赖关系。如果这些 property 中的任何一个随后发生了变化，它将触发副作用再次运行，重新运行 <code>render</code> 函数以生成新的 VNodes。然后这些举动被用来对 DOM 进行必要的修改。</p>
-<h2 id="2-响应性基础"><a href="#2-响应性基础" class="headerlink" title="2. 响应性基础"></a>2. 响应性基础</h2><h3 id="2-1-声明响应式状态"><a href="#2-1-声明响应式状态" class="headerlink" title="2.1 声明响应式状态"></a>2.1 声明响应式状态</h3><p>要为 JavaScript 对象创建响应式状态，可以使用 <code>reactive</code> 方法：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应式状态</span></span><br><span class="line"><span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>reactive</code> 相当于 Vue 2.x 中的 <code>Vue.observable()</code> API，为避免与 RxJS 中的 observables 混淆因此对其重命名。该 API 返回一个响应式的对象状态。该响应式转换是“深度转换”——它会影响传递对象的所有嵌套 property。</p>
-<p>Vue 中响应式状态的基本用例是我们可以在渲染期间使用它。因为依赖跟踪的关系，当响应式状态改变时视图会自动更新。</p>
-<p>这就是 Vue 响应性系统的本质。当从组件中的 <code>data()</code> 返回一个对象时，它在内部交由 <code>reactive()</code> 使其成为响应式对象。模板会被编译成能够使用这些响应式 property 的<a href="https://v3.cn.vuejs.org/guide/render-function.html">渲染函数</a>。</p>
-<p>在<a href="https://v3.cn.vuejs.org/api/basic-reactivity.html">响应性基础 API</a> 章节你可以学习更多关于 <code>reactive</code> 的内容。</p>
-<h3 id="2-2-创建独立的响应式值作为-refs"><a href="#2-2-创建独立的响应式值作为-refs" class="headerlink" title="2.2 创建独立的响应式值作为 refs"></a>2.2 创建独立的响应式值作为 <code>refs</code></h3><p>想象一下，我们有一个独立的原始值 (例如，一个字符串)，我们想让它变成响应式的。当然，我们可以创建一个拥有相同字符串 property 的对象，并将其传递给 <code>reactive</code>。Vue 为我们提供了一个可以做相同事情的方法——<code>ref</code>：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-
-<p><code>ref</code> 会返回一个可变的响应式对象，该对象作为一个<strong>响应式的引用</strong>维护着它内部的值，这就是 <code>ref</code> 名称的来源。该对象只包含一个名为 <code>value</code> 的 property：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">count.<span class="property">value</span>++</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-1-Ref解包"><a href="#2-2-1-Ref解包" class="headerlink" title="2.2.1 Ref解包"></a>2.2.1 Ref解包</h4><p>当 ref 作为渲染上下文 (从 <a href="https://v3.cn.vuejs.org/guide/composition-api-setup.html">setup()</a> 中返回的对象) 上的 property 返回并可以在模板中被访问时，它将自动浅层次解包内部值。只有访问嵌套的 ref 时需要在模板中添加 <code>.value</code>：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; count &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;count ++&quot;</span>&gt;</span>Increment count<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;nested.count.value ++&quot;</span>&gt;</span>Nested Increment count<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        count,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">nested</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">          count</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果你不想要访问实际的对象实例，可将其用 <code>reactive</code> 包裹:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">nested</span>: <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  count</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-2-2-访问响应式对象"><a href="#2-2-2-访问响应式对象" class="headerlink" title="2.2.2 访问响应式对象"></a>2.2.2 访问响应式对象</h4><p>当 <code>ref</code> 作为响应式对象的 property 被访问或更改时，为使其行为类似于普通 property，它会自动解包内部值：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  count</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(state.<span class="property">count</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">state.<span class="property">count</span> = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>如果将新的 ref 赋值给现有 ref 的 property，将会替换旧的 ref：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> otherCount = <span class="title function_">ref</span>(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">state.<span class="property">count</span> = otherCount</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(state.<span class="property">count</span>) <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>Ref 解包仅发生在被响应式 <code>Object</code> 嵌套的时候。当从 <code>Array</code> 或原生集合类型如 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"><code>Map</code></a>访问 ref 时，不会进行解包：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> books = <span class="title function_">reactive</span>([<span class="title function_">ref</span>(<span class="string">&#x27;Vue 3 Guide&#x27;</span>)])</span><br><span class="line"><span class="comment">// 这里需要 .value</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(books[<span class="number">0</span>].<span class="property">value</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> map = <span class="title function_">reactive</span>(<span class="keyword">new</span> <span class="title class_">Map</span>([[<span class="string">&#x27;count&#x27;</span>, <span class="title function_">ref</span>(<span class="number">0</span>)]]))</span><br><span class="line"><span class="comment">// 这里需要 .value</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(map.<span class="title function_">get</span>(<span class="string">&#x27;count&#x27;</span>).<span class="property">value</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3-响应式状态结构"><a href="#2-3-响应式状态结构" class="headerlink" title="2.3 响应式状态结构"></a>2.3 响应式状态结构</h3><p>当我们想使用大型响应式对象的一些 property 时，可能很想使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">ES6 解构</a>来获取我们想要的 property：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> book = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">author</span>: <span class="string">&#x27;Vue Team&#x27;</span>,</span><br><span class="line">  <span class="attr">year</span>: <span class="string">&#x27;2020&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;Vue 3 Guide&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;You are reading this book right now ;)&#x27;</span>,</span><br><span class="line">  <span class="attr">price</span>: <span class="string">&#x27;free&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; author, title &#125; = book</span><br></pre></td></tr></table></figure>
-
-<p>遗憾的是，使用解构的两个 property 的响应性都会丢失。对于这种情况，我们需要将我们的响应式对象转换为一组 ref。这些 ref 将保留与源对象的响应式关联：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, toRefs &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> book = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">author</span>: <span class="string">&#x27;Vue Team&#x27;</span>,</span><br><span class="line">  <span class="attr">year</span>: <span class="string">&#x27;2020&#x27;</span>,</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;Vue 3 Guide&#x27;</span>,</span><br><span class="line">  <span class="attr">description</span>: <span class="string">&#x27;You are reading this book right now ;)&#x27;</span>,</span><br><span class="line">  <span class="attr">price</span>: <span class="string">&#x27;free&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; author, title &#125; = <span class="title function_">toRefs</span>(book)</span><br><span class="line"></span><br><span class="line">title.<span class="property">value</span> = <span class="string">&#x27;Vue 3 Detailed Guide&#x27;</span> <span class="comment">// 我们需要使用 .value 作为标题，现在是 ref</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(book.<span class="property">title</span>) <span class="comment">// &#x27;Vue 3 Detailed Guide&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>你可以在 <a href="https://v3.cn.vuejs.org/api/refs-api.html#ref">Refs API</a> 部分中了解更多有关 <code>refs</code> 的信息</p>
-<h3 id="2-4-使用-readonly-防止更改响应式对象"><a href="#2-4-使用-readonly-防止更改响应式对象" class="headerlink" title="2.4 使用 readonly 防止更改响应式对象"></a>2.4 使用 <code>readonly</code> 防止更改响应式对象</h3><p>有时我们想跟踪响应式对象 (<code>ref</code> 或 <code>reactive</code>) 的变化，但我们也希望防止在应用程序的某个位置更改它。例如，当我们有一个被 <a href="https://v3.cn.vuejs.org/guide/component-provide-inject.html">provide</a> 的响应式对象时，我们不想让它在注入之后被改变。为此，我们可以基于原始对象创建一个只读的 proxy 对象：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, readonly &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> original = <span class="title function_">reactive</span>(&#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> copy = <span class="title function_">readonly</span>(original)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 original 修改 count，将会触发依赖 copy 的侦听器</span></span><br><span class="line"></span><br><span class="line">original.<span class="property">count</span>++</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过 copy 修改 count，将导致失败并出现警告</span></span><br><span class="line">copy.<span class="property">count</span>++ <span class="comment">// 警告: &quot;Set operation on key &#x27;count&#x27; failed: target is readonly.&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-响应式计算和侦听"><a href="#3-响应式计算和侦听" class="headerlink" title="3. 响应式计算和侦听"></a>3. 响应式计算和侦听</h2><h3 id="3-1-计算值"><a href="#3-1-计算值" class="headerlink" title="3.1 计算值"></a>3.1 计算值</h3><p>有时我们需要依赖于其他状态的状态——在 Vue 中，这是用组件<a href="https://v3.cn.vuejs.org/guide/computed.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BE%A6%E5%90%AC%E5%99%A8">计算属性</a>处理的，以直接创建计算值，我们可以使用 <code>computed</code> 函数：它接受 getter 函数并为 getter 返回的值返回一个不可变的响应式 <a href="https://v3.cn.vuejs.org/guide/reactivity-fundamentals.html#%E5%88%9B%E5%BB%BA%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%93%8D%E5%BA%94%E5%BC%8F%E5%80%BC%E4%BD%9C%E4%B8%BA-refs">ref</a> 对象。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> plusOne = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(plusOne.<span class="property">value</span>) <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">plusOne.<span class="property">value</span>++ <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
-
-<p>或者，它可以使用一个带有 <code>get</code> 和 <code>set</code> 函数的对象来创建一个可写的 ref 对象。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">const</span> plusOne = <span class="title function_">computed</span>(&#123;</span><br><span class="line">  <span class="attr">get</span>: <span class="function">() =&gt;</span> count.<span class="property">value</span> + <span class="number">1</span>,</span><br><span class="line">  <span class="attr">set</span>: <span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">    count.<span class="property">value</span> = val - <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">plusOne.<span class="property">value</span> = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-1-1-调试Computed"><a href="#3-1-1-调试Computed" class="headerlink" title="3.1.1 调试Computed"></a>3.1.1 调试Computed</h4><p><code>computed</code> 可接受一个带有 <code>onTrack</code> 和 <code>onTrigger</code> 选项的对象作为第二个参数：</p>
-<ul>
-<li><code>onTrack</code> 会在某个响应式 property 或 ref 作为依赖被追踪时调用。</li>
-<li><code>onTrigger</code> 会在侦听回调被某个依赖的修改触发时调用。</li>
-</ul>
-<p>所有回调都会收到一个 debugger 事件，其中包含了一些依赖相关的信息。推荐在这些回调内放置一个 <code>debugger</code> 语句以调试依赖。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> plusOne = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> + <span class="number">1</span>, &#123;</span><br><span class="line">  <span class="title function_">onTrack</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 当 count.value 作为依赖被追踪时触发</span></span><br><span class="line">    <span class="keyword">debugger</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">onTrigger</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="comment">// 当 count.value 被修改时触发</span></span><br><span class="line">    <span class="keyword">debugger</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 访问 plusOne，应该触发 onTrack</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(plusOne.<span class="property">value</span>)</span><br><span class="line"><span class="comment">// 修改 count.value，应该触发 onTrigger</span></span><br><span class="line">count.<span class="property">value</span>++</span><br></pre></td></tr></table></figure>
-
-<p><code>onTrack</code> 和 <code>onTrigger</code> 仅在开发模式下生效。</p>
-<h3 id="3-2-watchEffect"><a href="#3-2-watchEffect" class="headerlink" title="3.2 watchEffect"></a>3.2 <code>watchEffect</code></h3><p>为了根据响应式状态<em>自动应用</em>和<em>重新应用</em>副作用，我们可以使用 <code>watchEffect</code> 函数。它立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>))</span><br><span class="line"><span class="comment">// -&gt; logs 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  count.<span class="property">value</span>++</span><br><span class="line">  <span class="comment">// -&gt; logs 1</span></span><br><span class="line">&#125;, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-2-1-停止侦听"><a href="#3-2-1-停止侦听" class="headerlink" title="3.2.1 停止侦听"></a>3.2.1 停止侦听</h4><p>当 <code>watchEffect</code> 在组件的 <a href="https://v3.cn.vuejs.org/guide/composition-api-setup.html">setup()</a> 函数或<a href="https://v3.cn.vuejs.org/guide/composition-api-lifecycle-hooks.html">生命周期钩子</a>被调用时，侦听器会被链接到该组件的生命周期，并在组件卸载时自动停止。</p>
-<p>在一些情况下，也可以显式调用返回值以停止侦听：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> stop = <span class="title function_">watchEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// later</span></span><br><span class="line"><span class="title function_">stop</span>()</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-2-2-清除副作用"><a href="#3-2-2-清除副作用" class="headerlink" title="3.2.2 清除副作用"></a>3.2.2 清除副作用</h4><p>有时副作用函数会执行一些异步的副作用，这些响应需要在其失效时清除 (即完成之前状态已改变了) 。所以侦听副作用传入的函数可以接收一个 <code>onInvalidate</code> 函数作入参，用来注册清理失效时的回调。当以下情况发生时，这个失效回调会被触发：</p>
-<ul>
-<li>副作用即将重新执行时</li>
-<li>侦听器被停止 (如果在 <code>setup()</code> 或生命周期钩子函数中使用了 <code>watchEffect</code>，则在组件卸载时)</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">watchEffect</span>(<span class="function"><span class="params">onInvalidate</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> token = <span class="title function_">performAsyncOperation</span>(id.<span class="property">value</span>)</span><br><span class="line">  <span class="title function_">onInvalidate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// id has changed or watcher is stopped.</span></span><br><span class="line">    <span class="comment">// invalidate previously pending async operation</span></span><br><span class="line">    token.<span class="title function_">cancel</span>()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>我们之所以是通过传入一个函数去注册失效回调，而不是从回调返回它，是因为返回值对于异步错误处理很重要。</p>
-<p>在执行数据请求时，副作用函数往往是一个异步函数：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> data = <span class="title function_">ref</span>(<span class="literal">null</span>)</span><br><span class="line"><span class="title function_">watchEffect</span>(<span class="keyword">async</span> onInvalidate =&gt; &#123;</span><br><span class="line">  <span class="title function_">onInvalidate</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;) <span class="comment">// 我们在Promise解析之前注册清除函数</span></span><br><span class="line">  data.<span class="property">value</span> = <span class="keyword">await</span> <span class="title function_">fetchData</span>(props.<span class="property">id</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>我们知道异步函数都会隐式地返回一个 Promise，但是清理函数必须要在 Promise 被 resolve 之前被注册。另外，Vue 依赖这个返回的 Promise 来自动处理 Promise 链上的潜在错误。</p>
+<p>点击#inner 输出结果，可以看出：每个 macroTask 队列中的 macroTask 按顺序执⾏，在每<br>macroTask 之间渲染⻚⾯</p>
 ]]></content>
   </entry>
   <entry>
@@ -3486,91 +3635,6 @@
 <p>接口是对结构建模的方式。接口不生成js代码，只存在于编译时。</p>
 <p>抽象类只能对类建模，而且生成运行时代码，即js类。抽象类可以有构造方法，可以提供默认实现，还能为属性和方法设置访问修饰符。这些在接口中都做不到。</p>
 <p>具体使用哪个取决于实际用途。如果多个类共用同一个实现，使用抽象类。如果需要一种轻量的方式表示“这个类是T型”，使用接口。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>任务队列与事件循环</title>
-    <url>/2022/08/22/%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>每个tab页面都有自己的渲染进程，而每个渲染进程又由多个线程组成，每个渲染进程都有一个主线程，主线程非常繁忙，既要处理 DOM，又要计算样式，还要处理布局，同时还需要处理 JavaScript 任务以及各种输入事件。要让这么多不同类型的任务在主线程中有条不紊地执行，这就需要⼀个系统来统筹调度这些任务。这个系统就是今天的主角 – 消息队列和事件循环系统。</p>
-<p>JS为什么是单线程的？为什么需要异步？既然 JS 是单线程的，只能在⼀条线程上执⾏，⼜是如何实现的异步呢？</p>
-<p>本文Event Loop 只针对浏览器，暂不为 node 展开讨论。</p>
-<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程"></a>进程与线程</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>JS是单线程执行的，指的是一个进程里有且只有一个主线程负责执行js代码。</p>
-<p>进程是CPU资源分配的最小单位。线程是CPU调度的最小单位。</p>
-<h3 id="多线程与多进程"><a href="#多线程与多进程" class="headerlink" title="多线程与多进程"></a>多线程与多进程</h3><p>多进程是指同一个时间里，同一个计算机系统允许两个或者两个以上的进程处于运行状态。比如可以在听歌的同时写代码。</p>
-<p>多线程是指程序中包含多个执行流，一个程序中可以同时运行多个不同的线程来执行不同的任务，允许单个程序创建多个并行执行的线程来完成各自的任务。</p>
-<p>浏览器打开一个Tab页就是创建了一个进程，一个进程可以有多个线程，JS 引擎线程、HTTP 请求线程、事件触发线程、GUI 渲染线程等等。发起请求是就创建了一个线程，请求结束后线程可能被销毁。</p>
-<p>由于单线程原因，主线程一次只能执行一个任务，每次任务执行完成会去消息队列取新的任务执行。</p>
-<ol>
-<li>一个任务执行时间过长，导致主线程长期被霸占，如何优化？&#x3D;&#x3D;&gt; 引入异步编程，实现<br>非阻塞调用</li>
-<li>如何处理任务优先级？ &#x3D;&#x3D;&#x3D;》引⼊任务队列，先进先出来管理任务执行顺序</li>
-<li>紧急任务无法插队？&#x3D;&#x3D;&#x3D;》引入宏任务、微任务处理不同任务队列的优先级</li>
-</ol>
-<h2 id="Event-Loop（事件循环）"><a href="#Event-Loop（事件循环）" class="headerlink" title="Event Loop（事件循环）"></a>Event Loop（事件循环）</h2><p>JS是一种单线程语言，一次只能完成一个任务。如果有多个任务，就必须排队，前面一个任务完成再完成下面的任务。如果前面的任务过长，后面的就会一直等待，拖延整个程序。为了解决这个问题，引入Event Loop，将任务分为同步任务和异步任务，同步任务会在调用栈中按照顺序等待主线程依次执行，异步任务会交给相应的WebAPIs 线程处理，在异步任务有了结果后，将注册的回调函数放入任务队列中等待主线程空闲的时候（调用栈被清空），被读取到栈内等待主线程的执行。</p>
-<p><img src="C:\Users\ThinkPad\AppData\Roaming\marktext\images\2022-08-22-17-36-48-image.png"></p>
-<p>事件循环可以理解为由三部分组成：</p>
-<ol>
-<li>主线程执行栈</li>
-<li>异步任务等待触发：浏览器为异步任务单独开辟的几个辅佐线程 (事件触发线程、Http异步请求线程、GUI 渲染线程) 可以统⼀理解为 WebAPIs</li>
-<li>异步任务队列：以队列的数据结构对事件任务进行管理，特点是先进先出，后进后出。</li>
-</ol>
-<p>模型特点：</p>
-<ol>
-<li>所有同步任务都会在主线程上执行，同时会形成一个执行栈（execution context<br>stack），直至栈空，即任务结束。</li>
-<li>主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在<br>任务队列之中放置⼀个事件。</li>
-<li>一旦执行栈上的任务执行完毕，系统就会从任务队列读取新的任务，结束等待状态，进入执行栈，开始执行，循环往复。</li>
-</ol>
-<p>从C语言角度理解：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">TaskQueue task_queue；</span><br><span class="line"><span class="type">void</span> <span class="title function_">ProcessTask</span><span class="params">()</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">ProcessDelayTask</span><span class="params">()</span>;</span><br><span class="line"><span class="type">bool</span> keep_running = <span class="literal">true</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">MainThread</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (task_queue.waitForTask()) &#123;</span><br><span class="line">    Task task = task_queue.takeTask();<span class="comment">// 取出消息队列中任务</span></span><br><span class="line">    ProcessTask(task);<span class="comment">// 执⾏任务</span></span><br><span class="line">    ProcessDelayTask()<span class="comment">// 执⾏延迟队列中的任务</span></span><br><span class="line">    <span class="keyword">if</span>(!keep_running) <span class="comment">//如果设置了退出标志，那么直接退出线程循环</span></span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="callback"><a href="#callback" class="headerlink" title="callback"></a>callback</h3><p>A callback is a function that is passed as an argument to another function and is executed after its parent function has completed.<br>回调是作为参数传递给另一个函数并在其父函数完成后执行的函数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步请求的回调函数</span></span><br><span class="line">$.<span class="title function_">get</span>(<span class="string">&#x27;api/find&#x27;</span>,<span class="keyword">function</span>(<span class="params">res</span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 点击事件的回调函数</span></span><br><span class="line">$(<span class="string">&#x27;.btn&#x27;</span>).<span class="title function_">click</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;this is a callback of click event&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 数组中遍历每⼀项调⽤的回调函数</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item</span>)&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 同步回调</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getNodes</span>(<span class="params">params,callback</span>)&#123;</span><br><span class="line"><span class="keyword">var</span> list = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(params)</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> callback === <span class="string">&#x27;function&#x27;</span>)&#123;</span><br><span class="line"><span class="title function_">callback</span>(list)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getNodes</span>(<span class="string">&#x27;[1,2,3]&#x27;</span>,<span class="keyword">function</span>(<span class="params">list</span>)&#123;</span><br><span class="line"><span class="comment">// ....</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>既可以有同步回调，也可以有异步回调，还可以有事件处理回调和延迟函数回调。</p>
-<h3 id="同步vs异步"><a href="#同步vs异步" class="headerlink" title="同步vs异步"></a>同步vs异步</h3><p>同步就是后⼀个任务等待前⼀个任务结束，然后再执⾏，程序的执⾏顺序与任务的排列顺序是⼀致的、同步的。</p>
-<p>异步则完全不同，从程序⻆度来理解就是改变程序正常执⾏顺序的操作，每⼀个任务有⼀个或多个回调函数（callback），前⼀个任务结束后，不是执⾏后⼀个任务，⽽是执⾏回调函数，后⼀个任务则是不等前⼀个任务结束就执⾏，所以程序的执⾏顺序与任务的排列顺序是不⼀致的、异步的。</p>
-<p>JS作为一种单线程的语言如何实现异步的？</p>
-<p>JS 异步的实现靠的就是浏览器的多线程，当他遇到异步 API 时，就将这个任务交给对应的线程，当这个异步 API 满⾜回调条件时，对应的线程⼜通过事件触发线程将这个事件放⼊任务队列，然后主线程执⾏完主线任务后从任务队列取出任务事件继续执⾏。</p>
-<p><strong>总结：</strong></p>
-<p>同步 &#x2F; 异步指的是各个任务之间执⾏顺序的确定性。同时， 任务≠回调函数 , 不管是同步任务，异步任务都可以通过回调函数去实现。</p>
-<h4 id="从同步异步角度理解JS的执行机制"><a href="#从同步异步角度理解JS的执行机制" class="headerlink" title="从同步异步角度理解JS的执行机制"></a>从同步异步角度理解JS的执行机制</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="comment">// 200ms后，新任务task_1进⼊ 任务队列</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">&#125;,<span class="number">200</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<p>输出结果是132，思路（暂不考虑宏任务微任务）：</p>
-<ol>
-<li>整体 script 作为第⼀个任务进⼊主线程，console 输出 1;</li>
-<li>遇到异步 API setTimeout ，将异步回调函数交给 Web API 处理 (此处为定时器触发线程，200ms 之后，即满⾜触发条件后，将 task_1 推⼊任务队列 task queue )。</li>
-<li>主线程继续往下执⾏，console 输出3，任务执⾏结束，调⽤栈为空</li>
-<li>进⼊下⼀个循环，取出任务队列中的下个任务，此时任务队列为空，主线程进⼊等待状态。</li>
-<li>直到 200ms 之后，发现新推⼊任务队列的 task_1 , 开始执⾏，console 输出 2</li>
-</ol>
-<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3><p>javascript 是⼀⻔单线程的脚本语⾔，也就意味着同⼀个时间只能做⼀件事，但是单线程有⼀个问题：⼀旦这个线程被阻塞就⽆法继续⼯作了，这肯定是不⾏的。上⾯谈的EventLoop 模型通过异步编程实现⾮阻塞的调⽤效果⽅式解决了⼀个任务⻓时间霸占线程问题，但由于队列是⼀种数据结构，可以存放要执⾏的任务。它符合队列先进先出的特点，也就是说要添加任务的话，添加到队列的尾部；要取出任务的话，从队列头部去取，但这不能解决任务优先级问题 (紧急任务插队的需求)。为解决这个问题引⼊宏任务，微任务概念。</p>
-<h4 id="宏任务VS微任务"><a href="#宏任务VS微任务" class="headerlink" title="宏任务VS微任务"></a>宏任务VS微任务</h4><p>ES6 规范中，Microtask 称为 jobs，Macrotask 称为 task。即微任务是 ES 对异步的定义；⽽宏任务是浏览器对异步的定义。</p>
-<p>宏任务与微任务都是独⽴于主执⾏栈之外的另外两个队列。<br>为了处理任务的优先级，权衡效率和实时性。浏览器端事件循环中的异步队列有两种：Macrotask（宏任务）队列和 Microtask（微任务）队列.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>宏任务 (Macrotask)</th>
-<th>微任务 (Microtask)</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>谁发起</td>
-<td>浏览器、Node</td>
-<td>Javascript</td>
-</tr>
-<tr>
-<td>具体事件</td>
-<td>script（全局任务）, setTimeout, setInterval, setImmediate, I&#x2F;O, UI rendering</td>
-<td>process.nextTick, Promise 的 then 或 catch, Object.observer, MutationObserver</td>
-</tr>
-</tbody></table>
-<p>在事件循环这个机制当中，我们将进⾏⼀次循环操作称为 tick ，每⼀次 tick 的任务处理模型是⽐较复杂的，但关键步骤如下：</p>
-<ol>
-<li>进⼊循环，⾸先选择最先进⼊宏任务队列的任务 (oldest task)，如果有则执⾏ (⼀次)</li>
-<li>检查是否存在 Microtasks，如果存在则不停地执⾏，直⾄清空微任务 (Microtasks Queue)，此时执⾏栈也为清空了。</li>
-<li>GUI 线程更新 (render) 界⾯（与主线程互斥）</li>
-<li>进⼊下⼀个 Tick 主线程重复执⾏上述步骤</li>
-</ol>
 ]]></content>
   </entry>
   <entry>
@@ -4350,6 +4414,11 @@
       </tags>
   </entry>
   <entry>
+    <title>某个项目的代码分析</title>
+    <url>/2022/07/05/%E6%9F%90%E4%B8%AA%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>浏览器相关知识</title>
     <url>/2022/03/14/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h2 id="1-浏览器缓存"><a href="#1-浏览器缓存" class="headerlink" title="1. 浏览器缓存"></a>1. 浏览器缓存</h2><h3 id="强缓存-amp-协商缓存"><a href="#强缓存-amp-协商缓存" class="headerlink" title="强缓存&amp;协商缓存"></a>强缓存&amp;协商缓存</h3><p>强缓存：不需要发送HTTP请求</p>
@@ -4802,10 +4871,5 @@
         <tag>浏览器</tag>
         <tag>面试题</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>某个项目的代码分析</title>
-    <url>/2022/07/05/%E6%9F%90%E4%B8%AA%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
