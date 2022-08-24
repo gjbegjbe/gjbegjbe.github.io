@@ -192,7 +192,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-24 09:32:05 / 修改时间：18:05:32" itemprop="dateCreated datePublished" datetime="2022-08-24T09:32:05+08:00">2022-08-24</time>
+              <time title="创建时间：2022-08-24 09:32:05 / 修改时间：19:44:00" itemprop="dateCreated datePublished" datetime="2022-08-24T09:32:05+08:00">2022-08-24</time>
             </span>
 
           
@@ -371,6 +371,19 @@
 <p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208241800771.png"></p>
 <p>p 标签是一个 block container，对内将产生一个 IFC；<br>由于一行没办法显示完全，所以产生了 2 个线盒（line box）；线盒的宽度就继承了 p 的宽度；高度是由里面的内联盒子的 line-height 决定；<br>It can get：匿名的内联盒子；<br>very complicated：strong 标签产生的内联盒子；<br>once you start：匿名的内联盒子；<br>looking into it.：匿名的内联盒子。</p>
 <h4 id="IFC应用场景"><a href="#IFC应用场景" class="headerlink" title="IFC应用场景"></a>IFC应用场景</h4><p>水平居中：当一个块要在环境中水平居中时，设置其为 inline-block 则会在外层产生IFC，通过 text-align 则可以使其水平居中。<br>垂直居中：创建一个 IFC，用其中一个元素撑开父元素的高度，然后设置其 vertical-align: middle，其他行内元素则可以在此父元素下垂直居中。</p>
+<h2 id="层叠上下文"><a href="#层叠上下文" class="headerlink" title="层叠上下文"></a>层叠上下文</h2><p>屏幕上水平是X轴，垂直是Y轴，屏幕到眼睛的方向是Z轴。元素根据属性的优先级在Z轴上排开。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208241918067.png"></p>
+<p>z-index 能够在层叠上下文中对元素的堆叠顺序其作用是必须配合定位才可以；<br>除了 z-index 之外，一个元素在 Z 轴上的显示顺序还受层叠等级和层叠顺序影响；</p>
+<p>特定的 HTML 元素或者CSS 属性产生层叠上下文，符合以下任一条件的元素都会产生层<br>叠上下文：</p>
+<p>html ⽂档根元素<br>声明 position: absolute&#x2F;relative 且 z-index 值不为 auto 的元素；<br>声明 position: fixed&#x2F;sticky 的元素；<br>flex 容器的子元素，且 z-index 值不为 auto；<br>grid 容器的子元素，且 z-index 值不为 auto；<br>opacity 属性值⼩于 1 的元素；<br>mix-blend-mode 属性值不为 normal 的元素；<br>以下任意属性值不为 none 的元素：<br>transform<br>filter<br>perspective<br>clip-path<br>mask &#x2F; mask-image &#x2F; mask-border<br>isolation 属性值为 isolate 的元素；<br>-webkit-overflow-scrolling 属性值为 touch 的元素；<br>will-change 值设定了任⼀属性而该属性在 non-initial 值时会创建层叠上下文的元素；<br>contain 属性值为 layout、paint 或包含它们其中之⼀的合成值（比如 contain: strict、<br>contain: content）的元素。</p>
+<h3 id="层叠等级"><a href="#层叠等级" class="headerlink" title="层叠等级"></a>层叠等级</h3><p>层叠等级指节点在三维空间Z轴上的上下顺序。</p>
+<p>在同⼀个层叠上下文中，它描述定义的是该层叠上下文中的层叠上下文元素在 Z 轴上的上下顺序；<br>在其他普通元素中，它描述定义的是这些普通元素在 Z 轴上的上下顺序；</p>
+<p>普通元素的层叠等级由其所在的层叠上下文决定，层叠等级的比较只有在当前层叠上下文中才有意义，脱离当前层叠上下文的比较就无意义了。</p>
+<h3 id="层叠顺序"><a href="#层叠顺序" class="headerlink" title="层叠顺序"></a>层叠顺序</h3><p>同一个层叠上下文如果有多个元素，它们之前的层叠顺序。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208241929012.png"></p>
+<p>层叠等级由低到高：</p>
+<p>层叠上下文的 border 和 background<br>z-index &lt; 0 的子节点<br>标准流内块级非定位的子节点<br>浮动非定位的子节点<br>标准流内行内非定位的子节点<br>z-index: auto&#x2F;0 的子节点<br>z-index &gt; 0的子节点</p>
+<h3 id="如何比较两个元素的层叠等级？"><a href="#如何比较两个元素的层叠等级？" class="headerlink" title="如何比较两个元素的层叠等级？"></a>如何比较两个元素的层叠等级？</h3><p>在同一个层叠上下文中，比较两个元素就是按照上图的介绍的层叠顺序进行比较。<br>如果不在同一个层叠上下文中的时候，那就需要比较两个元素分别所处的层叠上下文的等级。<br>如果两个元素都在同⼀个层叠上下文，且层叠顺序相同，则在 HTML 中定义越后面的层叠等级越高。</p>
 
       
     </div>
