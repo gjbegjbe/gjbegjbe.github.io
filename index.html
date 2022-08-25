@@ -190,10 +190,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-24 09:32:05 / 修改时间：19:44:00" itemprop="dateCreated datePublished" datetime="2022-08-24T09:32:05+08:00">2022-08-24</time>
+              <time title="创建时间：2022-08-24 09:32:05" itemprop="dateCreated datePublished" datetime="2022-08-24T09:32:05+08:00">2022-08-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-25 11:44:35" itemprop="dateModified" datetime="2022-08-25T11:44:35+08:00">2022-08-25</time>
+              </span>
 
           
 
@@ -384,6 +390,30 @@
 <p>层叠等级由低到高：</p>
 <p>层叠上下文的 border 和 background<br>z-index &lt; 0 的子节点<br>标准流内块级非定位的子节点<br>浮动非定位的子节点<br>标准流内行内非定位的子节点<br>z-index: auto&#x2F;0 的子节点<br>z-index &gt; 0的子节点</p>
 <h3 id="如何比较两个元素的层叠等级？"><a href="#如何比较两个元素的层叠等级？" class="headerlink" title="如何比较两个元素的层叠等级？"></a>如何比较两个元素的层叠等级？</h3><p>在同一个层叠上下文中，比较两个元素就是按照上图的介绍的层叠顺序进行比较。<br>如果不在同一个层叠上下文中的时候，那就需要比较两个元素分别所处的层叠上下文的等级。<br>如果两个元素都在同⼀个层叠上下文，且层叠顺序相同，则在 HTML 中定义越后面的层叠等级越高。</p>
+<h2 id="值和单位"><a href="#值和单位" class="headerlink" title="值和单位"></a>值和单位</h2><p>数值：长度值 ，用于指定例如元素 width、border-width、font-size 等属性的值；<br>百分比：可以用于指定尺寸或长度，例如取决于父容器的 width、height 或默认的fontsize；<br>颜色：用于指定 background-color、color 等；<br>坐标位置：以屏幕的左上角为坐标原点定位元素的位置，比如常见的 background-position、top、right、bottom 和 left 等属性；<br>函数：用于指定资源路径或背景图片的渐变，比如 url()、linear-gradient() 等；</p>
+<p>还有些值是需要带单位的，比如 width: 100px，这里的 px 就是表示长度的单位，长度单位除了px 外，比较常用的还有 em、rem、vw&#x2F;vh 等。</p>
+<h3 id="px"><a href="#px" class="headerlink" title="px"></a>px</h3><p>屏幕分辨率是指在屏幕的横纵方向上的像素点数量，比如分辨率 1920×1080 意味着水平方向含有1920 个像素数，垂直方向含有 1080 个像素数。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208251040736.png"></p>
+<p>屏幕尺寸一致的情况下，屏幕分辨率越高，显示效果就越细腻。</p>
+<h3 id="em"><a href="#em" class="headerlink" title="em"></a>em</h3><p>em 是 CSS 中的相对长度单位中的一个。</p>
+<p>在 font-size 中使用是相对于父元素的 font-size 大小，比如父元素 font-size: 16px，当给子元素指定 font-size: 2em 的时候，经过计算后它的字体大小会是 32px；<br>在其他属性中使用是相对于自身的字体大小，如 width&#x2F;height&#x2F;padding&#x2F;margin 等；</p>
+<p>每个浏览器都会给 HTML 根元素 html 设置一个默认的 font-size，而这个值通常是16px。这也就是为什么 1em &#x3D; 16px 的原因所在了。</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>rem(root em) 和 em一样，也是一个相对长度单位，不过 rem 相对的是 HTML 的根元素html。</p>
+<p>rem 由于是基于 html 的 font-size 来计算，所以通常用于自适应网站或者 H5 中。</p>
+<h3 id="vw-x2F-vh"><a href="#vw-x2F-vh" class="headerlink" title="vw&#x2F;vh"></a>vw&#x2F;vh</h3><p>vw 和 vh 分别是相对于屏幕视口宽度和高度而言的长度单位：</p>
+<ul>
+<li><p>1vw &#x3D; 视口宽度均分成 100 份中 1 份的长度；</p>
+</li>
+<li><p>1vh &#x3D; 视口高度均分成 100 份中 1 份的长度；</p>
+</li>
+</ul>
+<p>相对视口的单位，除了 vw&#x2F;vh 外，还有 vmin 和 vmax：</p>
+<ul>
+<li><p>vmin：取 vw 和 vh 中值较小的；</p>
+</li>
+<li><p>vmax：取 vw 和 vh 中值较大的；</p>
+</li>
+</ul>
 
       
     </div>
