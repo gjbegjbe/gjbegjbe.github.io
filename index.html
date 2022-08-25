@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-25 11:44:35" itemprop="dateModified" datetime="2022-08-25T11:44:35+08:00">2022-08-25</time>
+                <time title="修改时间：2022-08-25 17:24:36" itemprop="dateModified" datetime="2022-08-25T17:24:36+08:00">2022-08-25</time>
               </span>
 
           
@@ -414,6 +414,47 @@
 <li><p>vmax：取 vw 和 vh 中值较大的；</p>
 </li>
 </ul>
+<h2 id="颜色体系"><a href="#颜色体系" class="headerlink" title="颜色体系"></a>颜色体系</h2><p>根据 CSS 颜色草案 中提到的颜色值类型，大概可以把它们分为这几类：</p>
+<ul>
+<li><p>颜色关键字</p>
+</li>
+<li><p>transparent 关键字</p>
+</li>
+<li><p>currentColor 关键字</p>
+</li>
+<li><p>RGB 颜色</p>
+</li>
+<li><p>HSL 颜色</p>
+</li>
+</ul>
+<h3 id="颜色关键字"><a href="#颜色关键字" class="headerlink" title="颜色关键字"></a>颜色关键字</h3><p>颜色关键字（color keywords）是不区分大小写的标识符，它表示一个具体的颜色，比如 white（白），黑（black）等；</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208251606458.png"></p>
+<h3 id="transparent关键字"><a href="#transparent关键字" class="headerlink" title="transparent关键字"></a>transparent关键字</h3><p>transparent 关键字表示⼀个完全透明的颜色，即该颜色看上去将是背景色。</p>
+<p>应用场景：</p>
+<h4 id="实现三角形"><a href="#实现三角形" class="headerlink" title="实现三角形"></a>实现三角形</h4><p>等腰三角形：设置⼀条边有颜色，然后紧挨着的 2 边是透明，且宽度是有颜色边的⼀半；直角三角形：设置⼀条边有颜色，然后紧挨着的任何一边透明即可。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208251618315.png"></p>
+<h4 id="增大点击区域"><a href="#增大点击区域" class="headerlink" title="增大点击区域"></a>增大点击区域</h4><p>常常在移动端的时候点击的按钮的区域特别小，但是由于现实效果又不太好把它做大，所以常用的⼀个手段就是通过透明的边框来增大按钮的点击区域</p>
+<h3 id="currentColor关键字"><a href="#currentColor关键字" class="headerlink" title="currentColor关键字"></a>currentColor关键字</h3><p>currentColor 会取当前元素继承父级元素的文本颜色值或声明的文本颜色值，即 computed 后的color 值。</p>
+<h3 id="RGB-A-颜色"><a href="#RGB-A-颜色" class="headerlink" title="RGB[A]颜色"></a>RGB[A]颜色</h3><p>RGB[A] 颜色是由 R(red)-G(green)-B(blue)-A(alpha) 组成的色彩空间。</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208251643695.png"></p>
+<h4 id="十六进制符号"><a href="#十六进制符号" class="headerlink" title="十六进制符号"></a>十六进制符号</h4><p>RGB 中的每种颜色的值范围是 00~ff，值越大表示颜色越深。所以⼀个颜色正常是 6 个十六进制字符加上 # 组成，比如红色就是 #ff0000。</p>
+<p>如果 RGB 颜⾊需要加上不透明度，那就需要加上 alpha 通道的值，它的范围也是 00~ff，比如一个带不透明度为 67% 的红色可以这样写 #ff0000aa。</p>
+<p>使用十六进制符号表示颜色的时候，都是用 2 个十六进制表示一个颜色，如果这 2 个字符相同，还可以缩减成只写 1 个，比如，红色 #f00；带 67% 不透明度的红色 #f00a。</p>
+<h4 id="函数符"><a href="#函数符" class="headerlink" title="函数符"></a>函数符</h4><p>当 RGB 用函数表示的时候，每个值的范围是 0<del>255 或者 0%</del>100%，所以红色是 rgb(255, 0,0)， 或者 rgb(100%, 0, 0)。<br>如果需要使用函数来表示带不透明度的颜色值，值的范围是 0<del>1 及其之间的小数或者0%</del>100%，比如带 67% 不透明度的红色是 rgba(255, 0, 0, 0.67) 或者 rgba(100%, 0%, 0%, 67%)</p>
+<p>要么都用数字，要么都用百分比，同时用是不对的，但是透明度不需要保持一致。rgb(100%, 0%, 0%, 0.67)</p>
+<p>带 67% 不透明度的红色可以这样写 rgba(255 0 0 &#x2F; 0.67)</p>
+<h3 id="HSL-A-颜色"><a href="#HSL-A-颜色" class="headerlink" title="HSL[A]颜色"></a>HSL[A]颜色</h3><p>HSL[A] 颜色是由色相(hue)-饱和度(saturation)-亮度(lightness)-不透明度组成的颜色体系。<br>色相（H）是色彩的基本属性，值范围是 0360 或者 0deg360deg， 0 (或 360) 为红色, 120为绿色, 240 为蓝色；<br>饱和度（S）是指色彩的纯度，越高色彩越纯，低则逐渐变灰，取 0<del>100% 的数值；0% 为灰色， 100% 全色；<br>亮度（L），取 0</del>100%，0% 为暗，100% 为白；<br>不透明度（A），取 0100%，或者01及之间的小数；</p>
+<p>在 Chrome DevTools 中可以按住 shift + 鼠标左键可以切换颜色的表示方式。<br><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208251708206.png"></p>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><p>媒体查询是指针对不同的设备、特定的设备特征或者参数进行定制化的修改网站的样式。</p>
+<p>给 <link> 加上 media 属性来指定该样式文件只能对什么设备生效，不指定的话默认是 all，即对所有设备都生效：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">src</span>=<span class="string">&quot;styles.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">src</span>=<span class="string">&quot;styles.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;print&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>all：适用于所有设备；<br>print：适用于在打印预览模式下在屏幕上查看的分页材料和文档；<br>screen：主要用于屏幕；<br>speech：主要用于语音合成器。</p>
+<p>除了通过 <link> 让指定设备生效外，还可以通过 @media 让 CSS 规则在特定的条件下才能生效。响应式页面就是使用了 @media 才让一个页面能够同时适配 PC、Pad 和手机端。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1000px</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>媒体查询支持逻辑操作符：<br>and：查询条件都满足的时候才生效；<br>not：查询条件取反；<br>only：整个查询匹配的时候才生效，常用于兼容旧浏览器，使用时候必须指定媒体类型；<br>逗号或者 or：查询条件满足一项即可匹配；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ⽤户设备的最⼩⾼度为680px或为纵向模式的屏幕设备 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-height</span>: <span class="number">680px</span>), screen <span class="keyword">and</span> (<span class="attribute">orientation</span>: portrait) &#123;&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
