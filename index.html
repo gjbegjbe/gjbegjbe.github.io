@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-26 15:06:41" itemprop="dateModified" datetime="2022-08-26T15:06:41+08:00">2022-08-26</time>
+                <time title="修改时间：2022-08-26 17:22:55" itemprop="dateModified" datetime="2022-08-26T17:22:55+08:00">2022-08-26</time>
               </span>
 
           
@@ -533,6 +533,32 @@
 <p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261504967.png"></p>
 <p>方法四：grid</p>
 <p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261506790.png"></p>
+<h4 id="三栏布局（两侧栏定宽主栏自适应）"><a href="#三栏布局（两侧栏定宽主栏自适应）" class="headerlink" title="三栏布局（两侧栏定宽主栏自适应）"></a>三栏布局（两侧栏定宽主栏自适应）</h4><p>方法一：圣杯布局</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261524833.png"></p>
+<p>方法二：双飞翼布局</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261531438.png"></p>
+<p>方法三：float + overflow（BFC 原理）</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261533265.png"></p>
+<p>方法四：flex</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261537791.png"></p>
+<p>方法五：grid</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261539396.png"></p>
+<h4 id="多列等高布局"><a href="#多列等高布局" class="headerlink" title="多列等高布局"></a>多列等高布局</h4><p>方法一：padding + 负margin</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261544677.png"></p>
+<p>方法二：设置父级背景图片</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261548035.png"></p>
+<h4 id="三行布局（头尾定高主栏自适应）"><a href="#三行布局（头尾定高主栏自适应）" class="headerlink" title="三行布局（头尾定高主栏自适应）"></a>三行布局（头尾定高主栏自适应）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;layout&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-class">.layout</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span>,</span><br><span class="line"><span class="selector-tag">footer</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">overflow-y</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法一：calc</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261715404.png"></p>
+<p>方法二：absolute</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261716044.png"></p>
+<p>方法三：flex</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261719778.png"></p>
+<p>方法四：grid</p>
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208261721176.png"></p>
 
       
     </div>
