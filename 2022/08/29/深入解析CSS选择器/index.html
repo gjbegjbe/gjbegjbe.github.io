@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"gjbegjbe.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言优先级是基于不同种类选择器组成的匹配规则。浏览器通过优先级来判断哪些样式与一个元素最为相关，从而在该元素上应用这些样式。 CSS选择器的分类 不同种类选择器的用法基本选择器以外的选择器的用法。 属性选择器通过已经存在的属性名或属性值匹配元素。 1234567891011121314151617181920212223242526272829&lt;style&gt;    div &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入解析CSS选择器">
+<meta property="og:url" content="https://gjbegjbe.github.io/2022/08/29/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90CSS%E9%80%89%E6%8B%A9%E5%99%A8/index.html">
+<meta property="og:site_name" content="gjbe">
+<meta property="og:description" content="前言优先级是基于不同种类选择器组成的匹配规则。浏览器通过优先级来判断哪些样式与一个元素最为相关，从而在该元素上应用这些样式。 CSS选择器的分类 不同种类选择器的用法基本选择器以外的选择器的用法。 属性选择器通过已经存在的属性名或属性值匹配元素。 1234567891011121314151617181920212223242526272829&lt;style&gt;    div &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208290943458.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208291919919.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208291922693.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208291932375.png">
+<meta property="article:published_time" content="2022-08-29T01:38:41.000Z">
+<meta property="article:modified_time" content="2022-08-29T11:33:26.176Z">
+<meta property="article:author" content="gjbe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208290943458.png">
+
+<link rel="canonical" href="https://gjbegjbe.github.io/2022/08/29/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90CSS%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>深入解析CSS选择器 | gjbe</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXN04CBZXN"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MXN04CBZXN');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?49e659bd9c945277731a2e39ec566e9d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="gjbe" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">gjbe</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/gjbegjbe" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2022/08/29/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90CSS%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gjbe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjbe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深入解析CSS选择器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-29 09:38:41 / 修改时间：19:33:26" itemprop="dateCreated datePublished" datetime="2022-08-29T09:38:41+08:00">2022-08-29</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>优先级是基于不同种类选择器组成的匹配规则。浏览器通过优先级来判断哪些样式与一个元素最为相关，从而在该元素上应用这些样式。</p>
+<h2 id="CSS选择器的分类"><a href="#CSS选择器的分类" class="headerlink" title="CSS选择器的分类"></a>CSS选择器的分类</h2><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208290943458.png"></p>
+<h2 id="不同种类选择器的用法"><a href="#不同种类选择器的用法" class="headerlink" title="不同种类选择器的用法"></a>不同种类选择器的用法</h2><p>基本选择器以外的选择器的用法。</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p>通过已经存在的属性名或属性值匹配元素。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">div</span> &#123;  <span class="attribute">margin-top</span>: <span class="number">20px</span>;&#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 title 的元素 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[title]</span>&#123;  <span class="attribute">background</span>: <span class="number">#faf3e0</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 class 且值为 div1 的元素 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[class=div1]</span>&#123; <span class="attribute">background</span>: <span class="number">#eabf9f</span>;  &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 attr 并且该属性是一个以空格作为分隔的值列表，其中至少有一个值为 attr-test2 的元素 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[attr~=attr-test2]</span>&#123;  <span class="attribute">background</span>: <span class="number">#b68973</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 attr 且值以 te 为开头的元素 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[attr^=te]</span>&#123; <span class="attribute">background</span>: <span class="number">#f39189</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 attr 且值以 Test 为结尾的元素 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[attr$=Test]</span>&#123; <span class="attribute">background</span>: <span class="number">#bb8082</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 attr 且值包含 test3 的元素 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[attr*=test3]</span>&#123; <span class="attribute">background</span>: <span class="number">#6e7582</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 带有属性 attr 且值为 attr1 或以 attr1- 开头 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[attr|=attr1]</span>&#123; <span class="attribute">background</span>: <span class="number">#046582</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 属性选择器默认区分大小写，在属性选择器的右方括号前添加一个用空格隔开的字母 i（或 I），可忽略大小写 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-attr">[attr*=test5 i]</span>&#123; <span class="attribute">background</span>: <span class="number">#865858</span>; &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">title</span>=<span class="string">&#x27;helloWorld&#x27;</span>&gt;</span>[title]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>[class=div1]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">attr</span>=<span class="string">&#x27;attr-test1 attr-test2&#x27;</span>&gt;</span>[attr~=attr-test2]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">attr</span>=<span class="string">&#x27;test&#x27;</span>&gt;</span>[attr^=te]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">attr</span>=<span class="string">&#x27;attrTest&#x27;</span>&gt;</span>[attr$=Test]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">attr</span>=<span class="string">&#x27;attr-test3&#x27;</span>&gt;</span>[attr*=test3]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">attr</span>=<span class="string">&#x27;attr1-test4&#x27;</span>&gt;</span>[attr|=attr1]<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">attr</span>=<span class="string">&#x27;attr-Test5&#x27;</span>&gt;</span>attr*=test5 i<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208291919919.png"></p>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208291922693.png"></p>
+<h4 id="动态伪类（多用于超链接的样式）"><a href="#动态伪类（多用于超链接的样式）" class="headerlink" title="动态伪类（多用于超链接的样式）"></a>动态伪类（多用于超链接的样式）</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 未访问的链接 */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123; <span class="attribute">color</span>: <span class="number">#11698e</span>; &#125;</span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 已访问过的链接  注:只要是当前浏览器有访问记录的都算作已访问的状态 */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;<span class="attribute">color</span>: <span class="number">#9fb8ad</span>; &#125;</span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 当鼠标悬浮在元素上方时 */</span> </span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 注: 为了使点击过后的链接仍然受设置的伪类样式影响，在CSS 定义时 :hover 需设置在 :link 和 :visited 之后 */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123; <span class="attribute">color</span>: <span class="number">#383e56</span>; &#125;</span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 被激活的元素 (鼠标点下且为松开时) */</span> </span></span><br><span class="line"><span class="language-css">  <span class="comment">/* 注: 为了使点击过后的链接仍然受设置的伪类样式影响，在CSS 定义时 :active 需设置在 :hover 之后 */</span></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123; <span class="attribute">color</span>: <span class="number">#fb743e</span>; &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">href</span>=<span class="string">&#x27;https://juejin.cn/user/3456520257288974&#x27;</span>&gt;</span>超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>伪类的active在IOS下存在兼容问题。</p>
+<h4 id="目标伪类、否定伪类、语言伪类"><a href="#目标伪类、否定伪类、语言伪类" class="headerlink" title="目标伪类、否定伪类、语言伪类"></a>目标伪类、否定伪类、语言伪类</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">14px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 目标伪类 :target: 代表一个唯一的页面元素(目标元素)，其 id 与当前URL片段匹配 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">div</span><span class="selector-pseudo">:target</span> &#123; <span class="attribute">color</span>: <span class="number">#f05454</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 否定伪类 :not   注: 仅 Chrome、Firefox 和 Safari 高版本浏览器适用*/</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">p</span><span class="selector-pseudo">:not</span>(<span class="selector-id">#p1</span>)&#123; <span class="attribute">color</span>: <span class="number">#e27802</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 语言伪类 :lang */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">div</span><span class="selector-pseudo">:lang</span>(zh) &#123; <span class="attribute">color</span>: <span class="number">#ffc1b6</span>; &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>目标伪类 :target<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>目标伪类: 这是 div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>目标伪类: 这是 div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>否定伪类 :not<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p1&quot;</span>&gt;</span>否定伪类: 这是 p1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;p2&quot;</span>&gt;</span>否定伪类: 这是 p2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>语言伪类 :lang<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span>语言伪类: 这是 en<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">lang</span>=<span class="string">&quot;zh&quot;</span>&gt;</span>语言伪类: 这是 zh<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208291932375.png"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/24/CSS%E5%9F%BA%E7%A1%80/" rel="prev" title="CSS基础">
+      <i class="fa fa-chevron-left"></i> CSS基础
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">CSS选择器的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%A7%8D%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">不同种类选择器的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">伪类选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E4%BC%AA%E7%B1%BB%EF%BC%88%E5%A4%9A%E7%94%A8%E4%BA%8E%E8%B6%85%E9%93%BE%E6%8E%A5%E7%9A%84%E6%A0%B7%E5%BC%8F%EF%BC%89"><span class="nav-number">3.2.1.</span> <span class="nav-text">动态伪类（多用于超链接的样式）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E4%BC%AA%E7%B1%BB%E3%80%81%E5%90%A6%E5%AE%9A%E4%BC%AA%E7%B1%BB%E3%80%81%E8%AF%AD%E8%A8%80%E4%BC%AA%E7%B1%BB"><span class="nav-number">3.2.2.</span> <span class="nav-text">目标伪类、否定伪类、语言伪类</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">gjbe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gjbe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '0345980f9d756faa9ef0',
+      clientSecret: '403968f743ab1c228a563989e36b914904436d8e',
+      repo        : 'comments',
+      owner       : 'gjbegjbe',
+      admin       : ['gjbegjbe'],
+      id          : '07bb317a8fd75788eee6354f382c8a90',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+    </div>
+</body>
+</html>
