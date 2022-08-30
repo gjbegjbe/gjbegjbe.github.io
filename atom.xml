@@ -6,7 +6,7 @@
   <link href="https://gjbegjbe.github.io/atom.xml" rel="self"/>
   
   <link href="https://gjbegjbe.github.io/"/>
-  <updated>2022-08-30T03:58:40.900Z</updated>
+  <updated>2022-08-30T09:14:42.305Z</updated>
   <id>https://gjbegjbe.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端浏览器缓存知识梳理</title>
+    <link href="https://gjbegjbe.github.io/2022/08/30/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
+    <id>https://gjbegjbe.github.io/2022/08/30/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</id>
+    <published>2022-08-30T06:03:24.000Z</published>
+    <updated>2022-08-30T09:14:42.305Z</updated>
+    
+    <content type="html"><![CDATA[<p>缓存就是，当第一次访问网站的时候，电脑会把图片和数据下载到电脑上，再次访问时，网站就会直接加载出来。</p><p>缓存的好处：</p><ol><li>缓解服务器压力，不用每次都去请求某些数据了。</li><li>提升性能，打开本地资源肯定会比请求服务器来的快。</li><li>减少带宽消耗，当我们使用缓存时，只会产生很小的网络消耗，至于为什么打开本地资源也会产生网络消耗，下面会有说明。</li></ol><p>Web 缓存种类： 数据库缓存，CDN 缓存，代理服务器缓存，浏览器缓存。</p><p><img src="https://raw.githubusercontent.com/gjbegjbe/pics/main/202208301425142.png"></p><p>所谓浏览器缓存其实就是指在本地使用的计算机中开辟⼀个内存区，同时也开辟一个硬盘区作为数据传输的缓冲区，然后用这个缓冲区来暂时保存用户以前访问过的信息。</p><p>浏览器缓存过程：强缓存，协商缓存。</p><p>浏览器缓存位置⼀般分为四类： Service Worker–&gt;Memory Cache–&gt;Disk Cache–&gt;Push Cache。</p><h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强缓存是当我们访问 URL 的时候，不会向服务器发送请求，直接从缓存中读取资源，但是会返回200 的状态码。</p><p>如何设置强缓存？</p><p>我们第⼀次进入页面，请求服务器，然后服务器进行应答，浏览器会根据 response Header 来判断是否对资源进行缓存，如果响应头中 expires、pragma 或者 cache-control 字段，代表这是强缓存，浏览器就会把资源缓存在 memory cache 或 disk cache 中。</p><p>第二次请求时，浏览器判断请求参数，如果符合强缓存条件就直接返回状态码 200，从本地缓存中拿数据。否则把响应参数存在 request header 请求头中，看是否符合协商缓存，符合则返回状态码 304，不符合则服务器会返回全新资源。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301502686.png?raw=true" alt="202208301502686.png"></p><h3 id="expires"><a href="#expires" class="headerlink" title="expires"></a>expires</h3><p>是 HTTP1.0 控制网页缓存的字段，值为一个时间戳，准确来讲是格林尼治时间，服务器返回该请求结果缓存的到期时间，意思是，再次发送请求时，如果未超过过期时间，直接使用该缓存，如果过期了则重新请求。</p><p>有个缺点，就是它判断是否过期是用本地时间来判断的，本地时间是可以自己修改的。</p><h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><p>是 HTTP1.1 中控制网页缓存的字段，当 Cache-Control 都存在时，Cache-Control 优先级更高，主要取值为：</p><p>public：资源客户端和服务器都可以缓存。<br>privite：资源只有客户端可以缓存。<br>no-cache：客户端缓存资源，但是是否缓存需要经过协商缓存来验证。<br>no-store：不使用缓存。<br>max-age：缓存保质期。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301526543.png?raw=true" alt="202208301526543.png"></p><p>Cache-Control 使用了 max-age 相对时间，解决了 expires 的问题。</p><h3 id="pragma"><a href="#pragma" class="headerlink" title="pragma"></a>pragma</h3><p>这个是 HTTP1.0 中禁用网页缓存的字段，其取值为 no-cache，和 Cache-Control 的 no-cache效果⼀样。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301530413.png?raw=true" alt="202208301530413.png"></p><h2 id="缓存位置"><a href="#缓存位置" class="headerlink" title="缓存位置"></a>缓存位置</h2><p>什么资源放在memory cache，什么资源放在 disk cache 中？</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301535610.png?raw=true" alt="202208301535610.png"></p><p>存储图像和网页等资源主要缓存在 disk cache，操作系统缓存文件等资源大部分都会缓存在memory cache 中。具体操作浏览器自动分配，看谁的资源利用率不高就分给谁。</p><p>memory cache 请求时间都是 0ms</p><p>查找浏览器缓存时会按顺序查找: Service Worker–&gt;Memory Cache–&gt;Disk Cache–&gt;Push Cache。</p><h3 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h3><p>是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker 的话，传输协议必须为 HTTPS。因为 Service Worker 中涉及到请求拦截，所以必须使用 HTTPS 协议来保障安全。Service Worker 的缓存与浏览器其他内建的缓存机制不同，它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的。</p><h3 id="Memory-Cache"><a href="#Memory-Cache" class="headerlink" title="Memory Cache"></a>Memory Cache</h3><p>内存中的缓存，主要包含的是当前中页面中已经抓取到的资源，例如页面上已经下载的样式、脚本、图片等。</p><p>读取内存中的数据肯定比磁盘快，内存缓存虽然读取高效，可是缓存持续性很短，会随着进程的释放而释放。⼀旦我们关闭 Tab 页面，内存中的缓存也就被释放了。</p><h3 id="Disk-Cache"><a href="#Disk-Cache" class="headerlink" title="Disk Cache"></a>Disk Cache</h3><p>存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，比之 Memory Cache 胜在容量和存储时效性上。</p><p>在所有浏览器缓存中，Disk Cache 覆盖面基本是最大的。它会根据 HTTP Herder 中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求。并且即使在跨站点的情况下，相同地址的资源⼀旦被硬盘缓存下来，就不会再次去请求数据。绝大部分的缓存都来自Disk Cache。</p><p>memory cache 要比 disk cache 快的多。举个例子：从远程 web 服务器直接提取访问文件可能需要 500 毫秒 (半秒)，那么磁盘访问可能需要 10-20 毫秒，而内存访问只需要 100 纳秒，更高级的还有 L1 缓存访问 (最快和最小的 CPU 缓存) 只需要 0.5 纳秒。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301604901.png?raw=true" alt="202208301604901.png"></p><p>prefetch cache (预取缓存)</p><p>link 标签上带了 prefetch，再次加载会出现。</p><p>prefetch 是预加载的一种方式，被标记为 prefetch 的资源，将会被浏览器在空闲时间加载。</p><h3 id="Push-Cache"><a href="#Push-Cache" class="headerlink" title="Push Cache"></a>Push Cache</h3><p>Push Cache（推送缓存）是 HTTP&#x2F;2 中的内容，当以上三种缓存都没有命中时，它才会被使用。<br>它只在会话（Session）中存在，⼀旦会话结束就被释放，并且缓存时间也很短暂，在Chrome 浏览器中只有 5 分钟左右，同时它也并非严格执行HTTP 头中的缓存指令。</p><h3 id="CPU、内存、硬盘"><a href="#CPU、内存、硬盘" class="headerlink" title="CPU、内存、硬盘"></a>CPU、内存、硬盘</h3><p>CPU、内存、硬盘都是计算机的主要组成部分。</p><p>CPU：中央处理单元 (CentralProcessingUnit) 的缩写，也叫处理器，是计算机的运算核心和控制核心。电脑靠 CPU 来运算、控制。让电脑的各个部件顺利工作，起到协调和控制作用。</p><p>硬盘：存储资料和软件等数据的设备，有容量大，断电数据不丢失的特点。</p><p>内存：负责硬盘等硬件上的数据与 CPU 之间数据交换处理。特点是体积小，速度快，有电可存，无电清空，即电脑在开机状态时内存中可存储数据，关机后将自动清空其中的所有数据。</p><h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p>协商缓存就是强缓存失效后，浏览器携带缓存标识向服务器发送请求，由服务器根据缓存标识来决定是否使用缓存的过程。</p><p>以下两种情况：</p><p>协商缓存生效，返回 304<br><img src="https://github.com/gjbegjbe/pics/blob/main/202208301638199.png?raw=true" alt="202208301638199.png"></p><p>协商缓存失效，返回 200 和请求结果<br><img src="https://github.com/gjbegjbe/pics/blob/main/202208301640340.png?raw=true" alt="202208301640340.png"></p><p>如何设置协商缓存？</p><h3 id="Last-Modified-x2F-If-Modified-Since"><a href="#Last-Modified-x2F-If-Modified-Since" class="headerlink" title="Last-Modified&#x2F;If-Modified-Since"></a>Last-Modified&#x2F;If-Modified-Since</h3><p>Last-Modified 是服务器响应请求时，返回该资源文件在服务器最后被修改的时间。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301647514.png?raw=true" alt="202208301647514.png"></p><p>If-Modified-Since 则是客户端再次发起该请求时，携带上次请求返回的 Last-Modified 值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有 If-Modified-Since 字段，则会根据 If-Modified-Since 的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于 If-Modified-Since 的字段值，则重新返回资源，状态码为 200；否则则返回 304，代表资源无更新，可继续使用缓存文件。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301654404.png?raw=true" alt="202208301654404.png"></p><h3 id="Etag-x2F-If-None-Match"><a href="#Etag-x2F-If-None-Match" class="headerlink" title="Etag&#x2F;If-None-Match"></a>Etag&#x2F;If-None-Match</h3><p>Etag 是服务器响应请求时，返回当前资源文件的一个唯一标识 (由服务器生成)。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301658330.png?raw=true" alt="202208301658330.png"></p><p>If-None-Match 是客户端再次发起该请求时，携带上次请求返回的唯⼀标识 Etag 值，通过此字段值告诉服务器该资源上次请求返回的唯⼀标识值。服务器收到该请求后，发现该请求头中含有 If-None-Match，则会根据 If-None-Match 的字段值与该资源在服务器的 Etag 值做对比，一致则返回 304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为 200。</p><p><img src="https://github.com/gjbegjbe/pics/blob/main/202208301700729.png?raw=true" alt="202208301700729.png"></p><p>Etag &#x2F; If-None-Match 优先级高于 Last-Modified &#x2F; If-Modified-Since，同时存在则只有Etag &#x2F; If-None-Match 生效。</p><h2 id="缓存方案"><a href="#缓存方案" class="headerlink" title="缓存方案"></a>缓存方案</h2><p>目前的项目大多使用这种缓存方案的：<br>HTML: 协商缓存；<br>css、js、图片：强缓存，文件名带上 hash。</p><h2 id="强缓存与协商缓存的区别"><a href="#强缓存与协商缓存的区别" class="headerlink" title="强缓存与协商缓存的区别"></a>强缓存与协商缓存的区别</h2><ol><li>强缓存不发请求到服务器，所以有时候资源更新了浏览器还不知道，但是协商缓存会发请求到服务器，所以资源是否更新，服务器肯定知道。</li><li>大部分 web 服务器都默认开启协商缓存。</li></ol><h2 id="刷新对于强缓存和协商缓存的影响"><a href="#刷新对于强缓存和协商缓存的影响" class="headerlink" title="刷新对于强缓存和协商缓存的影响"></a>刷新对于强缓存和协商缓存的影响</h2><ol><li>当 ctrl+f5 强制刷新网页时，直接从服务器加载，跳过强缓存和协商缓存。</li><li>当 f5 刷新网页时，跳过强缓存，但是会检查协商缓存。</li><li>浏览器地址栏中写入 URL，回车浏览器发现缓存中有这个文件了，不用继续请求了，直接去缓存拿。（最快）</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;缓存就是，当第一次访问网站的时候，电脑会把图片和数据下载到电脑上，再次访问时，网站就会直接加载出来。&lt;/p&gt;
+&lt;p&gt;缓存的好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;缓解服务器压力，不用每次都去请求某些数据了。&lt;/li&gt;
+&lt;li&gt;提升性能，打开本地资源肯定会比请求服务器来的快。&lt;/l</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>深入解析CSS选择器</title>
@@ -386,9 +410,9 @@
     
     
     
-    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="JSX" scheme="https://gjbegjbe.github.io/tags/JSX/"/>
+    
+    <category term="前端" scheme="https://gjbegjbe.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
     <category term="vue" scheme="https://gjbegjbe.github.io/tags/vue/"/>
     
@@ -435,31 +459,6 @@
     <category term="Jenkins" scheme="https://gjbegjbe.github.io/tags/Jenkins/"/>
     
     <category term="git" scheme="https://gjbegjbe.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10环境下docker的安装与在docker安装Jenkins</title>
-    <link href="https://gjbegjbe.github.io/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/"/>
-    <id>https://gjbegjbe.github.io/2021/03/09/win10%E7%8E%AF%E5%A2%83%E4%B8%8Bdocker%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9C%A8docker%E5%AE%89%E8%A3%85Jenkins/</id>
-    <published>2021-03-09T07:03:52.000Z</published>
-    <updated>2022-02-25T09:32:07.452Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、安装docker"><a href="#一、安装docker" class="headerlink" title="一、安装docker"></a>一、安装docker</h1><ol><li>打开控制面板-程序-程序和功能-启用或关闭windows功能。启用Hyper-V，确定，重启计算机。<br><img src="https://img-blog.csdnimg.cn/20210309144158769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>安装docker，在<a href="https://www.docker.com/products/docker-desktop">docker下载地址</a>下载安装。可能需要注册登录。</li><li>配置环境变量。在桌面的“此电脑”图标右键选择属性，左边栏的高级系统设置，右边的“环境变量”，编辑“path”，看一看是否有最下面的两项，如果没有就添加上去。（一般是有的）<br><img src="https://img-blog.csdnimg.cn/20210309144757337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>设置镜像。点击docker desktop，右上角的设置图标点击进入，进入docker engine选项，在registry-mirrors里面添加”<a href="https://registry.docker-cn.com&quot;/">https://registry.docker-cn.com&quot;</a>,    “<a href="http://hub-mirror.c.163.com&quot;.这是为了防止国外镜像速度慢./">http://hub-mirror.c.163.com&quot;。这是为了防止国外镜像速度慢。</a><br><img src="https://img-blog.csdnimg.cn/20210309145004309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>在cmd中输入docker，如果有以下提示就安装成功。<br><img src="https://img-blog.csdnimg.cn/20210309145219143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h1 id="二、在Docker安装Jenkins"><a href="#二、在Docker安装Jenkins" class="headerlink" title="二、在Docker安装Jenkins"></a>二、在Docker安装Jenkins</h1></li><li>在cmd输入docker pull jenkins命令拉取Jenkins镜像，可能需要一定时间。<br><img src="https://img-blog.csdnimg.cn/20210309145354344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>输入docker images 可见该镜像已成功拉取。<br><img src="https://img-blog.csdnimg.cn/20210309145448169.png" alt="在这里插入图片描述"></li><li>继续在cmd输入docker run -d –name jenkins -p 8081:8080 -v D:\03_Docker_Volume\V_Jenkins:&#x2F;var&#x2F;jenkins_home jenkins，启用Jenkins容器。这里的D:\03_Docker_Volume\V_Jenkins表示Windows挂载Jenkins的目录。</li><li>在<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/cloudbees-folder/latest/">这里</a>下载cloudbees-folder.hpi放在D:\03_Docker_Volume\V_Jenkins\war\WEB-INF\detached-plugins目录（这个目录下面有很多hpi文件，为了防止出错可以看一下确认）</li><li>将:\03_Docker_Volume\V_Jenkins\hudson.model.UpdateCenter.xml文件改成：</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sites</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">site</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>default<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">site</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sites</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="6"><li>点第四个重启按钮重启Jenkins。<br><img src="https://img-blog.csdnimg.cn/20210309150018170.png" alt="在这里插入图片描述"></li><li>点第一个按钮进入Jenkins。<h1 id="三、配置Jenkins"><a href="#三、配置Jenkins" class="headerlink" title="三、配置Jenkins"></a>三、配置Jenkins</h1></li><li>在D:\03_Docker_Volume\V_Jenkins\secrets\initialAdminPassword找到初始密码，输入。<br><img src="https://img-blog.csdnimg.cn/20210309150203207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>安装插件，时间长，并且大概率是全部失败的。<br><img src="https://img-blog.csdnimg.cn/20210309150222959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210309150250231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li><li>设置完用户名和密码即可进入界面。<br><img src="https://img-blog.csdnimg.cn/20210309150327643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一、安装docker&quot;&gt;&lt;a href=&quot;#一、安装docker&quot; class=&quot;headerlink&quot; title=&quot;一、安装docker&quot;&gt;&lt;/a&gt;一、安装docker&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;打开控制面板-程序-程序和功能-启用或关闭windows功能。启</summary>
-      
-    
-    
-    
-    
-    <category term="docker" scheme="https://gjbegjbe.github.io/tags/docker/"/>
-    
-    <category term="jenkins" scheme="https://gjbegjbe.github.io/tags/jenkins/"/>
     
   </entry>
   
