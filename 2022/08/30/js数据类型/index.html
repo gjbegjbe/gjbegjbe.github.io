@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"gjbegjbe.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="gjbe">
-<meta property="og:url" content="https://gjbegjbe.github.io/tags/TODO/index.html">
+  <meta name="description" content="数据类型分类JS的数据类型分为两大类，一类是原始类型(primitive type)，一类是对象类型(objecttype)。 原始类型原始类型又称为基本类型，分为 Number , String , Boolean , Undefined , Null 几类。比较特殊的是， undefined 是 Undefined 类型中的唯一一个值；同样地， null 是 Null 类型中的唯一一个值。 E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js数据类型">
+<meta property="og:url" content="https://gjbegjbe.github.io/2022/08/30/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="gjbe">
+<meta property="og:description" content="数据类型分类JS的数据类型分为两大类，一类是原始类型(primitive type)，一类是对象类型(objecttype)。 原始类型原始类型又称为基本类型，分为 Number , String , Boolean , Undefined , Null 几类。比较特殊的是， undefined 是 Undefined 类型中的唯一一个值；同样地， null 是 Null 类型中的唯一一个值。 E">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-30T12:08:44.000Z">
+<meta property="article:modified_time" content="2022-08-31T04:00:07.115Z">
 <meta property="article:author" content="gjbe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://gjbegjbe.github.io/tags/TODO/">
+<link rel="canonical" href="https://gjbegjbe.github.io/2022/08/30/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: TODO | gjbe</title>
+  <title>js数据类型 | gjbe</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXN04CBZXN"></script>
     <script data-pjax>
@@ -161,77 +165,111 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">TODO
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://gjbegjbe.github.io/2022/08/30/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gjbe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gjbe">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js数据类型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-30 20:08:44" itemprop="dateCreated datePublished" datetime="2022-08-30T20:08:44+08:00">2022-08-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-31 12:00:07" itemprop="dateModified" datetime="2022-08-31T12:00:07+08:00">2022-08-31</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <h2 id="数据类型分类"><a href="#数据类型分类" class="headerlink" title="数据类型分类"></a>数据类型分类</h2><p>JS的数据类型分为两大类，一类是原始类型(primitive type)，一类是对象类型(object<br>type)。</p>
+<h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p>原始类型又称为基本类型，分为 Number , String , Boolean , Undefined , Null 几类。比较特殊的是， undefined 是 Undefined 类型中的唯一一个值；同样地， null 是 Null 类型中的唯一一个值。</p>
+<p>ES6 引入了一个比较特殊的原始类型 Symbol ，用于表示一个独一无二的值。Symbol是原始类型，不是对象类型。因为Symbol 是没有构造函数 constructor 的，不能通过new Symbol() 获得实例。</p>
+<p>但是获取 symbol 类型的值是通过调用Symbol 函数得到的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> symbol1 = <span class="title class_">Symbol</span>(<span class="string">&#x27;Tusi&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Symbol 值是唯一的，所以下面的等式是不成立的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Symbol</span>(<span class="number">1</span>) === <span class="title class_">Symbol</span>(<span class="number">1</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h3><p>对象类型也叫引用类型，简单地理解呢，对象就是键值对 key:value 的集合。常见的对象类型有 Object , Array , Function , Date , RegExp 等。</p>
+<p>JS还有全局对象。全局对象并不意味着它就是一种对象类型。比如JSON是一个全局对象，但是它不是一个对象类型。</p>
+<p>对象可以 new 出来，所以对象类型都有构造函数， Object 类型对应的构造函数是Object() ， Array 类型对应的构造函数是 Array()。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>() <span class="comment">// 不过我们⼀般也不会这么写⼀个普通对象</span></span><br><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">1</span>) <span class="comment">// 创建⼀个length是1的空数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 创建数组[1, 2]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="栈内存和堆内存"><a href="#栈内存和堆内存" class="headerlink" title="栈内存和堆内存"></a>栈内存和堆内存</h3><p>栈内存的优势是存取速度比堆内存快，考虑这一点可以优化代码性能。</p>
+<h4 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h4>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-18T13:53:45+08:00"
-              content="2022-02-18">
-          02-18
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/02/18/Javascript%E5%BC%82%E6%AD%A5/" itemprop="url">
-            <span itemprop="name">Javascript异步</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-02-17T09:56:48+08:00"
-              content="2022-02-17">
-          02-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/02/17/JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E2%80%94%E2%80%94%E6%95%B4%E7%90%86/" itemprop="url">
-            <span itemprop="name">JavaScript权威指南——整理</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/30/%E5%89%8D%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" rel="prev" title="前端浏览器缓存知识梳理">
+      <i class="fa fa-chevron-left"></i> 前端浏览器缓存知识梳理
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -278,6 +316,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">数据类型分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">原始类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E5%A0%86%E5%86%85%E5%AD%98"><span class="nav-number">1.3.</span> <span class="nav-text">栈内存和堆内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%88%E5%86%85%E5%AD%98"><span class="nav-number">1.3.1.</span> <span class="nav-text">栈内存</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -470,6 +509,25 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '0345980f9d756faa9ef0',
+      clientSecret: '403968f743ab1c228a563989e36b914904436d8e',
+      repo        : 'comments',
+      owner       : 'gjbegjbe',
+      admin       : ['gjbegjbe'],
+      id          : 'f6212cb4f7e0819b50701c49740e098c',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
     </div>
 </body>

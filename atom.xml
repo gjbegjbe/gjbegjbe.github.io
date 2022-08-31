@@ -6,7 +6,7 @@
   <link href="https://gjbegjbe.github.io/atom.xml" rel="self"/>
   
   <link href="https://gjbegjbe.github.io/"/>
-  <updated>2022-08-30T09:14:42.305Z</updated>
+  <updated>2022-08-31T04:00:07.115Z</updated>
   <id>https://gjbegjbe.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js数据类型</title>
+    <link href="https://gjbegjbe.github.io/2022/08/30/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://gjbegjbe.github.io/2022/08/30/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</id>
+    <published>2022-08-30T12:08:44.000Z</published>
+    <updated>2022-08-31T04:00:07.115Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据类型分类"><a href="#数据类型分类" class="headerlink" title="数据类型分类"></a>数据类型分类</h2><p>JS的数据类型分为两大类，一类是原始类型(primitive type)，一类是对象类型(object<br>type)。</p><h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h3><p>原始类型又称为基本类型，分为 Number , String , Boolean , Undefined , Null 几类。比较特殊的是， undefined 是 Undefined 类型中的唯一一个值；同样地， null 是 Null 类型中的唯一一个值。</p><p>ES6 引入了一个比较特殊的原始类型 Symbol ，用于表示一个独一无二的值。Symbol是原始类型，不是对象类型。因为Symbol 是没有构造函数 constructor 的，不能通过new Symbol() 获得实例。</p><p>但是获取 symbol 类型的值是通过调用Symbol 函数得到的。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> symbol1 = <span class="title class_">Symbol</span>(<span class="string">&#x27;Tusi&#x27;</span>)</span><br></pre></td></tr></table></figure><p>Symbol 值是唯一的，所以下面的等式是不成立的。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Symbol</span>(<span class="number">1</span>) === <span class="title class_">Symbol</span>(<span class="number">1</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure><h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h3><p>对象类型也叫引用类型，简单地理解呢，对象就是键值对 key:value 的集合。常见的对象类型有 Object , Array , Function , Date , RegExp 等。</p><p>JS还有全局对象。全局对象并不意味着它就是一种对象类型。比如JSON是一个全局对象，但是它不是一个对象类型。</p><p>对象可以 new 出来，所以对象类型都有构造函数， Object 类型对应的构造函数是Object() ， Array 类型对应的构造函数是 Array()。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>() <span class="comment">// 不过我们⼀般也不会这么写⼀个普通对象</span></span><br><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">1</span>) <span class="comment">// 创建⼀个length是1的空数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 创建数组[1, 2]</span></span><br></pre></td></tr></table></figure><h3 id="栈内存和堆内存"><a href="#栈内存和堆内存" class="headerlink" title="栈内存和堆内存"></a>栈内存和堆内存</h3><p>栈内存的优势是存取速度比堆内存快，考虑这一点可以优化代码性能。</p><h4 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;数据类型分类&quot;&gt;&lt;a href=&quot;#数据类型分类&quot; class=&quot;headerlink&quot; title=&quot;数据类型分类&quot;&gt;&lt;/a&gt;数据类型分类&lt;/h2&gt;&lt;p&gt;JS的数据类型分为两大类，一类是原始类型(primitive type)，一类是对象类型(object&lt;br</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>前端浏览器缓存知识梳理</title>
@@ -435,30 +455,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins的git配置踩坑</title>
-    <link href="https://gjbegjbe.github.io/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/"/>
-    <id>https://gjbegjbe.github.io/2021/03/12/Jenkins%E7%9A%84git%E9%85%8D%E7%BD%AE%E8%B8%A9%E5%9D%91/</id>
-    <published>2021-03-12T02:54:27.000Z</published>
-    <updated>2022-03-01T02:11:53.365Z</updated>
-    
-    <content type="html"><![CDATA[<p>配置好了git等，但是build总是出现以下错误：<br><img src="https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>查了一下是git没配好。<br><img src="https://img-blog.csdnimg.cn/20210312105317187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>把git路径改成exe就好了。<br><img src="https://img-blog.csdnimg.cn/20210312105408692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dqX25qdQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;配置好了git等，但是build总是出现以下错误：&lt;br&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/2021031210523561.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naG</summary>
-      
-    
-    
-    
-    
-    <category term="Jenkins" scheme="https://gjbegjbe.github.io/tags/Jenkins/"/>
-    
-    <category term="git" scheme="https://gjbegjbe.github.io/tags/git/"/>
     
   </entry>
   
